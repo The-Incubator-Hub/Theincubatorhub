@@ -21,12 +21,12 @@ export default function Statistics() {
   ]
 
   return (
-    <div className="bg-gray-900 px-4 py-16 md:py-24">
+    <div className="bg-[#141414] px-4 py-16 md:py-24">
       <div className="max-w-7xl mx-auto">
 
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-12 md:mb-16 text-balance">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal text-white text-center mb-12 md:mb-16 text-balance">
           Why choose Our Platform
         </h2>
 
@@ -35,12 +35,12 @@ export default function Statistics() {
           {statistics.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center py-8 md:py-12 px-4 border-r border-gray-700 last:border-r-0"
+              className="flex flex-col items-center h-21 justify-center py-8 md:py-12 px-4 md:border-r border-[#C7C7CC] last:md:border-r-0"
             >
               {/* Number */}
-              <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4">{stat.number}</p>
+              <p className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4">{stat.number}</p>
               {/* Label */}
-              <p className="text-gray-400 text-sm md:text-base font-semibold tracking-wide text-center">{stat.label}</p>
+              <p className="text-white text-sm md:text-base font-medium tracking-wide text-center">{stat.label}</p>
             </div>
           ))}
         </div>
