@@ -133,7 +133,18 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <hr className="my-8 border-gray-800" />
+        <hr 
+          className="my-8"
+          style={{
+            width: '1320px',
+            height: '0px',
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: '#374151',
+            opacity: 1,
+            transform: 'rotate(-0deg)'
+          }}
+        />
 
         {/* Copyright */}
         <div className="text-center text-sm text-[#FFFFFF]">

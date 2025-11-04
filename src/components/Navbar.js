@@ -80,7 +80,8 @@ export default function Navbar() {
       }`}>
         {/* Logo */}
         <div 
-          className="w-28 sm:w-36 md:w-44 lg:w-52 h-5 sm:h-6 lg:h-7 cursor-pointer transition-transform duration-300 hover:scale-105 flex-shrink-0 active:scale-95"
+          className="cursor-pointer transition-transform duration-300 hover:scale-105 flex-shrink-0 active:scale-95"
+          style={{ width: '252px', height: '26px', opacity: 1, transform: 'rotate(0deg)' }}
           onClick={() => window.location.href = '/'}
           role="button"
           tabIndex="0"
