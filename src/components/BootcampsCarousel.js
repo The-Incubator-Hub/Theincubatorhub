@@ -18,7 +18,7 @@ export default function BootcampsCarousel() {
       badgeColor: "bg-purple-600",
       cardBg: "bg-gradient-to-br from-purple-600 to-purple-800",
       headingHighlight: "text-yellow-400",
-      image: "/ai-bootcamp-people.jpg",
+      image: "/ainow.png",
       closesDate: "Aug 15",
       duration: "12 Weeks",
       format: "Hybrid (Online+physical)",
@@ -33,7 +33,7 @@ export default function BootcampsCarousel() {
       badgeColor: "bg-pink-500",
       cardBg: "bg-gradient-to-br from-pink-400 to-pink-600",
       headingHighlight: "text-pink-700",
-      image: "/women-tech-vr.jpg",
+      image: "/lita.png",
       closesDate: "Aug 15",
       duration: "12 Weeks",
       format: "Hybrid (Online+physical)",
@@ -50,9 +50,10 @@ export default function BootcampsCarousel() {
   }
 
   const current = bootcamps[currentIndex]
+  const next = bootcamps[(currentIndex + 1) % bootcamps.length]
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-12 md:py-0">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-12 md:py-0 mb-15">
       <div className="max-w-7xl w-full">
         {/* Heading */}
         <div className="relative inline-block mb-12 md:mb-16">
@@ -63,32 +64,32 @@ export default function BootcampsCarousel() {
           <div className="absolute right-3  -bottom-3 h-11 w-1 bg-[#15803D] "></div>
         </div>
         {/* Carousel Container */}
-        <div className="relative flex items-center justify-center gap-4 md:gap-8">
-          {/* Left Arrow */}
+        <div className="relative flex items-center justify-center">
           <button
             onClick={prevSlide}
-            className="hidden md:flex absolute left-0 z-10 bg-white border-2 border-gray-300 rounded-full p-3 hover:bg-gray-100 transition-colors"
+            className="hidden md:flex absolute -left-16 lg:-left-20 z-10 bg-white border-2 border-gray-300 rounded-full p-3 hover:bg-gray-100 transition-colors"
             aria-label="Previous bootcamp"
           >
             <ChevronLeft className="w-6 h-6 text-black" />
           </button>
 
-          {/* Bootcamp Card */}
-          <div className="w-full md:w-3/4 lg:w-2/3">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
             <BootcampCard bootcamp={current} />
+            <div className="hidden md:block">
+              <BootcampCard bootcamp={next} />
+            </div>
           </div>
 
-          {/* Right Arrow */}
           <button
             onClick={nextSlide}
-            className="hidden md:flex absolute right-0 z-10 bg-white border-2 border-gray-300 rounded-full p-3 hover:bg-gray-100 transition-colors"
+            className="hidden md:flex absolute -right-16 lg:-right-20 z-10 bg-white border-2 border-gray-300 rounded-full p-3 hover:bg-gray-100 transition-colors"
             aria-label="Next bootcamp"
           >
             <ChevronRight className="w-6 h-6 text-black" />
           </button>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden flex gap-2 absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-20">
+          <div className="md:hidden flex gap-2 absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-24">
             <button
               onClick={prevSlide}
               className="bg-white border-2 border-gray-300 rounded-full p-2 hover:bg-gray-100 transition-colors"

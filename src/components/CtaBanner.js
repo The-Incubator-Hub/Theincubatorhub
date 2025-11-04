@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function CTABanner() {
   return (
-    <div className="relative w-full h-96 md:h-[500px] lg:h-[600px] overflow-hidden">
+    <div className="relative w-full h-96 md:h-[414px] overflow-hidden">
       {/* Background Image */}
       <Image src="/team-collaboration-working-together.jpg" alt="Team working together" fill className="object-cover" />
 

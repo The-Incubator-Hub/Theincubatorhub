@@ -15,10 +15,10 @@ export default function TrustedOrganizations() {
 
   return (
     <div className="bg-white px-4 py-12 md:py-20">
-      <div className="max-w-7xl mx-auto justify-between">
-        {/* Container with dotted border */}
-        <div className=" flex justify-between">
-          <div className="w-md ">
+      <div className="max-w-7xl mx-auto">
+        {/* Container */}
+        <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-8 md:gap-0">
+          <div className="w-full md:w-auto md:max-w-md">
             {/* Heading */}
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#061C3D] mb-6 text-balance">
               We're working with 20 trusted Organization
@@ -32,14 +32,21 @@ export default function TrustedOrganizations() {
           </div>
 
           {/* Organizations Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="w-full md:w-auto grid grid-cols-4 gap-4 md:gap-8">
             {organizations.map((org, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center p-6 md:p-8 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+                className="flex flex-col items-center justify-center p-2 md:p-6 md:p-8 rounded-lg hover:bg-gray-100 transition-colors duration-300"
               >
-                <div className="text-4xl md:text-5xl mb-3"><Image src={org.logo} alt={org.name} width={100} height={100} /></div>
-
+                <div className="w-12 h-12 md:w-20 md:h-20 flex items-center justify-center mb-2 md:mb-3">
+                  <Image 
+                    src={org.logo} 
+                    alt={org.name} 
+                    className="object-contain w-full h-full"
+                    width={80}
+                    height={80}
+                  />
+                </div>
               </div>
             ))}
           </div>

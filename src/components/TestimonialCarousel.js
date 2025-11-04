@@ -10,9 +10,9 @@ export default function TestimonialsCarousel() {
   const testimonials = [
     {
       id: 1,
-      text: "My experience with the bootcamp was incredibly positive. I gained strong technical skills. Beyond the skills, the bootcamp transformed my career trajectory. I now feel confident applying for roles in tech. The supportive community and hands-on approach made all the difference in my learning journey.",
-      name: "Ariana McCoy",
-      role: "Student",
+      text: "My experience with the bootcamp was incredibly positive. I gained strong technical skills. Beyond the skills, this bootcamp transformed my career trajectory. I now feel confident applying for jobs in tech, and I've even landed a role that allows me to work on exciting tech projects. The supportive community and hands-on approach made all the difference in my learning journey.",
+      name: "Arlene McCoy",
+      role: "Graduate",
       initials: "AM",
     },
     {
@@ -41,8 +41,12 @@ export default function TestimonialsCarousel() {
 
   const current = testimonials[currentIndex]
 
+  const handleSelect = (idx) => {
+    setCurrentIndex(idx)
+  }
+
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-12 md:py-0">
+    <div className="min-h-screen bg-[#FFFEF0] flex flex-col items-center justify-center px-4 py-12 md:py-0">
       <div className="max-w-7xl w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Section - Heading and Navigation */}
@@ -51,18 +55,18 @@ export default function TestimonialsCarousel() {
               What our students are saying about us.
             </h2>
 
-            {/* Navigation Arrows */}
+            {/* Navigation Arrows - Square */}
             <div className="flex gap-4">
               <button
                 onClick={prevSlide}
-                className="bg-white border-2 border-gray-300 rounded-full p-3 hover:bg-gray-100 transition-colors"
+                className="w-12 h-12 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft className="w-6 h-6 text-black" />
               </button>
               <button
                 onClick={nextSlide}
-                className="bg-white border-2 border-gray-300 rounded-full p-3 hover:bg-gray-100 transition-colors"
+                className="w-12 h-12 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
                 aria-label="Next testimonial"
               >
                 <ChevronRight className="w-6 h-6 text-black" />
@@ -72,21 +76,12 @@ export default function TestimonialsCarousel() {
 
           {/* Right Section - Testimonial Card */}
           <div>
-            <TestimonialCard testimonial={current} />
-
-            {/* Pagination Dots */}
-            <div className="flex gap-2 mt-6 justify-center md:justify-start">
-              {testimonials.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentIndex(idx)}
-                  className={`h-2 rounded-full transition-all ${
-                    idx === currentIndex ? "bg-blue-600 w-8" : "bg-gray-300 w-2"
-                  }`}
-                  aria-label={`Go to testimonial ${idx + 1}`}
-                />
-              ))}
-            </div>
+            <TestimonialCard
+              testimonial={current}
+              currentIndex={currentIndex}
+              totalLength={testimonials.length}
+              onSelect={handleSelect}
+            />
           </div>
         </div>
       </div>

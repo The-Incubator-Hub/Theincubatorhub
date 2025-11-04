@@ -7,7 +7,7 @@ export default function PressReleases() {
   const releases = [
     {
       id: 1,
-      image: "/digital-skills-africa-initiative.jpg",
+      image: "/skillup.jpg",
       category: "Podcast",
       title: "Digital Skillup Africa Initiative Receives $4M Funding",
       description:
@@ -16,7 +16,7 @@ export default function PressReleases() {
     },
     {
       id: 2,
-      image: "/digital-skillup-africa-commerce.jpg",
+      image: "/ainow.png",
       category: "Podcast",
       title: "Digital Skillup Africa commerce with AI Tech Transformation",
       description:
@@ -25,7 +25,7 @@ export default function PressReleases() {
     },
     {
       id: 3,
-      image: "/ladies-in-tech-africa-celebrates.jpg",
+      image: "/ladies.jpg",
       category: "Announcement",
       title: "Ladies In Tech Africa Celebrates 1000+ Female Graduates",
       description:

@@ -35,7 +35,7 @@ export default function Statistics() {
           {statistics.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center h-21 justify-center py-8 md:py-12 px-4 border-r border-[#C7C7CC] last:border-r-0"
+              className="flex flex-col items-center h-21 justify-center py-8 md:py-12 px-4 md:border-r border-[#C7C7CC] last:md:border-r-0"
             >
               {/* Number */}
               <p className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4">{stat.number}</p>

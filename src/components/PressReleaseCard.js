@@ -10,7 +10,7 @@ export default function PressReleaseCard({ release }) {
       <div className="relative h-48 md:h-56 w-full">
         <Image src={release.image || "/placeholder.svg"} alt={release.title} fill className="object-cover" />
         {/* Category Badge */}
-        <div className="absolute top-3 left-3 bg-gray-700 text-white px-3 py-1 rounded-full text-xs font-semibold">
+        <div className="absolute top-3 left-3 bg-[#F9FAFB] text-[#4A4459] px-3 py-1 rounded-full text-xs font-semibold">
           {release.category}
         </div>
       </div>

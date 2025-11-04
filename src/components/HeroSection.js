@@ -27,14 +27,14 @@ export default function HeroSection() {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <Button
-              className="bg-black hover:bg-gray-900 text-white px-8 py-6 text-base font-semibold rounded-lg transition-colors"
+              className="bg-black hover:bg-gray-900 text-white px-8 py-6 text-base font-semibold rounded-lg transition-colors w-full sm:w-auto"
               onClick={() => console.log("Get Started clicked")}
             >
               Get Started 
             </Button>
             <Button
               variant="ghost"
-              className="bg-white text-black hover:bg-gray-200 px-8 py-6 text-base font-bold rounded-lg transition-colors"
+              className="bg-white text-black hover:bg-gray-200 px-8 py-6 text-base font-bold rounded-lg transition-colors w-full sm:w-auto"
               onClick={() => console.log("View Preview clicked")}
             >
               View Preview
@@ -43,47 +43,53 @@ export default function HeroSection() {
         </div>
 
         {/* Right Image Section */}
-        <div className=" relative h-96 md:h-full md:min-h-screen  flex items-center justify-center">
+        <div className="relative h-64 md:h-96 lg:h-full lg:min-h-screen flex items-center justify-center">
           {/* Main Image */}
-          <div className="border-20 border-[#4E4E50]/10 relative w-lg h-152 md:h-152 overflow-hidden shadow-2xl">
+          <div className="border-[20px] border-[#4E4E50]/10 relative w-full md:w-[48rem] h-64 md:h-[38.5rem] overflow-hidden shadow-2xl">
             <Image
               src="/team-collaboration-working-together.jpg"
               alt="Team collaboration"
               fill
-              className="object-cover "
+              className="object-cover"
             />
 
             {/* Play Button - Center */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <button className="bg-white rounded-full p-4 hover:bg-gray-100 transition-colors shadow-lg">
-                <Play className="w-6 h-6 md:w-8 md:h-8  fill-[#0B63E5] stroke-[#0B63E5]" />
+              <button className="bg-white rounded-full p-3 md:p-4 hover:bg-gray-100 transition-colors shadow-lg">
+                <Play className="w-6 h-6 md:w-8 md:h-8 fill-[#0B63E5] stroke-[#0B63E5]" />
               </button>
             </div>
-
-
           </div>
+
           {/* Service Tags - Overlay */}
-          <div className="absolute -inset-1 flex flex-col justify-center items-start p-4 md:p-6 space-y-4">
-            <div className="border-2 border-[#22C55E] bg-black/70 text-white px-3 py-1 rounded text-xs md:text-sm font-medium">
+          <div className="absolute -inset-1 md:-inset-14 flex flex-col justify-center items-start p-2 md:p-4 md:p-6 space-y-2 md:space-y-6">
+            <div className="border-2 border-[#22C55E] bg-black/70 text-white px-2 md:px-3 py-1 rounded text-xs md:text-sm font-medium">
               Product Design
             </div>
-            <div className="border-2 border-[#22C55E] bg-black/70 text-white px-3 py-1 rounded text-xs md:text-sm font-medium">
+            <div className="border-2 border-[#22C55E] bg-black/70 text-white px-2 md:px-3 py-1 rounded text-xs md:text-sm font-medium">
               Digital Marketing
             </div>
-            <div className="border-2 border-[#22C55E] bg-black/70 text-white px-3 py-1 rounded text-xs md:text-sm font-medium">
+            <div className="border-2 border-[#22C55E] bg-black/70 text-white px-2 md:px-3 py-1 rounded text-xs md:text-sm font-medium">
               Project Management
             </div>
-            <div className="border-2 border-[#22C55E] bg-black/70 text-white px-3 py-1 rounded text-xs md:text-sm font-medium">
+            <div className="border-2 border-[#22C55E] bg-black/70 text-white px-2 md:px-3 py-1 rounded text-xs md:text-sm font-medium">
               Software Development
             </div>
           </div>
+
           {/* Live Classes Badge - Top Right */}
-          <div className=" flex items-center gap-2 border-2 border-[#22C55E] bg-transparent absolute top-36 right-4  text-white px-3 py-1 rounded-sm text-xs md:text-sm font-bold">
-            <Circle className="w-2 h-2 bg-[#22C55E] rounded-full" /> <div>Live Classes</div>
+          <div className="flex items-center gap-2 border-2 border-[#22C55E] bg-transparent absolute top-4 md:top-36 right-4 text-white px-3 py-1 rounded-sm text-xs md:text-sm font-bold">
+            <Circle className="w-2 h-2 bg-[#22C55E] rounded-full" /> 
+            <div>Live Classes</div>
           </div>
+
           {/* Students Badge - Bottom Right */}
-          <div className="flex items-center gap-2 absolute bottom-33 bg-[#4ADE80] text-white px-3 py-2 rounded text-xs md:text-sm font-semibold">
-            <div className="rounded-full bg-[#22C55E] w-2 h-2 "></div> <div className="block"> <div>100,000+ students</div><span>trained</span></div>
+          <div className="flex items-center gap-2 absolute bottom-4 md:bottom-[8.25rem] bg-[#4ADE80] text-white px-3 py-2 rounded text-xs md:text-sm font-semibold">
+            <div className="rounded-full bg-[#22C55E] w-2 h-2"></div> 
+            <div className="block">
+              <div>100,000+ students</div>
+              <span className="text-xs">trained</span>
+            </div>
           </div>
         </div>
       </div>
