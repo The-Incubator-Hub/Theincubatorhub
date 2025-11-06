@@ -2,51 +2,51 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <div className="relative w-full mt-18 h-91 flex items-center justify-center overflow-hidden"> 
+    <div className="relative w-full mt-18 h-91 flex items-center justify-center overflow-hidden">  
     
-        <div className="w-full">
-            <div className="absolute inset-0"> 
+        <div className="w-full">  
+            <div className="absolute inset-0">  
                 <Image 
-                src="/images/hero_teams.jpg" 
-                alt="Team Hero Background" 
-                fill 
+                src="/images/hero_teams.jpg"   
+                alt="Team Hero Background"  
+                fill  
                 priority
-                className="object-cover object-center"  
-                quality={100}  
-                /> 
+                className="object-cover object-center"     
+                quality={100}      
+                />   
             </div>  
-            {/* Dark Overlay */} 
+            {/* Dark Overlay */}  
             <div className="absolute inset-0 bg-black/40 z-10" />  
 
             {/* Content */}      
             <div className="relative z-20 text-center text-white px-4 sm:px-6 lg:px-8 w-full max-w-6xl mx-auto"> 
-                {/* Heading - Responsive */}
+                {/* Heading - Responsive */} 
                 <h1 
-                className="font-bold mb-4 sm:mb-6 md:mb-8 mx-auto lg:whitespace-nowrap" 
+                className="font-bold mb-4 sm:mb-6 md:mb-8 mx-auto lg:whitespace-nowrap"  
                 style={{
-                    fontSize: 'clamp(2rem, 5vw, 3.75rem)', // Responsive: 32px to 60px
+                    fontSize: 'clamp(2rem, 5vw, 3.75rem)', //
                     lineHeight: 'clamp(2.5rem, 6vw, 4.5rem)',
-                    width: '100%',
-                    opacity: 1,
-                    transform: 'rotate(0deg)'
-                }}
-                >
-                Build Your Career, Change Lives
-                </h1>
+                    width: '100%', 
+                    opacity: 1, 
+                    transform: 'rotate(0deg)'  
+                }} 
+                > 
+                Build Your Career, Change Lives  
+                </h1> 
                 
                 {/* Paragraph - Responsive with exact desktop specs */}
-                <div className="mx-auto w-full" style={{ maxWidth: '686px' }}>
+                <div className="mx-auto w-full" style={{ maxWidth: '686px' }}> 
                 {/* Desktop (lg+): Exact specifications */}
                 <p 
-                    className="hidden lg:block mx-auto"
-                    style={{
-                    width: '686px',
-                    height: '78px',
-                    opacity: 1,
-                    transform: 'rotate(0deg)',
-                    fontFamily: 'Inter, sans-serif',
-                    fontWeight: 400, 
-                    fontSize: '18px', 
+                    className="hidden lg:block mx-auto" 
+                    style={{ 
+                    width: '686px',  
+                    height: '78px', 
+                    opacity: 1, 
+                    transform: 'rotate(0deg)', 
+                    fontFamily: 'Inter, sans-serif',  
+                    fontWeight: 400,  
+                    fontSize: '18px',  
                     lineHeight: '26px', 
                     letterSpacing: '0%', 
                     textAlign: 'center', 
