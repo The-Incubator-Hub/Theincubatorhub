@@ -1,5 +1,12 @@
 import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar.js";
+import FooterR from "@/components/FooterR.js";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,6 +16,12 @@ const inter = Inter({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -22,7 +35,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar />
         {children}
+        <FooterR />
       </body>
     </html>
   );
