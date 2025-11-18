@@ -1,12 +1,21 @@
 import Image from "next/image";
 
-export default function Header() {
+export default function Header({ 
+  title = "Meet Our Amazing Team",
+  description = "Stay updated with the latest news, announcements, and milestones from Incubator. Get insights into our programs, partnerships, and impact across Africa",
+  backgroundImage = "/images/hero_teams.jpg"
+}) {
+  // Split description into lines for desktop display
+  const descriptionLines = description ? description.split('\n') : [];
+  const firstLine = descriptionLines[0] || description;
+  const remainingLines = descriptionLines.slice(1).join(' ');
+
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero_teams.jpg"
+          src={backgroundImage}
           alt="Team Hero Background"
           fill
           priority
@@ -32,33 +41,55 @@ export default function Header() {
             transform: 'rotate(0deg)'
           }}
         >
-          Meet Our Amazing Team
+          {title}
         </h1>
         
         {/* Paragraph - Responsive with exact desktop specs */}
         <div className="mx-auto w-full" style={{ maxWidth: '578px' }}>
           {/* Desktop (lg+): Exact specifications */}
-          <p 
-            className="hidden lg:block mx-auto"
-            style={{
-              width: '100%',
-              maxWidth: '578px',
-              minHeight: '78px',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 400,
-              fontSize: '18px',
-              lineHeight: '26px',
-              letterSpacing: '0%',
-              textAlign: 'center',
-              color: '#F2F2F7'
-            }}
-          >
-            <span className="block">Stay updated with the latest news, announcements, and milestones </span>
-            <span className="block">from Incubator. Get insights into our programs, partnerships, and</span>
-            <span className="block">impact across Africa</span>
-          </p>
+          {descriptionLines.length > 1 ? (
+            <p 
+              className="hidden lg:block mx-auto"
+              style={{
+                width: '100%',
+                maxWidth: '578px',
+                minHeight: '78px',
+                opacity: 1,
+                transform: 'rotate(0deg)',
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 400,
+                fontSize: '18px',
+                lineHeight: '26px',
+                letterSpacing: '0%',
+                textAlign: 'center',
+                color: '#F2F2F7'
+              }}
+            >
+              {descriptionLines.map((line, index) => (
+                <span key={index} className="block">{line}</span>
+              ))}
+            </p>
+          ) : (
+            <p 
+              className="hidden lg:block mx-auto"
+              style={{
+                width: '100%',
+                maxWidth: '578px',
+                minHeight: '78px',
+                opacity: 1,
+                transform: 'rotate(0deg)',
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 400,
+                fontSize: '18px',
+                lineHeight: '26px',
+                letterSpacing: '0%',
+                textAlign: 'center',
+                color: '#F2F2F7'
+              }}
+            >
+              {description}
+            </p>
+          )}
           
           {/* Tablet (md to lg): Slightly smaller */}
           <p 
@@ -73,8 +104,7 @@ export default function Header() {
               opacity: 1
             }}
           >
-            Stay updated with the latest news, announcements, and milestones from Incubator. 
-            Get insights into our programs, partnerships, and impact across Africa
+            {description}
           </p>
           
           {/* Mobile: Smaller, readable version */}
@@ -90,8 +120,7 @@ export default function Header() {
               opacity: 1
             }}
           >
-            Stay updated with the latest news, announcements, and milestones from Incubator. 
-            Get insights into our programs, partnerships, and impact across Africa
+            {description}
           </p>
         </div>
       </div>
