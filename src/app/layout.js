@@ -1,4 +1,4 @@
-import { Inter, Geist_Mono } from "next/font/google";
+import { Inter, Geist_Mono,Montserrat,Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar.js";
 import FooterR from "@/components/FooterR.js";
@@ -8,10 +8,6 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",

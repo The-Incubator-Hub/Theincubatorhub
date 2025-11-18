@@ -1,0 +1,155 @@
+{
+  "title": "Teams Page",
+  "header": {
+    "title": "Meet Our Amazing Team - CMS",
+    "description": "Stay updated with the latest news, announcements, and milestones from Incubator. Get insights into our programs, partnerships, and impact across Africa",
+    "backgroundImage": "/images/hero_teams.jpg"
+  },
+  "teamIntro": {
+    "title": "We Have An Expert Team",
+    "description": "We are a passionate, creative, and results-driven team of digital marketing specialists, strategists, designers, and technologists — all working together to help brands grow in the digital world."
+  },
+  "teamGrid": {
+    "members": [
+      {
+        "name": "Jean Wilson",
+        "role": "Partnership Manager",
+        "image": "/images/team/member1.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      },
+      {
+        "name": "Jean Wilson",
+        "role": "Partnership Manager",
+        "image": "/images/team/member2.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      },
+      {
+        "name": "Jean Wilson",
+        "role": "Partnership Manager",
+        "image": "/images/team/member3.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      },
+      {
+        "name": "Jean Wilson",
+        "role": "Partnership Manager",
+        "image": "/images/team/member4.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      },
+      {
+        "name": "Jean Wilson",
+        "role": "Partnership Manager",
+        "image": "/images/team/member5.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      },
+      {
+        "name": "Jean Wilson",
+        "role": "Partnership Manager",
+        "image": "/images/team/member6.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      },
+      {
+        "name": "Jean Wilson",
+        "role": "Partnership Manager",
+        "image": "/images/team/member7.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      },
+      {
+        "name": "Jean Wilson",
+        "role": "Partnership Manager",
+        "image": "/images/team/member8.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      },
+      {
+        "name": "Jean Wilson",
+        "role": "Partnership Manager",
+        "image": "/images/team/member9.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      },
+      {
+        "name": "Sarah Johnson",
+        "role": "Marketing Director",
+        "image": "/images/team/member1.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      },
+      {
+        "name": "Michael Brown",
+        "role": "Tech Lead",
+        "image": "/images/team/member2.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      },
+      {
+        "name": "Emily Davis",
+        "role": "Design Manager",
+        "image": "/images/team/member3.png",
+        "socials": {
+          "facebook": "#",
+          "linkedin": "#",
+          "twitter": "#",
+          "instagram": "#"
+        }
+      }
+    ]
+  },
+  "joinUs": {
+    "title": "Want to Join This Amazing Team?",
+    "description": "We're always looking for talented individuals who share our passion for education and technology. Ready to make an impact?",
+    "ctaText": "View Open Positions",
+    "ctaLink": "/careers",
+    "backgroundImage": "/images/joinus.jpg"
+  }
+}
