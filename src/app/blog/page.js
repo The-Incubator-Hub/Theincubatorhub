@@ -7,11 +7,14 @@ import BlogPostsGrid from "@/components/post.js";
 export default function Page() {
     return (
       <div>
-        <Navbar />
+       
         <HeaderCareer /> 
         <Future />
         <BlogPostsGrid />
-        <FooterR />
+        
       </div>
     );
   }
+
+
+  

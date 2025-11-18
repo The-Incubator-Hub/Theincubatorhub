@@ -11,20 +11,20 @@ const PressReleaseCard = () => {
   const filters = ['ALL', 'Success Stories', 'Community', 'Education', 'Industry Insight', 'Technology'];
 
   const handleLike = () => {
-    setIsLiked(!isLiked);
+    setIsLiked(!isLiked); 
     setLikesCount(isLiked ? likesCount - 1 : likesCount + 1);
-  };
+  }; 
 
   return (
-    <div className="bg-white p-6">
+    <div className="bg-white p-6"> 
       {/* Search and Filter Section */}
       <div className="max-w-7xl mx-auto mb-8">
         <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
-          {/* Search Bar */}
-          <div className="relative w-full lg:w-96">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <input
-              type="text"
+          {/* Search Bar */} 
+          <div className="relative w-full lg:w-96"> 
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" /> 
+            <input 
+              type="text" 
               placeholder="Search press release..."
               className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               style={{
@@ -40,10 +40,10 @@ const PressReleaseCard = () => {
                 opacity: 1;
                 font-family: Onest, sans-serif;
                 font-weight: 600;
-                font-size: 14px;
+                font-size: 14px; 
                 line-height: 130%;
-                letter-spacing: 0px; 
-                color: #B3B3B3; 
+                letter-spacing: 0px;  
+                color: #B3B3B3;  
               }
             `}</style> 
           </div> 
