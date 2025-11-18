@@ -1,14 +1,26 @@
 "use client"
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> origin/main
 export default function Statistics() {
   const statistics = [
     {
       number: "1700+",
+<<<<<<< HEAD
       label: "DIRECT BENEFICIARIES", 
     },
     {
       number: "23+",
       label: "PARTNERS", 
+=======
+      label: "DIRECT BENEFICIARIES",
+    },
+    {
+      number: "23+",
+      label: "PARTNERS",
+>>>>>>> origin/main
     },
     {
       number: "183+",
@@ -30,8 +42,11 @@ export default function Statistics() {
           Why choose Our Platform
         </h2>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/main
         {/* Statistics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
           {statistics.map((stat, index) => (
@@ -45,7 +60,11 @@ export default function Statistics() {
               <p className="text-white text-sm md:text-base font-medium tracking-wide text-center">{stat.label}</p>
             </div>
           ))}
+<<<<<<< HEAD
         </div> 
+=======
+        </div>
+>>>>>>> origin/main
       </div>
     </div>
   )
