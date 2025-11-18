@@ -4,7 +4,7 @@ import BankTransferSection from "@/components/donate-components/BankTransferSect
 import CTABanner from "@/components/landing-page-components/CtaBanner"
 export default function DonatePage() {
     return (
-        <div>
+        <div className="mt-16 md:mt-18">
             <DonateSection />
             <DonationForm />
             <BankTransferSection />
