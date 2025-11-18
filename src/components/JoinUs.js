@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function JoinUs() {
 
   return (
-    <section className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] overflow-hidden bg-white  ">
+    <section className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] overflow-hidden bg-white mb-8">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
