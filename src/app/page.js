@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> e2b131b068bd36b6614045899791147ef1f19d04
 import HeroSection from "@/components/landing-page-components/HeroSection"
 import AboutIncubator from "@/components/landing-page-components/AboutIncubator"
 import TrustedOrganizations from "@/components/landing-page-components/TrustedOrganizations"

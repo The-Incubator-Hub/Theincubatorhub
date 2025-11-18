@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Inter, Geist, Geist_Mono, Montserrat, Onest, Raleway, Lexend } from "next/font/google";
 =======
 import { Inter, Geist_Mono } from "next/font/google";
 >>>>>>> origin/main
+=======
+import { Inter, Geist_Mono } from "next/font/google";
+>>>>>>> e2b131b068bd36b6614045899791147ef1f19d04
 import "./globals.css";
 import Navbar from "@/components/Navbar.js";
 import FooterR from "@/components/FooterR.js";
@@ -55,11 +59,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-<<<<<<< HEAD
-        className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${onest.variable} ${raleway.variable} ${lexend.variable} antialiased bg-white`}
-=======
         className={`${inter.variable} ${geistMono.variable} antialiased`}
->>>>>>> origin/main
       >
         <Navbar />
         {children}
