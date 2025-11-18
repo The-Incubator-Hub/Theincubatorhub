@@ -7,7 +7,7 @@ import JoinUs from "@/components/JoinUs.js"
 export default function Page() {
     return (
       <div>
-        <LearningResources />
+        <LearningResources /> 
         <ViewResources />
         <JoinUs />
       </div>

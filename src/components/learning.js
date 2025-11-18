@@ -178,18 +178,19 @@ export default function LearningResources() {
               key={index}
               className={`group relative border ${resource.borderColor} ${
                 resource.highlighted ? resource.bgColor : 'bg-white'
-              } shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer text-center w-full max-w-[199px] min-h-[126px] flex flex-col justify-between`}
+              } shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer text-center w-full max-w-[199px] min-h-[126px] flex flex-col justify-between`} 
               style={{
-                borderRadius: '8px',
-                borderWidth: '1px',
-                paddingTop: '16px',
+                borderRadius: '8px', //rounded corners
+                borderWidth: '1px', 
+                paddingTop: '16px',  
                 paddingRight: 'clamp(12px, 2vw, 20px)',
                 paddingBottom: '16px',
-                paddingLeft: 'clamp(12px, 2vw, 20px)',
+                paddingLeft: 'clamp(12px, 2vw, 20px)',  
               }}
             >
+              {/* Icon and Title */} 
               <div className="flex-shrink-0">
-                <div
+                <div 
                   className={`inline-flex items-center justify-center p-2 sm:p-3 rounded-lg ${
                     resource.highlighted ? resource.iconBg : resource.iconBg
                   } mb-2 mx-auto`}
@@ -213,4 +214,4 @@ export default function LearningResources() {
       </div>
     </div>
   );
-}
+} 
