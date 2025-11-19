@@ -43,20 +43,6 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-<<<<<<< HEAD
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
-}
-
-body {
-  background: #ffffff;
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-=======
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -134,4 +120,3 @@ body {
     @apply bg-background text-foreground;
   }
 }
->>>>>>> origin/main
