@@ -1,13 +1,28 @@
 import React from 'react';
 
-const TechGenerationHero = () => {
-  const technologies = ['Python', 'UI/UX', 'Virtual Assistant', 'Cloud', 'React'];
-  
-  const stats = [
+const TechGenerationHero = ({
+  heading = "Fund the Next",
+  highlightedText = "Tech Generation",
+  description = "Support aspiring developers, data scientist, and tech enthusiast through comprehensive bootcamps and training programs that transforms careers.",
+  technologies: propsTechnologies = [],
+  stats: propsStats = [],
+  studentsImpacted = "50,000+",
+  image = "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=800&fit=crop"
+}) => {
+  const defaultTechnologies = ['Python', 'UI/UX', 'Virtual Assistant', 'Cloud', 'React'];
+  const defaultStats = [
     { value: '25,000+', label: 'GRADUATES' },
     { value: '8', label: 'TECH PROGRAMS' },
     { value: '191', label: 'COUNTRIES REACHED' }
   ];
+  
+  const technologies = propsTechnologies.length > 0 
+    ? propsTechnologies.map(t => t.name || t)
+    : defaultTechnologies;
+  
+  const stats = propsStats.length > 0 
+    ? propsStats
+    : defaultStats;
 
   return (
     <div className="bg-white min-h-screen py-12 px-4 mt-16 md:mt-18 sm:px-6 lg:px-8">
@@ -19,20 +34,23 @@ const TechGenerationHero = () => {
             <div className="">
               {/* Main Heading */}
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-                Fund the Next<br />
-                Tech <span className="relative inline-block">
-                  <span className="relative bg-[#BBF7D0] z-10">Generation</span>
-                </span>
+                {heading}<br />
+                {highlightedText && (
+                  <span className="relative inline-block">
+                    <span className="relative bg-[#BBF7D0] z-10">{highlightedText}</span>
+                  </span>
+                )}
               </h1>
 
               {/* Description */}
-              <div  className='relative'>
-                <div className="absolute left-0 top-0 w-1 h-14 bg-[#545050] mt-1"></div>
-                <p className="pl-8 text-gray-600 text-base mb-8 max-w-lg leading-relaxed">
-                  Support aspiring developers, data scientist, and tech enthusiast through 
-                  comprehensive bootcamps and training programs that transforms careers.
-                </p>
-              </div>
+              {description && (
+                <div className='relative'>
+                  <div className="absolute left-0 top-0 w-1 h-14 bg-[#545050] mt-1"></div>
+                  <p className="pl-8 text-gray-600 text-base mb-8 max-w-lg leading-relaxed">
+                    {description}
+                  </p>
+                </div>
+              )}
 
 
               {/* Technology Tags */}
@@ -70,17 +88,19 @@ const TechGenerationHero = () => {
               <div className="w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-full bg-gray-300 overflow-hidden border-4 border-white shadow-2xl">
                 {/* Placeholder for image */}
                 <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=800&fit=crop"
+                  src={image}
                   alt="Students learning"
                   className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Students Impacted Badge */}
-              <div className="absolute -bottom-3 justify-self-center items-center bg-white rounded-2xl shadow-xl px-6 py-4 border border-gray-100">
-                <div className="text-xs text-gray-500 mb-1">Students Impacted</div>
-                <div className="text-2xl font-bold text-gray-900">50,000+</div>
-              </div>
+              {studentsImpacted && (
+                <div className="absolute -bottom-3 justify-self-center items-center bg-white rounded-2xl shadow-xl px-6 py-4 border border-gray-100">
+                  <div className="text-xs text-gray-500 mb-1">Students Impacted</div>
+                  <div className="text-2xl font-bold text-gray-900">{studentsImpacted}</div>
+                </div>
+              )}
             </div>
 
             {/* Decorative dots (optional) */}
@@ -98,4 +118,5 @@ const TechGenerationHero = () => {
   );
 };
 
-export default TechGenerationHero;
+const DonateSection = TechGenerationHero;
+export default DonateSection;

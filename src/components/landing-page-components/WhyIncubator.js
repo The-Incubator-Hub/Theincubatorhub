@@ -83,7 +83,8 @@ export default function WhyIncubator() {
                 <div className="absolute inset-0 rounded-full"></div>
                 {/* Profile Image */}
                 <div className="relative w-32 md:w-56 md:h-56 lg:w-136 lg:h-136 rounded-full bg-[#D9D9D9] overflow-hidden border-4 border-white shadow-lg">
-                  <Image src="" alt="Incubator member" fill className="object-cover" />
+                  {/* Add image path here when available, e.g., src="/images/team-member.jpg" */}
+                  {/* For now, the gray background serves as placeholder */}
                 </div>
 
                 {/* Student Count Badge */}

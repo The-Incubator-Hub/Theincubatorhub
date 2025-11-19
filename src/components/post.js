@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Clock, Heart, ArrowRight, User } from 'lucide-react';
 
-const BlogPostsGrid = () => {
+const BlogPostsGrid = ({ title, description }) => {
   const blogPosts = [
     {
       id: 1,
@@ -88,10 +88,10 @@ const BlogPostsGrid = () => {
         {/* Header Section */}
         <div className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Latest Blog Posts
+            {title || "Latest Blog Posts"}
           </h1>
           <p className="text-gray-600 text-lg">
-            Watch the video highlight of future clan bootcamp 2024 through our lens
+            {description || "Watch the video highlight of future clan bootcamp 2024 through our lens"}
           </p>
         </div>
 

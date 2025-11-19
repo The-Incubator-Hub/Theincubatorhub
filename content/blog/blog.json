@@ -1,0 +1,35 @@
+{
+  "title": "Blog Page",
+  "header": {
+    "title": "Build Your Career, Change Lives",
+    "description": "Join a mission-driven team where your skills create lasting impact on Africa's tech future. We're looking for passionate individuals who want to make a difference.",
+    "backgroundImage": "/images/hero_teams.jpg"
+  },
+  "future": {
+    "searchPlaceholder": "Search press release...",
+    "filters": [
+      {
+        "name": "ALL"
+      },
+      {
+        "name": "Success Stories"
+      },
+      {
+        "name": "Community"
+      },
+      {
+        "name": "Education"
+      },
+      {
+        "name": "Industry Insight"
+      },
+      {
+        "name": "Technology"
+      }
+    ]
+  },
+  "blogPostsGrid": {
+    "title": "Latest Blog Posts",
+    "description": "Watch the video highlight of future clan bootcamp 2024 through our lens"
+  }
+}

@@ -1,15 +1,25 @@
-import DonateSection from "@/components/donate-components/DonateSection"
-import DonationForm from "@/components/donate-components/DonationForm"
-import BankTransferSection from "@/components/donate-components/BankTransferSection"
-import CTABanner from "@/components/landing-page-components/CtaBanner"
-export default function DonatePage() {
-    return (
-        <div className="mt-16 md:mt-18">
-            <DonateSection />
-            <DonationForm />
-            <BankTransferSection />
-            <CTABanner />
-            <div className="h-16"></div>
-        </div>
-    )
+import DonateClient from "./DonateClient"
+import client from "../../../tina/__generated__/client"
+
+export default async function DonatePage() {
+  let data = {}
+  let query = {}
+  let variables = { relativePath: "donate.json" }
+  
+  try {
+    const res = await client.queries.donate(variables)
+    query = res.query
+    data = res.data
+    variables = res.variables
+  } catch (error) {
+    console.error("Error fetching donate data:", error)
+  }
+
+  return (
+    <DonateClient 
+      initialData={data}
+      query={query}
+      variables={variables}
+    />
+  )
 }

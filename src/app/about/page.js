@@ -1,25 +1,25 @@
-"use client"
+import AboutClient from "./AboutClient"
+import client from "../../../tina/__generated__/client"
 
-import { MissionSection } from "@/components/about-us-components/MissionSection"
-import { WhoWeAreSection } from "@/components/about-us-components/WhoWeAreSection"
-import Statistics from "@/components/landing-page-components/Statistics"
-import ValuesSection from "@/components/about-us-components/ValuesSection"
-import TeamMembersSection from "@/components/about-us-components/TeamMemberSection"
-import CTABanner from "@/components/landing-page-components/CtaBanner";
-import TrustedOrganizations from "@/components/landing-page-components/TrustedOrganizations";
-import HeaderCareer from "@/components/HeaderCareer";
+export default async function AboutPage() {
+  let data = {}
+  let query = {}
+  let variables = { relativePath: "about.json" }
+  
+  try {
+    const res = await client.queries.about(variables)
+    query = res.query
+    data = res.data
+    variables = res.variables
+  } catch (error) {
+    console.error("Error fetching about data:", error)
+  }
 
-export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white mt-16 md:mt-18">
-      <HeaderCareer />
-      <MissionSection />
-      <WhoWeAreSection />
-      <Statistics />
-      <ValuesSection />
-      <TeamMembersSection />
-      <CTABanner />
-      <TrustedOrganizations />
-    </main>
+    <AboutClient 
+      initialData={data}
+      query={query}
+      variables={variables}
+    />
   )
 }

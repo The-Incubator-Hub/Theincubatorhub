@@ -1,5 +1,5 @@
 
-import { Inter, Geist_Mono, Montserrat } from "next/font/google";
+import { Inter, Geist_Mono, Montserrat, Onest, Raleway, Lexend } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar.js";
 import FooterR from "@/components/FooterR.js";

@@ -1,0 +1,203 @@
+{
+  "title": "Programs Page",
+  "programHeader": {
+    "title": "A Bootcamp Of Excellence",
+    "description": "Support aspiring developers, data scientist, and tech enthusiast through comprehensive bootcamps and training programs that transforms careers.",
+    "programs": [
+      {
+        "name": "Data Analysis"
+      },
+      {
+        "name": "Product Design"
+      },
+      {
+        "name": "Virtual Assistant"
+      },
+      {
+        "name": "Web Development"
+      }
+    ],
+    "stats": [
+      {
+        "value": "1,000+",
+        "label": "GRADUATES"
+      },
+      {
+        "value": "3 months",
+        "label": "TRAINING DURATION"
+      },
+      {
+        "value": "8",
+        "label": "TECH PROGRAMS"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=400&fit=crop",
+        "alt": "Team meeting"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop",
+        "alt": "Collaborative work"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=600&fit=crop",
+        "alt": "Mentorship session"
+      }
+    ]
+  },
+  "learningPathway": {
+    "phases": [
+      {
+        "title": "Phase 1: Virtual Learning",
+        "description": "Master fundamentals through live sessions, interactive coding challenges, and peer collaboration in our virtual environment.",
+        "icon": "Lightbulb",
+        "color": "orange"
+      },
+      {
+        "title": "Phase 2: Physical Learning",
+        "description": "Hands-on in-person training with industry experts, real-world projects, and collaborative workshops.",
+        "icon": "Target",
+        "color": "yellow"
+      },
+      {
+        "title": "Phase 3: The Mentorship Phase",
+        "description": "One-on-one guidance from senior professionals, portfolio building, interview prep, and job placement support.",
+        "icon": "Award",
+        "color": "green"
+      }
+    ],
+    "objectives": [
+      {
+        "text": "Build strong technical foundations in your chosen track"
+      },
+      {
+        "text": "Develop problem-solving and critical thinking skills"
+      },
+      {
+        "text": "Learn industry-standard tools and best practices"
+      },
+      {
+        "text": "Complete real-world projects for your portfolio"
+      },
+      {
+        "text": "Gain confidence through consistent practice and feedback"
+      }
+    ],
+    "outcomes": [
+      {
+        "icon": "Briefcase",
+        "text": "90%+ job placement rate within 6 months"
+      },
+      {
+        "icon": "Rocket",
+        "text": "Average salary increase of 150–300%"
+      },
+      {
+        "icon": "Users",
+        "text": "Join a network of 1,000+ successful alumni"
+      },
+      {
+        "icon": "CheckCircle",
+        "text": "Industry-recognized certificate upon completion"
+      }
+    ]
+  },
+  "videoSection": {
+    "title": "Experience Future Clan Future Camp through our lens",
+    "subtitle": "Watch highlights of Future Camp through our lens",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  },
+  "partners": {
+    "title": "Our Future Clan Bootcamp Partners",
+    "partners": [
+      {
+        "name": "YouTube",
+        "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+      },
+      {
+        "name": "Slack",
+        "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_Icon_2021.svg"
+      },
+      {
+        "name": "Amazon",
+        "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+      },
+      {
+        "name": "Microsoft",
+        "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What Our Student Say",
+    "testimonials": [
+      {
+        "name": "Jerome Bell",
+        "company": "Google",
+        "image": "https://randomuser.me/api/portraits/men/32.jpg",
+        "text": "This bootcamp transformed my career. The hands-on approach and mentorship helped me land my dream job at Google. Highly recommend!"
+      },
+      {
+        "name": "Kristin Watson",
+        "company": "Netflix",
+        "image": "https://randomuser.me/api/portraits/women/44.jpg",
+        "text": "Less than 24h turn around. Easy communication. Did exactly as offered, all around a perfect experience."
+      },
+      {
+        "name": "Annette Black",
+        "company": "Whatsapp",
+        "image": "https://randomuser.me/api/portraits/women/50.jpg",
+        "text": "The instructors are world-class and the curriculum is industry-relevant. I'm now working at WhatsApp thanks to this program."
+      },
+      {
+        "name": "Jacob Jones",
+        "company": "Amazon",
+        "image": "https://randomuser.me/api/portraits/men/21.jpg",
+        "text": "Amazing attention to detail and very prompt delivery. Truly exceeded expectations."
+      },
+      {
+        "name": "Cameron Williamson",
+        "company": "Microsoft",
+        "image": "https://randomuser.me/api/portraits/men/40.jpg",
+        "text": "Incredible to work with, very professional and delivers top-quality work every time."
+      },
+      {
+        "name": "Courtney Henry",
+        "company": "Facebook",
+        "image": "https://randomuser.me/api/portraits/women/55.jpg",
+        "text": "Great service, good communication, and the project came out even better than expected!"
+      }
+    ]
+  },
+  "gallery": {
+    "title": "Future Clan Bootcamp Gallery",
+    "subtitle": "Watch video highlights of future clan bootcamp 2024 through our lens",
+    "images": [
+      {
+        "src": "https://images.pexels.com/photos/12902873/pexels-photo-12902873.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "alt": "Diverse group of office workers collaborating on laptops during a bootcamp session"
+      },
+      {
+        "src": "https://images.pexels.com/photos/12899151/pexels-photo-12899151.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "alt": "Two programmers discussing code on a laptop in a modern workshop setting"
+      },
+      {
+        "src": "https://images.pexels.com/photos/5716018/pexels-photo-5716018.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "alt": "Team of participants gathered around a laptop for a collaborative coding discussion"
+      },
+      {
+        "src": "https://images.pexels.com/photos/3866621/pexels-photo-3866621.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "alt": "Multiethnic group of professionals intensely working together on a laptop in an office bootcamp"
+      }
+    ]
+  },
+  "ctaBanner": {
+    "title": "Ready to Transform Your Career?",
+    "description": "Join thousands of successful graduates who have transformed their careers through our comprehensive bootcamp programs. Start your journey today!",
+    "buttonText": "Apply Now",
+    "backgroundImage": "/team-collaboration-working-together.jpg"
+  }
+}
+

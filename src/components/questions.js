@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import React from "react"
+import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
 const faqData = [
   {
@@ -114,7 +115,7 @@ export default function FAQAccordion({ items = faqData }) {
               {/* Answer */}
               <div
                 className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
                 <div className="px-8 pb-7 pt-2 text-base text-gray-600 leading-relaxed">
@@ -125,23 +126,39 @@ export default function FAQAccordion({ items = faqData }) {
                         <span>{item.answer}</span>
                       </li>
                     </ul>
+                  ) : item.answer && typeof item.answer === "object" && item.answer.type ? (
+                    <TinaMarkdown 
+                      content={item.answer}
+                      components={{
+                        p: (props) => <p className="mb-3" {...props} />,
+                        ul: (props) => <ul className="space-y-3 text-gray-600" {...props} />,
+                        li: (props) => (
+                          <li className="flex gap-3">
+                            <span className="text-gray-600 mt-1">•</span>
+                            <span {...props} />
+                          </li>
+                        ),
+                      }}
+                    />
                   ) : (
-                    React.cloneElement(item.answer, {
-                      children: React.Children.map(item.answer.props.children, (li) => {
-                        // Extract the text content from the span
-                        const textContent = li.props.children[1]?.props?.children || 
-                                          (Array.isArray(li.props.children) ? li.props.children[1] : li.props.children);
-                        return React.cloneElement(li, {
-                          className: "flex gap-3",
-                          children: (
-                            <>
-                              <span className="text-gray-600 mt-1">•</span>
-                              <span>{textContent}</span>
-                            </>
-                          ),
-                        });
-                      }),
-                    })
+                    React.isValidElement(item.answer) ? (
+                      React.cloneElement(item.answer, {
+                        children: React.Children.map(item.answer.props.children, (li) => {
+                          // Extract the text content from the span
+                          const textContent = li.props.children[1]?.props?.children || 
+                                            (Array.isArray(li.props.children) ? li.props.children[1] : li.props.children);
+                          return React.cloneElement(li, {
+                            className: "flex gap-3",
+                            children: (
+                              <>
+                                <span className="text-gray-600 mt-1">•</span>
+                                <span>{textContent}</span>
+                              </>
+                            ),
+                          });
+                        }),
+                      })
+                    ) : null
                   )}
                 </div>
               </div>

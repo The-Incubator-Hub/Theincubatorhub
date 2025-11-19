@@ -1,0 +1,180 @@
+{
+  "title": "FAQs Page",
+  "header": {
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to common questions about our programs, admissions, and more.",
+    "backgroundImage": "/images/hero_teams.jpg"
+  },
+  "teamIntro": {
+    "title": "We Have An Expert Team",
+    "description": "We are a passionate, creative, and results-driven team of digital marketing specialists, strategists, designers, and technologists — all working together to help brands grow in the digital world."
+  },
+  "faqAccordion": {
+    "items": [
+      {
+        "question": "Are there opportunities to work with schools or organizations?",
+        "answer": {
+          "type": "root",
+          "children": [
+            {
+              "type": "p",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "We partner with schools, edtech organizations, and NGOs to offer real-world implementation opportunities for your projects."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "How long is our program?",
+        "answer": {
+          "type": "root",
+          "children": [
+            {
+              "type": "p",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The program runs for 12 weeks, designed to fit alongside studies or work with flexible deadlines."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "Can I participate if I'm currently a student or only after graduation?",
+        "answer": {
+          "type": "root",
+          "children": [
+            {
+              "type": "ul",
+              "children": [
+                {
+                  "type": "li",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "We welcome current students, recent graduates, early-career professionals, educators, and changemakers who are committed to learning and building in the education-technology space."
+                    }
+                  ]
+                },
+                {
+                  "type": "li",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "We invite educators and community leaders who are passionate about digital education and social impact."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "Is there a cost or equity requirement?",
+        "answer": {
+          "type": "root",
+          "children": [
+            {
+              "type": "p",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "No cost, no equity taken. The program is completely free and fully sponsored."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "Will I earn credits or a certificate?",
+        "answer": {
+          "type": "root",
+          "children": [
+            {
+              "type": "p",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Yes! You'll receive a verified certificate upon completion, and in some cases, university credit recommendations through our academic partners."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "Are there any prerequisites or prior knowledge required?",
+        "answer": {
+          "type": "root",
+          "children": [
+            {
+              "type": "p",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Absolutely none. Whether you're a complete beginner or experienced builder, everyone starts from where they are."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "How much time per week should I plan for the program?",
+        "answer": {
+          "type": "root",
+          "children": [
+            {
+              "type": "p",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Expect to dedicate 8–12 hours per week. It's self-paced with live sessions, project work, and mentorship."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "stillHaveQuestions": {
+    "title": "Still have questions?",
+    "description": "We are a passionate, creative, and results-driven team of digital marketing specialists, strategists, designers, and technologists — all working together to help brands grow in the digital world.",
+    "cards": [
+      {
+        "icon": "Cpu",
+        "iconColor": "orange-600",
+        "title": "Free Consultation",
+        "description": "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
+        "buttonText": "Reach Out",
+        "buttonIcon": "Mail"
+      },
+      {
+        "icon": "Database",
+        "iconColor": "green-600",
+        "title": "Read Our Press Releases",
+        "description": "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
+        "buttonText": "Read News",
+        "buttonIcon": "Bookmark"
+      },
+      {
+        "icon": "Package",
+        "iconColor": "blue-600",
+        "title": "Read Our Blog Post",
+        "description": "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
+        "buttonText": "Read Article",
+        "buttonIcon": "Bookmark"
+      }
+    ]
+  }
+}
+

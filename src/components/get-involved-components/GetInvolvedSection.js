@@ -1,8 +1,12 @@
 import React from 'react';
 import { Heart, ThumbsUp, Users, ArrowRight, Check } from 'lucide-react';
 
-export default function GetInvolvedSection() {
-  const opportunities = [
+export default function GetInvolvedSection({
+  title = "Ways To Get Involved",
+  description = "Every contribution matters. Find the perfect way to make an impact based on your skills, resources, and passion.",
+  opportunities: propsOpportunities = []
+}) {
+  const defaultOpportunities = [
     {
       id: 1,
       title: 'Become a Volunteer',
@@ -14,7 +18,10 @@ export default function GetInvolvedSection() {
         'Lend hands-on workshops, masterclasses',
         'Support career development and job placement',
         'Lead workshops on cutting-edge technologies'
-      ]
+      ],
+      commitment: 'Flexible - 2-4 hours per week',
+      buttonText: 'Apply Now',
+      buttonLink: '#'
     },
     {
       id: 2,
@@ -27,7 +34,10 @@ export default function GetInvolvedSection() {
         'Host networking events and career fairs',
         'Access top tier tech and skilled techies',
         'Build your company\'s talent brand with us in Africa'
-      ]
+      ],
+      commitment: 'Flexible - 2-4 hours per week',
+      buttonText: 'Apply Now',
+      buttonLink: '#'
     },
     {
       id: 3,
@@ -40,9 +50,34 @@ export default function GetInvolvedSection() {
         'Sponsor essential equipment and learning resources',
         'Create named scholarships or program initiatives',
         'Receive detailed impact reports and recognition'
-      ]
+      ],
+      commitment: 'Flexible - 2-4 hours per week',
+      buttonText: 'Apply Now',
+      buttonLink: '#'
     }
   ];
+
+  const iconMap = {
+    Heart,
+    ThumbsUp,
+    Users,
+    ArrowRight,
+    Check
+  };
+
+  const opportunities = propsOpportunities.length > 0
+    ? propsOpportunities.map((opp, index) => ({
+        id: index + 1,
+        title: opp.title,
+        description: opp.description,
+        icon: iconMap[opp.icon] || Heart,
+        iconBg: opp.iconBg || 'bg-orange-500',
+        achievements: opp.achievements?.map(a => a.text || a) || [],
+        commitment: opp.commitment || 'Flexible - 2-4 hours per week',
+        buttonText: opp.buttonText || 'Apply Now',
+        buttonLink: opp.buttonLink || '#'
+      }))
+    : defaultOpportunities;
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center p-6">
@@ -50,11 +85,13 @@ export default function GetInvolvedSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Ways To Get Involved
+            {title}
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Every contribution matters. Find the perfect way to make an impact based on your skills, resources, and passion.
-          </p>
+          {description && (
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              {description}
+            </p>
+          )}
         </div>
 
         {/* Cards */}
@@ -98,17 +135,31 @@ export default function GetInvolvedSection() {
                 </div>
 
                 {/* Commitment */}
-                <div className="bg-[#E5E7EB] rounded-md p-3 mb-6">
-                  <p className="text-xs text-[#374151]">
-                    <span className="font-semibold">Commitment:</span> Flexible - 2-4 hours per week
-                  </p>
-                </div>
+                {opportunity.commitment && (
+                  <div className="bg-[#E5E7EB] rounded-md p-3 mb-6">
+                    <p className="text-xs text-[#374151]">
+                      <span className="font-semibold">Commitment:</span> {opportunity.commitment}
+                    </p>
+                  </div>
+                )}
 
                 {/* Apply Button */}
-                <button className="w-full bg-[#090909] text-white py-3.5 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors group">
-                  Apply Now
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                {opportunity.buttonLink ? (
+                  <a
+                    href={opportunity.buttonLink}
+                    target={opportunity.buttonLink.startsWith('http') ? '_blank' : undefined}
+                    rel={opportunity.buttonLink.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="w-full bg-[#090909] text-white py-3.5 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors group"
+                  >
+                    {opportunity.buttonText || 'Apply Now'}
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                ) : (
+                  <button className="w-full bg-[#090909] text-white py-3.5 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors group">
+                    {opportunity.buttonText || 'Apply Now'}
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                )}
               </div>
             );
           })}

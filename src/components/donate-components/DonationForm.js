@@ -1,7 +1,11 @@
 'use client'
 import React, { useState } from 'react';
 
-const DonationForm = () => {
+const DonationForm = ({
+  title = "Support Tech Education",
+  description = "Choose a specific program to support or contribute to our general scholarship fund",
+  buttonText = "Support Tech Training"
+}) => {
   const [formData, setFormData] = useState({
     frequency: 'one-time',
     currency: 'NGN',
@@ -93,11 +97,13 @@ const DonationForm = () => {
         <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-10">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              Support Tech Education
+              {title}
             </h2>
-            <p className="text-gray-600 text-sm">
-              Choose a specific program to support or contribute to our general scholarship fund
-            </p>
+            {description && (
+              <p className="text-gray-600 text-sm">
+                {description}
+              </p>
+            )}
           </div>
 
           <div className="mb-8">
@@ -280,7 +286,7 @@ const DonationForm = () => {
             onClick={handleSubmit}
             className="w-full bg-gray-900 hover:bg-black text-white font-semibold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
           >
-            Support Tech Training
+            {buttonText}
             <svg 
                 className="w-6 h-6 group-hover:rotate-12 transition-transform" 
                 fill="none" 

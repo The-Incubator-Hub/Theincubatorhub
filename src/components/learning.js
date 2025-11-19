@@ -74,8 +74,13 @@ const CloudFolder = () => (
   </svg>
 );
 
-export default function LearningResources() {
-  const resources = [
+export default function LearningResources({
+  title = "Learning Resources",
+  description = "Access our comprehensive collection of learning materials, tools, templates, and resources to accelerate your tech journey and career development.",
+  searchPlaceholder = "Search resources...",
+  resources: propsResources = []
+}) {
+  const defaultResources = [
     {
       title: 'All Resources',
       description: 'View all available resources',
@@ -139,6 +144,34 @@ export default function LearningResources() {
     },
   ];
 
+  // Icon component mapping
+  const iconComponents = {
+    CloudFolder: <CloudFolder />,
+    StackedBooks: <StackedBooks />,
+    BriefcaseIcon: <BriefcaseIcon />,
+    CrossedWrenches: <CrossedWrenches />,
+    HandshakeIcon: <HandshakeIcon />
+  };
+
+  const resources = propsResources.length > 0
+    ? propsResources.map((resource, index) => {
+        const iconName = resource.icon || 'CloudFolder';
+        const isHighlighted = resource.highlighted || false;
+        
+        return {
+          title: resource.title,
+          description: resource.description || '',
+          icon: iconComponents[iconName] || <CloudFolder />,
+          bgColor: isHighlighted ? 'bg-green-50' : 'bg-white',
+          textColor: 'text-gray-900',
+          borderColor: isHighlighted ? 'border-green-200' : 'border-gray-200',
+          iconBg: isHighlighted ? 'bg-green-100' : 'bg-gray-100',
+          iconColor: isHighlighted ? 'text-green-600' : 'text-gray-600',
+          highlighted: isHighlighted,
+        };
+      })
+    : defaultResources;
+
   return (
     <div className="bg-gray-50 pt-24 pb-16 px-4 sm:px-6 lg:px-8 w-full overflow-x-hidden">
       <div className="max-w-7xl mx-auto w-full">
@@ -149,12 +182,14 @@ export default function LearningResources() {
             className="mx-auto max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900 px-4"
             style={{ fontFamily: 'var(--font-lexend), sans-serif' }}
           >
-            Learning Resources
+            {title}
           </h1>
 
-          <p className="mx-auto mt-5 max-w-3xl text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed px-4">
-            Access our comprehensive collection of learning materials, tools, templates, and resources to accelerate your tech journey and career development.
-          </p>
+          {description && (
+            <p className="mx-auto mt-5 max-w-3xl text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed px-4">
+              {description}
+            </p>
+          )}
 
           {/* Search Bar – Close to the text */}
           <div className="mx-auto mt-8 max-w-md w-full px-4">
@@ -162,7 +197,7 @@ export default function LearningResources() {
               <Search className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search resources..."
+                placeholder={searchPlaceholder}
                 className="w-full rounded-lg border border-gray-300 bg-white py-3 pl-12 pr-4 text-sm sm:text-base shadow-sm
                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                            hover:border-gray-400 transition-all duration-200"

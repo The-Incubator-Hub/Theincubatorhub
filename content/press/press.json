@@ -1,0 +1,106 @@
+{
+  "title": "Press Page",
+  "header": {
+    "title": "Press & Media",
+    "description": "Stay updated with our latest news, announcements, and achievements in transforming lives through technology education.",
+    "backgroundImage": "/images/hero_teams.jpg"
+  },
+  "newsSection": {
+    "searchPlaceholder": "Search press release...",
+    "categories": [
+      {
+        "name": "ALL"
+      },
+      {
+        "name": "Program Launch"
+      },
+      {
+        "name": "Partnerships"
+      },
+      {
+        "name": "Fundings"
+      },
+      {
+        "name": "Achievements"
+      },
+      {
+        "name": "Technology"
+      }
+    ],
+    "featuredPost": {
+      "title": "Incubator Launches Revolutionary Future Clan Bootcamp Program",
+      "description": "Today, Incubator proudly announces the launch of the Future Clan Bootcamp, an innovative 3-month intensive training program designed to bridge the digital skills gap across Africa. The program will focus on high-demand technologies including web development, data analysis, cybersecurity, and digital marketing.",
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+      "date": "December 15, 2024",
+      "readTime": "5 mins read",
+      "category": [
+        {
+          "tag": "FEATURED"
+        },
+        {
+          "tag": "Program Launch"
+        }
+      ],
+      "readFullStoryLink": "/blog/future-clan-bootcamp"
+    },
+    "latestNewsTitle": "Latest News Reports",
+    "latestNewsDescription": "Watch the video highlight of future clan bootcamp 2024 through our lens",
+    "newsPosts": [
+      {
+        "category": "Fundings",
+        "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+        "title": "Digital SkillUp Africa Initiative Receives $4M Funding",
+        "description": "The initiative is set to expand its reach to 10 African countries, training thousands of youth in digital careers.",
+        "date": "December 15, 2024",
+        "learnMoreLink": "/blog/digital-skillup-funding"
+      },
+      {
+        "category": "Program Launch",
+        "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
+        "title": "Digital SkillUp Africa Commences with AI Tech Webinar",
+        "description": "The first batch begins with an intensive AI bootcamp aimed at preparing participants for global tech opportunities.",
+        "date": "January 8, 2025",
+        "learnMoreLink": "/blog/ai-tech-webinar"
+      },
+      {
+        "category": "Achievements",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+        "title": "Ladies in Tech Africa Celebrates 1000+ Female Graduates",
+        "description": "Over 1000 women across Africa have completed the program and transitioned into tech roles.",
+        "date": "December 12, 2024",
+        "learnMoreLink": "/blog/ladies-in-tech-achievement"
+      },
+      {
+        "category": "Achievements",
+        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80",
+        "title": "500+ Graduates Successfully Placed in Tech Roles",
+        "description": "Graduates from the bootcamp have secured roles in leading African and international tech companies.",
+        "date": "September 1, 2024",
+        "learnMoreLink": "/blog/graduates-placement"
+      },
+      {
+        "category": "Partnerships",
+        "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+        "title": "New Partnership Expands Bootcamp Opportunities Across Africa",
+        "description": "The collaboration brings new sponsors and internship opportunities for graduates.",
+        "date": "March 1, 2025",
+        "learnMoreLink": "/blog/partnership-expansion"
+      },
+      {
+        "category": "Technology",
+        "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
+        "title": "New Virtual Learning Platform Launched with AI Integration",
+        "description": "An AI-powered personal learning assistant has been launched to improve student outcomes.",
+        "date": "February 14, 2025",
+        "learnMoreLink": "/blog/ai-learning-platform"
+      }
+    ]
+  },
+  "ctaBanner": {
+    "title": "Stay Connected With Our Latest Updates",
+    "description": "Subscribe to our newsletter to receive the latest news, program updates, and success stories directly in your inbox.",
+    "buttonText": "Subscribe Now",
+    "backgroundImage": "/team-collaboration-working-together.jpg"
+  }
+}
+

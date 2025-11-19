@@ -1,15 +1,25 @@
-'use client';
+import ResourcesClient from "./ResourcesClient"
+import client from "../../../tina/__generated__/client"
 
-import LearningResources from "@/components/learning.js"
-import ViewResources from "@/components/ViewResources.js"
-import JoinUs from "@/components/JoinUs.js"
-
-export default function Page() {
-    return (
-      <div>
-        <LearningResources /> 
-        <ViewResources />
-        <JoinUs />
-      </div>
-    );
+export default async function ResourcesPage() {
+  let data = {}
+  let query = {}
+  let variables = { relativePath: "resources.json" }
+  
+  try {
+    const res = await client.queries.resources(variables)
+    query = res.query
+    data = res.data
+    variables = res.variables
+  } catch (error) {
+    console.error("Error fetching resources data:", error)
   }
+
+  return (
+    <ResourcesClient 
+      initialData={data}
+      query={query}
+      variables={variables}
+    />
+  )
+}

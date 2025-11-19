@@ -1,0 +1,104 @@
+{
+  "title": "Testimonies Page",
+  "header": {
+    "title": "What Our Students Say",
+    "description": "Hear from our graduates about their transformative journey and how our programs have shaped their careers in technology.",
+    "backgroundImage": "/images/hero_teams.jpg"
+  },
+  "teamIntro": {
+    "title": "Success Stories From Our Community",
+    "description": "Our students come from diverse backgrounds and have achieved remarkable success in their tech careers. Read their inspiring stories and see how our programs have made a difference in their lives."
+  },
+  "testimonials": {
+    "categories": [
+      {
+        "name": "Digital Skillup Africa"
+      },
+      {
+        "name": "Ladies In Tech Africa"
+      },
+      {
+        "name": "SkillUp"
+      },
+      {
+        "name": "Future Clan Bootcamp"
+      },
+      {
+        "name": "AI Now"
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Lila Johnson",
+        "role": "Product Designer",
+        "category": "Digital Skillup Africa",
+        "quote": "\"This coding bootcamp has completely changed my career trajectory! I keep returning for the expert instructors, the welcoming community, and the practical learning experiences that have helped me land my dream job.\"",
+        "image": "/woman-product-designer.jpg"
+      },
+      {
+        "name": "Marcus Lee",
+        "role": "Digital Marketing Director",
+        "category": "Ladies In Tech Africa",
+        "quote": "\"I can't recommend this bootcamp enough! As a first-time student, I'm blown away by the fantastic teachers, the friendly atmosphere, and the real-world projects that have significantly improved my skills and job prospects.\"",
+        "image": "/man-marketing-director.jpg"
+      },
+      {
+        "name": "Sarah White",
+        "role": "User Experience Designer",
+        "category": "SkillUp",
+        "quote": "\"This bootcamp is truly remarkable! As a returning learner, I value the exceptional instructors, the supportive environment, and the engaging lessons that have kept me motivated and helped me switch careers successfully.\"",
+        "image": "/woman-ux-designer.jpg"
+      },
+      {
+        "name": "Mia Davis",
+        "role": "iOS App Developer",
+        "category": "Future Clan Bootcamp",
+        "quote": "\"I've had an incredible experience at this bootcamp! As a returning attendee, I appreciate the outstanding instructors, the welcoming community, and the practical learning that has kept me engaged and ready for a new role.\"",
+        "image": "/woman-app-developer.jpg"
+      },
+      {
+        "name": "Sophie Turner",
+        "role": "Content Marketing Specialist",
+        "category": "AI Now",
+        "quote": "\"Having attended several bootcamps, this one stands out! As a new participant, I appreciate the expert instructors, the encouraging community, and the immersive learning style that has equipped me for a new role in tech.\"",
+        "image": "/woman-marketing-specialist.jpg"
+      },
+      {
+        "name": "Ethan Wright",
+        "role": "Business Intelligence Analyst",
+        "category": "Digital Skillup Africa",
+        "quote": "\"This bootcamp has been one of my best experiences! As a returning student, I love the fantastic instructors, the supportive community, and the hands-on learning that has inspired me to pursue a new career path.\"",
+        "image": "/man-business-analyst.jpg"
+      },
+      {
+        "name": "Oliver Brown",
+        "role": "Virtual Assistant",
+        "category": "Ladies In Tech Africa",
+        "quote": "\"This bootcamp has exceeded my expectations! As a new student, I cherish the knowledgeable instructors, the friendly community, and the hands-on approach that has truly enhanced my skills and job opportunities.\"",
+        "image": "/man-virtual-assistant.jpg"
+      },
+      {
+        "name": "Noah Wilson",
+        "role": "Software Developer",
+        "category": "SkillUp",
+        "quote": "\"This bootcamp is fantastic! As a first-time student, I love the exceptional instructors, the supportive community, and the hands-on learning that has significantly boosted my skills and employability.\"",
+        "image": "/man-software-developer.jpg"
+      },
+      {
+        "name": "Chloe Smith",
+        "role": "Cloud Solutions Architect",
+        "category": "Future Clan Bootcamp",
+        "quote": "\"I absolutely love this bootcamp! As a first-time attendee, I find the instructors outstanding, the community welcoming, and the practical learning incredibly effective in helping me secure a job in the field.\"",
+        "image": "/woman-cloud-architect.jpg"
+      }
+    ]
+  },
+  "joinUs": {
+    "title": "Ready to Start Your Journey?",
+    "description": "Join thousands of successful graduates who have transformed their careers through our comprehensive programs. Your success story could be next!",
+    "ctaText": "Apply Now",
+    "ctaLink": "/programs",
+    "backgroundImage": "/images/joinus.jpg"
+  }
+}
+

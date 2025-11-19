@@ -1,0 +1,90 @@
+{
+  "title": "Get Involved Page",
+  "header": {
+    "title": "Get Involved With Us",
+    "description": "Join our mission to transform lives through technology education. There are many ways you can make a difference.",
+    "backgroundImage": "/images/hero_teams.jpg"
+  },
+  "getInvolvedSection": {
+    "title": "Ways To Get Involved",
+    "description": "Every contribution matters. Find the perfect way to make an impact based on your skills, resources, and passion.",
+    "opportunities": [
+      {
+        "title": "Become a Volunteer",
+        "description": "Volunteer with us in various roles - from mentoring student. Find your perfect fit.",
+        "icon": "Heart",
+        "iconBg": "bg-orange-500",
+        "achievements": [
+          {
+            "text": "Assisting startups and professionals"
+          },
+          {
+            "text": "Lend hands-on workshops, masterclasses"
+          },
+          {
+            "text": "Support career development and job placement"
+          },
+          {
+            "text": "Lead workshops on cutting-edge technologies"
+          }
+        ],
+        "commitment": "Flexible - 2-4 hours per week",
+        "buttonText": "Apply Now",
+        "buttonLink": "/volunteer"
+      },
+      {
+        "title": "Partner With Us",
+        "description": "Collaborate with us to create meaningful opportunities for our graduates.",
+        "icon": "ThumbsUp",
+        "iconBg": "bg-blue-500",
+        "achievements": [
+          {
+            "text": "Offer internships and entry-level positions"
+          },
+          {
+            "text": "Host networking events and career fairs"
+          },
+          {
+            "text": "Access top tier tech and skilled techies"
+          },
+          {
+            "text": "Build your company's talent brand with us in Africa"
+          }
+        ],
+        "commitment": "Flexible - 2-4 hours per week",
+        "buttonText": "Apply Now",
+        "buttonLink": "/partner"
+      },
+      {
+        "title": "Become A Sponsor",
+        "description": "Your sponsorship directly transforms lives by removing financial barriers to quality tech education.",
+        "icon": "Users",
+        "iconBg": "bg-pink-500",
+        "achievements": [
+          {
+            "text": "Fund scholarships for aspiring students"
+          },
+          {
+            "text": "Sponsor essential equipment and learning resources"
+          },
+          {
+            "text": "Create named scholarships or program initiatives"
+          },
+          {
+            "text": "Receive detailed impact reports and recognition"
+          }
+        ],
+        "commitment": "Flexible - 2-4 hours per week",
+        "buttonText": "Apply Now",
+        "buttonLink": "/sponsor"
+      }
+    ]
+  },
+  "ctaBanner": {
+    "title": "Everyone Deserves The Chance To Learn Tech",
+    "description": "Leading digital agency with solid design and development expertise. We build readymade websites, mobile applications, and elaborate online business services.",
+    "buttonText": "Let's Work Together",
+    "backgroundImage": "/team-collaboration-working-together.jpg"
+  }
+}
+

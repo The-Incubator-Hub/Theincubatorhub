@@ -3,8 +3,10 @@
 import Image from 'next/image';
 import { Eye } from 'lucide-react';
 
-export default function ViewResources() {
-  const resourceCards = [
+export default function ViewResources({
+  resourceCards: propsResourceCards = []
+}) {
+  const defaultResourceCards = [
     {
       id: 1,
       title: 'Git&GitHub Mastery Guide',
@@ -54,6 +56,18 @@ export default function ViewResources() {
       image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80'
     },
   ];
+
+  const resourceCards = propsResourceCards.length > 0
+    ? propsResourceCards.map((card, index) => ({
+        id: index + 1,
+        title: card.title,
+        description: card.description,
+        tags: card.tags?.map(t => t.tag || t) || [],
+        label: card.label || 'Template Collection',
+        image: card.image || 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
+        viewResourceLink: card.viewResourceLink || '#'
+      }))
+    : defaultResourceCards;
 
   return (
     <div className="bg-gray-50 pt-8 pb-12 px-4 sm:px-6 lg:px-8 w-full overflow-x-hidden">
@@ -105,10 +119,22 @@ export default function ViewResources() {
                 </p>
 
                 {/* Button */}
-                <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-2.5 sm:py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors text-sm sm:text-base flex-shrink-0">
-                  <Eye className="w-4 h-4 flex-shrink-0" />
-                  <span className="whitespace-nowrap">View Resources</span>
-                </button>
+                {card.viewResourceLink ? (
+                  <a
+                    href={card.viewResourceLink}
+                    target={card.viewResourceLink.startsWith('http') ? '_blank' : undefined}
+                    rel={card.viewResourceLink.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="w-full bg-gray-900 hover:bg-gray-800 text-white py-2.5 sm:py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors text-sm sm:text-base flex-shrink-0"
+                  >
+                    <Eye className="w-4 h-4 flex-shrink-0" />
+                    <span className="whitespace-nowrap">View Resources</span>
+                  </a>
+                ) : (
+                  <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-2.5 sm:py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors text-sm sm:text-base flex-shrink-0">
+                    <Eye className="w-4 h-4 flex-shrink-0" />
+                    <span className="whitespace-nowrap">View Resources</span>
+                  </button>
+                )}
               </div>
             </div>
           ))}

@@ -4,7 +4,14 @@ import { Button } from "@/components/ui/button"
 import { Circle, Play } from "lucide-react"
 import Image from "next/image"
 
-export default function HeroSection() {
+export default function HeroSection({ 
+  heading = "Deliberate And Strategic",
+  highlightedText = "Impact",
+  description = "Zakroofl gives you everything you need to create your website in minutes. Bootstrap code with a well-organized design & develop your next web",
+  primaryButtonText = "Get Started",
+  secondaryButtonText = "View Preview",
+  image = "/team-collaboration-working-together.jpg"
+}) {
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#4E4E50] to-black flex items-center justify-center px-4 py-12 md:py-0">
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -13,15 +20,14 @@ export default function HeroSection() {
           {/* Heading */}
           <div className="space-y-2">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Deliberate And Strategic {""}
-              <span className="px-1 py-0 bg-[#22C55E] ">Impact</span>
+              {heading} {""}
+              <span className="px-1 py-0 bg-[#22C55E] ">{highlightedText}</span>
             </h1>
           </div>
 
           {/* Description */}
           <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-md">
-            Zakroofl gives you everything you need to create your website in minutes. Bootstrap code with a
-            well-organized design & develop your next web
+            {description}
           </p>
 
           {/* Buttons */}
@@ -30,14 +36,14 @@ export default function HeroSection() {
               className="bg-black hover:bg-gray-900 text-white px-8 py-6 text-base font-semibold rounded-lg transition-colors w-full sm:w-auto"
               onClick={() => console.log("Get Started clicked")}
             >
-              Get Started 
+              {primaryButtonText}
             </Button>
             <Button
               variant="ghost"
               className="bg-white text-black hover:bg-gray-200 px-8 py-6 text-base font-bold rounded-lg transition-colors w-full sm:w-auto"
               onClick={() => console.log("View Preview clicked")}
             >
-              View Preview
+              {secondaryButtonText}
             </Button>
           </div>
         </div>
@@ -47,7 +53,7 @@ export default function HeroSection() {
           {/* Main Image */}
           <div className="border-[20px] border-[#4E4E50]/10 relative w-full md:w-[48rem] h-64 md:h-[38.5rem] overflow-hidden shadow-2xl">
             <Image
-              src="/team-collaboration-working-together.jpg"
+              src={image}
               alt="Team collaboration"
               fill
               className="object-cover"

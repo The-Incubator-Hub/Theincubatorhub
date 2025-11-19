@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Image from "next/image"
 
-const categories = [
+const defaultCategories = [
   "ALL",
   "Digital Skillup Africa",
   "Ladies In Tech Africa",
@@ -12,7 +12,7 @@ const categories = [
   "AI Now",
 ]
 
-const testimonials = [
+const defaultTestimonials = [
   {
     id: 1,
     name: "Lila Johnson",
@@ -96,8 +96,26 @@ const testimonials = [
   },
 ]
 
-function Testimonials() {
+function Testimonials({
+  categories: propsCategories = [],
+  testimonials: propsTestimonials = []
+}) {
   const [activeCategory, setActiveCategory] = useState("ALL")
+
+  const categories = propsCategories.length > 0
+    ? ["ALL", ...propsCategories.map(cat => cat.name || cat)]
+    : defaultCategories;
+
+  const testimonials = propsTestimonials.length > 0
+    ? propsTestimonials.map((testimonial, index) => ({
+        id: index + 1,
+        name: testimonial.name,
+        role: testimonial.role,
+        category: testimonial.category,
+        quote: testimonial.quote,
+        image: testimonial.image || "/placeholder.svg"
+      }))
+    : defaultTestimonials;
 
   // Filter testimonials based on active category
   const filteredTestimonials = activeCategory === "ALL" 

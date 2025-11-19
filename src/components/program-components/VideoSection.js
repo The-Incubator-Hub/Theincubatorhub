@@ -4,7 +4,26 @@
 
 import React from 'react';
 
-export default function VideoSection({ title, subtitle, imageUrl, onPlay = () => {} }) {
+export default function VideoSection({ 
+  title = "Experience Future Clan Future Camp through our lens", 
+  subtitle = "Watch highlights of Future Camp through our lens", 
+  imageUrl = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+  videoUrl = null,
+  onPlay = () => {} 
+}) {
+  const handlePlayClick = () => {
+    if (videoUrl) {
+      // If it's a YouTube URL, open in modal or navigate
+      if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+        // Extract video ID and open in modal or new tab
+        window.open(videoUrl, '_blank');
+      } else {
+        // For direct video URLs, you might want to open in a modal
+        window.open(videoUrl, '_blank');
+      }
+    }
+    onPlay();
+  };
   return (
     <div className="border border-gray-300 rounded-lg overflow-hidden max-w-4xl mx-auto">
       {/* Title and Subtitle */}
@@ -25,7 +44,7 @@ export default function VideoSection({ title, subtitle, imageUrl, onPlay = () =>
           className="w-full h-full object-cover"
         />
         <button
-          onClick={onPlay}
+          onClick={handlePlayClick}
           className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 hover:bg-opacity-30 transition-opacity duration-200"
         >
           <svg

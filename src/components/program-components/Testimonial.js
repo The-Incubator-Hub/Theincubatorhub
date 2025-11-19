@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const testimonials = [
+const defaultTestimonials = [
   {
     name: "Jerome Bell",
     company: "Google",
@@ -40,7 +40,13 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+export default function Testimonials({
+  title = "What Our Student Say",
+  testimonials: propsTestimonials = []
+}) {
+  const testimonials = propsTestimonials.length > 0
+    ? propsTestimonials
+    : defaultTestimonials;
   const [currentSlide, setCurrentSlide] = useState(0);
   const cardsPerSlide = 3;
   const totalSlides = Math.ceil(testimonials.length / cardsPerSlide);
@@ -59,7 +65,7 @@ export default function Testimonials() {
     <section className="relative bg-[#F9FAFB] py-16 px-4 md:px-8 overflow-hidden">
       {/* Title */}
       <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12">
-        What Our Student Say
+        {title}
       </h2>
 
       {/* Slider Wrapper */}

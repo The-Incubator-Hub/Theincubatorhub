@@ -118,7 +118,7 @@ export default function Footer() {
             >
               <Twitter size={20} color="white" fill="white" style={{ width: "20px", height: "20px", opacity: 1, transform: "rotate(0deg)" }} className="text-white" />
               <div className="w-px h-4 bg-[#FFFFFF14]"></div>
-              <span className="text-sm text-[14px]">Twitter</span>
+              <span className="text-sm text-[14px]">X</span>
             </a>
             <a
               href="#"

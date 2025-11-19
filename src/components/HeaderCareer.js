@@ -1,13 +1,21 @@
 import Image from "next/image";
 
-export default function Header() {
+export default function HeaderCareer({ 
+  title = "Build Your Career, Change Lives",
+  description = "Join a mission-driven team where your skills create lasting impact on Africa's tech future. We're looking for passionate individuals who want to make a difference.",
+  backgroundImage = "/images/hero_teams.jpg"
+}) {
+  // Split description into lines for desktop display
+  const descriptionLines = description ? description.split('\n') : [];
+  const hasMultipleLines = descriptionLines.length > 1;
+
   return (
     <div className="relative w-full mt-18 h-91 flex items-center justify-center overflow-hidden">  
     
         <div className="w-full">  
             <div className="absolute inset-0">  
                 <Image 
-                src="/images/hero_teams.jpg"   
+                src={backgroundImage}   
                 alt="Team Hero Background"  
                 fill  
                 priority
@@ -31,13 +39,14 @@ export default function Header() {
                     transform: 'rotate(0deg)'  
                 }} 
                 > 
-                Build Your Career, Change Lives  
+                {title}
                 </h1> 
                 
                 {/* Paragraph - Responsive with exact desktop specs */}
                 <div className="mx-auto w-full" style={{ maxWidth: '686px' }}> 
                 {/* Desktop (lg+): Exact specifications */}
-                <p 
+                {hasMultipleLines ? (
+                  <p 
                     className="hidden lg:block mx-auto" 
                     style={{ 
                     width: '686px',  
@@ -53,10 +62,32 @@ export default function Header() {
                     verticalAlign: 'middle', 
                     color: '#F2F2F7' 
                     }} 
-                >
-                    <span className="block">Join a mission-driven team where your skills create lasting impact&nbsp;on&nbsp;Africa's</span>
-                    <span className="block">tech future. We're looking for passionate individuals who want to make a difference.</span>
-                </p>
+                  >
+                    {descriptionLines.map((line, index) => (
+                      <span key={index} className="block">{line}</span>
+                    ))}
+                  </p>
+                ) : (
+                  <p 
+                    className="hidden lg:block mx-auto" 
+                    style={{ 
+                    width: '686px',  
+                    minHeight: '78px', 
+                    opacity: 1, 
+                    transform: 'rotate(0deg)', 
+                    fontFamily: 'Inter, sans-serif',  
+                    fontWeight: 400,  
+                    fontSize: '18px',  
+                    lineHeight: '26px', 
+                    letterSpacing: '0%', 
+                    textAlign: 'center', 
+                    verticalAlign: 'middle', 
+                    color: '#F2F2F7' 
+                    }} 
+                  >
+                    {description}
+                  </p>
+                )}
                 
                 {/* Tablet (md to lg): Slightly smaller */}
                 <p 
@@ -71,8 +102,7 @@ export default function Header() {
                     opacity: 1
                     }}
                 >
-                Join a mission-driven team where your skills create lasting impact on Africa's 
-                tech future. We're looking for passionate individuals who want to make a difference.
+                {description}
                 </p>
                 
                 {/* Mobile: Smaller, readable version */}
@@ -88,8 +118,7 @@ export default function Header() {
                     opacity: 1
                     }}
                 >
-                    Join a mission-driven team where your skills create lasting impact on Africa's 
-                    tech future. We're looking for passionate individuals who want to make a difference.
+                    {description}
                 </p>
                 </div>
             </div>

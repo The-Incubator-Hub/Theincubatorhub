@@ -1,0 +1,64 @@
+{
+  "title": "Careers Page",
+  "header": {
+    "title": "Build Your Career, Change Lives",
+    "description": "Join a mission-driven team where your skills create lasting impact on Africa's tech future. We're looking for passionate individuals who want to make a difference.",
+    "backgroundImage": "/images/hero_teams.jpg"
+  },
+  "teamIntro": {
+    "title": "We Have An Expert Team",
+    "description": "We are a passionate, creative, and results-driven team of digital marketing specialists, strategists, designers, and technologists — all working together to help brands grow in the digital world."
+  },
+  "jobListings": {
+    "jobs": [
+      {
+        "title": "Senior Software Engineer",
+        "department": "Engineer",
+        "location": "Lagos, Nigeria",
+        "type": "Full-time",
+        "urgent": true,
+        "description": "Take charge of the development of our innovative learning platform, guiding and mentoring junior developers throughout the process. In addition to fostering their growth, focus on creating scalable and efficient solutions that enhance user experience and meet the evolving needs of our learners.",
+        "applyLink": "/apply/senior-software-engineer",
+        "viewDetailsLink": "/careers/senior-software-engineer"
+      },
+      {
+        "title": "Program Manager - Bootcamps",
+        "department": "Education",
+        "location": "Ogun, Nigeria",
+        "type": "Part-time",
+        "urgent": false,
+        "description": "Take charge of the bootcamp operations by managing the development of the curriculum and implementing student success initiatives across various programs. This role involves ensuring that all aspects of the bootcamp run smoothly, fostering an engaging learning environment, & improving the educational experience.",
+        "applyLink": "/apply/program-manager-bootcamps",
+        "viewDetailsLink": "/careers/program-manager-bootcamps"
+      },
+      {
+        "title": "Digital Marketing Specialist",
+        "department": "Marketing",
+        "location": "Lagos, Nigeria",
+        "type": "Full-time",
+        "urgent": true,
+        "description": "Lead and execute comprehensive digital marketing campaigns, effectively manage the brand's social media presence across various platforms, and develop engaging and persuasive content that resonates with our target audience.",
+        "applyLink": "/apply/digital-marketing-specialist",
+        "viewDetailsLink": "/careers/digital-marketing-specialist"
+      },
+      {
+        "title": "Partnership Development Manager",
+        "department": "Business Development",
+        "location": "Ogun, Nigeria",
+        "type": "Hybrid",
+        "urgent": true,
+        "description": "Develop and cultivate strategic partnerships with various companies and organizations to significantly enhance our impact and broaden our reach within the community and industry. By collaborating with like-minded entities, we can leverage shared resources and expertise to create more meaningful outcomes.",
+        "applyLink": "/apply/partnership-development-manager",
+        "viewDetailsLink": "/careers/partnership-development-manager"
+      }
+    ]
+  },
+  "resumeCTA": {
+    "title": "Don't see the Perfect Role?",
+    "description": "We're always looking for talented individuals who share our passion for education and technology. Send us your resume and let's start a conversation.",
+    "buttonText": "Send Us Your Resume",
+    "buttonLink": "/submit-resume",
+    "backgroundImage": "/images/joinus.jpg"
+  }
+}
+

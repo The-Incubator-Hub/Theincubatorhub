@@ -1,19 +1,26 @@
-'use client';
+import FAQsClient from "./FAQsClient"
+import client from "../../../tina/__generated__/client"
 
-import HeaderCareer from "@/components/HeaderCareer.js";
-import TeamIntro from "@/components/TeamIntro.js";
-import FAQAccordion from "@/components/questions.js";
-import StillHaveQuestions from "@/components/stiilhavequestions.js";
-export default function Page() { 
-  return (   
-    <div className="bg-white">  
-      <HeaderCareer />  
-      <TeamIntro />       
-      <div className="bg-white py-12">   
-        <FAQAccordion />   
-        <StillHaveQuestions />  
-      </div>  
-    </div>  
-  );  
+export default async function Page() {
+  let data = {}
+  let query = {}
+  let variables = { relativePath: "faqs.json" }
+  
+  try {
+    const res = await client.queries.faqs(variables)
+    query = res.query
+    data = res.data
+    variables = res.variables
+  } catch (error) {
+    console.error("Error fetching FAQs data:", error)
+  }
+
+  return (
+    <FAQsClient 
+      initialData={data}
+      query={query}
+      variables={variables}
+    />
+  )
 }   
 

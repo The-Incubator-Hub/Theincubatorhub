@@ -1,0 +1,145 @@
+{
+  "title": "The Future of Tech Education in Africa: Bridging the Digital Divide",
+  "slug": "future-of-tech-education",
+  "category": "Education",
+  "featuredTag": "FEATURED",
+  "secondaryTag": "Education",
+  "featuredImage": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
+  "author": "Sarah Okafor",
+  "publishDate": "2024-12-15T00:00:00.000Z",
+  "readTime": "5 mins",
+  "likes": 156,
+  "content": {
+    "type": "root",
+    "children": [
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Africa is experiencing a technological renaissance, and at the heart of this transformation lies education. As we stand on the cusp of a new era, the landscape of technology education across the continent is evolving rapidly, presenting unprecedented opportunities for learners, educators, and innovators alike."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Current State of Tech Education in Africa"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Over the last decade, the tech education landscape in Africa has experienced impressive growth. From coding bootcamps in Lagos to AI research hubs in Cairo, the continent is alive with initiatives aimed at closing the tech skills gap."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Here are some key statistics that illustrate this expansion:"
+          }
+        ]
+      },
+      {
+        "type": "ul",
+        "children": [
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "text",
+                "text": "More than 400 tech hubs across 42 African nations"
+              }
+            ]
+          },
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "text",
+                "text": "$2.4 billion in tech funding secured in 2022"
+              }
+            ]
+          },
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "text",
+                "text": "A 65% rise in STEM graduates in the last five years"
+              }
+            ]
+          },
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "text",
+                "text": "Over 200 coding schools and boot camps currently operating"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tags": [
+    {
+      "name": "Education"
+    },
+    {
+      "name": "Success Stories"
+    },
+    {
+      "name": "Technology"
+    },
+    {
+      "name": "Gender Inclusivity"
+    },
+    {
+      "name": "Tech-ED"
+    }
+  ],
+  "relatedPosts": [
+    {
+      "title": "Success Stories: From Bootcamp to Tech Leadership",
+      "description": "Meet five graduates who transformed their careers through our intensive training programs.",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      "category": "Success Stories",
+      "author": "Sarah Okafor",
+      "date": "December 15, 2025",
+      "readTime": "5 mins",
+      "likes": 100
+    },
+    {
+      "title": "Success Stories: From Bootcamp to Tech Leadership",
+      "description": "Meet five graduates who transformed their careers through our intensive training programs.",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      "category": "Success Stories",
+      "author": "Sarah Okafor",
+      "date": "December 15, 2025",
+      "readTime": "5 mins",
+      "likes": 100
+    },
+    {
+      "title": "Success Stories: From Bootcamp to Tech Leadership",
+      "description": "Meet five graduates who transformed their careers through our intensive training programs.",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      "category": "Success Stories",
+      "author": "Sarah Okafor",
+      "date": "December 15, 2025",
+      "readTime": "5 mins",
+      "likes": 100
+    }
+  ]
+}
+
+

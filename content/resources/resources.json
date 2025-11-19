@@ -1,0 +1,154 @@
+{
+  "title": "Resources Page",
+  "learningResources": {
+    "title": "Learning Resources",
+    "description": "Access our comprehensive collection of learning materials, tools, templates, and resources to accelerate your tech journey and career development.",
+    "searchPlaceholder": "Search resources...",
+    "resources": [
+      {
+        "title": "All Resources",
+        "description": "View all available resources",
+        "icon": "CloudFolder",
+        "highlighted": true
+      },
+      {
+        "title": "Learning Materials",
+        "description": "In-depth guides and study materials for every skill level.",
+        "icon": "StackedBooks",
+        "highlighted": false
+      },
+      {
+        "title": "Career Resources",
+        "description": "Access resume templates and interview materials.",
+        "icon": "BriefcaseIcon",
+        "highlighted": false
+      },
+      {
+        "title": "Tools & Templates",
+        "description": "All the essential tools and templates you need.",
+        "icon": "CrossedWrenches",
+        "highlighted": false
+      },
+      {
+        "title": "Community Resources",
+        "description": "Engage with peers & explore our community resources.",
+        "icon": "HandshakeIcon",
+        "highlighted": false
+      },
+      {
+        "title": "All Resources",
+        "description": "View all available resources",
+        "icon": "CloudFolder",
+        "highlighted": false
+      }
+    ]
+  },
+  "viewResources": {
+    "resourceCards": [
+      {
+        "title": "Git&GitHub Mastery Guide",
+        "description": "Master version control with Git and collaborate effectively using GitHub with this guide.",
+        "tags": [
+          {
+            "tag": "Resume"
+          },
+          {
+            "tag": "Career"
+          },
+          {
+            "tag": "Templates"
+          }
+        ],
+        "label": "Template Collection",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+        "viewResourceLink": "/resources/git-github-guide"
+      },
+      {
+        "title": "Tech Resume Templates",
+        "description": "Discover our curated collection of tech resume templates designed specifically for tech professionals.",
+        "tags": [
+          {
+            "tag": "Resume"
+          },
+          {
+            "tag": "Career"
+          },
+          {
+            "tag": "Templates"
+          }
+        ],
+        "label": "Template Collection",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+        "viewResourceLink": "/resources/resume-templates"
+      },
+      {
+        "title": "Interview Preparation Guide",
+        "description": "Comprehensive guide to help you ace your tech interviews with confidence.",
+        "tags": [
+          {
+            "tag": "Career"
+          },
+          {
+            "tag": "Interview"
+          }
+        ],
+        "label": "Career Guide",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+        "viewResourceLink": "/resources/interview-guide"
+      },
+      {
+        "title": "Portfolio Building Templates",
+        "description": "Professional portfolio templates to showcase your projects and skills.",
+        "tags": [
+          {
+            "tag": "Portfolio"
+          },
+          {
+            "tag": "Templates"
+          }
+        ],
+        "label": "Template Collection",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+        "viewResourceLink": "/resources/portfolio-templates"
+      },
+      {
+        "title": "JavaScript Fundamentals",
+        "description": "Learn JavaScript from scratch with our comprehensive learning materials.",
+        "tags": [
+          {
+            "tag": "Learning"
+          },
+          {
+            "tag": "JavaScript"
+          }
+        ],
+        "label": "Learning Materials",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+        "viewResourceLink": "/resources/javascript-fundamentals"
+      },
+      {
+        "title": "React Development Guide",
+        "description": "Master React development with step-by-step tutorials and examples.",
+        "tags": [
+          {
+            "tag": "Learning"
+          },
+          {
+            "tag": "React"
+          }
+        ],
+        "label": "Learning Materials",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+        "viewResourceLink": "/resources/react-guide"
+      }
+    ]
+  },
+  "joinUs": {
+    "title": "Want to Join This Amazing Team?",
+    "description": "We're always looking for talented individuals who share our passion for education and technology. Ready to make an impact?",
+    "ctaText": "View Open Positions",
+    "ctaLink": "/careers",
+    "backgroundImage": "/images/joinus.jpg"
+  }
+}
+

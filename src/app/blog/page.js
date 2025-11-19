@@ -1,20 +1,28 @@
-import Navbar from "@/components/Navbar.js";
-import HeaderCareer from "@/components/HeaderCareer.js";
-import FooterR from "@/components/FooterR.js"
-import Future from "@/components/Future.js";
-import BlogPostsGrid from "@/components/post.js";
+import BlogClient from "./BlogClient"
+import client from "../../../tina/__generated__/client"
 
-export default function Page() {
-    return (
-      <div>
-       
-        <HeaderCareer /> 
-        <Future />
-        <BlogPostsGrid />
-        
-      </div>
-    );
+export default async function Page() {
+  let data = {}
+  let query = {}
+  let variables = { relativePath: "blog.json" }
+  
+  try {
+    const res = await client.queries.blog(variables)
+    query = res.query
+    data = res.data
+    variables = res.variables
+  } catch (error) {
+    console.error("Error fetching blog data:", error)
   }
+
+  return (
+    <BlogClient 
+      initialData={data}
+      query={query}
+      variables={variables}
+    />
+  )
+}
 
 
   

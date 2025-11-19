@@ -1,0 +1,115 @@
+{
+  "title": "Gallery Page",
+  "header": {
+    "title": "Our Gallery",
+    "description": "Explore our collection of photos and videos showcasing our programs, events, and impact.",
+    "backgroundImage": "/images/hero_teams.jpg"
+  },
+  "photoVideoSection": {
+    "title": "Learn, Grow and Succeed",
+    "description": "We are supporting nonprofits to scale creative, data-driven and measurable. Our road to 1000 nonprofits supported looks promising and exciting as we prepare to turn a chapter into impact and development.",
+    "filterButtons": [
+      {
+        "name": "ALL"
+      },
+      {
+        "name": "Digital Skills Africa"
+      },
+      {
+        "name": "Ladies in Tech Africa"
+      },
+      {
+        "name": "Future Civic Bootcamp"
+      },
+      {
+        "name": "Future Now"
+      },
+      {
+        "name": "SkillUp"
+      },
+      {
+        "name": "AI Now"
+      },
+      {
+        "name": "Vista Africa"
+      }
+    ],
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop",
+        "alt": "Team collaboration"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop",
+        "alt": "Workshop session"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=300&fit=crop",
+        "alt": "Students learning"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=300&fit=crop",
+        "alt": "Tech training"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=300&fit=crop",
+        "alt": "Graduation ceremony"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop",
+        "alt": "Mentorship session"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop",
+        "alt": "Coding bootcamp"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
+        "alt": "Success stories"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop",
+        "alt": "Community event"
+      }
+    ],
+    "videos": [
+      {
+        "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop",
+        "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "alt": "Program overview video"
+      },
+      {
+        "thumbnail": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=300&fit=crop",
+        "videoUrl": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+        "alt": "Student testimonial"
+      },
+      {
+        "thumbnail": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=300&fit=crop",
+        "videoUrl": "https://youtu.be/9bZkp7q19f0",
+        "alt": "Bootcamp highlights"
+      },
+      {
+        "thumbnail": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=300&fit=crop",
+        "videoUrl": "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
+        "alt": "Graduation ceremony video"
+      },
+      {
+        "thumbnail": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop",
+        "videoUrl": "https://www.youtube.com/watch?v=LXb3EKWsInQ",
+        "alt": "Impact story"
+      },
+      {
+        "thumbnail": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=300&fit=crop",
+        "videoUrl": "https://youtu.be/ZbZSe6N_BXs",
+        "alt": "Workshop highlights"
+      }
+    ]
+  },
+  "ctaBanner": {
+    "title": "Everyone Deserves The Chance To Learn Tech",
+    "description": "Leading digital agency with solid design and development expertise. We build readymade websites, mobile applications, and elaborate online business services.",
+    "buttonText": "Let's Work Together",
+    "backgroundImage": "/team-collaboration-working-together.jpg"
+  }
+}
+

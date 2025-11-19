@@ -1,0 +1,71 @@
+{
+  "title": "Donate Page",
+  "donateSection": {
+    "heading": "Fund the Next",
+    "highlightedText": "Tech Generation",
+    "description": "Support aspiring developers, data scientist, and tech enthusiast through comprehensive bootcamps and training programs that transforms careers.",
+    "technologies": [
+      {
+        "name": "Python"
+      },
+      {
+        "name": "UI/UX"
+      },
+      {
+        "name": "Virtual Assistant"
+      },
+      {
+        "name": "Cloud"
+      },
+      {
+        "name": "React"
+      }
+    ],
+    "stats": [
+      {
+        "value": "25,000+",
+        "label": "GRADUATES"
+      },
+      {
+        "value": "8",
+        "label": "TECH PROGRAMS"
+      },
+      {
+        "value": "191",
+        "label": "COUNTRIES REACHED"
+      }
+    ],
+    "studentsImpacted": "50,000+",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=800&fit=crop"
+  },
+  "donationForm": {
+    "title": "Support Tech Education",
+    "description": "Choose a specific program to support or contribute to our general scholarship fund",
+    "buttonText": "Support Tech Training"
+  },
+  "bankTransfer": {
+    "title": "Bank Transfer Details",
+    "description": "complete your support with a direct bank transfer",
+    "nairaAccount": {
+      "title": "Nigerian Naira Account",
+      "description": "For local Nigeria transfer and local donations",
+      "bankName": "Access Bank",
+      "accountName": "The Incubator Hub",
+      "accountNumber": "0124738619"
+    },
+    "usdAccount": {
+      "title": "US Dollar Account",
+      "description": "For international transfers and USD donations",
+      "bankName": "Chase Bank",
+      "accountName": "The Incubator Hub",
+      "accountNumber": "9876543210"
+    }
+  },
+  "ctaBanner": {
+    "title": "Everyone Deserves The Chance To Learn Tech",
+    "description": "Leading digital agency with solid design and development expertise. We build readymade websites, mobile applications, and elaborate online business services.",
+    "buttonText": "Let's Work Together",
+    "backgroundImage": "/team-collaboration-working-together.jpg"
+  }
+}
+

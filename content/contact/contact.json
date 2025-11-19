@@ -1,0 +1,30 @@
+{
+  "title": "Contact Page",
+  "header": {
+    "title": "Get In Touch With Us",
+    "description": "We'd love to hear from you. Reach out to us and let's start a conversation about how we can help you achieve your goals.",
+    "backgroundImage": "/images/hero_teams.jpg"
+  },
+  "contactSection": {
+    "title": "Get In Touch",
+    "description": "Seamless Communication, Global Impact. Seamless Communication, Global Impact. Seamless Communication, Global Impact.",
+    "email": "info@golia.com",
+    "phone": "+1-202-555-0138",
+    "addressLine1": "901 N Pitt Str., Suite 170",
+    "addressLine2": "Alexandria, VA 22314, USA",
+    "socialMedia": {
+      "facebook": "https://facebook.com",
+      "twitter": "https://twitter.com",
+      "linkedin": "https://linkedin.com",
+      "instagram": "https://instagram.com",
+      "youtube": "https://youtube.com"
+    }
+  },
+  "ctaBanner": {
+    "title": "Everyone Deserves The Chance To Learn Tech",
+    "description": "Leading digital agency with solid design and development expertise. We build readymade websites, mobile applications, and elaborate online business services.",
+    "buttonText": "Let's Work Together",
+    "backgroundImage": "/team-collaboration-working-together.jpg"
+  }
+}
+

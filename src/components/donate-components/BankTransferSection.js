@@ -2,25 +2,34 @@
 import { useState } from 'react';
 import { Copy, Building2, User, CreditCard, Lightbulb } from 'lucide-react';
 
-export default function BankTransferSection() {
+export default function BankTransferSection({
+  title = "Bank Transfer Details",
+  description = "complete your support with a direct bank transfer",
+  nairaAccount = {},
+  usdAccount = {}
+}) {
   const [activeTab, setActiveTab] = useState('naira');
   const [copiedField, setCopiedField] = useState('');
 
+  const defaultNairaAccount = {
+    title: 'Nigerian Naira Account',
+    description: 'For local Nigeria transfer and local donations',
+    bankName: 'Access Bank',
+    accountName: 'The Incubator Hub',
+    accountNumber: '0124738619',
+  };
+
+  const defaultUsdAccount = {
+    title: 'US Dollar Account',
+    description: 'For international transfers and USD donations',
+    bankName: 'Chase Bank',
+    accountName: 'The Incubator Hub',
+    accountNumber: '9876543210',
+  };
+
   const accountDetails = {
-    naira: {
-      title: 'Nigerian Naira Account',
-      description: 'For local Nigeria transfer and local donations',
-      bankName: 'Access Bank',
-      accountName: 'The Incubator Hub',
-      accountNumber: '0124738619',
-    },
-    usd: {
-      title: 'US Dollar Account',
-      description: 'For international transfers and USD donations',
-      bankName: 'Chase Bank',
-      accountName: 'The Incubator Hub',
-      accountNumber: '9876543210',
-    },
+    naira: { ...defaultNairaAccount, ...nairaAccount },
+    usd: { ...defaultUsdAccount, ...usdAccount },
   };
 
   const currentAccount = accountDetails[activeTab];
@@ -37,11 +46,13 @@ export default function BankTransferSection() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Bank Transfer Details
+            {title}
           </h1>
-          <p className="text-gray-500 text-sm">
-            complete your support with a direct bank transfer
-          </p>
+          {description && (
+            <p className="text-gray-500 text-sm">
+              {description}
+            </p>
+          )}
         </div>
 
         {/* Tabs */}

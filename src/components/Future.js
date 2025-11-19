@@ -3,12 +3,15 @@
 import React, { useState } from 'react';
 import { Search, Calendar, Clock, Heart, Bookmark, Share2 } from 'lucide-react';
 
-const PressReleaseCard = () => {
+const PressReleaseCard = ({ searchPlaceholder, filters: propsFilters }) => {
   const [activeFilter, setActiveFilter] = useState('ALL');
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(156);
 
-  const filters = ['ALL', 'Success Stories', 'Community', 'Education', 'Industry Insight', 'Technology'];
+  const defaultFilters = ['ALL', 'Success Stories', 'Community', 'Education', 'Industry Insight', 'Technology'];
+  const filters = propsFilters && propsFilters.length > 0 
+    ? propsFilters.map(f => f.name || f)
+    : defaultFilters;
 
   const handleLike = () => {
     setIsLiked(!isLiked); 
@@ -25,7 +28,7 @@ const PressReleaseCard = () => {
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" /> 
             <input 
               type="text" 
-              placeholder="Search press release..."
+              placeholder={searchPlaceholder || "Search press release..."}
               className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               style={{
                 fontWeight: 700,
@@ -142,4 +145,5 @@ const PressReleaseCard = () => {
   );
 };
 
-export default PressReleaseCard;
+const Future = PressReleaseCard;
+export default Future;

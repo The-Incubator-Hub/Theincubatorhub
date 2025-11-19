@@ -2,10 +2,24 @@
 import React, { useState } from 'react';
 import { Lightbulb, Target, Award, CheckCircle, Briefcase, Users, Rocket } from 'lucide-react';
 
-export default function LearningPathway() {
+export default function LearningPathway({
+  phases: propsPhases = [],
+  objectives: propsObjectives = [],
+  outcomes: propsOutcomes = []
+}) {
   const [activeTab, setActiveTab] = useState('pathway');
 
-  const phases = [
+  const iconMap = {
+    Lightbulb,
+    Target,
+    Award,
+    CheckCircle,
+    Briefcase,
+    Users,
+    Rocket
+  };
+
+  const defaultPhases = [
     {
       id: 1,
       title: 'Phase 1: Virtual Learning',
@@ -29,7 +43,7 @@ export default function LearningPathway() {
     }
   ];
 
-  const objectives = [
+  const defaultObjectives = [
     'Build strong technical foundations in your chosen track',
     'Develop problem-solving and critical thinking skills',
     'Learn industry-standard tools and best practices',
@@ -37,12 +51,33 @@ export default function LearningPathway() {
     'Gain confidence through consistent practice and feedback'
   ];
 
-  const outcomes = [
+  const defaultOutcomes = [
     { icon: Briefcase, text: '90%+ job placement rate within 6 months' },
     { icon: Rocket, text: 'Average salary increase of 150–300%' },
     { icon: Users, text: 'Join a network of 1,000+ successful alumni' },
     { icon: CheckCircle, text: 'Industry-recognized certificate upon completion' }
   ];
+
+  const phases = propsPhases.length > 0
+    ? propsPhases.map((phase, index) => ({
+        id: index + 1,
+        title: phase.title,
+        description: phase.description,
+        icon: iconMap[phase.icon] || Lightbulb,
+        color: phase.color || 'orange',
+      }))
+    : defaultPhases;
+
+  const objectives = propsObjectives.length > 0
+    ? propsObjectives.map(obj => obj.text || obj)
+    : defaultObjectives;
+
+  const outcomes = propsOutcomes.length > 0
+    ? propsOutcomes.map(outcome => ({
+        icon: iconMap[outcome.icon] || Briefcase,
+        text: outcome.text
+      }))
+    : defaultOutcomes;
 
   const getColorClasses = (color) => {
     const map = {

@@ -2,7 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const ResumeCTA = () => {
+const ResumeCTA = ({
+  title = "Don't see the Perfect Role?",
+  description = "We're always looking for talented individuals who share our passion for education and technology. Send us your resume and let's start a conversation.",
+  buttonText = "Send Us Your Resume",
+  buttonLink = "/submit-resume",
+  backgroundImage = "/images/joinus.jpg"
+}) => {
   return (
     <section className="w-full bg-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
       <div className="max-w-7xl mx-auto flex justify-center">
@@ -28,7 +34,7 @@ const ResumeCTA = () => {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
-              src="/images/joinus.jpg" 
+              src={backgroundImage} 
               alt="Background" 
               className="w-full h-full object-cover"
             />
@@ -54,7 +60,7 @@ const ResumeCTA = () => {
                 textAlign: 'center'
               }}
             >
-              Don't see the Perfect Role?
+              {title}
             </h2>
 
             {/* Subheading */}
@@ -62,7 +68,7 @@ const ResumeCTA = () => {
               className="text-gray-50 mb-8 sm:mb-10 md:mb-12"
               style={{
                 width: '680px',
-                height: '78px',
+                minHeight: '78px',
                 opacity: 1,
                 transform: 'rotate(0deg)',
                 fontFamily: 'Inter, sans-serif',
@@ -73,12 +79,12 @@ const ResumeCTA = () => {
                 textAlign: 'center'
               }}
             >
-              We're always looking for talented individuals who share our passion for education and technology. Send us your resume and let's start a conversation.
+              {description}
             </p>
 
             {/* CTA Button */}
             <Link
-              href="/submit-resume"
+              href={buttonLink}
               className="inline-flex items-center justify-center bg-white hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 active:scale-95 group"
               style={{
                 width: '272px',
@@ -104,7 +110,7 @@ const ResumeCTA = () => {
                   textTransform: 'capitalize'
                 }}
               >
-                Send Us Your Resume
+                {buttonText}
               </span>
               <img 
                 src="/images/ArrowRight.png"

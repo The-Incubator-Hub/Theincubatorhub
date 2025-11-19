@@ -2,7 +2,57 @@
 
 import { Cpu, Database, Package, Mail, Bookmark } from 'lucide-react'
 
-function StillHaveQuestions() {
+function StillHaveQuestions({
+  title = "Still have questions?",
+  description = "We are a passionate, creative, and results-driven team of digital marketing specialists, strategists, designers, and technologists — all working together to help brands grow in the digital world.",
+  cards: propsCards = []
+}) {
+  const defaultCards = [
+    {
+      icon: "Cpu",
+      iconColor: "orange-600",
+      title: "Free Consultation",
+      description: "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
+      buttonText: "Reach Out",
+      buttonIcon: "Mail"
+    },
+    {
+      icon: "Database",
+      iconColor: "green-600",
+      title: "Read Our Press Releases",
+      description: "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
+      buttonText: "Read News",
+      buttonIcon: "Bookmark"
+    },
+    {
+      icon: "Package",
+      iconColor: "blue-600",
+      title: "Read Our Blog Post",
+      description: "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
+      buttonText: "Read Article",
+      buttonIcon: "Bookmark"
+    }
+  ]
+
+  const cards = propsCards.length > 0 ? propsCards : defaultCards
+
+  const iconMap = {
+    Cpu,
+    Database,
+    Package,
+    Mail,
+    Bookmark
+  }
+
+  const iconColorMap = {
+    "orange-600": "text-orange-600",
+    "green-600": "text-green-600",
+    "blue-600": "text-blue-600",
+    "red-600": "text-red-600",
+    "purple-600": "text-purple-600",
+    "yellow-600": "text-yellow-600"
+  }
+
   return (
     <section className="pt-20 pb-20 bg-gray-50 mt-12">
       <div className="max-w-7xl mx-auto px-6 text-center">
@@ -21,59 +71,39 @@ function StillHaveQuestions() {
             opacity: 1
           }}
         >
-          Still have questions?
+          {title}
         </h2>
-        <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-16">
-          We are a passionate, creative, and results-driven team of digital marketing specialists, 
-          strategists, designers, and technologists — all working together to help brands grow in 
-          the digital world.
-        </p>
+        {description && (
+          <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-16">
+            {description}
+          </p>
+        )}
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {/* Free Consultation */}
-          <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 p-8 text-center">
-            <div className="w-16 h-16 bg-[#F3F4F6] rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Cpu className="w-9 h-9 text-orange-600" strokeWidth={1.5} />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Free Consultation</h3>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-              Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.
-            </p>
-            <button className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
-              <Mail className="w-5 h-5" />
-              Reach Out
-            </button>
-          </div>
-
-          {/* Press Releases */}
-          <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 p-8 text-center">
-            <div className="w-16 h-16 bg-[#F3F4F6] rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Database className="w-9 h-9 text-green-600" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Read Our Press Releases</h3>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-              Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.
-            </p>
-            <button className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
-              <Bookmark className="w-5 h-5" />
-              Read News
-            </button>
-          </div>
-
-          {/* Blog Post */}
-          <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 p-8 text-center">
-            <div className="w-16 h-16 bg-[#F3F4F6] rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Package className="w-9 h-9 text-blue-600" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Read Our Blog Post</h3>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-              Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.
-            </p>
-            <button className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
-              <Bookmark className="w-5 h-5" />
-              Read Article
-            </button>
-          </div>
+          {cards.map((card, index) => {
+            const IconComponent = iconMap[card.icon] || Cpu
+            const ButtonIconComponent = iconMap[card.buttonIcon] || Mail
+            
+            return (
+              <div key={index} className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 p-8 text-center">
+                <div className="w-16 h-16 bg-[#F3F4F6] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <IconComponent className={`w-9 h-9 ${iconColorMap[card.iconColor] || "text-gray-600"}`} strokeWidth={1.5} />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{card.title}</h3>
+                {card.description && (
+                  <p className="text-gray-600 mb-8 leading-relaxed">
+                    {card.description}
+                  </p>
+                )}
+                {card.buttonText && (
+                  <button className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                    <ButtonIconComponent className="w-5 h-5" />
+                    {card.buttonText}
+                  </button>
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

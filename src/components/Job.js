@@ -47,21 +47,45 @@ const JobCard = ({ job }) => {
 
       {/* Action Buttons - aligned with heart icon */}
       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
-        <button className="inline-flex items-center justify-center gap-2 bg-black group-hover:bg-green-500 group-hover:scale-110 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 active:scale-95 flex-shrink-0">
-          <span>Apply Now</span>
-          <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
-        </button>
-        <button className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 font-semibold px-6 py-3 transition-all duration-200 flex-shrink-0">
-          <span>View Details</span>
-          <ArrowRight className="w-4 h-4" />
-        </button>
+        {job.applyLink ? (
+          <a 
+            href={job.applyLink}
+            target={job.applyLink.startsWith('http') ? '_blank' : undefined}
+            rel={job.applyLink.startsWith('http') ? 'noopener noreferrer' : undefined}
+            className="inline-flex items-center justify-center gap-2 bg-black group-hover:bg-green-500 group-hover:scale-110 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 active:scale-95 flex-shrink-0"
+          >
+            <span>Apply Now</span>
+            <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+          </a>
+        ) : (
+          <button className="inline-flex items-center justify-center gap-2 bg-black group-hover:bg-green-500 group-hover:scale-110 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 active:scale-95 flex-shrink-0">
+            <span>Apply Now</span>
+            <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+          </button>
+        )}
+        {job.viewDetailsLink ? (
+          <a 
+            href={job.viewDetailsLink}
+            target={job.viewDetailsLink.startsWith('http') ? '_blank' : undefined}
+            rel={job.viewDetailsLink.startsWith('http') ? 'noopener noreferrer' : undefined}
+            className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 font-semibold px-6 py-3 transition-all duration-200 flex-shrink-0 hover:text-green-500"
+          >
+            <span>View Details</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        ) : (
+          <button className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 font-semibold px-6 py-3 transition-all duration-200 flex-shrink-0">
+            <span>View Details</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        )}
       </div>
     </div>
   );
 };
 
-const JobListings = () => {
-  const jobs = [
+const JobListings = ({ jobs: propsJobs = [] }) => {
+  const defaultJobs = [
     {
       id: 1,
       title: 'Senior Software Engineer',
@@ -99,6 +123,10 @@ const JobListings = () => {
       description: 'Develop and cultivate strategic partnerships with various companies and organizations to significantly enhance our impact and broaden our reach within the community and industry. By collaborating with like-minded entities, we can leverage shared resources and expertise to create more meaningful outcomes.'
     }
   ];
+
+  const jobs = propsJobs.length > 0 
+    ? propsJobs.map((job, index) => ({ ...job, id: index + 1 }))
+    : defaultJobs;
 
   return (
     <section className="w-full bg-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">

@@ -3,11 +3,18 @@
 import React, { useState } from "react";
 import { Search, Clock, Share2, ArrowRight, User, Calendar } from "lucide-react";
 
-const NewsSection = () => {
+const NewsSection = ({
+  searchPlaceholder = "Search press release...",
+  categories: propsCategories = [],
+  featuredPost: propsFeaturedPost = null,
+  latestNewsTitle = "Latest News Reports",
+  latestNewsDescription = "Watch the video highlight of future clan bootcamp 2024 through our lens",
+  newsPosts: propsNewsPosts = []
+}) => {
   const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const categories = [
+  const defaultCategories = [
     "ALL",
     "Program Launch",
     "Partnerships",
@@ -16,7 +23,7 @@ const NewsSection = () => {
     "Technology",
   ];
 
-  const featuredPost = {
+  const defaultFeaturedPost = {
     title: "Incubator Launches Revolutionary Future Clan Bootcamp Program",
     description:
       "Today, Incubator proudly announces the launch of the Future Clan Bootcamp, an innovative 3-month intensive training program designed to bridge the digital skills gap across Africa. The program will focus on high-demand technologies including web development, data analysis, cybersecurity, and digital marketing.",
@@ -25,9 +32,10 @@ const NewsSection = () => {
     date: "December 15, 2024",
     readTime: "5 mins read",
     category: ["FEATURED", "Program Launch"],
+    readFullStoryLink: "#"
   };
 
-  const newsPosts = [
+  const defaultNewsPosts = [
     {
       id: 1,
       category: "Fundings",
@@ -37,6 +45,7 @@ const NewsSection = () => {
       description:
         "The initiative is set to expand its reach to 10 African countries, training thousands of youth in digital careers.",
       date: "December 15, 2024",
+      learnMoreLink: "#"
     },
     {
       id: 2,
@@ -47,6 +56,7 @@ const NewsSection = () => {
       description:
         "The first batch begins with an intensive AI bootcamp aimed at preparing participants for global tech opportunities.",
       date: "January 8, 2025",
+      learnMoreLink: "#"
     },
     {
       id: 3,
@@ -57,6 +67,7 @@ const NewsSection = () => {
       description:
         "Over 1000 women across Africa have completed the program and transitioned into tech roles.",
       date: "December 12, 2024",
+      learnMoreLink: "#"
     },
     {
       id: 4,
@@ -67,6 +78,7 @@ const NewsSection = () => {
       description:
         "Graduates from the bootcamp have secured roles in leading African and international tech companies.",
       date: "September 1, 2024",
+      learnMoreLink: "#"
     },
     {
       id: 5,
@@ -77,6 +89,7 @@ const NewsSection = () => {
       description:
         "The collaboration brings new sponsors and internship opportunities for graduates.",
       date: "March 1, 2025",
+      learnMoreLink: "#"
     },
     {
       id: 6,
@@ -87,8 +100,37 @@ const NewsSection = () => {
       description:
         "An AI-powered personal learning assistant has been launched to improve student outcomes.",
       date: "February 14, 2025",
+      learnMoreLink: "#"
     },
   ];
+
+  const categories = propsCategories.length > 0
+    ? propsCategories.map(cat => cat.name || cat)
+    : defaultCategories;
+
+  const featuredPost = propsFeaturedPost
+    ? {
+        title: propsFeaturedPost.title || defaultFeaturedPost.title,
+        description: propsFeaturedPost.description || defaultFeaturedPost.description,
+        image: propsFeaturedPost.image || defaultFeaturedPost.image,
+        date: propsFeaturedPost.date || defaultFeaturedPost.date,
+        readTime: propsFeaturedPost.readTime || defaultFeaturedPost.readTime,
+        category: propsFeaturedPost.category?.map(c => c.tag || c) || defaultFeaturedPost.category,
+        readFullStoryLink: propsFeaturedPost.readFullStoryLink || defaultFeaturedPost.readFullStoryLink
+      }
+    : defaultFeaturedPost;
+
+  const newsPosts = propsNewsPosts.length > 0
+    ? propsNewsPosts.map((post, index) => ({
+        id: index + 1,
+        category: post.category,
+        image: post.image,
+        title: post.title,
+        description: post.description,
+        date: post.date,
+        learnMoreLink: post.learnMoreLink || "#"
+      }))
+    : defaultNewsPosts;
 
   const filteredPosts = newsPosts.filter(
     (post) =>
@@ -106,7 +148,7 @@ const NewsSection = () => {
             <Search className="absolute left-3 top-2.5 text-gray-400 w-5 h-5" />
             <input
               type="text"
-              placeholder="Search press release..."
+              placeholder={searchPlaceholder}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-10 pr-4 py-2 text-[#B3B3B3] border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
@@ -172,10 +214,22 @@ const NewsSection = () => {
             </div>
 
             <div className="flex flex-wrap mt-4 gap-3">
-              <button className="bg-black hover:bg-gray-900 text-white px-5 py-2 rounded-md font-medium flex items-center gap-2 transition">
-                <ArrowRight className="w-4 h-4" />
-                Read Full Story
-              </button>
+              {featuredPost.readFullStoryLink ? (
+                <a
+                  href={featuredPost.readFullStoryLink}
+                  target={featuredPost.readFullStoryLink.startsWith('http') ? '_blank' : undefined}
+                  rel={featuredPost.readFullStoryLink.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="bg-black hover:bg-gray-900 text-white px-5 py-2 rounded-md font-medium flex items-center gap-2 transition"
+                >
+                  <ArrowRight className="w-4 h-4" />
+                  Read Full Story
+                </a>
+              ) : (
+                <button className="bg-black hover:bg-gray-900 text-white px-5 py-2 rounded-md font-medium flex items-center gap-2 transition">
+                  <ArrowRight className="w-4 h-4" />
+                  Read Full Story
+                </button>
+              )}
 
               <button className="bg-white/90 hover:bg-white border-2 border-[#9CA3AF] text-gray-800 px-5 py-2 rounded-md font-medium flex items-center gap-2 transition">
                 <Share2 className="w-4 h-4" /> Share
@@ -187,11 +241,13 @@ const NewsSection = () => {
         {/* ----------------------------- LATEST NEWS GRID ----------------------------- */}
         <div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Latest News Reports
+            {latestNewsTitle}
           </h2>
-          <p className="text-gray-600 mb-10">
-            Watch the video highlight of future clan bootcamp 2024 through our lens
-          </p>
+          {latestNewsDescription && (
+            <p className="text-gray-600 mb-10">
+              {latestNewsDescription}
+            </p>
+          )}
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
@@ -217,10 +273,22 @@ const NewsSection = () => {
 
                   <div className="flex items-center justify-between text-sm text-gray-500">
                     <span>{post.date}</span>
-                    <button className="flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all group">
-                      Learn More
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    {post.learnMoreLink ? (
+                      <a
+                        href={post.learnMoreLink}
+                        target={post.learnMoreLink.startsWith('http') ? '_blank' : undefined}
+                        rel={post.learnMoreLink.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all group"
+                      >
+                        Learn More
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    ) : (
+                      <button className="flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all group">
+                        Learn More
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

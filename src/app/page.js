@@ -1,28 +1,25 @@
-<<<<<<< HEAD
+import HomeClient from "./HomeClient"
+import client from "../../tina/__generated__/client"
 
-=======
->>>>>>> e2b131b068bd36b6614045899791147ef1f19d04
-import HeroSection from "@/components/landing-page-components/HeroSection"
-import AboutIncubator from "@/components/landing-page-components/AboutIncubator"
-import TrustedOrganizations from "@/components/landing-page-components/TrustedOrganizations"
-import WhyIncubator from "@/components/landing-page-components/WhyIncubator"
-import Statistics from "@/components/landing-page-components/Statistics"
-import BootcampsCarousel from "@/components/landing-page-components/BootcampsCarousel"
-import CTABanner from "@/components/landing-page-components/CtaBanner"
-import TestimonialCarousel from "@/components/landing-page-components/TestimonialCarousel"
-import PressReleases from "@/components/landing-page-components/PressReleases"
-export default function Home() {
+export default async function Home() {
+  let data = {}
+  let query = {}
+  let variables = { relativePath: "home.json" }
+  
+  try {
+    const res = await client.queries.home(variables)
+    query = res.query
+    data = res.data
+    variables = res.variables
+  } catch (error) {
+    console.error("Error fetching home data:", error)
+  }
+
   return (
-    <main className="bg-white">
-      <HeroSection />
-      <AboutIncubator />
-      <TrustedOrganizations />
-      <WhyIncubator />
-      <Statistics />  
-      <BootcampsCarousel />
-      <CTABanner />
-      <TestimonialCarousel />
-      <PressReleases />
-    </main>
+    <HomeClient 
+      initialData={data}
+      query={query}
+      variables={variables}
+    />
   )
 }
