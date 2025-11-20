@@ -75,13 +75,12 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 bg-white h-16 md:h-18 flex justify-between items-center px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 transition-shadow duration-300 ${
+      <nav className={`fixed top-0 left-0 right-0 z-50 bg-white h-16 md:h-20 flex justify-between items-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-16 2xl:px-24 transition-shadow duration-300 ${
         scrolled ? 'shadow-lg' : 'shadow-md'
       }`}>
         {/* Logo */}
         <div 
-          className="cursor-pointer transition-transform duration-300 hover:scale-105 flex-shrink-0 active:scale-95"
-          style={{ width: '252px', height: '26px', opacity: 1, transform: 'rotate(0deg)' }}
+          className="cursor-pointer transition-transform duration-300 hover:scale-105 flex-shrink-0 active:scale-95 max-w-[180px] sm:max-w-[220px] md:max-w-[252px] h-auto"
           onClick={() => window.location.href = '/'}
           role="button"
           tabIndex="0"
@@ -96,7 +95,8 @@ export default function Navbar() {
           <img 
             src="/images/Iogo_incubator.png" 
             alt="Incubator Logo" 
-            className="w-full h-full object-contain"
+            className="w-full h-auto object-contain"
+            style={{ maxHeight: '26px' }}
           />
         </div>
         
@@ -120,7 +120,34 @@ export default function Navbar() {
             </span>
           </button>
           
-          {/* Programs Dropdown */}
+          <button 
+            className="px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            onClick={() => window.location.href = '/programs'}
+          >
+            <span className="font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap">
+              Programs
+            </span>
+          </button>
+          
+          <button 
+            className="px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            onClick={() => window.location.href = '/blog'}
+          >
+            <span className="font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap">
+              Blog
+            </span>
+          </button>
+          
+          <button 
+            className="px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            onClick={() => window.location.href = '/resources'}
+          >
+            <span className="font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap">
+              Resources
+            </span>
+          </button>
+          
+          {/* Get Involved Dropdown */}
           <div className="relative" ref={programsDropdownRef}>
             <button 
               className={`px-2 xl:px-3 py-2.5 rounded-lg flex items-center gap-1.5 transition-all duration-200 group ${
@@ -134,7 +161,7 @@ export default function Navbar() {
               aria-haspopup="true"
             >
               <span className="font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap">
-                Our Programs
+                Get Involved
               </span>
               <svg 
                 width="18" 
@@ -153,20 +180,39 @@ export default function Navbar() {
             
             {isProgramsDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 z-50 border border-gray-100 animate-fadeIn">
-                {['Digital Skillup Africa', 'Future Clan Bootcamp', 'Ladies-In Tech Africa', 'Skill-Up', 'Future Now', 'AI Now', 'Vista Africa'].map((program, idx) => (
-                  <button 
-                    key={idx}
-                    className="w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group"
-                    onClick={() => {
-                      window.location.href = `/${program.toLowerCase().replace(/\s+/g, '-')}`;
-                      setIsProgramsDropdownOpen(false);
-                    }}
-                  >
-                    <span className="font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150">
-                      {program}
-                    </span>
-                  </button>
-                ))}
+                <button 
+                  className="w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/getinvolved';
+                    setIsProgramsDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150">
+                    Get Involved
+                  </span>
+                </button>
+                <button 
+                  className="w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/careers';
+                    setIsProgramsDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150">
+                    Careers
+                  </span>
+                </button>
+                <button 
+                  className="w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/donate';
+                    setIsProgramsDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150">
+                    Donate
+                  </span>
+                </button>
               </div>
             )}
           </div>
@@ -204,30 +250,67 @@ export default function Navbar() {
             
             {isMediaDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-44 bg-white rounded-lg shadow-xl py-2 z-50 border border-gray-100 animate-fadeIn">
-                {['Pictures', 'Videos'].map((item, idx) => (
-                  <button 
-                    key={idx}
-                    className="w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group"
-                    onClick={() => {
-                      window.location.href = `/${item.toLowerCase()}`;
-                      setIsMediaDropdownOpen(false);
-                    }}
-                  >
-                    <span className="font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-150">
-                      {item}
-                    </span>
-                  </button>
-                ))}
+                <button 
+                  className="w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/gallery';
+                    setIsMediaDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-150">
+                    Gallery
+                  </span>
+                </button>
+                <button 
+                  className="w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/press';
+                    setIsMediaDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-150">
+                    Press
+                  </span>
+                </button>
+                <button 
+                  className="w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/testimonies';
+                    setIsMediaDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-150">
+                    Testimonies
+                  </span>
+                </button>
               </div>
             )}
           </div>
           
           <button 
             className="px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            onClick={() => window.location.href = '/teams'}
+          >
+            <span className="font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap">
+              Teams
+            </span>
+          </button>
+          
+          <button 
+            className="px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            onClick={() => window.location.href = '/faqs'}
+          >
+            <span className="font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap">
+              FAQs
+            </span>
+          </button>
+          
+          <button 
+            className="px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200"
             onClick={() => window.location.href = '/contact'}
           >
             <span className="font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap">
-              Contact Us
+              Contact
             </span>
           </button>
           
@@ -236,14 +319,14 @@ export default function Navbar() {
             onClick={() => window.location.href = '/donate'}
           >
             <span className="font-inter font-semibold text-xs xl:text-sm text-white whitespace-nowrap">
-              Sponsor
+              Donate
             </span>
           </button>
         </div>
 
         {/* Mobile Menu Toggle - Improved Hamburger */}
         <button
-          className="lg:hidden p-2 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
+          className="lg:hidden p-2 -mr-1 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300 flex-shrink-0"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMobileMenuOpen}
@@ -279,23 +362,23 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-16 right-0 bottom-0 w-full xs:w-80 sm:w-96 bg-white z-40 transform transition-all duration-300 ease-in-out lg:hidden overflow-y-auto shadow-2xl ${
+        className={`fixed top-16 md:top-20 right-0 bottom-0 w-full max-w-sm bg-white z-40 transform transition-all duration-300 ease-in-out lg:hidden overflow-y-auto shadow-2xl ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation menu"
       >
-        <div className="flex flex-col p-4 sm:p-6 space-y-1">
+        <div className="flex flex-col p-4 sm:p-6 space-y-1 min-h-full">
           {/* Home Link */}
           <button 
-            className="w-full text-left px-4 py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group"
+            className="w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group"
             onClick={() => {
               window.location.href = '/';
               setIsMobileMenuOpen(false);
             }}
           >
-            <span className="font-montserrat font-semibold text-base text-gray-900 group-hover:text-black">
+            <span className="font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black">
               Home
             </span>
           </button>
@@ -305,29 +388,68 @@ export default function Navbar() {
           
           {/* About Link */}
           <button 
-            className="w-full text-left px-4 py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group"
+            className="w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group"
             onClick={() => {
               window.location.href = '/about';
               setIsMobileMenuOpen(false);
             }}
           >
-            <span className="font-montserrat font-semibold text-base text-gray-900 group-hover:text-black">
+            <span className="font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black">
               About
             </span>
           </button>
           
-          {/* Mobile Programs Dropdown */}
+          {/* Programs Link */}
+          <button 
+            className="w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group"
+            onClick={() => {
+              window.location.href = '/programs';
+              setIsMobileMenuOpen(false);
+            }}
+          >
+            <span className="font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black">
+              Programs
+            </span>
+          </button>
+          
+          {/* Blog Link */}
+          <button 
+            className="w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group"
+            onClick={() => {
+              window.location.href = '/blog';
+              setIsMobileMenuOpen(false);
+            }}
+          >
+            <span className="font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black">
+              Blog
+            </span>
+          </button>
+          
+          {/* Resources Link */}
+          <button 
+            className="w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group"
+            onClick={() => {
+              window.location.href = '/resources';
+              setIsMobileMenuOpen(false);
+            }}
+          >
+            <span className="font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black">
+              Resources
+            </span>
+          </button>
+          
+          {/* Mobile Get Involved Dropdown */}
           <div className="border-t border-gray-200 pt-3 mt-3">
             <button 
-              className={`w-full flex items-center justify-between px-4 py-3.5 rounded-lg transition-colors duration-200 group ${
+              className={`w-full flex items-center justify-between px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg transition-colors duration-200 group ${
                 isProgramsDropdownOpen ? 'bg-gray-100' : 'hover:bg-gray-100 active:bg-gray-200'
               }`}
               onClick={toggleMobileProgramsDropdown}
               aria-expanded={isProgramsDropdownOpen}
               type="button"
             >
-              <span className="font-montserrat font-semibold text-base text-gray-900 group-hover:text-black">
-                Our Programs
+              <span className="font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black">
+                Get Involved
               </span>
               <svg 
                 width="22" 
@@ -350,21 +472,42 @@ export default function Navbar() {
               }`}
             >
               <div className="pl-2 space-y-1">
-                {['Digital Skillup Africa', 'Future Clan Bootcamp', 'Ladies-In Tech Africa', 'Skill-Up', 'Future Now', 'AI Now', 'Vista Africa'].map((program, idx) => (
-                  <button 
-                    key={idx}
-                    className="w-full text-left px-4 py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group"
-                    onClick={() => {
-                      window.location.href = `/${program.toLowerCase().replace(/\s+/g, '-')}`;
-                      setIsMobileMenuOpen(false);
-                      setIsProgramsDropdownOpen(false);
-                    }}
-                  >
-                    <span className="font-montserrat text-sm text-gray-700 group-hover:text-gray-900">
-                      {program}
-                    </span>
-                  </button>
-                ))}
+                <button 
+                  className="w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/getinvolved';
+                    setIsMobileMenuOpen(false);
+                    setIsProgramsDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900">
+                    Get Involved
+                  </span>
+                </button>
+                <button 
+                  className="w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/careers';
+                    setIsMobileMenuOpen(false);
+                    setIsProgramsDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900">
+                    Careers
+                  </span>
+                </button>
+                <button 
+                  className="w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/donate';
+                    setIsMobileMenuOpen(false);
+                    setIsProgramsDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900">
+                    Donate
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -372,14 +515,14 @@ export default function Navbar() {
           {/* Mobile Media Dropdown */}
           <div className="border-t border-gray-200 pt-3 mt-2">
             <button 
-              className={`w-full flex items-center justify-between px-4 py-3.5 rounded-lg transition-colors duration-200 group ${
+              className={`w-full flex items-center justify-between px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg transition-colors duration-200 group ${
                 isMediaDropdownOpen ? 'bg-gray-100' : 'hover:bg-gray-100 active:bg-gray-200'
               }`}
               onClick={toggleMobileMediaDropdown}
               aria-expanded={isMediaDropdownOpen}
               type="button"
             >
-              <span className="font-montserrat font-semibold text-base text-gray-900 group-hover:text-black">
+              <span className="font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black">
                 Media
               </span>
               <svg 
@@ -399,50 +542,99 @@ export default function Navbar() {
             
             <div 
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                isMediaDropdownOpen ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'
+                isMediaDropdownOpen ? 'max-h-48 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'
               }`}
             >
               <div className="pl-2 space-y-1">
-                {['Pictures', 'Videos'].map((item, idx) => (
-                  <button 
-                    key={idx}
-                    className="w-full text-left px-4 py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group"
-                    onClick={() => {
-                      window.location.href = `/${item.toLowerCase()}`;
-                      setIsMobileMenuOpen(false);
-                      setIsMediaDropdownOpen(false);
-                    }}
-                  >
-                    <span className="font-montserrat text-sm text-gray-700 group-hover:text-gray-900">
-                      {item}
-                    </span>
-                  </button>
-                ))}
+                <button 
+                  className="w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/gallery';
+                    setIsMobileMenuOpen(false);
+                    setIsMediaDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900">
+                    Gallery
+                  </span>
+                </button>
+                <button 
+                  className="w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/press';
+                    setIsMobileMenuOpen(false);
+                    setIsMediaDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900">
+                    Press
+                  </span>
+                </button>
+                <button 
+                  className="w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group"
+                  onClick={() => {
+                    window.location.href = '/testimonies';
+                    setIsMobileMenuOpen(false);
+                    setIsMediaDropdownOpen(false);
+                  }}
+                >
+                  <span className="font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900">
+                    Testimonies
+                  </span>
+                </button>
               </div>
             </div>
           </div>
           
+          {/* Teams Link */}
           <button 
-            className="w-full text-left px-4 py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 border-t border-gray-200 mt-3 pt-5 group"
+            className="w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group border-t border-gray-200 mt-3 pt-5"
+            onClick={() => {
+              window.location.href = '/teams';
+              setIsMobileMenuOpen(false);
+            }}
+          >
+            <span className="font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black">
+              Teams
+            </span>
+          </button>
+          
+          {/* FAQs Link */}
+          <button 
+            className="w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group"
+            onClick={() => {
+              window.location.href = '/faqs';
+              setIsMobileMenuOpen(false);
+            }}
+          >
+            <span className="font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black">
+              FAQs
+            </span>
+          </button>
+          
+          {/* Contact Link */}
+          <button 
+            className="w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group"
             onClick={() => {
               window.location.href = '/contact';
               setIsMobileMenuOpen(false);
             }}
           >
-            <span className="font-montserrat font-semibold text-base text-gray-900 group-hover:text-black">
-              Contact Us
+            <span className="font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black">
+              Contact
             </span>
           </button>
           
+          {/* Donate Button */}
           <button 
-            className="w-full px-5 py-3.5 rounded-lg bg-gray-900 hover:bg-gray-800 active:bg-gray-950 transition-all duration-200 mt-6 shadow-sm hover:shadow-md"
+            className="w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-lg bg-gray-900 hover:bg-gray-800 active:bg-gray-950 transition-all duration-200 mt-4 sm:mt-6 shadow-sm hover:shadow-md"
             onClick={() => {
-              window.location.href = '/sponsor';
+              window.location.href = '/donate';
               setIsMobileMenuOpen(false);
             }}
           >
-            <span className="font-inter font-semibold text-base text-white">
-              Sponsor
+            <span className="font-inter font-semibold text-sm sm:text-base text-white">
+              Donate
             </span>
           </button>
         </div>
