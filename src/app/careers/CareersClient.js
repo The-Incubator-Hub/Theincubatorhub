@@ -1,7 +1,6 @@
 "use client"
 
 import { useTina } from "tinacms/dist/react"
-import Navbar from "@/components/Navbar.js"
 import HeaderCareer from "@/components/HeaderCareer.js"
 import TeamIntro from "@/components/TeamIntro.js"
 import JobListings from "@/components/Job.js"
@@ -22,7 +21,6 @@ export default function CareersClient({ initialData, query, variables }) {
 
   return (
     <div>
-      <Navbar />
       <HeaderCareer 
         title={headerData.title}
         description={headerData.description}

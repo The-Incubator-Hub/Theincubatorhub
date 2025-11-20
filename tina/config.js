@@ -1926,6 +1926,12 @@ export default defineConfig({
                     label: "Button Icon",
                     description: "e.g., 'Mail', 'Bookmark'",
                   },
+                  {
+                    type: "string",
+                    name: "buttonLink",
+                    label: "Button Link",
+                    description: "Internal link for the card button (e.g., '/contact')",
+                  },
                 ],
               },
             ],

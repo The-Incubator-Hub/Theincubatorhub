@@ -75,33 +75,34 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 bg-white h-16 md:h-20 flex justify-between items-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-16 2xl:px-24 transition-shadow duration-300 ${
+      <nav className={`fixed top-0 left-0 right-0 z-50 bg-white h-16 md:h-20 transition-shadow duration-300 ${
         scrolled ? 'shadow-lg' : 'shadow-md'
       }`}>
-        {/* Logo */}
-        <div 
-          className="cursor-pointer transition-transform duration-300 hover:scale-105 flex-shrink-0 active:scale-95 max-w-[180px] sm:max-w-[220px] md:max-w-[252px] h-auto"
-          onClick={() => window.location.href = '/'}
-          role="button"
-          tabIndex="0"
-          aria-label="Go to home page"
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              window.location.href = '/';
-            }
-          }}
-        >
-          <img 
-            src="/images/Iogo_incubator.png" 
-            alt="Incubator Logo" 
-            className="w-full h-auto object-contain"
-            style={{ maxHeight: '26px' }}
-          />
-        </div>
-        
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12">
+          {/* Logo */}
+          <div 
+            className="cursor-pointer transition-transform duration-300 hover:scale-105 flex-shrink-0 active:scale-95 max-w-[180px] sm:max-w-[220px] md:max-w-[252px] h-auto"
+            onClick={() => window.location.href = '/'}
+            role="button"
+            tabIndex="0"
+            aria-label="Go to home page"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.location.href = '/';
+              }
+            }}
+          >
+            <img 
+              src="/images/Iogo_incubator.png" 
+              alt="Incubator Logo" 
+              className="w-full h-auto object-contain"
+              style={{ maxHeight: '26px' }}
+            />
+          </div>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
           <button 
             className="px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200"
             onClick={() => window.location.href = '/'}
@@ -322,33 +323,34 @@ export default function Navbar() {
               Donate
             </span>
           </button>
-        </div>
-
-        {/* Mobile Menu Toggle - Improved Hamburger */}
-        <button
-          className="lg:hidden p-2 -mr-1 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300 flex-shrink-0"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMobileMenuOpen}
-        >
-          <div className="w-6 h-5 flex flex-col justify-between">
-            <span 
-              className={`block h-0.5 w-full bg-gray-900 rounded-full transition-all duration-300 origin-center ${
-                isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
-              }`}
-            />
-            <span 
-              className={`block h-0.5 w-full bg-gray-900 rounded-full transition-all duration-300 ${
-                isMobileMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
-              }`}
-            />
-            <span 
-              className={`block h-0.5 w-full bg-gray-900 rounded-full transition-all duration-300 origin-center ${
-                isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
-              }`}
-            />
           </div>
-        </button>
+          
+          {/* Mobile Menu Toggle - Improved Hamburger */}
+          <button
+            className="lg:hidden p-2 -mr-1 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300 flex-shrink-0"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
+          >
+            <div className="w-6 h-5 flex flex-col justify-between">
+              <span 
+                className={`block h-0.5 w-full bg-gray-900 rounded-full transition-all duration-300 origin-center ${
+                  isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}
+              />
+              <span 
+                className={`block h-0.5 w-full bg-gray-900 rounded-full transition-all duration-300 ${
+                  isMobileMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
+                }`}
+              />
+              <span 
+                className={`block h-0.5 w-full bg-gray-900 rounded-full transition-all duration-300 origin-center ${
+                  isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}
+              />
+            </div>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu Overlay */}

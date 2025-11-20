@@ -156,7 +156,8 @@
         "title": "Free Consultation",
         "description": "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
         "buttonText": "Reach Out",
-        "buttonIcon": "Mail"
+        "buttonIcon": "Mail",
+        "buttonLink": "/contact"
       },
       {
         "icon": "Database",
@@ -164,7 +165,8 @@
         "title": "Read Our Press Releases",
         "description": "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
         "buttonText": "Read News",
-        "buttonIcon": "Bookmark"
+        "buttonIcon": "Bookmark",
+        "buttonLink": "/press"
       },
       {
         "icon": "Package",
@@ -172,7 +174,8 @@
         "title": "Read Our Blog Post",
         "description": "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
         "buttonText": "Read Article",
-        "buttonIcon": "Bookmark"
+        "buttonIcon": "Bookmark",
+        "buttonLink": "/blog"
       }
     ]
   }

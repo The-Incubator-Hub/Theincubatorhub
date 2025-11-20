@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Cpu, Database, Package, Mail, Bookmark } from 'lucide-react'
 
 function StillHaveQuestions({
@@ -14,7 +15,8 @@ function StillHaveQuestions({
       title: "Free Consultation",
       description: "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
       buttonText: "Reach Out",
-      buttonIcon: "Mail"
+      buttonIcon: "Mail",
+      buttonLink: "/contact"
     },
     {
       icon: "Database",
@@ -22,7 +24,8 @@ function StillHaveQuestions({
       title: "Read Our Press Releases",
       description: "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
       buttonText: "Read News",
-      buttonIcon: "Bookmark"
+      buttonIcon: "Bookmark",
+      buttonLink: "/press"
     },
     {
       icon: "Package",
@@ -30,7 +33,8 @@ function StillHaveQuestions({
       title: "Read Our Blog Post",
       description: "Donec mi lorem, consequat a quam nec, pellentesque pulvinar sem. Morbi lacus magna.",
       buttonText: "Read Article",
-      buttonIcon: "Bookmark"
+      buttonIcon: "Bookmark",
+      buttonLink: "/blog"
     }
   ]
 
@@ -96,10 +100,20 @@ function StillHaveQuestions({
                   </p>
                 )}
                 {card.buttonText && (
-                  <button className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
-                    <ButtonIconComponent className="w-5 h-5" />
-                    {card.buttonText}
-                  </button>
+                  card.buttonLink ? (
+                    <Link 
+                      href={card.buttonLink}
+                      className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors w-full justify-center"
+                    >
+                      <ButtonIconComponent className="w-5 h-5" />
+                      {card.buttonText}
+                    </Link>
+                  ) : (
+                    <button className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                      <ButtonIconComponent className="w-5 h-5" />
+                      {card.buttonText}
+                    </button>
+                  )
                 )}
               </div>
             )
