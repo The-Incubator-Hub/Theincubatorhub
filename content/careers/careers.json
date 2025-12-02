@@ -12,7 +12,7 @@
   "jobListings": {
     "jobs": [
       {
-        "title": "Senior Software Engineer",
+        "title": "Data Analyst ",
         "department": "Engineer",
         "location": "Lagos, Nigeria",
         "type": "Full-time",
@@ -61,4 +61,3 @@
     "backgroundImage": "/images/joinus.jpg"
   }
 }
-
