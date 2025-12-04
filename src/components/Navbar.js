@@ -234,7 +234,7 @@ export default function Navbar() {
           
           <button 
             className="px-4 xl:px-5 py-2.5 rounded-lg bg-gray-900 hover:bg-gray-800 active:bg-gray-950 transition-all duration-200 ml-2 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 active:translate-y-0"
-            onClick={() => window.location.href = '/sponsor'}
+            onClick={() => window.location.href = '/donate'}
           >
             <span className="font-inter font-semibold text-xs xl:text-sm text-white whitespace-nowrap">
               Sponsor

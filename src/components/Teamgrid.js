@@ -3,11 +3,23 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-export default function Teamgrid() {
+export default function Teamgrid({ members = [] }) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
   
-  const teamMembers = [
+  // Use provided members or fallback to default
+  const teamMembers = members.length > 0 ? members.map((member, index) => ({
+    id: index + 1,
+    name: member.name || "Team Member",
+    image: member.image || "/images/team/member1.png",
+    role: member.role || "Team Member",
+    socials: {
+      facebook: member.socials?.facebook || "#",
+      linkedin: member.socials?.linkedin || "#",
+      twitter: member.socials?.twitter || "#",
+      instagram: member.socials?.instagram || "#"
+    }
+  })) : [
     { 
       id: 1, 
       name: "Jean Wilson", 
@@ -151,7 +163,7 @@ export default function Teamgrid() {
         twitter: "#",
         instagram: "#"
       }
-    },
+    }
   ];
 
   const totalPages = Math.ceil(teamMembers.length / itemsPerPage);

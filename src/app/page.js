@@ -9,8 +9,8 @@ import TestimonialCarousel from "@/components/landing-page-components/Testimonia
 import PressReleases from "@/components/landing-page-components/PressReleases"
 export default function Home() {
   return (
-    <main>
-      <HeroSection /> 
+    <main className="bg-white">
+      <HeroSection />
       <AboutIncubator />
       <TrustedOrganizations />
       <WhyIncubator />

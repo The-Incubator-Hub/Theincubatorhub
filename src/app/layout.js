@@ -1,15 +1,14 @@
 import { Inter, Geist_Mono, Montserrat, Onest, Raleway, Lexend } from "next/font/google";
-import "./globals.css"; 
-import Navbar from "@/components/Navbar.js"; 
-import FooterR from "@/components/FooterR.js";  
-
+import "./globals.css";
+import Navbar from "@/components/Navbar.js";
+import FooterR from "@/components/FooterR.js";
 
 const inter = Inter({
   variable: "--font-inter",  
   subsets: ["latin"],  
 });
 
-const geistMono = Geist_Mono({  
+const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"], 
 });
