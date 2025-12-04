@@ -1,0 +1,78 @@
+{
+  "title": "AI Now",
+  "slug": "ai-now",
+  "showInNavbar": true,
+  "order": 6,
+  "programHeader": {
+    "title": "AI Now",
+    "description": "Master artificial intelligence and machine learning. From fundamentals to advanced applications, become an AI expert.",
+    "programs": [
+      { "name": "Machine Learning" },
+      { "name": "Deep Learning" },
+      { "name": "AI Ethics" }
+    ],
+    "stats": [
+      { "value": "800+", "label": "AI Learners" },
+      { "value": "100+", "label": "AI Projects" },
+      { "value": "88%", "label": "Employment Rate" }
+    ],
+    "images": [
+      {
+        "src": "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "alt": "AI and machine learning workshop"
+      }
+    ]
+  },
+  "learningPathway": {
+    "phases": [
+      {
+        "title": "AI Fundamentals",
+        "description": "Understand the basics of AI and ML",
+        "icon": "Lightbulb",
+        "color": "orange"
+      },
+      {
+        "title": "Model Development",
+        "description": "Build and train AI models",
+        "icon": "Target",
+        "color": "yellow"
+      },
+      {
+        "title": "AI Deployment",
+        "description": "Deploy AI solutions in production",
+        "icon": "Award",
+        "color": "green"
+      }
+    ],
+    "objectives": [
+      { "text": "Democratize AI education" },
+      { "text": "Build practical AI skills" },
+      { "text": "Promote ethical AI development" }
+    ],
+    "outcomes": [
+      { "icon": "Briefcase", "text": "AI engineering skills" },
+      { "icon": "Rocket", "text": "Deploy ML models" },
+      { "icon": "CheckCircle", "text": "Portfolio of AI projects" }
+    ]
+  },
+  "videoSection": {
+    "title": "Step into the World of AI",
+    "subtitle": "See how AI is transforming industries"
+  },
+  "partners": {
+    "title": "Our Partners"
+  },
+  "testimonials": {
+    "title": "AI Success Stories"
+  },
+  "gallery": {
+    "title": "AI Now Gallery",
+    "subtitle": "Exploring artificial intelligence together"
+  },
+  "ctaBanner": {
+    "title": "Begin Your AI Journey Today",
+    "description": "Learn the technology that's reshaping our world",
+    "buttonText": "Enroll Now"
+  }
+}
+

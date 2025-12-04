@@ -53,13 +53,31 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-white font-semibold mb-4">QUICK LINKS</h3>
             <ul className="space-y-5 text-sm text-[#838E9E]">
-              {['About', 'Get Involved', 'Contact Us', 'Our Partners', 'Our Team', 'Gallery'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="hover:text-white transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="/about" className="hover:text-white transition-colors">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="/getinvolved" className="hover:text-white transition-colors">
+                  Get Involved
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="hover:text-white transition-colors">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="/teams" className="hover:text-white transition-colors">
+                  Our Team
+                </a>
+              </li>
+              <li>
+                <a href="/gallery" className="hover:text-white transition-colors">
+                  Gallery
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -67,13 +85,36 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-white font-semibold mb-4">RESOURCES</h3>
             <ul className="space-y-5 text-sm text-[#838E9E]">
-              {['Blogs', 'FAQs', 'Testimonials', 'Careers', 'Press Release', 'Resources'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="hover:text-white transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="/blog" className="hover:text-white transition-colors">
+                  Blogs
+                </a>
+              </li>
+              <li>
+                <a href="/faqs" className="hover:text-white transition-colors">
+                  FAQs
+                </a>
+              </li>
+              <li>
+                <a href="/testimonies" className="hover:text-white transition-colors">
+                  Testimonials
+                </a>
+              </li>
+              <li>
+                <a href="/careers" className="hover:text-white transition-colors">
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a href="/press" className="hover:text-white transition-colors">
+                  Press Release
+                </a>
+              </li>
+              <li>
+                <a href="/resources" className="hover:text-white transition-colors">
+                  Resources
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -81,13 +122,21 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-white font-semibold mb-4">POLICIES</h3>
             <ul className="space-y-5 text-sm text-[#838E9E]">
-              {['Terms & Conditions', 'Privacy Policy', 'Policy'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="hover:text-white transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Terms & Conditions
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Policy
+                </a>
+              </li>
             </ul>
           </div>
 

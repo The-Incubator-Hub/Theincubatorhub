@@ -939,6 +939,347 @@ export default defineConfig({
         },
       },
       {
+        name: "programPage",
+        label: "Individual Programs",
+        path: "content/program-pages",
+        format: "json",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Program Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "slug",
+            label: "URL Slug",
+            description: "URL-friendly identifier (e.g., 'digital-skillup-africa')",
+            required: true,
+          },
+          {
+            type: "boolean",
+            name: "showInNavbar",
+            label: "Show in Navbar",
+            description: "Display this program in the 'Our Programs' dropdown menu",
+            default: true,
+          },
+          {
+            type: "number",
+            name: "order",
+            label: "Display Order",
+            description: "Order in the navbar dropdown (lower numbers appear first)",
+          },
+          {
+            type: "object",
+            name: "programHeader",
+            label: "Program Header Section",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Title",
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "object",
+                name: "programs",
+                label: "Program Tags",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "name",
+                    label: "Program Name",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "stats",
+                label: "Statistics",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "value",
+                    label: "Value",
+                  },
+                  {
+                    type: "string",
+                    name: "label",
+                    label: "Label",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "images",
+                label: "Header Images",
+                list: true,
+                fields: [
+                  {
+                    type: "image",
+                    name: "src",
+                    label: "Image",
+                  },
+                  {
+                    type: "string",
+                    name: "alt",
+                    label: "Alt Text",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "learningPathway",
+            label: "Learning Pathway Section",
+            fields: [
+              {
+                type: "object",
+                name: "phases",
+                label: "Phases",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                    required: true,
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Description",
+                    ui: { component: "textarea" },
+                  },
+                  {
+                    type: "string",
+                    name: "icon",
+                    label: "Icon Name",
+                    description: "e.g., 'Lightbulb', 'Target', 'Award'",
+                    options: ["Lightbulb", "Target", "Award", "CheckCircle", "Briefcase", "Users", "Rocket"],
+                  },
+                  {
+                    type: "string",
+                    name: "color",
+                    label: "Color",
+                    description: "e.g., 'orange', 'yellow', 'green'",
+                    options: ["orange", "yellow", "green"],
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "objectives",
+                label: "Objectives",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "text",
+                    label: "Objective Text",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "outcomes",
+                label: "Expected Outcomes",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "icon",
+                    label: "Icon Name",
+                    description: "e.g., 'Briefcase', 'Rocket', 'Users', 'CheckCircle'",
+                    options: ["Briefcase", "Rocket", "Users", "CheckCircle"],
+                  },
+                  {
+                    type: "string",
+                    name: "text",
+                    label: "Outcome Text",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "videoSection",
+            label: "Video Section",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Title",
+              },
+              {
+                type: "string",
+                name: "subtitle",
+                label: "Subtitle",
+              },
+              {
+                type: "image",
+                name: "imageUrl",
+                label: "Video Thumbnail Image",
+              },
+              {
+                type: "string",
+                name: "videoUrl",
+                label: "Video URL (YouTube or direct link)",
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "partners",
+            label: "Partners Section",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Title",
+              },
+              {
+                type: "object",
+                name: "partners",
+                label: "Partners",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "name",
+                    label: "Partner Name",
+                  },
+                  {
+                    type: "image",
+                    name: "logoUrl",
+                    label: "Logo",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "testimonials",
+            label: "Testimonials Section",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Title",
+              },
+              {
+                type: "object",
+                name: "testimonials",
+                label: "Testimonials",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "name",
+                    label: "Name",
+                    required: true,
+                  },
+                  {
+                    type: "string",
+                    name: "company",
+                    label: "Company",
+                  },
+                  {
+                    type: "image",
+                    name: "image",
+                    label: "Profile Image",
+                  },
+                  {
+                    type: "string",
+                    name: "text",
+                    label: "Testimonial Text",
+                    ui: { component: "textarea" },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "gallery",
+            label: "Gallery Section",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Title",
+              },
+              {
+                type: "string",
+                name: "subtitle",
+                label: "Subtitle",
+              },
+              {
+                type: "object",
+                name: "images",
+                label: "Images",
+                list: true,
+                fields: [
+                  {
+                    type: "image",
+                    name: "src",
+                    label: "Image",
+                  },
+                  {
+                    type: "string",
+                    name: "alt",
+                    label: "Alt Text",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "ctaBanner",
+            label: "CTA Banner Section",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Title",
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "buttonText",
+                label: "Button Text",
+              },
+              {
+                type: "image",
+                name: "backgroundImage",
+                label: "Background Image",
+              },
+            ],
+          },
+        ],
+        ui: {
+          router: ({ document }) => `/programs/${document.slug || document._sys.filename}`,
+        },
+      },
+      {
         name: "contact",
         label: "Contact Page",
         path: "content/contact",

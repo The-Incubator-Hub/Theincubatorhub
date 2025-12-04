@@ -1,0 +1,78 @@
+{
+  "title": "Vista Africa",
+  "slug": "vista-africa",
+  "showInNavbar": true,
+  "order": 7,
+  "programHeader": {
+    "title": "Vista Africa",
+    "description": "A comprehensive tech education initiative connecting African talent with global opportunities. Build skills, gain experience, and go global.",
+    "programs": [
+      { "name": "Remote Work Skills" },
+      { "name": "Global Collaboration" },
+      { "name": "Career Placement" }
+    ],
+    "stats": [
+      { "value": "1500+", "label": "Participants" },
+      { "value": "30", "label": "Partner Companies" },
+      { "value": "70%", "label": "International Placements" }
+    ],
+    "images": [
+      {
+        "src": "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "alt": "Vista Africa program participants"
+      }
+    ]
+  },
+  "learningPathway": {
+    "phases": [
+      {
+        "title": "Skills Development",
+        "description": "Master in-demand technical and soft skills",
+        "icon": "Lightbulb",
+        "color": "orange"
+      },
+      {
+        "title": "Global Exposure",
+        "description": "Work on international projects and teams",
+        "icon": "Target",
+        "color": "yellow"
+      },
+      {
+        "title": "Career Launch",
+        "description": "Connect with global employers and opportunities",
+        "icon": "Award",
+        "color": "green"
+      }
+    ],
+    "objectives": [
+      { "text": "Connect African talent with global opportunities" },
+      { "text": "Build cross-cultural competence" },
+      { "text": "Enable international careers" }
+    ],
+    "outcomes": [
+      { "icon": "Briefcase", "text": "Global career opportunities" },
+      { "icon": "Users", "text": "International network" },
+      { "icon": "Rocket", "text": "Remote work mastery" }
+    ]
+  },
+  "videoSection": {
+    "title": "Vista Africa: Your Gateway to Global Tech",
+    "subtitle": "Connecting African talent with the world"
+  },
+  "partners": {
+    "title": "Our Global Partners"
+  },
+  "testimonials": {
+    "title": "Global Success Stories"
+  },
+  "gallery": {
+    "title": "Vista Africa Gallery",
+    "subtitle": "Celebrating African tech talent on the global stage"
+  },
+  "ctaBanner": {
+    "title": "Take Your Tech Career Global",
+    "description": "Join Vista Africa and unlock international opportunities",
+    "buttonText": "Apply Today"
+  }
+}
+

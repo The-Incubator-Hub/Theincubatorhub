@@ -1,0 +1,78 @@
+{
+  "title": "Digital SkillUp Africa",
+  "slug": "digital-skillup-africa",
+  "showInNavbar": true,
+  "order": 1,
+  "programHeader": {
+    "title": "Digital SkillUp Africa",
+    "description": "Empowering African youth with essential digital skills for the modern workforce. Our comprehensive program covers web development, digital marketing, and entrepreneurship.",
+    "programs": [
+      { "name": "Web Development" },
+      { "name": "Digital Marketing" },
+      { "name": "Entrepreneurship" }
+    ],
+    "stats": [
+      { "value": "500+", "label": "Graduates" },
+      { "value": "15", "label": "Countries" },
+      { "value": "85%", "label": "Employment Rate" }
+    ],
+    "images": [
+      {
+        "src": "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "alt": "Students learning digital skills in Africa"
+      }
+    ]
+  },
+  "learningPathway": {
+    "phases": [
+      {
+        "title": "Foundation Phase",
+        "description": "Learn the basics of digital literacy and internet navigation",
+        "icon": "Lightbulb",
+        "color": "orange"
+      },
+      {
+        "title": "Skill Development",
+        "description": "Master essential digital skills for your chosen track",
+        "icon": "Target",
+        "color": "yellow"
+      },
+      {
+        "title": "Project Implementation",
+        "description": "Apply your skills in real-world projects",
+        "icon": "Award",
+        "color": "green"
+      }
+    ],
+    "objectives": [
+      { "text": "Bridge the digital divide across Africa" },
+      { "text": "Create employment opportunities for youth" },
+      { "text": "Foster digital entrepreneurship" }
+    ],
+    "outcomes": [
+      { "icon": "Briefcase", "text": "Job-ready digital skills" },
+      { "icon": "Rocket", "text": "Launch your digital career" },
+      { "icon": "Users", "text": "Join a network of digital professionals" }
+    ]
+  },
+  "videoSection": {
+    "title": "See Digital SkillUp Africa in Action",
+    "subtitle": "Watch how we're transforming lives across Africa"
+  },
+  "partners": {
+    "title": "Our Partners"
+  },
+  "testimonials": {
+    "title": "Success Stories"
+  },
+  "gallery": {
+    "title": "Digital SkillUp Africa Gallery",
+    "subtitle": "Highlights from our program"
+  },
+  "ctaBanner": {
+    "title": "Ready to Transform Your Digital Future?",
+    "description": "Join thousands of African youth who have already started their digital journey",
+    "buttonText": "Apply Now"
+  }
+}
+

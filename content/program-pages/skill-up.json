@@ -1,0 +1,78 @@
+{
+  "title": "Skill Up",
+  "slug": "skill-up",
+  "showInNavbar": true,
+  "order": 4,
+  "programHeader": {
+    "title": "Skill Up",
+    "description": "Accelerate your career with in-demand tech skills. Our flexible learning paths help you stay competitive in the fast-evolving tech industry.",
+    "programs": [
+      { "name": "Cloud Computing" },
+      { "name": "Mobile Development" },
+      { "name": "DevOps" }
+    ],
+    "stats": [
+      { "value": "2000+", "label": "Students" },
+      { "value": "50+", "label": "Courses" },
+      { "value": "95%", "label": "Satisfaction Rate" }
+    ],
+    "images": [
+      {
+        "src": "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "alt": "Professional skill development workshop"
+      }
+    ]
+  },
+  "learningPathway": {
+    "phases": [
+      {
+        "title": "Skill Assessment",
+        "description": "Identify your learning goals and skill gaps",
+        "icon": "Lightbulb",
+        "color": "orange"
+      },
+      {
+        "title": "Targeted Learning",
+        "description": "Follow personalized learning paths",
+        "icon": "Target",
+        "color": "yellow"
+      },
+      {
+        "title": "Certification",
+        "description": "Earn industry-recognized certifications",
+        "icon": "Award",
+        "color": "green"
+      }
+    ],
+    "objectives": [
+      { "text": "Provide accessible upskilling opportunities" },
+      { "text": "Keep pace with industry demands" },
+      { "text": "Enable career transitions" }
+    ],
+    "outcomes": [
+      { "icon": "CheckCircle", "text": "Industry certifications" },
+      { "icon": "Briefcase", "text": "Career advancement" },
+      { "icon": "Rocket", "text": "Continuous learning" }
+    ]
+  },
+  "videoSection": {
+    "title": "Transform Your Career with Skill Up",
+    "subtitle": "Learn from industry experts"
+  },
+  "partners": {
+    "title": "Our Partners"
+  },
+  "testimonials": {
+    "title": "Career Transformation Stories"
+  },
+  "gallery": {
+    "title": "Skill Up Gallery",
+    "subtitle": "See our learning community in action"
+  },
+  "ctaBanner": {
+    "title": "Ready to Level Up Your Tech Skills?",
+    "description": "Join thousands learning the skills that matter",
+    "buttonText": "Start Learning"
+  }
+}
+

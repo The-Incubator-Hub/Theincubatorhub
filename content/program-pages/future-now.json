@@ -1,0 +1,78 @@
+{
+  "title": "Future Now",
+  "slug": "future-now",
+  "showInNavbar": true,
+  "order": 5,
+  "programHeader": {
+    "title": "Future Now",
+    "description": "Prepare for the careers of tomorrow, today. Explore emerging technologies and build skills for the future of work.",
+    "programs": [
+      { "name": "Blockchain" },
+      { "name": "IoT" },
+      { "name": "Quantum Computing" }
+    ],
+    "stats": [
+      { "value": "500+", "label": "Participants" },
+      { "value": "10+", "label": "Tech Tracks" },
+      { "value": "80%", "label": "Project Completion" }
+    ],
+    "images": [
+      {
+        "src": "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "alt": "Future technologies workshop"
+      }
+    ]
+  },
+  "learningPathway": {
+    "phases": [
+      {
+        "title": "Future Exploration",
+        "description": "Discover emerging technologies and trends",
+        "icon": "Lightbulb",
+        "color": "orange"
+      },
+      {
+        "title": "Deep Dive",
+        "description": "Master cutting-edge technologies",
+        "icon": "Target",
+        "color": "yellow"
+      },
+      {
+        "title": "Innovation",
+        "description": "Create solutions for tomorrow's challenges",
+        "icon": "Award",
+        "color": "green"
+      }
+    ],
+    "objectives": [
+      { "text": "Explore emerging technologies" },
+      { "text": "Prepare for future careers" },
+      { "text": "Foster innovation mindset" }
+    ],
+    "outcomes": [
+      { "icon": "Rocket", "text": "Future-ready skills" },
+      { "icon": "Briefcase", "text": "Career advantage" },
+      { "icon": "CheckCircle", "text": "Innovation projects" }
+    ]
+  },
+  "videoSection": {
+    "title": "Discover the Future of Technology",
+    "subtitle": "Explore what's next in tech"
+  },
+  "partners": {
+    "title": "Our Partners"
+  },
+  "testimonials": {
+    "title": "Innovator Stories"
+  },
+  "gallery": {
+    "title": "Future Now Gallery",
+    "subtitle": "Building tomorrow's technology today"
+  },
+  "ctaBanner": {
+    "title": "Shape Your Future in Emerging Tech",
+    "description": "Don't wait for the future - create it",
+    "buttonText": "Get Started"
+  }
+}
+

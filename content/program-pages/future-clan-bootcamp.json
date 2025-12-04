@@ -1,0 +1,78 @@
+{
+  "title": "Future Clan Bootcamp",
+  "slug": "future-clan-bootcamp",
+  "showInNavbar": true,
+  "order": 2,
+  "programHeader": {
+    "title": "Future Clan Bootcamp",
+    "description": "An intensive bootcamp program designed to prepare the next generation of tech leaders. Learn coding, problem-solving, and innovation in a collaborative environment.",
+    "programs": [
+      { "name": "Full-Stack Development" },
+      { "name": "Problem Solving" },
+      { "name": "Innovation" }
+    ],
+    "stats": [
+      { "value": "300+", "label": "Alumni" },
+      { "value": "12 weeks", "label": "Duration" },
+      { "value": "90%", "label": "Success Rate" }
+    ],
+    "images": [
+      {
+        "src": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "alt": "Future Clan Bootcamp participants collaborating"
+      }
+    ]
+  },
+  "learningPathway": {
+    "phases": [
+      {
+        "title": "Fundamentals",
+        "description": "Master programming fundamentals and best practices",
+        "icon": "Lightbulb",
+        "color": "orange"
+      },
+      {
+        "title": "Advanced Development",
+        "description": "Build complex applications and work on team projects",
+        "icon": "Target",
+        "color": "yellow"
+      },
+      {
+        "title": "Career Launch",
+        "description": "Portfolio development and job placement support",
+        "icon": "Award",
+        "color": "green"
+      }
+    ],
+    "objectives": [
+      { "text": "Train world-class software developers" },
+      { "text": "Foster innovation and creativity" },
+      { "text": "Build a supportive tech community" }
+    ],
+    "outcomes": [
+      { "icon": "Briefcase", "text": "Industry-ready skills" },
+      { "icon": "Rocket", "text": "Launch your tech career" },
+      { "icon": "CheckCircle", "text": "Professional portfolio" }
+    ]
+  },
+  "videoSection": {
+    "title": "Experience Future Clan Bootcamp",
+    "subtitle": "See what makes our bootcamp unique"
+  },
+  "partners": {
+    "title": "Our Partners"
+  },
+  "testimonials": {
+    "title": "What Our Graduates Say"
+  },
+  "gallery": {
+    "title": "Future Clan Bootcamp Gallery",
+    "subtitle": "Watch video highlights of Future Clan Bootcamp 2024 through our lens"
+  },
+  "ctaBanner": {
+    "title": "Join the Future Clan Community",
+    "description": "Transform your passion for technology into a thriving career",
+    "buttonText": "Enroll Now"
+  }
+}
+

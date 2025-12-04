@@ -1,0 +1,78 @@
+{
+  "title": "Ladies in Tech Africa",
+  "slug": "ladies-in-tech-africa",
+  "showInNavbar": true,
+  "order": 3,
+  "programHeader": {
+    "title": "Ladies in Tech Africa",
+    "description": "Empowering African women to break barriers and excel in technology. Join a supportive community dedicated to closing the gender gap in tech.",
+    "programs": [
+      { "name": "Software Engineering" },
+      { "name": "Data Science" },
+      { "name": "Leadership" }
+    ],
+    "stats": [
+      { "value": "1000+", "label": "Women Trained" },
+      { "value": "20", "label": "Countries" },
+      { "value": "75%", "label": "Career Advancement" }
+    ],
+    "images": [
+      {
+        "src": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "alt": "Women in technology workshop"
+      }
+    ]
+  },
+  "learningPathway": {
+    "phases": [
+      {
+        "title": "Tech Foundation",
+        "description": "Build confidence and technical fundamentals",
+        "icon": "Lightbulb",
+        "color": "orange"
+      },
+      {
+        "title": "Skill Mastery",
+        "description": "Deep dive into your chosen tech specialization",
+        "icon": "Target",
+        "color": "yellow"
+      },
+      {
+        "title": "Leadership Development",
+        "description": "Develop leadership skills and mentor others",
+        "icon": "Award",
+        "color": "green"
+      }
+    ],
+    "objectives": [
+      { "text": "Close the gender gap in African tech" },
+      { "text": "Create role models and mentors" },
+      { "text": "Build inclusive tech communities" }
+    ],
+    "outcomes": [
+      { "icon": "Briefcase", "text": "Technical expertise" },
+      { "icon": "Users", "text": "Supportive network" },
+      { "icon": "Rocket", "text": "Leadership opportunities" }
+    ]
+  },
+  "videoSection": {
+    "title": "Meet Ladies in Tech Africa",
+    "subtitle": "Stories of women breaking barriers in technology"
+  },
+  "partners": {
+    "title": "Our Partners"
+  },
+  "testimonials": {
+    "title": "Success Stories from Our Community"
+  },
+  "gallery": {
+    "title": "Ladies in Tech Africa Gallery",
+    "subtitle": "Celebrating women in technology"
+  },
+  "ctaBanner": {
+    "title": "Join a Community of Inspiring Women in Tech",
+    "description": "Your journey to becoming a tech leader starts here",
+    "buttonText": "Join Us"
+  }
+}
+
