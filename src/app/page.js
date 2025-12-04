@@ -10,14 +10,14 @@ import PressReleases from "@/components/landing-page-components/PressReleases"
 export default function Home() {
   return (
     <main>
-      <HeroSection />
+      <HeroSection /> 
       <AboutIncubator />
       <TrustedOrganizations />
       <WhyIncubator />
       <Statistics />  
-      <BootcampsCarousel />
+      <BootcampsCarousel /> 
       <CTABanner />
-      <TestimonialCarousel />
+      <TestimonialCarousel /> 
       <PressReleases />
     </main>
   )

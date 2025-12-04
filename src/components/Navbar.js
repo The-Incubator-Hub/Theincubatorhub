@@ -150,7 +150,8 @@ export default function Navbar() {
                 <path d="M7 10L12 15L17 10H7Z" fill="currentColor" />
               </svg>
             </button>
-            
+
+
             {isProgramsDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 z-50 border border-gray-100 animate-fadeIn">
                 {['Digital Skillup Africa', 'Future Clan Bootcamp', 'Ladies-In Tech Africa', 'Skill-Up', 'Future Now', 'AI Now', 'Vista Africa'].map((program, idx) => (
