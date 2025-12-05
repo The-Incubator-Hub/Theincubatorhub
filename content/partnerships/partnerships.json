@@ -1,0 +1,113 @@
+{
+  "title": "Partnerships Page",
+  "heroSection": {
+    "tagline": "Partnerships",
+    "title": "Building the future of African tech education",
+    "highlightedWord": "together",
+    "description": "We collaborate with visionary organizations, industry leaders, and institutions who share our mission to transform lives through technology education across Africa.",
+    "ctaButtonText": "Become A Partner",
+    "ctaButtonLink": "/contact",
+    "images": [
+      {
+        "src": "/business-meeting-professionals.jpg",
+        "alt": "Business meeting with professionals"
+      },
+      {
+        "src": "/professional-team-collaboration-mentoring.jpg",
+        "alt": "Team standing together outdoors"
+      },
+      {
+        "src": "/team-collaboration-working-together.jpg",
+        "alt": "Team collaborating on project"
+      },
+      {
+        "src": "/handshake-partnership-agreement.jpg",
+        "alt": "Professional partnership handshake"
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Partnership Benefits",
+    "benefits": [
+      {
+        "icon": "Layers",
+        "iconColor": "text-pink-500",
+        "title": "Access To Top Talent",
+        "description": "Get first access to our graduates - skilled developers, data analyst, designers, and tech professionals ready to join your team."
+      },
+      {
+        "icon": "Book",
+        "iconColor": "text-green-600",
+        "title": "Custom Training Programs",
+        "description": "Work with us to design specialized training programs that meet your organization's specific needs and requirements."
+      },
+      {
+        "icon": "Heart",
+        "iconColor": "text-red-700",
+        "title": "Social Impact",
+        "description": "Make a meaningful difference by supporting the next generation of African tech leaders and entrepreneurs."
+      },
+      {
+        "icon": "TrendingUp",
+        "iconColor": "text-purple-700",
+        "title": "Brand Visibility",
+        "description": "Showcase your brand to thousands of aspiring tech professionals across Africa through our programs and events."
+      }
+    ]
+  },
+  "partners": {
+    "title": "Our Partners",
+    "partners": [
+      {
+        "name": "Windows",
+        "logo": "/windows.png",
+        "description": "Business communication and collaboration platform develop talent, and drive digital innovation across Africa and beyond."
+      },
+      {
+        "name": "AI Now",
+        "logo": "/ainow.png",
+        "description": "Partner with us to transform education, develop talent, and drive digital innovation across Africa and beyond."
+      },
+      {
+        "name": "Microsoft",
+        "logo": "/microsoft.png",
+        "description": "Cloud computing and enterprise software solutions develop talent, and drive digital innovation across Africa and beyond."
+      },
+      {
+        "name": "FG Nigeria",
+        "logo": "/fg-nigeria.png",
+        "description": "Global Business communication and collaboration pechnical roles talent, and drive digital innovation across Africa and beyond."
+      },
+      {
+        "name": "Google",
+        "logo": "/google.png",
+        "description": "Search technology and digital advertising platforms, Google and drive digital innovation across Africa and beyond."
+      },
+      {
+        "name": "Amazon Web Services",
+        "logo": "/aws.png",
+        "description": "Business communication and collaboration platform develop talent, and drive digital innovation across Africa and beyond."
+      },
+      {
+        "name": "GitHub",
+        "logo": "/github.png",
+        "description": "Partner with us to transform education, develop talent, and drive digital innovation across Africa and beyond."
+      },
+      {
+        "name": "Slack",
+        "logo": "/slack.png",
+        "description": "Cloud computing and enterprise software solutions develop talent, and drive digital innovation across Africa and beyond."
+      },
+      {
+        "name": "Avv Brand",
+        "logo": "/avv-brand.png",
+        "description": "Global Business communication and collaboration pechnical roles talent, and drive digital innovation across Africa and beyond."
+      }
+    ]
+  },
+  "teamIntro": {
+    "title": "Join Our Partnership Network",
+    "description": "Together, we can create lasting impact and transform the future of technology education in Africa. Partner with us to make a difference."
+  }
+}
+

@@ -2735,6 +2735,185 @@ export default defineConfig({
           router: () => `/testimonies`,
         },
       },
+      {
+        name: "partnerships",
+        label: "Partnerships Page",
+        path: "content/partnerships",
+        format: "json",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Page Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "object",
+            name: "heroSection",
+            label: "Hero Section",
+            fields: [
+              {
+                type: "string",
+                name: "tagline",
+                label: "Tagline",
+                description: "Small text above the main heading",
+              },
+              {
+                type: "string",
+                name: "title",
+                label: "Main Title",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "highlightedWord",
+                label: "Highlighted Word",
+                description: "Word to highlight with green background (e.g., 'together')",
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "ctaButtonText",
+                label: "CTA Button Text",
+              },
+              {
+                type: "string",
+                name: "ctaButtonLink",
+                label: "CTA Button Link",
+              },
+              {
+                type: "object",
+                name: "images",
+                label: "Hero Images",
+                list: true,
+                fields: [
+                  {
+                    type: "image",
+                    name: "src",
+                    label: "Image",
+                  },
+                  {
+                    type: "string",
+                    name: "alt",
+                    label: "Alt Text",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "benefits",
+            label: "Partnership Benefits Section",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Section Title",
+              },
+              {
+                type: "object",
+                name: "benefits",
+                label: "Benefits",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "icon",
+                    label: "Icon Name",
+                    description: "Lucide icon name (e.g., 'Layers', 'Book', 'Heart', 'TrendingUp')",
+                    options: ["Layers", "Book", "Heart", "TrendingUp", "Users", "Award", "Briefcase", "Target"],
+                  },
+                  {
+                    type: "string",
+                    name: "iconColor",
+                    label: "Icon Color",
+                    description: "Tailwind color class (e.g., 'text-green-600')",
+                  },
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Benefit Title",
+                    required: true,
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Benefit Description",
+                    ui: { component: "textarea" },
+                    required: true,
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "partners",
+            label: "Partner Logos Section",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Section Title",
+              },
+              {
+                type: "object",
+                name: "partners",
+                label: "Partners",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "name",
+                    label: "Partner Name",
+                    required: true,
+                  },
+                  {
+                    type: "image",
+                    name: "logo",
+                    label: "Partner Logo",
+                    required: true,
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Partner Description",
+                    ui: { component: "textarea" },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "teamIntro",
+            label: "Team Intro Section",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Title",
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: { component: "textarea" },
+              },
+            ],
+          },
+        ],
+        ui: {
+          router: () => `/partnerships`,
+        },
+      },
     ],
   },
 });

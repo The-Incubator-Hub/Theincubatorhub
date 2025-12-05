@@ -1,18 +1,25 @@
-'use client';
+import PartnershipsClient from "./PartnershipsClient"
+import client from "../../../tina/__generated__/client"
 
-import PartnershipsSection from "@/components/PartnershipsSection.js";
-import PartnershipBenefits from "@/components/PartnershipBenefits.js";
-import PartnerLogos from "@/components/PartnerLogos.js";
-import TeamIntro from "@/components/TeamIntro.js";
-export default function PartnershipsPage() {
+export default async function PartnershipsPage() {
+  let data = {}
+  let query = {}
+  let variables = { relativePath: "partnerships.json" }
+  
+  try {
+    const res = await client.queries.partnerships(variables)
+    query = res.query
+    data = res.data
+    variables = res.variables
+  } catch (error) {
+    console.error("Error fetching partnerships data:", error)
+  }
+
   return (
-    <div>
-      <PartnershipsSection />
-      <TeamIntro />
-      <PartnershipBenefits />
-      <TeamIntro />
-      <PartnerLogos />
-    </div>
-  );
+    <PartnershipsClient 
+      initialData={data}
+      query={query}
+      variables={variables}
+    />
+  )
 }
-
