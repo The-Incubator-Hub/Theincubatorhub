@@ -17,7 +17,7 @@ export default function AboutIncubator({
   reviewsCount = "8,000+ reviews"
 }) {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12 md:py-0">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-4 md:py-0">
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
         {/* Left Image Section */}
         <div className="relative flex flex-col items-center md:items-start order-2 md:order-none">

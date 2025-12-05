@@ -14,7 +14,7 @@ export default function TrustedOrganizations() {
   ]
 
   return (
-    <div className="bg-white px-4 py-12 md:py-20">
+    <div className="bg-white px-4 py-4 md:py-0">
       <div className="max-w-7xl mx-auto">
         {/* Container */}
         <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-8 md:gap-0">
