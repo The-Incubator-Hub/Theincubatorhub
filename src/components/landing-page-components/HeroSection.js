@@ -13,7 +13,7 @@ export default function HeroSection({
   image = "/team-collaboration-working-together.jpg"
 }) {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#4E4E50] to-black flex items-center justify-center px-4 py-12 md:py-0">
+    <div className="min-h-screen bg-gradient-to-r from-[#4E4E50] to-black flex items-center justify-center px-4 pt-32 md:pt-40 pb-12 md:pb-0">
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         {/* Left Content */}
         <div className="flex flex-col justify-center space-y-6">
