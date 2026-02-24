@@ -1,112 +1,96 @@
-import React from 'react';
+"use client";
+
+import { Instagram, Linkedin } from "lucide-react";
+import Image from "next/image";
 
 const TeamMembersSection = () => {
   const teamMembers = [
     {
-      id: 1,
-      name: "Jenny Wilson",
-      role: "CEO & Founder of Gilio",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      bgColor: "bg-amber-800"
+      name: "Olawale Olatujoye",
+      role: "Senior Manager, The Incubator Hub",
+      image: "/team/olawale.jpg",
+      instagram: "#",
+      linkedin: "#",
     },
     {
-      id: 2,
-      name: "Jenny Wilson",
-      role: "CEO & Founder of Gilio",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
-      bgColor: "bg-sky-400"
+      name: "Ayeni Temidayo",
+      role: "Programs Manager, The Incubator Hub",
+      image: "/team/ayeni.jpg",
+      instagram: "#",
+      linkedin: "#",
     },
     {
-      id: 3,
-      name: "Jenny Wilson",
-      role: "CEO & Founder of Gilio",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-      bgColor: "bg-gray-700"
+      name: "Michelle Adudu",
+      role: "Partnership Manager, The Incubator Hub",
+      image: "/team/michelle.jpg",
+      instagram: "#",
+      linkedin: "#",
     },
     {
-      id: 4,
-      name: "Jenny Wilson",
-      role: "CEO & Founder of Gilio",
-      image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop",
-      bgColor: "bg-gray-600"
+      name: "Zaccheaus Jame Toluwani",
+      role: "Technical Support, The Incubator Hub",
+      image: "/team/zaccheaus.jpg",
+      instagram: "#",
+      linkedin: "#",
     },
-    {
-      id: 5,
-      name: "Jenny Wilson",
-      role: "CEO & Founder of Gilio",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
-      bgColor: "bg-white"
-    },
-    {
-      id: 6,
-      name: "Jenny Wilson",
-      role: "CEO & Founder of Gilio",
-      image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop",
-      bgColor: "bg-amber-700"
-    },
-    {
-      id: 7,
-      name: "Jenny Wilson",
-      role: "CEO & Founder of Gilio",
-      image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=400&fit=crop",
-      bgColor: "bg-pink-200"
-    },
-    {
-      id: 8,
-      name: "Jenny Wilson",
-      role: "CEO & Founder of Gilio",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      bgColor: "bg-sky-500"
-    }
   ];
 
   return (
-    <div className="bg-orange-50 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
-          <div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
-              Say to our incredible<br />team members.
-            </h2>
-          </div>
-          <div className="max-w-md">
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Praesent sagittis eros in convallis rutrum. Donec auctor nibh justo. Vestibulum tincidunt, libero sit.
-            </p>
-          </div>
+    <section className='bg-white py-20 px-4 sm:px-6 lg:px-8'>
+      <div className='max-w-7xl mx-auto'>
+        {/* Header */}
+        <div className='text-center mb-16 max-w-3xl mx-auto'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 mb-6'>
+            We Have An Expert Team
+          </h2>
+          <p className='text-gray-600 text-base md:text-lg leading-relaxed'>
+            Behind The Incubator Hub is a passionate team of professionals
+            committed to nurturing talent, building opportunity, and shaping the
+            next generation of innovators and leaders. Each member brings a
+            unique blend of expertise, vision, and heart to the work we do.
+          </p>
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {teamMembers.map((member) => (
-            <div 
-              key={member.id}
-              className="group cursor-pointer"
-            >
-              {/* Image Container */}
-              <div className={`${member.bgColor} rounded-2xl overflow-hidden mb-4 aspect-[3/4] relative`}>
-                <img 
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10'>
+          {teamMembers.map((member, index) => (
+            <div key={index} className='text-center group'>
+              {/* Image */}
+              <div className='relative aspect-[3/4] rounded-2xl overflow-hidden shadow-sm mb-6'>
+                <Image
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  fill
+                  className='object-cover group-hover:scale-105 transition duration-300'
                 />
               </div>
-              
-              {/* Member Info */}
-              <div className="text-center">
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-gray-500">
-                  {member.role}
-                </p>
+
+              {/* Info */}
+              <h3 className='text-lg font-semibold text-gray-900'>
+                {member.name}
+              </h3>
+              <p className='text-sm text-gray-500 mb-4'>{member.role}</p>
+
+              {/* Social Links */}
+              <div className='flex justify-center gap-4'>
+                <a
+                  href={member.instagram}
+                  className='text-gray-400 hover:text-green-600 transition'
+                >
+                  <Instagram size={18} />
+                </a>
+                <a
+                  href={member.linkedin}
+                  className='text-gray-400 hover:text-green-600 transition'
+                >
+                  <Linkedin size={18} />
+                </a>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
