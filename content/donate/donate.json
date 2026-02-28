@@ -45,7 +45,7 @@
   },
   "bankTransfer": {
     "title": "Bank Transfer Details",
-    "description": "complete your support with a direct bank transfer",
+    "description": "Complete your support with a direct bank transfer",
     "nairaAccount": {
       "title": "Nigerian Naira Account",
       "description": "For local Nigeria transfer and local donations",
@@ -65,7 +65,8 @@
     "title": "Everyone Deserves The Chance To Learn Tech",
     "description": "Leading digital agency with solid design and development expertise. We build readymade websites, mobile applications, and elaborate online business services.",
     "buttonText": "Let's Work Together",
-    "backgroundImage": "/team-collaboration-working-together.jpg"
+    "backgroundImage": "/team-collaboration-working-together.jpg",
+    "buttonLink": "/contact"
   }
 }
 

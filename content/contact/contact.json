@@ -24,6 +24,7 @@
     "title": "Ready to Take the Next Step?",
     "description": "At The Incubator Hub, we believe talent is everywhere, opportunity should be too.\nSend us a message today and let’s create pathways to skills, jobs, and innovation.",
     "buttonText": "Send Us a Message →",
-    "backgroundImage": "/team-collaboration-working-together.jpg"
+    "backgroundImage": "/team-collaboration-working-together.jpg",
+    "buttonLink": "/contact"
   }
 }

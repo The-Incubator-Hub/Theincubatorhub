@@ -69,7 +69,8 @@ export default defineConfig({
             type: "string",
             name: "slug",
             label: "Slug",
-            description: "URL-friendly identifier (e.g., 'future-of-tech-education')",
+            description:
+              "URL-friendly identifier (e.g., 'future-of-tech-education')",
             required: true,
           },
           {
@@ -83,7 +84,7 @@ export default defineConfig({
               "Industry Insight",
               "Technology",
               "Cybersecurity",
-              "Industry Inclusivity"
+              "Industry Inclusivity",
             ],
           },
           {
@@ -194,7 +195,8 @@ export default defineConfig({
           },
         ],
         ui: {
-          router: ({ document }) => `/blogdetails/${document.slug || document._sys.filename}`,
+          router: ({ document }) =>
+            `/blogdetails/${document.slug || document._sys.filename}`,
         },
       },
       {
@@ -725,7 +727,15 @@ export default defineConfig({
                     name: "icon",
                     label: "Icon Name",
                     description: "e.g., 'Lightbulb', 'Target', 'Award'",
-                    options: ["Lightbulb", "Target", "Award", "CheckCircle", "Briefcase", "Users", "Rocket"],
+                    options: [
+                      "Lightbulb",
+                      "Target",
+                      "Award",
+                      "CheckCircle",
+                      "Briefcase",
+                      "Users",
+                      "Rocket",
+                    ],
                   },
                   {
                     type: "string",
@@ -759,7 +769,8 @@ export default defineConfig({
                     type: "string",
                     name: "icon",
                     label: "Icon Name",
-                    description: "e.g., 'Briefcase', 'Rocket', 'Users', 'CheckCircle'",
+                    description:
+                      "e.g., 'Briefcase', 'Rocket', 'Users', 'CheckCircle'",
                     options: ["Briefcase", "Rocket", "Users", "CheckCircle"],
                   },
                   {
@@ -955,21 +966,24 @@ export default defineConfig({
             type: "string",
             name: "slug",
             label: "URL Slug",
-            description: "URL-friendly identifier (e.g., 'digital-skillup-africa')",
+            description:
+              "URL-friendly identifier (e.g., 'digital-skillup-africa')",
             required: true,
           },
           {
             type: "boolean",
             name: "showInNavbar",
             label: "Show in Navbar",
-            description: "Display this program in the 'Our Programs' dropdown menu",
+            description:
+              "Display this program in the 'Our Programs' dropdown menu",
             default: true,
           },
           {
             type: "number",
             name: "order",
             label: "Display Order",
-            description: "Order in the navbar dropdown (lower numbers appear first)",
+            description:
+              "Order in the navbar dropdown (lower numbers appear first)",
           },
           {
             type: "object",
@@ -1066,7 +1080,15 @@ export default defineConfig({
                     name: "icon",
                     label: "Icon Name",
                     description: "e.g., 'Lightbulb', 'Target', 'Award'",
-                    options: ["Lightbulb", "Target", "Award", "CheckCircle", "Briefcase", "Users", "Rocket"],
+                    options: [
+                      "Lightbulb",
+                      "Target",
+                      "Award",
+                      "CheckCircle",
+                      "Briefcase",
+                      "Users",
+                      "Rocket",
+                    ],
                   },
                   {
                     type: "string",
@@ -1100,7 +1122,8 @@ export default defineConfig({
                     type: "string",
                     name: "icon",
                     label: "Icon Name",
-                    description: "e.g., 'Briefcase', 'Rocket', 'Users', 'CheckCircle'",
+                    description:
+                      "e.g., 'Briefcase', 'Rocket', 'Users', 'CheckCircle'",
                     options: ["Briefcase", "Rocket", "Users", "CheckCircle"],
                   },
                   {
@@ -1276,7 +1299,8 @@ export default defineConfig({
           },
         ],
         ui: {
-          router: ({ document }) => `/programs/${document.slug || document._sys.filename}`,
+          router: ({ document }) =>
+            `/programs/${document.slug || document._sys.filename}`,
         },
       },
       {
@@ -1520,13 +1544,15 @@ export default defineConfig({
                     type: "string",
                     name: "applyLink",
                     label: "Apply Now Link",
-                    description: "URL for the Apply Now button (e.g., /apply/senior-software-engineer or https://example.com/apply)",
+                    description:
+                      "URL for the Apply Now button (e.g., /apply/senior-software-engineer or https://example.com/apply)",
                   },
                   {
                     type: "string",
                     name: "viewDetailsLink",
                     label: "View Details Link",
-                    description: "URL for the View Details button (e.g., /careers/senior-software-engineer or https://example.com/job-details)",
+                    description:
+                      "URL for the View Details button (e.g., /careers/senior-software-engineer or https://example.com/job-details)",
                   },
                 ],
               },
@@ -1645,13 +1671,20 @@ export default defineConfig({
                     name: "icon",
                     label: "Icon Name",
                     description: "e.g., 'Heart', 'ThumbsUp', 'Users'",
-                    options: ["Heart", "ThumbsUp", "Users", "ArrowRight", "Check"],
+                    options: [
+                      "Heart",
+                      "ThumbsUp",
+                      "Users",
+                      "ArrowRight",
+                      "Check",
+                    ],
                   },
                   {
                     type: "string",
                     name: "iconBg",
                     label: "Icon Background Color",
-                    description: "Tailwind color class (e.g., 'bg-orange-500', 'bg-blue-500')",
+                    description:
+                      "Tailwind color class (e.g., 'bg-orange-500', 'bg-blue-500')",
                   },
                   {
                     type: "object",
@@ -1929,16 +1962,13 @@ export default defineConfig({
             isTitle: true,
             required: true,
           },
+
           {
             type: "object",
             name: "donateSection",
             label: "Donate Section (Hero)",
             fields: [
-              {
-                type: "string",
-                name: "heading",
-                label: "Heading",
-              },
+              { type: "string", name: "heading", label: "Heading" },
               {
                 type: "string",
                 name: "highlightedText",
@@ -1956,11 +1986,7 @@ export default defineConfig({
                 label: "Technology Tags",
                 list: true,
                 fields: [
-                  {
-                    type: "string",
-                    name: "name",
-                    label: "Technology Name",
-                  },
+                  { type: "string", name: "name", label: "Technology Name" },
                 ],
               },
               {
@@ -1969,16 +1995,8 @@ export default defineConfig({
                 label: "Statistics",
                 list: true,
                 fields: [
-                  {
-                    type: "string",
-                    name: "value",
-                    label: "Value",
-                  },
-                  {
-                    type: "string",
-                    name: "label",
-                    label: "Label",
-                  },
+                  { type: "string", name: "value", label: "Value" },
+                  { type: "string", name: "label", label: "Label" },
                 ],
               },
               {
@@ -1986,23 +2004,89 @@ export default defineConfig({
                 name: "studentsImpacted",
                 label: "Students Impacted Count",
               },
-              {
-                type: "image",
-                name: "image",
-                label: "Hero Image",
-              },
+              { type: "image", name: "image", label: "Hero Image" },
             ],
           },
+
+        
+          {
+            type: "object",
+            name: "volunteers",
+            label: "Volunteers Section",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "buttonText", label: "Button Text" },
+              { type: "string", name: "buttonLink", label: "Button Link" },
+            ],
+          },
+
+        
+          {
+            type: "object",
+            name: "partnership",
+            label: "Partnership & Sponsorship Section",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              {
+                type: "string",
+                name: "intro",
+                label: "Intro",
+                ui: { component: "textarea" },
+              },
+
+              {
+                type: "object",
+                name: "points",
+                label: "Partner With Us Points",
+                list: true,
+                fields: [{ type: "string", name: "text", label: "Point" }],
+              },
+
+              {
+                type: "string",
+                name: "benefitsTitle",
+                label: "Benefits Title",
+              },
+              {
+                type: "object",
+                name: "benefits",
+                label: "Benefits",
+                list: true,
+                fields: [{ type: "string", name: "text", label: "Benefit" }],
+              },
+
+              {
+                type: "string",
+                name: "opportunitiesTitle",
+                label: "Opportunities Title",
+              },
+              {
+                type: "object",
+                name: "opportunities",
+                label: "Opportunities",
+                list: true,
+                fields: [
+                  { type: "string", name: "text", label: "Opportunity" },
+                ],
+              },
+
+              { type: "string", name: "buttonText", label: "Button Text" },
+              { type: "string", name: "buttonLink", label: "Button Link" },
+            ],
+          },
+
           {
             type: "object",
             name: "donationForm",
             label: "Donation Form Section",
             fields: [
-              {
-                type: "string",
-                name: "title",
-                label: "Form Title",
-              },
+              { type: "string", name: "title", label: "Form Title" },
               {
                 type: "string",
                 name: "description",
@@ -2016,41 +2100,27 @@ export default defineConfig({
               },
             ],
           },
+
           {
             type: "object",
             name: "bankTransfer",
             label: "Bank Transfer Section",
             fields: [
-              {
-                type: "string",
-                name: "title",
-                label: "Section Title",
-              },
+              { type: "string", name: "title", label: "Section Title" },
               {
                 type: "string",
                 name: "description",
                 label: "Section Description",
               },
+
               {
                 type: "object",
                 name: "nairaAccount",
                 label: "Naira Account",
                 fields: [
-                  {
-                    type: "string",
-                    name: "title",
-                    label: "Account Title",
-                  },
-                  {
-                    type: "string",
-                    name: "description",
-                    label: "Description",
-                  },
-                  {
-                    type: "string",
-                    name: "bankName",
-                    label: "Bank Name",
-                  },
+                  { type: "string", name: "title", label: "Account Title" },
+                  { type: "string", name: "description", label: "Description" },
+                  { type: "string", name: "bankName", label: "Bank Name" },
                   {
                     type: "string",
                     name: "accountName",
@@ -2063,26 +2133,15 @@ export default defineConfig({
                   },
                 ],
               },
+
               {
                 type: "object",
                 name: "usdAccount",
                 label: "USD Account",
                 fields: [
-                  {
-                    type: "string",
-                    name: "title",
-                    label: "Account Title",
-                  },
-                  {
-                    type: "string",
-                    name: "description",
-                    label: "Description",
-                  },
-                  {
-                    type: "string",
-                    name: "bankName",
-                    label: "Bank Name",
-                  },
+                  { type: "string", name: "title", label: "Account Title" },
+                  { type: "string", name: "description", label: "Description" },
+                  { type: "string", name: "bankName", label: "Bank Name" },
                   {
                     type: "string",
                     name: "accountName",
@@ -2097,27 +2156,23 @@ export default defineConfig({
               },
             ],
           },
+
           {
             type: "object",
             name: "ctaBanner",
             label: "CTA Banner Section",
             fields: [
-              {
-                type: "string",
-                name: "title",
-                label: "Title",
-              },
+              { type: "string", name: "title", label: "Title" },
               {
                 type: "string",
                 name: "description",
                 label: "Description",
                 ui: { component: "textarea" },
               },
-              {
-                type: "string",
-                name: "buttonText",
-                label: "Button Text",
-              },
+              { type: "string", name: "buttonText", label: "Button Text" },
+
+              { type: "string", name: "buttonLink", label: "Button Link" },
+
               {
                 type: "image",
                 name: "backgroundImage",
@@ -2271,7 +2326,8 @@ export default defineConfig({
                     type: "string",
                     name: "buttonLink",
                     label: "Button Link",
-                    description: "Internal link for the card button (e.g., '/contact')",
+                    description:
+                      "Internal link for the card button (e.g., '/contact')",
                   },
                 ],
               },
@@ -2479,14 +2535,22 @@ export default defineConfig({
                     type: "string",
                     name: "icon",
                     label: "Icon Name",
-                    description: "e.g., 'CloudFolder', 'StackedBooks', 'BriefcaseIcon', 'CrossedWrenches', 'HandshakeIcon'",
-                    options: ["CloudFolder", "StackedBooks", "BriefcaseIcon", "CrossedWrenches", "HandshakeIcon"],
+                    description:
+                      "e.g., 'CloudFolder', 'StackedBooks', 'BriefcaseIcon', 'CrossedWrenches', 'HandshakeIcon'",
+                    options: [
+                      "CloudFolder",
+                      "StackedBooks",
+                      "BriefcaseIcon",
+                      "CrossedWrenches",
+                      "HandshakeIcon",
+                    ],
                   },
                   {
                     type: "boolean",
                     name: "highlighted",
                     label: "Highlighted",
-                    description: "Make this card highlighted (green background)",
+                    description:
+                      "Make this card highlighted (green background)",
                   },
                 ],
               },
@@ -2769,7 +2833,8 @@ export default defineConfig({
                 type: "string",
                 name: "highlightedWord",
                 label: "Highlighted Word",
-                description: "Word to highlight with green background (e.g., 'together')",
+                description:
+                  "Word to highlight with green background (e.g., 'together')",
               },
               {
                 type: "string",
@@ -2827,14 +2892,25 @@ export default defineConfig({
                     type: "string",
                     name: "icon",
                     label: "Icon Name",
-                    description: "Lucide icon name (e.g., 'Layers', 'Book', 'Heart', 'TrendingUp')",
-                    options: ["Layers", "Book", "Heart", "TrendingUp", "Users", "Award", "Briefcase", "Target"],
+                    description:
+                      "Lucide icon name (e.g., 'Layers', 'Book', 'Heart', 'TrendingUp')",
+                    options: [
+                      "Layers",
+                      "Book",
+                      "Heart",
+                      "TrendingUp",
+                      "Users",
+                      "Award",
+                      "Briefcase",
+                      "Target",
+                    ],
                   },
                   {
                     type: "string",
                     name: "iconColor",
                     label: "Icon Color",
-                    description: "Tailwind color class (e.g., 'text-green-600')",
+                    description:
+                      "Tailwind color class (e.g., 'text-green-600')",
                   },
                   {
                     type: "string",
