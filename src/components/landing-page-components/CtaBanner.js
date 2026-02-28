@@ -4,38 +4,31 @@ import Image from "next/image";
 
 export default function CTABanner() {
   return (
-    <div className='relative w-full h-96 md:h-[420px] overflow-hidden'>
-      {/* Background Image */}
+    <section className='relative w-full h-[420px] flex items-center justify-center overflow-hidden'>
       <Image
         src='/team-collaboration-working-together.jpg'
         alt='Young innovators collaborating'
         fill
         className='object-cover'
-        priority
       />
 
-      {/* Overlay */}
-      <div className='absolute inset-0 bg-black/60'></div>
+      <div className='absolute inset-0 bg-black/70' />
 
-      {/* Content */}
-      <div className='absolute inset-0 flex flex-col items-center justify-center px-4 text-center'>
-        <div className='max-w-3xl space-y-6'>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight'>
-            Ready to Get Started?
-          </h2>
+      <div className='relative z-10 text-center px-6 max-w-3xl space-y-6'>
+        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white'>
+          Ready to Take the Next Step?
+        </h2>
 
-          <p className='text-base md:text-lg text-gray-200 leading-relaxed max-w-2xl mx-auto'>
-            Join thousands of young innovators across Africa who are building
-            meaningful tech careers with Incubator.
-          </p>
+        <p className='text-gray-300 text-base md:text-lg leading-relaxed'>
+          At The Incubator Hub, we believe talent is everywhere — opportunity
+          should be too. Send us a message today and let’s create pathways to
+          skills, jobs, and innovation.
+        </p>
 
-          <div className='pt-4'>
-            <button className='bg-[#22C55E] hover:bg-[#16A34A] text-white px-8 md:px-10 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-colors inline-flex items-center gap-2'>
-              Apply to a Program →
-            </button>
-          </div>
-        </div>
+        <button className='bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold transition-all'>
+          Contact Our Team →
+        </button>
       </div>
-    </div>
+    </section>
   );
 }
