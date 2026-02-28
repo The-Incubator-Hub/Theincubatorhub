@@ -12,6 +12,7 @@ export default function Navbar({ programs = [] }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileOurProgramsOpen, setIsMobileOurProgramsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   const aboutDropdownRef = useRef(null);
   const ourProgramsDropdownRef = useRef(null);
 
@@ -30,9 +31,7 @@ export default function Navbar({ programs = [] }) {
 
   // Handle scroll for navbar shadow
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -57,7 +56,6 @@ export default function Navbar({ programs = [] }) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
-      // Reset dropdowns when menu closes
       setIsProgramsDropdownOpen(false);
       setIsMediaDropdownOpen(false);
       setIsMobileOurProgramsOpen(false);
@@ -67,7 +65,6 @@ export default function Navbar({ programs = [] }) {
   // Close dropdowns when clicking outside (desktop only)
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Only apply click-outside logic on desktop (when mobile menu is closed)
       if (!isMobileMenuOpen) {
         if (
           ourProgramsDropdownRef.current &&
@@ -102,7 +99,7 @@ export default function Navbar({ programs = [] }) {
             className='cursor-pointer transition-transform duration-300 hover:scale-105 flex-shrink-0 active:scale-95 max-w-[180px] sm:max-w-[220px] md:max-w-[252px] h-auto'
             onClick={() => (window.location.href = "/")}
             role='button'
-            tabIndex='0'
+            tabIndex={0}
             aria-label='Go to home page'
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
@@ -130,12 +127,11 @@ export default function Navbar({ programs = [] }) {
                 onClick={() => {
                   setIsAboutDropdownOpen(!isAboutDropdownOpen);
                   setIsOurProgramsDropdownOpen(false);
-                  if (isAboutDropdownOpen) {
-                    setIsMediaSubDropdownOpen(false);
-                  }
+                  if (isAboutDropdownOpen) setIsMediaSubDropdownOpen(false);
                 }}
                 aria-expanded={isAboutDropdownOpen}
                 aria-haspopup='true'
+                type='button'
               >
                 <span className='font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap'>
                   About
@@ -163,18 +159,23 @@ export default function Navbar({ programs = [] }) {
                       window.location.href = "/about";
                       setIsAboutDropdownOpen(false);
                     }}
+                    type='button'
                   >
                     <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                       About Us
                     </span>
                   </button>
+
                   {/* Media Nested Dropdown */}
                   <div
                     className='relative'
                     onMouseEnter={() => setIsMediaSubDropdownOpen(true)}
                     onMouseLeave={() => setIsMediaSubDropdownOpen(false)}
                   >
-                    <button className='w-full h-11 flex items-center justify-between px-4 hover:bg-green-50 transition-colors duration-150 group'>
+                    <button
+                      className='w-full h-11 flex items-center justify-between px-4 hover:bg-green-50 transition-colors duration-150 group'
+                      type='button'
+                    >
                       <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                         Media
                       </span>
@@ -199,11 +200,13 @@ export default function Navbar({ programs = [] }) {
                             setIsAboutDropdownOpen(false);
                             setIsMediaSubDropdownOpen(false);
                           }}
+                          type='button'
                         >
                           <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                             Press
                           </span>
                         </button>
+
                         <button
                           className='w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group'
                           onClick={() => {
@@ -211,11 +214,13 @@ export default function Navbar({ programs = [] }) {
                             setIsAboutDropdownOpen(false);
                             setIsMediaSubDropdownOpen(false);
                           }}
+                          type='button'
                         >
                           <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                             Gallery
                           </span>
                         </button>
+
                         <button
                           className='w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group'
                           onClick={() => {
@@ -223,6 +228,7 @@ export default function Navbar({ programs = [] }) {
                             setIsAboutDropdownOpen(false);
                             setIsMediaSubDropdownOpen(false);
                           }}
+                          type='button'
                         >
                           <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                             Testimonials
@@ -231,12 +237,14 @@ export default function Navbar({ programs = [] }) {
                       </div>
                     )}
                   </div>
+
                   <button
                     className='w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group'
                     onClick={() => {
                       window.location.href = "/teams";
                       setIsAboutDropdownOpen(false);
                     }}
+                    type='button'
                   >
                     <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                       Teams
@@ -245,6 +253,7 @@ export default function Navbar({ programs = [] }) {
                 </div>
               )}
             </div>
+
             {/* Our Programs Dropdown */}
             <div className='relative' ref={ourProgramsDropdownRef}>
               <button
@@ -259,6 +268,7 @@ export default function Navbar({ programs = [] }) {
                 }}
                 aria-expanded={isOurProgramsDropdownOpen}
                 aria-haspopup='true'
+                type='button'
               >
                 <span className='font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap'>
                   Our Programs
@@ -289,6 +299,7 @@ export default function Navbar({ programs = [] }) {
                           window.location.href = `/programs/${program.slug}`;
                           setIsOurProgramsDropdownOpen(false);
                         }}
+                        type='button'
                       >
                         <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                           {program.title}
@@ -303,34 +314,45 @@ export default function Navbar({ programs = [] }) {
                 </div>
               )}
             </div>
+
+            {/* ✅ FIXED: Get Involved should go to /getinvolved */}
             <button
               className='px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200'
-              onClick={() => (window.location.href = "/resources")}
+              onClick={() => (window.location.href = "/getinvolved")}
+              type='button'
             >
               <span className='font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap'>
                 Get Involved
               </span>
             </button>
+
+            {/* Resources */}
             <button
               className='px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200'
               onClick={() => (window.location.href = "/resources")}
+              type='button'
             >
               <span className='font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap'>
                 Resources
               </span>
             </button>
+
+            {/* Contact Us */}
             <button
               className='px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200'
               onClick={() => (window.location.href = "/contact")}
+              type='button'
             >
               <span className='font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap'>
                 Contact Us
               </span>
             </button>
 
+            {/* Donate */}
             <button
               className='px-4 xl:px-5 py-2.5 rounded-lg bg-gray-900 hover:bg-gray-800 active:bg-gray-950 transition-all duration-200 ml-2 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 active:translate-y-0'
               onClick={() => (window.location.href = "/donate")}
+              type='button'
             >
               <span className='font-inter font-semibold text-xs xl:text-sm text-white whitespace-nowrap'>
                 Donate
@@ -338,12 +360,13 @@ export default function Navbar({ programs = [] }) {
             </button>
           </div>
 
-          {/* Mobile Menu Toggle - Improved Hamburger */}
+          {/* Mobile Menu Toggle */}
           <button
             className='lg:hidden p-2 -mr-1 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300 flex-shrink-0'
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
+            type='button'
           >
             <div className='w-6 h-5 flex flex-col justify-between'>
               <span
@@ -394,14 +417,14 @@ export default function Navbar({ programs = [] }) {
               window.location.href = "/";
               setIsMobileMenuOpen(false);
             }}
+            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               Home
             </span>
           </button>
 
-          {/* Separator Line */}
-          <div className='border-t border-gray-200 my-1'></div>
+          <div className='border-t border-gray-200 my-1' />
 
           {/* About Link */}
           <button
@@ -410,6 +433,7 @@ export default function Navbar({ programs = [] }) {
               window.location.href = "/about";
               setIsMobileMenuOpen(false);
             }}
+            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               About
@@ -464,6 +488,7 @@ export default function Navbar({ programs = [] }) {
                         setIsMobileMenuOpen(false);
                         setIsMobileOurProgramsOpen(false);
                       }}
+                      type='button'
                     >
                       <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                         {program.title}
@@ -486,6 +511,7 @@ export default function Navbar({ programs = [] }) {
               window.location.href = "/blog";
               setIsMobileMenuOpen(false);
             }}
+            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               Blog
@@ -499,6 +525,7 @@ export default function Navbar({ programs = [] }) {
               window.location.href = "/resources";
               setIsMobileMenuOpen(false);
             }}
+            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               Resources
@@ -550,11 +577,13 @@ export default function Navbar({ programs = [] }) {
                     setIsMobileMenuOpen(false);
                     setIsProgramsDropdownOpen(false);
                   }}
+                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Get Involved
                   </span>
                 </button>
+
                 <button
                   className='w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
                   onClick={() => {
@@ -562,11 +591,13 @@ export default function Navbar({ programs = [] }) {
                     setIsMobileMenuOpen(false);
                     setIsProgramsDropdownOpen(false);
                   }}
+                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Careers
                   </span>
                 </button>
+
                 <button
                   className='w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
                   onClick={() => {
@@ -574,6 +605,7 @@ export default function Navbar({ programs = [] }) {
                     setIsMobileMenuOpen(false);
                     setIsProgramsDropdownOpen(false);
                   }}
+                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Donate
@@ -628,11 +660,13 @@ export default function Navbar({ programs = [] }) {
                     setIsMobileMenuOpen(false);
                     setIsMediaDropdownOpen(false);
                   }}
+                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Gallery
                   </span>
                 </button>
+
                 <button
                   className='w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
                   onClick={() => {
@@ -640,11 +674,13 @@ export default function Navbar({ programs = [] }) {
                     setIsMobileMenuOpen(false);
                     setIsMediaDropdownOpen(false);
                   }}
+                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Press
                   </span>
                 </button>
+
                 <button
                   className='w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
                   onClick={() => {
@@ -652,6 +688,7 @@ export default function Navbar({ programs = [] }) {
                     setIsMobileMenuOpen(false);
                     setIsMediaDropdownOpen(false);
                   }}
+                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Testimonies
@@ -668,6 +705,7 @@ export default function Navbar({ programs = [] }) {
               window.location.href = "/teams";
               setIsMobileMenuOpen(false);
             }}
+            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               Teams
@@ -681,6 +719,7 @@ export default function Navbar({ programs = [] }) {
               window.location.href = "/faqs";
               setIsMobileMenuOpen(false);
             }}
+            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               FAQs
@@ -694,6 +733,7 @@ export default function Navbar({ programs = [] }) {
               window.location.href = "/contact";
               setIsMobileMenuOpen(false);
             }}
+            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               Contact
@@ -707,6 +747,7 @@ export default function Navbar({ programs = [] }) {
               window.location.href = "/donate";
               setIsMobileMenuOpen(false);
             }}
+            type='button'
           >
             <span className='font-inter font-semibold text-sm sm:text-base text-white'>
               Donate
