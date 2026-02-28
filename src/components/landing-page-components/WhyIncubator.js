@@ -97,24 +97,6 @@ export default function WhyIncubator() {
             </div>
           </div>
         </div>
-
-        {/* CTA */}
-        <div className='pt-16 space-y-3'>
-          <h4 className='text-lg font-bold text-black'>
-            Ready to Get Started?
-          </h4>
-
-          <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
-            <p className='text-gray-600 text-sm md:text-base'>
-              Join thousands of young innovators across Africa who are building
-              meaningful tech careers with Incubator.
-            </p>
-
-            <div className='bg-black px-6 py-3 rounded-lg text-white font-semibold cursor-pointer hover:bg-gray-900 transition'>
-              Apply to a Program →
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
