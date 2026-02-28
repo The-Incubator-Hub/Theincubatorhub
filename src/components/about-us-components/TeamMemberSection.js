@@ -27,7 +27,7 @@ const TeamMembersSection = () => {
       linkedin: "#",
     },
     {
-      name: "Zaccheaus Jame Toluwani",
+      name: "Zaccheaus James Toluwani",
       role: "Technical Support, The Incubator Hub",
       image: "/team/zaccheaus.jpg",
       instagram: "#",

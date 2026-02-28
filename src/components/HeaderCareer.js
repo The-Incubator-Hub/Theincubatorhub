@@ -1,19 +1,27 @@
 import Image from "next/image";
 
-export default function HeaderCareer({ title, description, backgroundImage }) {
+export default function HeaderCareer({
+  title = "About Us",
+  description = "",
+  backgroundImage = "/team-collaboration-working-together.jpg",
+}) {
   const lines = description?.split("\n") || [];
   const subtitle = lines[0];
   const rest = lines.slice(1);
 
   return (
     <section className='relative w-full h-[400px] md:h-[440px] flex items-center justify-center overflow-hidden'>
-      <Image
-        src={backgroundImage}
-        alt='Page Hero Background'
-        fill
-        priority
-        className='object-cover object-center'
-      />
+      {backgroundImage ? (
+        <Image
+          src={backgroundImage}
+          alt='Page Hero Background'
+          fill
+          priority
+          className='object-cover object-center'
+        />
+      ) : (
+        <div className='absolute inset-0 bg-black' />
+      )}
 
       <div className='absolute inset-0 bg-black/60' />
 

@@ -518,23 +518,42 @@ export default defineConfig({
         },
       },
       {
-        name: "about",
-        label: "About Page",
-        path: "content/about",
-        format: "json",
-        fields: [
-          {
-            type: "string",
-            name: "title",
-            label: "Page Title",
-            isTitle: true,
-            required: true,
-          },
-        ],
-        ui: {
-          router: () => `/about`,
+  name: "about",
+  label: "About Page",
+  path: "content/about",
+  format: "json",
+  fields: [
+    {
+      type: "string",
+      name: "title",
+      label: "Page Title",
+      isTitle: true,
+      required: true,
+    },
+    {
+      type: "object",
+      name: "header",
+      label: "Header Section",
+      fields: [
+        { type: "string", name: "title", label: "Title", required: true },
+        {
+          type: "string",
+          name: "description",
+          label: "Description",
+          ui: { component: "textarea" },
         },
-      },
+        {
+          type: "image",
+          name: "backgroundImage",
+          label: "Background Image",
+        },
+      ],
+    },
+  ],
+  ui: {
+    router: () => `/about`,
+  },
+}
       {
         name: "blog",
         label: "Blog Page",

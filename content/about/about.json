@@ -1,4 +1,8 @@
 {
-  "title": "About Page"
+  "title": "About Page",
+  "header": {
+    "title": "About Us",
+    "description": "We empower the next generation of African tech leaders.\nHands-on training, mentorship, and innovation-driven programs.",
+    "backgroundImage": "/team-collaboration-working-together.jpg"
+  }
 }
-
