@@ -553,7 +553,7 @@ export default defineConfig({
   ui: {
     router: () => `/about`,
   },
-}
+},
       {
         name: "blog",
         label: "Blog Page",
@@ -1376,6 +1376,24 @@ export default defineConfig({
               },
               {
                 type: "string",
+                name: "reachOutTitle",
+                label: "Reach Out Card Title",
+              },
+              {
+                type: "object",
+                name: "reachOutItems",
+                label: "Reach Out Items",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "text",
+                    label: "Item Text",
+                  },
+                ],
+              },
+              {
+                type: "string",
                 name: "email",
                 label: "Email Address",
               },
@@ -1396,6 +1414,39 @@ export default defineConfig({
               },
               {
                 type: "object",
+                name: "contactLabels",
+                label: "Contact Labels",
+                fields: [
+                  {
+                    type: "string",
+                    name: "emailLabel",
+                    label: "Email Label",
+                  },
+                  {
+                    type: "string",
+                    name: "phoneLabel",
+                    label: "Phone Label",
+                  },
+                  {
+                    type: "string",
+                    name: "locationLabel",
+                    label: "Location Label",
+                  },
+                ],
+              },
+              {
+                type: "string",
+                name: "socialTitle",
+                label: "Social Section Title",
+              },
+              {
+                type: "string",
+                name: "socialDescription",
+                label: "Social Section Description",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "object",
                 name: "socialMedia",
                 label: "Social Media Links",
                 fields: [
@@ -1411,6 +1462,11 @@ export default defineConfig({
                   },
                   {
                     type: "string",
+                    name: "x",
+                    label: "X URL",
+                  },
+                  {
+                    type: "string",
                     name: "linkedin",
                     label: "LinkedIn URL",
                   },
@@ -1423,6 +1479,79 @@ export default defineConfig({
                     type: "string",
                     name: "youtube",
                     label: "YouTube URL",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "formLabels",
+                label: "Form Labels and Placeholders",
+                fields: [
+                  {
+                    type: "string",
+                    name: "nameLabel",
+                    label: "Name Label",
+                  },
+                  {
+                    type: "string",
+                    name: "namePlaceholder",
+                    label: "Name Placeholder",
+                  },
+                  {
+                    type: "string",
+                    name: "emailLabel",
+                    label: "Email Label",
+                  },
+                  {
+                    type: "string",
+                    name: "emailPlaceholder",
+                    label: "Email Placeholder",
+                  },
+                  {
+                    type: "string",
+                    name: "phoneLabel",
+                    label: "Phone Label",
+                  },
+                  {
+                    type: "string",
+                    name: "phonePlaceholder",
+                    label: "Phone Placeholder",
+                  },
+                  {
+                    type: "string",
+                    name: "subjectLabel",
+                    label: "Subject Label",
+                  },
+                  {
+                    type: "string",
+                    name: "subjectPlaceholder",
+                    label: "Subject Placeholder",
+                  },
+                  {
+                    type: "string",
+                    name: "messageLabel",
+                    label: "Message Label",
+                  },
+                  {
+                    type: "string",
+                    name: "messagePlaceholder",
+                    label: "Message Placeholder",
+                  },
+                  {
+                    type: "string",
+                    name: "sendButtonText",
+                    label: "Send Button Text",
+                  },
+                  {
+                    type: "string",
+                    name: "submittingButtonText",
+                    label: "Submitting Button Text",
+                  },
+                  {
+                    type: "string",
+                    name: "defaultStatusMessage",
+                    label: "Default Status Message",
+                    ui: { component: "textarea" },
                   },
                 ],
               },
