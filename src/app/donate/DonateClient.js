@@ -6,7 +6,7 @@ import BankTransferSection from "@/components/donate-components/BankTransferSect
 import DonateSection from "@/components/donate-components/DonateSection";
 import DonationForm from "@/components/donate-components/DonationForm";
 import PartnershipSection from "@/components/donate-components/PartnershipSection";
-import VolunteersSection from "@/components/donate-components/volunteersSection";
+import VolunteersSection from "@/components/donate-components/VolunteersSection";
 import CTABanner from "@/components/landing-page-components/CtaBanner";
 
 export default function DonateClient({ initialData, query, variables }) {

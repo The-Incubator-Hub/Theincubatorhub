@@ -6,7 +6,7 @@ const ResumeCTA = ({
   title = "Don't see the Perfect Role?",
   description = "We're always looking for talented individuals who share our passion for education and technology. Send us your resume and let's start a conversation.",
   buttonText = "Send Us Your Resume",
-  buttonLink = "/submit-resume",
+  buttonLink = "/contact",
   backgroundImage = "/images/joinus.jpg"
 }) => {
   return (

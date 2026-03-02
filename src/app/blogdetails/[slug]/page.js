@@ -1,5 +1,6 @@
 import BlogDetailsClient from "./BlogDetailsClient"
 import client from "../../../../tina/__generated__/client"
+import { notFound } from "next/navigation"
 
 export async function generateStaticParams() {
   try {
@@ -42,6 +43,10 @@ export default async function BlogDetailsPage({ params }) {
     }
   }
 
+  if (!data?.blogPost) {
+    notFound()
+  }
+
   return (
     <BlogDetailsClient 
       initialData={data}
@@ -50,5 +55,4 @@ export default async function BlogDetailsPage({ params }) {
     />
   )
 }
-
 

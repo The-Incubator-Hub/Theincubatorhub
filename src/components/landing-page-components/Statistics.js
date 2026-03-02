@@ -1,7 +1,10 @@
 "use client";
 
-export default function Statistics() {
-  const stats = [
+export default function Statistics({
+  title = "Platform Impact Metrics",
+  stats: propsStats = [],
+}) {
+  const defaultStats = [
     {
       number: "185,034+",
       label: "Direct Beneficiaries",
@@ -19,12 +22,13 @@ export default function Statistics() {
       label: "African Cities Impacted",
     },
   ];
+  const stats = propsStats.length > 0 ? propsStats : defaultStats;
 
   return (
     <div className='bg-[#141414] px-4 py-16 md:py-24'>
       <div className='max-w-7xl mx-auto'>
         <h2 className='text-3xl md:text-4xl lg:text-5xl font-normal text-white text-center mb-12 md:mb-16'>
-          Platform Impact Metrics
+          {title}
         </h2>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6'>

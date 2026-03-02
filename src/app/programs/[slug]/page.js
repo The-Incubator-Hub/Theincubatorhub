@@ -1,5 +1,6 @@
 import ProgramPageClient from "./ProgramPageClient"
 import client from "../../../../tina/__generated__/client"
+import { notFound } from "next/navigation"
 
 export async function generateStaticParams() {
   try {
@@ -28,16 +29,23 @@ export default async function ProgramPage({ params }) {
       (edge) => (edge.node.slug || edge.node._sys.filename.replace('.json', '')) === slug
     )
 
-    if (program) {
-      const relativePath = `${program.node._sys.filename}`
-      variables = { relativePath }
-      const res = await client.queries.programPage(variables)
-      query = res.query
-      data = res.data
-      variables = res.variables
+    if (!program) {
+      notFound()
     }
+
+    const relativePath = `${program.node._sys.filename}`
+    variables = { relativePath }
+    const res = await client.queries.programPage(variables)
+    query = res.query
+    data = res.data
+    variables = res.variables
   } catch (error) {
     console.error("Error fetching program data:", error)
+    notFound()
+  }
+
+  if (!data?.programPage) {
+    notFound()
   }
 
   return (
@@ -48,4 +56,3 @@ export default async function ProgramPage({ params }) {
     />
   )
 }
-

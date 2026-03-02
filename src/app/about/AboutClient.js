@@ -18,18 +18,30 @@ export default function AboutClient({ initialData, query, variables }) {
   })
 
   const aboutData = data?.about || {}
+  const headerData = aboutData.header || {}
+  const statisticsData = aboutData.statistics || {}
+  const ctaBannerData = aboutData.ctaBanner || {}
 
   return (
     <main className="min-h-screen bg-white mt-16 md:mt-18">
-      <HeaderCareer />
+      <HeaderCareer 
+        title={headerData.title}
+        description={headerData.description}
+        backgroundImage={headerData.backgroundImage}
+      />
       <MissionSection />
       <WhoWeAreSection />
-      <Statistics />
+      <Statistics title={statisticsData.title} stats={statisticsData.stats} />
       <ValuesSection />
       <TeamMembersSection />
-      <CTABanner />
+      <CTABanner 
+        title={ctaBannerData.title}
+        description={ctaBannerData.description}
+        buttonText={ctaBannerData.buttonText}
+        buttonLink={ctaBannerData.buttonLink}
+        backgroundImage={ctaBannerData.backgroundImage}
+      />
       <TrustedOrganizations />
     </main>
   )
 }
-

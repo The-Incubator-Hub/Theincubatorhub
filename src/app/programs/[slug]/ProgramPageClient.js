@@ -27,14 +27,6 @@ export default function ProgramPageClient({ initialData, query, variables }) {
 
   const galleryImages = galleryData.images || []
 
-  const handlePrev = () => {
-    console.log('Navigate to previous set of images')
-  }
-
-  const handleNext = () => {
-    console.log('Navigate to next set of images')
-  }
-
   return (
     <div className="mt-16 md:mt-18">
       <ProgramHeader 
@@ -63,8 +55,6 @@ export default function ProgramPageClient({ initialData, query, variables }) {
         title={galleryData.title || `${programData.title} Gallery`}
         subtitle={galleryData.subtitle || `Watch video highlights of ${programData.title} through our lens`}
         images={galleryImages}
-        onPrev={handlePrev}
-        onNext={handleNext}
       />
       <Testimonials 
         title={testimonialsData.title}
@@ -74,9 +64,9 @@ export default function ProgramPageClient({ initialData, query, variables }) {
         title={ctaBannerData.title}
         description={ctaBannerData.description}
         buttonText={ctaBannerData.buttonText}
+        buttonLink={ctaBannerData.buttonLink}
         backgroundImage={ctaBannerData.backgroundImage}
       />
     </div>
   )
 }
-

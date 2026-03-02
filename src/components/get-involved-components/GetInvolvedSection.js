@@ -21,7 +21,7 @@ export default function GetInvolvedSection({
       ],
       commitment: 'Flexible - 2-4 hours per week',
       buttonText: 'Apply Now',
-      buttonLink: '#'
+      buttonLink: '/contact'
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ export default function GetInvolvedSection({
       ],
       commitment: 'Flexible - 2-4 hours per week',
       buttonText: 'Apply Now',
-      buttonLink: '#'
+      buttonLink: '/contact'
     },
     {
       id: 3,
@@ -53,7 +53,7 @@ export default function GetInvolvedSection({
       ],
       commitment: 'Flexible - 2-4 hours per week',
       buttonText: 'Apply Now',
-      buttonLink: '#'
+      buttonLink: '/contact'
     }
   ];
 
@@ -75,7 +75,7 @@ export default function GetInvolvedSection({
         achievements: opp.achievements?.map(a => a.text || a) || [],
         commitment: opp.commitment || 'Flexible - 2-4 hours per week',
         buttonText: opp.buttonText || 'Apply Now',
-        buttonLink: opp.buttonLink || '#'
+        buttonLink: opp.buttonLink || '/contact'
       }))
     : defaultOpportunities;
 

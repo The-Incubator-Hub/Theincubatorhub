@@ -32,7 +32,9 @@ export default function HomeClient({ initialData, query, variables }) {
         highlightedText={heroData.highlightedText}
         description={heroData.description}
         primaryButtonText={heroData.primaryButtonText}
+        primaryButtonLink={heroData.primaryButtonLink || "/getinvolved"}
         secondaryButtonText={heroData.secondaryButtonText}
+        secondaryButtonLink={heroData.secondaryButtonLink || "/contact"}
         image={heroData.image}
       />
       <AboutIncubator 
@@ -40,6 +42,7 @@ export default function HomeClient({ initialData, query, variables }) {
         description1={aboutData.description1}
         description2={aboutData.description2}
         buttonText={aboutData.buttonText}
+        buttonLink={aboutData.buttonLink || "/about"}
         image={aboutData.image}
         studentsEnrolled={aboutData.studentsEnrolled}
         reviewsCount={aboutData.reviewsCount}
@@ -55,6 +58,7 @@ export default function HomeClient({ initialData, query, variables }) {
         title={ctaData.title}
         description={ctaData.description}
         buttonText={ctaData.buttonText}
+        buttonLink={ctaData.buttonLink}
         backgroundImage={ctaData.backgroundImage}
       />
       <TestimonialCarousel />
@@ -62,4 +66,3 @@ export default function HomeClient({ initialData, query, variables }) {
     </main>
   )
 }
-

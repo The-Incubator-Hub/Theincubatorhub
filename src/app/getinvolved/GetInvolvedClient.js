@@ -33,10 +33,10 @@ export default function GetInvolvedClient({ initialData, query, variables }) {
         title={ctaBannerData.title}
         description={ctaBannerData.description}
         buttonText={ctaBannerData.buttonText}
+        buttonLink={ctaBannerData.buttonLink}
         backgroundImage={ctaBannerData.backgroundImage}
       />
       <div className="h-16"></div>
     </div>
   )
 }
-

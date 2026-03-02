@@ -4,13 +4,23 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Raleway } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["400", "600", "700", "800"],
 });
 
-export default function AboutIncubator() {
+export default function AboutIncubator({
+  title = "About Incubator",
+  description1 = "Incubator is a pan-African tech training and innovation organization committed to equipping young people with in-demand digital skills, practical experience, and leadership capacity.",
+  description2 = "We go beyond theory - combining hands-on learning, mentorship, collaboration, and real-world projects to prepare our learners for the future of work. Our programs are designed to be inclusive, accessible, and impact-driven, ensuring that talent across Africa can thrive in the global digital economy.",
+  buttonText = "Read More",
+  buttonLink = "/about",
+  image = "/professional-team-collaboration-mentoring.jpg",
+  studentsEnrolled = "185,034+",
+  reviewsCount = "Reviews & Testimonials",
+}) {
   return (
     <div className='min-h-screen bg-white flex items-center justify-center px-4 py-4 md:py-0'>
       <div className='max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center'>
@@ -18,7 +28,7 @@ export default function AboutIncubator() {
         <div className='relative flex flex-col items-center md:items-start order-2 md:order-none'>
           <div className='relative w-full max-w-lg h-80 md:h-125 overflow-hidden shadow-xl border-y-12 border-[#FFFCF1]'>
             <Image
-              src='/professional-team-collaboration-mentoring.jpg'
+              src={image}
               alt='Incubator team collaboration'
               fill
               className='object-cover'
@@ -32,7 +42,7 @@ export default function AboutIncubator() {
             <div className='font-bold text-xs md:text-sm'>
               Students Enrolled
             </div>
-            <div className='text-sm md:text-lg font-bold'>185,034+</div>
+            <div className='text-sm md:text-lg font-bold'>{studentsEnrolled}</div>
           </div>
 
           {/* Reviews Badge */}
@@ -56,7 +66,7 @@ export default function AboutIncubator() {
             <p
               className={`text-[#1C2D49] font-semibold text-xs md:text-sm whitespace-nowrap ${raleway.className}`}
             >
-              Reviews & Testimonials
+              {reviewsCount}
             </p>
           </div>
         </div>
@@ -65,32 +75,24 @@ export default function AboutIncubator() {
         <div className='flex flex-col justify-center space-y-6 md:space-y-8 order-1 md:order-none'>
           <div>
             <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight'>
-              About Incubator
+              {title}
             </h2>
           </div>
 
           <div className='space-y-4 text-gray-700 text-base md:text-lg leading-relaxed'>
-            <p>
-              Incubator is a pan-African tech training and innovation
-              organization committed to equipping young people with in-demand
-              digital skills, practical experience, and leadership capacity.
-            </p>
-            <p>
-              We go beyond theory — combining hands-on learning, mentorship,
-              collaboration, and real-world projects to prepare our learners for
-              the future of work. Our programs are designed to be inclusive,
-              accessible, and impact-driven, ensuring that talent across Africa
-              can thrive in the global digital economy.
-            </p>
+            <p>{description1}</p>
+            <p>{description2}</p>
           </div>
 
           <div className='pt-4'>
             <Button
+              asChild
               className='bg-black hover:bg-gray-900 text-white px-8 py-6 text-base font-semibold rounded-lg transition-colors flex items-center gap-2 w-full sm:w-auto'
-              onClick={() => console.log("Read More clicked")}
             >
-              Read More
-              <ArrowRight className='w-5 h-5' />
+              <Link href={buttonLink}>
+                {buttonText}
+                <ArrowRight className='w-5 h-5' />
+              </Link>
             </Button>
           </div>
         </div>
