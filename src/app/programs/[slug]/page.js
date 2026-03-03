@@ -1,6 +1,46 @@
 import ProgramPageClient from "./ProgramPageClient"
 import client from "../../../../tina/__generated__/client"
 import { notFound } from "next/navigation"
+import { readdir, readFile } from "node:fs/promises"
+import path from "node:path"
+
+const PROGRAMS_DIR = path.join(process.cwd(), "content", "program-pages")
+
+const deriveProgramSlug = (program, filename = "") =>
+  (typeof program?.slug === "string" && program.slug.trim()) ||
+  filename.replace(".json", "")
+
+async function loadProgramsFromFiles() {
+  try {
+    const entries = await readdir(PROGRAMS_DIR, { withFileTypes: true })
+    const files = entries.filter(
+      (entry) => entry.isFile() && entry.name.endsWith(".json")
+    )
+
+    const programs = await Promise.all(
+      files.map(async (file) => {
+        try {
+          const filePath = path.join(PROGRAMS_DIR, file.name)
+          const raw = await readFile(filePath, "utf8")
+          const json = JSON.parse(raw)
+          return {
+            ...json,
+            _sys: { filename: file.name },
+            slug: deriveProgramSlug(json, file.name),
+          }
+        } catch (error) {
+          console.error(`Error parsing program file ${file.name}:`, error)
+          return null
+        }
+      })
+    )
+
+    return programs.filter(Boolean)
+  } catch (error) {
+    console.error("Error loading local program files:", error)
+    return []
+  }
+}
 
 export async function generateStaticParams() {
   try {
@@ -10,7 +50,10 @@ export async function generateStaticParams() {
     }))
   } catch (error) {
     console.error("Error generating static params for programs:", error)
-    return []
+    const localPrograms = await loadProgramsFromFiles()
+    return localPrograms.map((program) => ({
+      slug: program.slug,
+    }))
   }
 }
 
@@ -41,7 +84,17 @@ export default async function ProgramPage({ params }) {
     variables = res.variables
   } catch (error) {
     console.error("Error fetching program data:", error)
-    notFound()
+
+    // Fallback: read matching program JSON directly from content files.
+    const slug = params.slug
+    const localPrograms = await loadProgramsFromFiles()
+    const localProgram = localPrograms.find((program) => program.slug === slug)
+
+    if (!localProgram) {
+      notFound()
+    }
+
+    data = { programPage: localProgram }
   }
 
   if (!data?.programPage) {

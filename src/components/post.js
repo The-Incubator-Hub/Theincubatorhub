@@ -96,11 +96,11 @@ const BlogPostsGrid = ({ title, description }) => {
         </div>
 
         {/* Blog Posts Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="stagger-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
             <div
               key={post.id}
-              className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300"
+              className="hover-lift bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300"
             >
               {/* Image Section */}
               <div className="relative h-64 overflow-hidden">
@@ -149,7 +149,7 @@ const BlogPostsGrid = ({ title, description }) => {
                     </div>
                     <button
                       onClick={() => handleLike(post.id)}
-                      className="flex items-center gap-1.5 hover:text-red-500 transition-colors"
+                      className="btn-micro flex items-center gap-1.5 hover:text-red-500 transition-colors"
                     >
                       <Heart
                         className={`w-4 h-4 ${
@@ -161,7 +161,7 @@ const BlogPostsGrid = ({ title, description }) => {
                   </div>
 
                   {/* Learn More Button */}
-                  <button className="flex items-center gap-2 text-gray-900 font-semibold text-sm hover:gap-3 transition-all group">
+                  <button className="btn-micro flex items-center gap-2 text-gray-900 font-semibold text-sm hover:gap-3 transition-all group">
                     Learn More
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>

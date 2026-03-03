@@ -4,6 +4,7 @@ import { useTina } from "tinacms/dist/react"
 import NewsSection from "@/components/press-release-components/NewsSection"
 import CTABanner from "@/components/landing-page-components/CtaBanner"
 import HeaderCareer from "@/components/HeaderCareer"
+import Reveal from "@/components/motion/Reveal"
 
 export default function PressClient({ initialData, query, variables }) {
   const { data } = useTina({
@@ -24,21 +25,25 @@ export default function PressClient({ initialData, query, variables }) {
         description={headerData.description}
         backgroundImage={headerData.backgroundImage}
       />
-      <NewsSection 
-        searchPlaceholder={newsSectionData.searchPlaceholder}
-        categories={newsSectionData.categories}
-        featuredPost={newsSectionData.featuredPost}
-        latestNewsTitle={newsSectionData.latestNewsTitle}
-        latestNewsDescription={newsSectionData.latestNewsDescription}
-        newsPosts={newsSectionData.newsPosts}
-      />
-      <CTABanner 
-        title={ctaBannerData.title}
-        description={ctaBannerData.description}
-        buttonText={ctaBannerData.buttonText}
-        buttonLink={ctaBannerData.buttonLink}
-        backgroundImage={ctaBannerData.backgroundImage}
-      />
+      <Reveal>
+        <NewsSection 
+          searchPlaceholder={newsSectionData.searchPlaceholder}
+          categories={newsSectionData.categories}
+          featuredPost={newsSectionData.featuredPost}
+          latestNewsTitle={newsSectionData.latestNewsTitle}
+          latestNewsDescription={newsSectionData.latestNewsDescription}
+          newsPosts={newsSectionData.newsPosts}
+        />
+      </Reveal>
+      <Reveal delay={80}>
+        <CTABanner 
+          title={ctaBannerData.title}
+          description={ctaBannerData.description}
+          buttonText={ctaBannerData.buttonText}
+          buttonLink={ctaBannerData.buttonLink}
+          backgroundImage={ctaBannerData.backgroundImage}
+        />
+      </Reveal>
     </div>
   )
 }

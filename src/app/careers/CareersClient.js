@@ -5,6 +5,7 @@ import HeaderCareer from "@/components/HeaderCareer.js"
 import TeamIntro from "@/components/TeamIntro.js"
 import JobListings from "@/components/Job.js"
 import ResumeCTA from "@/components/Resume.js"
+import Reveal from "@/components/motion/Reveal"
 
 export default function CareersClient({ initialData, query, variables }) {
   const { data } = useTina({
@@ -26,19 +27,24 @@ export default function CareersClient({ initialData, query, variables }) {
         description={headerData.description}
         backgroundImage={headerData.backgroundImage}
       />
-      <TeamIntro 
-        title={teamIntroData.title}
-        description={teamIntroData.description}
-      />
-      <JobListings jobs={jobListingsData.jobs} />
-      <ResumeCTA 
-        title={resumeCTAData.title}
-        description={resumeCTAData.description}
-        buttonText={resumeCTAData.buttonText}
-        buttonLink={resumeCTAData.buttonLink}
-        backgroundImage={resumeCTAData.backgroundImage}
-      />
+      <Reveal>
+        <TeamIntro 
+          title={teamIntroData.title}
+          description={teamIntroData.description}
+        />
+      </Reveal>
+      <Reveal delay={80}>
+        <JobListings jobs={jobListingsData.jobs} />
+      </Reveal>
+      <Reveal delay={120}>
+        <ResumeCTA 
+          title={resumeCTAData.title}
+          description={resumeCTAData.description}
+          buttonText={resumeCTAData.buttonText}
+          buttonLink={resumeCTAData.buttonLink}
+          backgroundImage={resumeCTAData.backgroundImage}
+        />
+      </Reveal>
     </div>
   )
 }
-

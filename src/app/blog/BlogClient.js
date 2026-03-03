@@ -4,6 +4,7 @@ import Future from "@/components/Future.js";
 import HeaderCareer from "@/components/HeaderCareer.js";
 import BlogPostsGrid from "@/components/post.js";
 import { useTina } from "tinacms/dist/react";
+import Reveal from "@/components/motion/Reveal";
 
 export default function BlogClient({ initialData, query, variables }) {
   const { data } = useTina({
@@ -24,14 +25,18 @@ export default function BlogClient({ initialData, query, variables }) {
         description={headerData.description}
         backgroundImage={headerData.backgroundImage}
       />
-      <Future
-        searchPlaceholder={futureData.searchPlaceholder}
-        filters={futureData.filters}
-      />
-      <BlogPostsGrid
-        title={blogPostsGridData.title}
-        description={blogPostsGridData.description}
-      />
+      <Reveal>
+        <Future
+          searchPlaceholder={futureData.searchPlaceholder}
+          filters={futureData.filters}
+        />
+      </Reveal>
+      <Reveal delay={80}>
+        <BlogPostsGrid
+          title={blogPostsGridData.title}
+          description={blogPostsGridData.description}
+        />
+      </Reveal>
     </div>
   );
 }

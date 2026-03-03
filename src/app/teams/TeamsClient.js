@@ -5,6 +5,7 @@ import HeaderCareer from "@/components/HeaderCareer";
 import TeamIntro from "@/components/TeamIntro";
 import Teamgrid from "@/components/Teamgrid";
 import JoinUs from "@/components/JoinUs";
+import Reveal from "@/components/motion/Reveal";
 
 export default function TeamsClient({ initialData, query, variables }) {
   const { data } = useTina({
@@ -26,18 +27,24 @@ export default function TeamsClient({ initialData, query, variables }) {
         description={headerData.description}
         backgroundImage={headerData.backgroundImage}
       />
-      <TeamIntro
-        title={teamIntroData.title}
-        description={teamIntroData.description}
-      />
-      <Teamgrid members={teamGridData.members || []} />
-      <JoinUs
-        title={joinUsData.title}
-        description={joinUsData.description}
-        ctaText={joinUsData.ctaText}
-        ctaLink={joinUsData.ctaLink}
-        backgroundImage={joinUsData.backgroundImage}
-      />
+      <Reveal>
+        <TeamIntro
+          title={teamIntroData.title}
+          description={teamIntroData.description}
+        />
+      </Reveal>
+      <Reveal delay={80}>
+        <Teamgrid members={teamGridData.members || []} />
+      </Reveal>
+      <Reveal delay={120}>
+        <JoinUs
+          title={joinUsData.title}
+          description={joinUsData.description}
+          ctaText={joinUsData.ctaText}
+          ctaLink={joinUsData.ctaLink}
+          backgroundImage={joinUsData.backgroundImage}
+        />
+      </Reveal>
     </div>
   );
 }

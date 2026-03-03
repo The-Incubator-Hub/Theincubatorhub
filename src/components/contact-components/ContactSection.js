@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Reveal from "@/components/motion/Reveal";
 
 const DEFAULT_REACH_OUT_ITEMS = [
   "Program enquiries and applications",
@@ -128,7 +129,7 @@ const ContactSection = ({
     <section className='py-20 md:py-28 px-6 bg-white'>
       <div className='max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start'>
         {/* LEFT COLUMN */}
-        <div className='space-y-16'>
+        <Reveal className='space-y-16'>
           {/* Get in Touch */}
           <div className='space-y-4'>
             <h2 className='text-2xl font-semibold text-gray-900'>{title}</h2>
@@ -141,7 +142,7 @@ const ContactSection = ({
           </div>
 
           {/* What You Can Reach Out For */}
-          <div className='bg-gray-50 border border-gray-100 rounded-2xl p-8'>
+          <div className='bg-gray-50 border border-gray-100 rounded-2xl p-8 hover-lift'>
             <h3 className='text-lg font-semibold text-gray-900 mb-6'>
               {reachOutTitle || "What You Can Reach Out For"}
             </h3>
@@ -244,10 +245,13 @@ const ContactSection = ({
               )}
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* RIGHT COLUMN – NAVY FORM */}
-        <div className='bg-[#0B1324] rounded-3xl p-10 shadow-2xl'>
+        <Reveal
+          delay={120}
+          className='bg-[#0B1324] rounded-3xl p-10 shadow-2xl hover-lift float-gentle'
+        >
           <form className='space-y-7' onSubmit={handleSubmit}>
             {inputFields.map((field) => (
               <div key={field.key}>
@@ -308,7 +312,7 @@ const ContactSection = ({
               </p>
             )}
           </form>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

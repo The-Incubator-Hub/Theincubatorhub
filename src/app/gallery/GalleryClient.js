@@ -4,6 +4,7 @@ import { useTina } from "tinacms/dist/react"
 import PhotoVideoSection from "@/components/gallery-components/PhotoVideoSection"
 import CTABanner from "@/components/landing-page-components/CtaBanner"
 import HeaderCareer from "@/components/HeaderCareer"
+import Reveal from "@/components/motion/Reveal"
 
 export default function GalleryClient({ initialData, query, variables }) {
   const { data } = useTina({
@@ -24,20 +25,24 @@ export default function GalleryClient({ initialData, query, variables }) {
         description={headerData.description}
         backgroundImage={headerData.backgroundImage}
       />
-      <PhotoVideoSection 
-        title={photoVideoSectionData.title}
-        description={photoVideoSectionData.description}
-        filterButtons={photoVideoSectionData.filterButtons}
-        images={photoVideoSectionData.images}
-        videos={photoVideoSectionData.videos}
-      />
-      <CTABanner 
-        title={ctaBannerData.title}
-        description={ctaBannerData.description}
-        buttonText={ctaBannerData.buttonText}
-        buttonLink={ctaBannerData.buttonLink}
-        backgroundImage={ctaBannerData.backgroundImage}
-      />
+      <Reveal>
+        <PhotoVideoSection 
+          title={photoVideoSectionData.title}
+          description={photoVideoSectionData.description}
+          filterButtons={photoVideoSectionData.filterButtons}
+          images={photoVideoSectionData.images}
+          videos={photoVideoSectionData.videos}
+        />
+      </Reveal>
+      <Reveal delay={80}>
+        <CTABanner 
+          title={ctaBannerData.title}
+          description={ctaBannerData.description}
+          buttonText={ctaBannerData.buttonText}
+          buttonLink={ctaBannerData.buttonLink}
+          backgroundImage={ctaBannerData.backgroundImage}
+        />
+      </Reveal>
       <div className="h-16"></div>
     </div>
   )

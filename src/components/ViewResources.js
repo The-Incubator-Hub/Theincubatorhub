@@ -72,11 +72,11 @@ export default function ViewResources({
   return (
     <div className="bg-gray-50 pt-8 pb-12 px-4 sm:px-6 lg:px-8 w-full overflow-x-hidden">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">
+        <div className="stagger-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">
           {resourceCards.map((card) => (
             <div
               key={card.id}
-              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden w-full flex flex-col"
+              className="hover-lift bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden w-full flex flex-col"
             >
               {/* Image */}
               <div className="relative w-full h-48 sm:h-52 lg:h-48 bg-gray-200 flex-shrink-0">
@@ -124,13 +124,13 @@ export default function ViewResources({
                     href={card.viewResourceLink}
                     target={card.viewResourceLink.startsWith('http') ? '_blank' : undefined}
                     rel={card.viewResourceLink.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="w-full bg-gray-900 hover:bg-gray-800 text-white py-2.5 sm:py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors text-sm sm:text-base flex-shrink-0"
+                    className="btn-micro w-full bg-gray-900 hover:bg-gray-800 text-white py-2.5 sm:py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors text-sm sm:text-base flex-shrink-0"
                   >
                     <Eye className="w-4 h-4 flex-shrink-0" />
                     <span className="whitespace-nowrap">View Resources</span>
                   </a>
                 ) : (
-                  <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-2.5 sm:py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors text-sm sm:text-base flex-shrink-0">
+                  <button className="btn-micro w-full bg-gray-900 hover:bg-gray-800 text-white py-2.5 sm:py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors text-sm sm:text-base flex-shrink-0">
                     <Eye className="w-4 h-4 flex-shrink-0" />
                     <span className="whitespace-nowrap">View Resources</span>
                   </button>
@@ -143,4 +143,3 @@ export default function ViewResources({
     </div>
   );
 }
-

@@ -8,6 +8,7 @@ import GalleryPreview from "@/components/program-components/GalleryPreview"
 import Partners from "@/components/program-components/Partners"    
 import CTABanner from "@/components/landing-page-components/CtaBanner"
 import Testimonials from "@/components/program-components/Testimonial"
+import Reveal from "@/components/motion/Reveal"
 
 export default function ProgramPageClient({ initialData, query, variables }) {
   const { data } = useTina({
@@ -36,37 +37,49 @@ export default function ProgramPageClient({ initialData, query, variables }) {
         stats={programHeaderData.stats}
         images={programHeaderData.images}
       />
-      <LearningPathway 
-        phases={learningPathwayData.phases}
-        objectives={learningPathwayData.objectives}
-        outcomes={learningPathwayData.outcomes}
-      />
-      <VideoSection 
-        title={videoSectionData.title}
-        subtitle={videoSectionData.subtitle}
-        imageUrl={videoSectionData.imageUrl}
-        videoUrl={videoSectionData.videoUrl}
-      />
-      <Partners 
-        title={partnersData.title}
-        partners={partnersData.partners}
-      />
-      <GalleryPreview 
-        title={galleryData.title || `${programData.title} Gallery`}
-        subtitle={galleryData.subtitle || `Watch video highlights of ${programData.title} through our lens`}
-        images={galleryImages}
-      />
-      <Testimonials 
-        title={testimonialsData.title}
-        testimonials={testimonialsData.testimonials}
-      />
-      <CTABanner 
-        title={ctaBannerData.title}
-        description={ctaBannerData.description}
-        buttonText={ctaBannerData.buttonText}
-        buttonLink={ctaBannerData.buttonLink}
-        backgroundImage={ctaBannerData.backgroundImage}
-      />
+      <Reveal>
+        <LearningPathway 
+          phases={learningPathwayData.phases}
+          objectives={learningPathwayData.objectives}
+          outcomes={learningPathwayData.outcomes}
+        />
+      </Reveal>
+      <Reveal delay={80}>
+        <VideoSection 
+          title={videoSectionData.title}
+          subtitle={videoSectionData.subtitle}
+          imageUrl={videoSectionData.imageUrl}
+          videoUrl={videoSectionData.videoUrl}
+        />
+      </Reveal>
+      <Reveal delay={120}>
+        <Partners 
+          title={partnersData.title}
+          partners={partnersData.partners}
+        />
+      </Reveal>
+      <Reveal delay={160}>
+        <GalleryPreview 
+          title={galleryData.title || `${programData.title} Gallery`}
+          subtitle={galleryData.subtitle || `Watch video highlights of ${programData.title} through our lens`}
+          images={galleryImages}
+        />
+      </Reveal>
+      <Reveal delay={200}>
+        <Testimonials 
+          title={testimonialsData.title}
+          testimonials={testimonialsData.testimonials}
+        />
+      </Reveal>
+      <Reveal delay={240}>
+        <CTABanner 
+          title={ctaBannerData.title}
+          description={ctaBannerData.description}
+          buttonText={ctaBannerData.buttonText}
+          buttonLink={ctaBannerData.buttonLink}
+          backgroundImage={ctaBannerData.backgroundImage}
+        />
+      </Reveal>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import HeaderCareer from "@/components/HeaderCareer.js"
 import TeamIntro from "@/components/TeamIntro.js"
 import FAQAccordion from "@/components/questions.js"
 import StillHaveQuestions from "@/components/stiilhavequestions.js"
+import Reveal from "@/components/motion/Reveal"
 
 export default function FAQsClient({ initialData, query, variables }) {
   const { data } = useTina({
@@ -33,19 +34,22 @@ export default function FAQsClient({ initialData, query, variables }) {
         description={headerData.description}
         backgroundImage={headerData.backgroundImage}
       />
-      <TeamIntro 
-        title={teamIntroData.title}
-        description={teamIntroData.description}
-      />
-      <div className="bg-white py-12">
-        <FAQAccordion items={faqItems} />
-        <StillHaveQuestions 
-          title={stillHaveQuestionsData.title}
-          description={stillHaveQuestionsData.description}
-          cards={stillHaveQuestionsData.cards}
+      <Reveal>
+        <TeamIntro 
+          title={teamIntroData.title}
+          description={teamIntroData.description}
         />
-      </div>
+      </Reveal>
+      <Reveal delay={80}>
+        <div className="bg-white py-12">
+          <FAQAccordion items={faqItems} />
+          <StillHaveQuestions 
+            title={stillHaveQuestionsData.title}
+            description={stillHaveQuestionsData.description}
+            cards={stillHaveQuestionsData.cards}
+          />
+        </div>
+      </Reveal>
     </div>
   )
 }
-

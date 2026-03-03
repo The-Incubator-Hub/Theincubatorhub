@@ -3,6 +3,7 @@
 import { useTina } from "tinacms/dist/react"
 import Image from "next/image"
 import { Layers, Book, Heart, TrendingUp, Users, Award, Briefcase, Target } from 'lucide-react'
+import Reveal from "@/components/motion/Reveal"
 
 // Icon mapping
 const iconMap = {
@@ -32,8 +33,9 @@ export default function PartnershipsClient({ initialData, query, variables }) {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gray-50 pt-[64px]">
-        <div className="max-w-[1440px] mx-auto px-20 py-8 grid lg:grid-cols-2 gap-[35px] items-center" style={{ minHeight: '676px' }}>
+      <Reveal>
+        <section className="bg-gray-50 pt-[64px]">
+          <div className="max-w-[1440px] mx-auto px-20 py-8 grid lg:grid-cols-2 gap-[35px] items-center" style={{ minHeight: '676px' }}>
           {/* Left Text Column */}
           <div className="space-y-8" style={{ width: '626px', height: '439px', opacity: 1 }}>
             {heroData.tagline && (
@@ -64,7 +66,7 @@ export default function PartnershipsClient({ initialData, query, variables }) {
 
             {heroData.ctaButtonText && (
               <button 
-                className="bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-200"
+                className="btn-micro bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-200"
                 onClick={() => window.location.href = heroData.ctaButtonLink || '/contact'}
               >
                 {heroData.ctaButtonText}
@@ -122,34 +124,38 @@ export default function PartnershipsClient({ initialData, query, variables }) {
               </>
             )}
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
+      </Reveal>
 
       {/* Team Intro Section (First Instance) */}
       {teamIntroData.title && (
-        <section className="bg-white py-12 px-6 lg:px-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {teamIntroData.title}
-            </h2>
-            {teamIntroData.description && (
-              <p className="text-gray-600 text-lg">
-                {teamIntroData.description}
-              </p>
-            )}
-          </div>
-        </section>
+        <Reveal delay={80}>
+          <section className="bg-white py-12 px-6 lg:px-20">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {teamIntroData.title}
+              </h2>
+              {teamIntroData.description && (
+                <p className="text-gray-600 text-lg">
+                  {teamIntroData.description}
+                </p>
+              )}
+            </div>
+          </section>
+        </Reveal>
       )}
 
       {/* Partnership Benefits Section */}
       {benefitsData.benefits && benefitsData.benefits.length > 0 && (
-        <section className="bg-white py-[10px] px-6 lg:px-20">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <Reveal delay={120}>
+          <section className="bg-white py-[10px] px-6 lg:px-20">
+            <div className="max-w-7xl mx-auto">
+              <div className="stagger-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefitsData.benefits.map((benefit, index) => {
                 const IconComponent = iconMap[benefit.icon] || Layers
                 return (
-                  <div key={index} className="flex flex-col bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6">
+                  <div key={index} className="hover-lift flex flex-col bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6">
                     {/* Icon */}
                     <div className={`mb-4 ${benefit.iconColor || 'text-gray-700'}`}>
                       <IconComponent className="w-10 h-10" />
@@ -167,36 +173,40 @@ export default function PartnershipsClient({ initialData, query, variables }) {
                   </div>
                 )
               })}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Reveal>
       )}
 
       {/* Team Intro Section (Second Instance) */}
       {teamIntroData.title && (
-        <section className="bg-white py-12 px-6 lg:px-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {teamIntroData.title}
-            </h2>
-            {teamIntroData.description && (
-              <p className="text-gray-600 text-lg">
-                {teamIntroData.description}
-              </p>
-            )}
-          </div>
-        </section>
+        <Reveal delay={160}>
+          <section className="bg-white py-12 px-6 lg:px-20">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {teamIntroData.title}
+              </h2>
+              {teamIntroData.description && (
+                <p className="text-gray-600 text-lg">
+                  {teamIntroData.description}
+                </p>
+              )}
+            </div>
+          </section>
+        </Reveal>
       )}
 
       {/* Partner Logos Section */}
       {partnersData.partners && partnersData.partners.length > 0 && (
-        <section className="bg-white py-16 md:py-20 px-6 lg:px-20">
-          <div className="mx-auto" style={{ maxWidth: '1280px', opacity: 1 }}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5" style={{ gap: '32px', minHeight: '604px' }}>
+        <Reveal delay={200}>
+          <section className="bg-white py-16 md:py-20 px-6 lg:px-20">
+            <div className="mx-auto" style={{ maxWidth: '1280px', opacity: 1 }}>
+              <div className="stagger-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5" style={{ gap: '32px', minHeight: '604px' }}>
               {partnersData.partners.map((partner, index) => (
                 <div 
                   key={index} 
-                  className="bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300" 
+                  className="hover-lift bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300" 
                   style={{ 
                     width: '242px', 
                     height: '286px',
@@ -241,11 +251,11 @@ export default function PartnershipsClient({ initialData, query, variables }) {
                   </div>
                 </div>
               ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Reveal>
       )}
     </div>
   )
 }
-

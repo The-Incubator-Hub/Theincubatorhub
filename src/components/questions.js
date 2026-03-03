@@ -62,14 +62,14 @@ export default function FAQAccordion({ items = faqData }) {
 
   return (
     <div className="w-full max-w-4xl mx-auto bg-white">
-      <div className="flex flex-col gap-4">
+      <div className="stagger-grid flex flex-col gap-4">
         {items.map((item) => {
           const isOpen = openId === item.id
 
           return (
             <div
               key={item.id}
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+              className={`hover-lift rounded-2xl border transition-all duration-300 overflow-hidden ${
                 isOpen
                   ? " bg-green-50 shadow-sm"
                   : "border-gray-200 bg-white"
@@ -78,7 +78,7 @@ export default function FAQAccordion({ items = faqData }) {
               {/* Question */}
               <button
                 onClick={() => toggleItem(item.id)}
-                className="w-full px-8 py-6 text-left flex items-center justify-between gap-6"
+                className="btn-micro w-full px-8 py-6 text-left flex items-center justify-between gap-6"
                 aria-expanded={isOpen}
               >
                 <span 

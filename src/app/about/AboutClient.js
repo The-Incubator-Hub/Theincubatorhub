@@ -9,6 +9,7 @@ import TeamMembersSection from "@/components/about-us-components/TeamMemberSecti
 import CTABanner from "@/components/landing-page-components/CtaBanner"
 import TrustedOrganizations from "@/components/landing-page-components/TrustedOrganizations"
 import HeaderCareer from "@/components/HeaderCareer"
+import Reveal from "@/components/motion/Reveal"
 
 export default function AboutClient({ initialData, query, variables }) {
   const { data } = useTina({
@@ -29,19 +30,33 @@ export default function AboutClient({ initialData, query, variables }) {
         description={headerData.description}
         backgroundImage={headerData.backgroundImage}
       />
-      <MissionSection />
-      <WhoWeAreSection />
-      <Statistics title={statisticsData.title} stats={statisticsData.stats} />
-      <ValuesSection />
-      <TeamMembersSection />
-      <CTABanner 
-        title={ctaBannerData.title}
-        description={ctaBannerData.description}
-        buttonText={ctaBannerData.buttonText}
-        buttonLink={ctaBannerData.buttonLink}
-        backgroundImage={ctaBannerData.backgroundImage}
-      />
-      <TrustedOrganizations />
+      <Reveal>
+        <MissionSection />
+      </Reveal>
+      <Reveal delay={80}>
+        <WhoWeAreSection />
+      </Reveal>
+      <Reveal delay={120}>
+        <Statistics title={statisticsData.title} stats={statisticsData.stats} />
+      </Reveal>
+      <Reveal delay={160}>
+        <ValuesSection />
+      </Reveal>
+      <Reveal delay={200}>
+        <TeamMembersSection />
+      </Reveal>
+      <Reveal delay={240}>
+        <CTABanner 
+          title={ctaBannerData.title}
+          description={ctaBannerData.description}
+          buttonText={ctaBannerData.buttonText}
+          buttonLink={ctaBannerData.buttonLink}
+          backgroundImage={ctaBannerData.backgroundImage}
+        />
+      </Reveal>
+      <Reveal delay={280}>
+        <TrustedOrganizations />
+      </Reveal>
     </main>
   )
 }
