@@ -1,25 +1,23 @@
 import PressClient from "./PressClient"
 import client from "../../../tina/__generated__/client"
+import { loadTinaSingleton } from "@/lib/tina-fallback.mjs"
 
 export default async function PressPage() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "press.json" }
-  
-  try {
-    const res = await client.queries.press(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching press data:", error)
-  }
+  const variables = { relativePath: "press.json" }
+  const { data, query, variables: resolvedVariables } = await loadTinaSingleton({
+    queryFn: (vars) => client.queries.press(vars),
+    variables,
+    fallbackCollection: "press",
+    fallbackFile: "press.json",
+    rootKey: "press",
+    context: "press-page",
+  })
 
   return (
     <PressClient 
       initialData={data}
       query={query}
-      variables={variables}
+      variables={resolvedVariables}
     />
   )
 }

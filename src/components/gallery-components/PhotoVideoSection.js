@@ -271,6 +271,8 @@ export default function PhotoVideoSection({
                 <img
                   src={mediaSrc}
                   alt={mediaAlt}
+                  loading='lazy'
+                  decoding='async'
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 {isVideo && media.videoUrl && (

@@ -2,6 +2,7 @@
 
 import { useTina } from "tinacms/dist/react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { Layers, Book, Heart, TrendingUp, Users, Award, Briefcase, Target } from 'lucide-react'
 import Reveal from "@/components/motion/Reveal"
 
@@ -18,6 +19,7 @@ const iconMap = {
 }
 
 export default function PartnershipsClient({ initialData, query, variables }) {
+  const router = useRouter()
   const { data } = useTina({
     query: query,
     variables: variables,
@@ -29,6 +31,14 @@ export default function PartnershipsClient({ initialData, query, variables }) {
   const benefitsData = partnershipsData.benefits || {}
   const partnersData = partnershipsData.partners || {}
   const teamIntroData = partnershipsData.teamIntro || {}
+  const handleHeroCtaClick = () => {
+    const href = heroData.ctaButtonLink || "/contact"
+    if (/^https?:\/\//i.test(href)) {
+      window.open(href, "_blank", "noopener,noreferrer")
+      return
+    }
+    router.push(href)
+  }
 
   return (
     <div>
@@ -67,7 +77,7 @@ export default function PartnershipsClient({ initialData, query, variables }) {
             {heroData.ctaButtonText && (
               <button 
                 className="btn-micro bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-200"
-                onClick={() => window.location.href = heroData.ctaButtonLink || '/contact'}
+                onClick={handleHeroCtaClick}
               >
                 {heroData.ctaButtonText}
               </button>

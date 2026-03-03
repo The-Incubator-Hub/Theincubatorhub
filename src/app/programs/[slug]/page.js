@@ -3,6 +3,7 @@ import client from "../../../../tina/__generated__/client"
 import { notFound } from "next/navigation"
 import { readdir, readFile } from "node:fs/promises"
 import path from "node:path"
+import { logTinaFallback } from "@/lib/tina-fallback.mjs"
 
 const PROGRAMS_DIR = path.join(process.cwd(), "content", "program-pages")
 
@@ -49,7 +50,7 @@ export async function generateStaticParams() {
       slug: program.node.slug || program.node._sys.filename.replace('.json', ''),
     }))
   } catch (error) {
-    console.error("Error generating static params for programs:", error)
+    logTinaFallback("programs-generate-static-params", error)
     const localPrograms = await loadProgramsFromFiles()
     return localPrograms.map((program) => ({
       slug: program.slug,
@@ -83,7 +84,7 @@ export default async function ProgramPage({ params }) {
     data = res.data
     variables = res.variables
   } catch (error) {
-    console.error("Error fetching program data:", error)
+    logTinaFallback("programs-page-fetch", error)
 
     // Fallback: read matching program JSON directly from content files.
     const slug = params.slug

@@ -13,6 +13,20 @@ const BlogPage = (props) => {
     variables: props.variables,
     data: props.data,
   })
+  const post = data?.post
+
+  if (!post) {
+    return (
+      <div className='min-h-screen flex items-center justify-center text-center p-8'>
+        <div>
+          <h1 className='text-2xl font-bold mb-2'>Demo Content Unavailable</h1>
+          <p className='text-gray-600'>
+            Tina demo content is not configured in this environment.
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -33,9 +47,9 @@ const BlogPage = (props) => {
           }}
         >
           <h1 className='text-3xl m-8 text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-            {data.post.title}
+            {post.title}
           </h1>
-          <ContentSection content={data.post.body}></ContentSection>
+          <ContentSection content={post.body}></ContentSection>
         </div>
         <div className='bg-green-100 text-center'>
           Lost and looking for a place to start?
@@ -77,13 +91,28 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths = async () => {
-  const postsListData = await client.queries.postConnection()
+  if (process.env.NODE_ENV === 'production') {
+    return {
+      paths: [],
+      fallback: false,
+    }
+  }
 
-  return {
-    paths: postsListData.data.postConnection.edges.map((post) => ({
-      params: { filename: post.node._sys.filename },
-    })),
-    fallback: false,
+  try {
+    const postsListData = await client.queries.postConnection()
+
+    return {
+      paths: postsListData.data.postConnection.edges.map((post) => ({
+        params: { filename: post.node._sys.filename },
+      })),
+      fallback: false,
+    }
+  } catch (error) {
+    console.error('Error generating demo blog static paths:', error)
+    return {
+      paths: [],
+      fallback: false,
+    }
   }
 }
 

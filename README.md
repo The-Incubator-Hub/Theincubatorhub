@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Incubator Hub Web App
 
-## Getting Started
+Next.js + TinaCMS website for The Incubator Hub.
 
-First, run the development server:
+## Run Locally
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+The build script skips Tina codegen when Tina Cloud env vars are missing:
 
-To learn more about Next.js, take a look at the following resources:
+- `NEXT_PUBLIC_TINA_CLIENT_ID`
+- `TINA_TOKEN`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tests
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm test
+```
 
-## Deploy on Vercel
+Smoke checks (requires app already running):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+SMOKE_BASE_URL=http://127.0.0.1:3000 npm run test:smoke
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Health Check
+
+Use this endpoint for uptime monitoring:
+
+- `GET /api/health`
+
+Example:
+
+```bash
+curl -s http://127.0.0.1:3000/api/health
+```
+
+## CI and VPS Deploy
+
+Two workflows are included:
+
+- `.github/workflows/ci.yml`
+- `.github/workflows/deploy-vps.yml`
+
+Set these GitHub repository secrets for VPS deployment:
+
+- `VPS_HOST`
+- `VPS_PORT` (optional, defaults to `22`)
+- `VPS_USER`
+- `VPS_SSH_KEY`
+- `VPS_APP_DIR`
+- `VPS_PM2_APP` (optional; if set, workflow runs `pm2 reload`)
+
+Deploy flow on `main`:
+
+1. SSH to VPS
+2. `git fetch` + `git pull --ff-only`
+3. `npm ci`
+4. `npm run build`
+5. optional PM2 reload
+
+## Security Hardening Included
+
+- Security headers via `next.config.mjs` (CSP, frame, MIME sniff, referrer, permissions policy)
+- API rate limiting on form endpoints
+- Request-size guards for form endpoints
+- Strict payload validation for contact/donation APIs
+- Request ID headers for easier tracing

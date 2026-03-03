@@ -177,6 +177,9 @@ const NewsSection = ({
           <img
             src={featuredPost.image}
             alt={featuredPost.title}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-white/92"></div>
@@ -259,6 +262,8 @@ const NewsSection = ({
                   <img
                     src={post.image}
                     alt={post.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>

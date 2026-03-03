@@ -1,25 +1,23 @@
 import DonateClient from "./DonateClient"
 import client from "../../../tina/__generated__/client"
+import { loadTinaSingleton } from "@/lib/tina-fallback.mjs"
 
 export default async function DonatePage() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "donate.json" }
-  
-  try {
-    const res = await client.queries.donate(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching donate data:", error)
-  }
+  const variables = { relativePath: "donate.json" }
+  const { data, query, variables: resolvedVariables } = await loadTinaSingleton({
+    queryFn: (vars) => client.queries.donate(vars),
+    variables,
+    fallbackCollection: "donate",
+    fallbackFile: "donate.json",
+    rootKey: "donate",
+    context: "donate-page",
+  })
 
   return (
     <DonateClient 
       initialData={data}
       query={query}
-      variables={variables}
+      variables={resolvedVariables}
     />
   )
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar({ programs = [] }) {
   const [isProgramsDropdownOpen, setIsProgramsDropdownOpen] = useState(false);
@@ -101,9 +102,12 @@ export default function Navbar({ programs = [] }) {
             className='block cursor-pointer transition-transform duration-300 hover:scale-105 flex-shrink-0 active:scale-95 max-w-[180px] sm:max-w-[220px] md:max-w-[252px] h-auto'
             aria-label='Go to home page'
           >
-            <img
+            <Image
               src='/images/Iogo_incubator.png'
               alt='Incubator Logo'
+              width={252}
+              height={26}
+              priority
               className='w-full h-auto object-contain'
               style={{ maxHeight: "26px" }}
             />

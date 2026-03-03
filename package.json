@@ -7,7 +7,9 @@
     "build": "node scripts/build.mjs",
     "build:with-tina": "tinacms build --no-client-build-cache && next build",
     "build:next": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "node --test",
+    "test:smoke": "node scripts/smoke.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

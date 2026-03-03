@@ -1,26 +1,23 @@
 import TeamsClient from "./TeamsClient"
 import client from "../../../tina/__generated__/client"
+import { loadTinaSingleton } from "@/lib/tina-fallback.mjs"
 
 export default async function TeamsPage() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "teams.json" }
-  
-  try {
-    const res = await client.queries.teams(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching teams data:", error)
-    // Return empty data if fetch fails - this allows the page to still render
-  }
+  const variables = { relativePath: "teams.json" }
+  const { data, query, variables: resolvedVariables } = await loadTinaSingleton({
+    queryFn: (vars) => client.queries.teams(vars),
+    variables,
+    fallbackCollection: "teams",
+    fallbackFile: "teams.json",
+    rootKey: "teams",
+    context: "teams-page",
+  })
 
   return (
     <TeamsClient 
       initialData={data}
       query={query}
-      variables={variables}
+      variables={resolvedVariables}
     />
   )
 }

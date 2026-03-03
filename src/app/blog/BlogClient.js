@@ -35,6 +35,7 @@ export default function BlogClient({ initialData, query, variables }) {
         <BlogPostsGrid
           title={blogPostsGridData.title}
           description={blogPostsGridData.description}
+          posts={blogPostsGridData.posts}
         />
       </Reveal>
     </div>

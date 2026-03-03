@@ -11,6 +11,7 @@ import {
   Raleway,
 } from "next/font/google";
 import client from "../../tina/__generated__/client";
+import { logTinaFallback } from "@/lib/tina-fallback.mjs";
 import "./globals.css";
 
 const inter = Inter({
@@ -123,7 +124,7 @@ export default async function RootLayout({ children }) {
         .filter(Boolean) || [];
     programs = sortPrograms(tinaPrograms);
   } catch (error) {
-    console.error("Error fetching programs for navbar:", error);
+    logTinaFallback("layout-navbar-programs", error);
   }
 
   // Guaranteed fallback when Tina is unavailable/misconfigured.

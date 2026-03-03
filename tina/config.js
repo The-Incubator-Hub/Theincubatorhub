@@ -631,6 +631,71 @@ export default defineConfig({
                 label: "Section Description",
                 ui: { component: "textarea" },
               },
+              {
+                type: "object",
+                name: "posts",
+                label: "Post Cards",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                    required: true,
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Description",
+                    ui: { component: "textarea" },
+                  },
+                  {
+                    type: "string",
+                    name: "category",
+                    label: "Category",
+                  },
+                  {
+                    type: "image",
+                    name: "image",
+                    label: "Image",
+                  },
+                  {
+                    type: "string",
+                    name: "author",
+                    label: "Author",
+                  },
+                  {
+                    type: "string",
+                    name: "date",
+                    label: "Date",
+                    description: "Display date text (e.g., December 15, 2025)",
+                  },
+                  {
+                    type: "string",
+                    name: "readTime",
+                    label: "Read Time",
+                    description: "e.g., 5 mins",
+                  },
+                  {
+                    type: "number",
+                    name: "likes",
+                    label: "Likes",
+                  },
+                  {
+                    type: "string",
+                    name: "slug",
+                    label: "Blog Slug",
+                    description: "Used to build /blogdetails/{slug}",
+                  },
+                  {
+                    type: "string",
+                    name: "href",
+                    label: "Custom Link",
+                    description:
+                      "Optional full/custom URL. If empty, slug route is used.",
+                  },
+                ],
+              },
             ],
           },
         ],
