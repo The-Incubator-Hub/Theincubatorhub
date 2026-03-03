@@ -62,7 +62,7 @@ export default async function BlogDetailsPage({ params }) {
   let data = {}
   let query = {}
   let variables = {}
-  const slug = params.slug
+  const { slug } = await params
 
   try {
     variables = { relativePath: `${slug}.json` }

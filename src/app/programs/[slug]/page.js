@@ -62,11 +62,9 @@ export default async function ProgramPage({ params }) {
   let data = {}
   let query = {}
   let variables = {}
+  const { slug } = await params
 
   try {
-    // Get the slug from params
-    const slug = params.slug
-    
     // First, get all programs to find the one with matching slug
     const programsListData = await client.queries.programPageConnection()
     const program = programsListData.data.programPageConnection.edges.find(
@@ -87,7 +85,6 @@ export default async function ProgramPage({ params }) {
     logTinaFallback("programs-page-fetch", error)
 
     // Fallback: read matching program JSON directly from content files.
-    const slug = params.slug
     const localPrograms = await loadProgramsFromFiles()
     const localProgram = localPrograms.find((program) => program.slug === slug)
 
