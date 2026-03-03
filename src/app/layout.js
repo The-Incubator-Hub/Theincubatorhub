@@ -12,6 +12,13 @@ import {
 } from "next/font/google";
 import client from "../../tina/__generated__/client";
 import { logTinaFallback } from "@/lib/tina-fallback.mjs";
+import {
+  buildMetadata,
+  getOrganizationJsonLd,
+  getSiteUrl,
+  getWebsiteJsonLd,
+  siteConfig,
+} from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -48,11 +55,30 @@ const lexend = Lexend({
   weight: ["400", "500", "600", "700"],
 });
 
+const rootMetadata = buildMetadata({
+  title: siteConfig.defaultTitle,
+  description: siteConfig.description,
+  path: "/",
+  image: siteConfig.defaultOgImage,
+})
+
 export const metadata = {
-  title: "Incubator",
-  description:
-    "Incubator is a technology company that provide technical training services to individual",
-};
+  ...rootMetadata,
+  metadataBase: new URL(getSiteUrl()),
+  title: {
+    default: siteConfig.defaultTitle,
+    template: `%s | ${siteConfig.name}`,
+  },
+  applicationName: siteConfig.name,
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "education",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+}
 
 const normalizeProgramForNavbar = (program) => {
   const title =
@@ -114,6 +140,9 @@ const loadProgramsFromContentFiles = async () => {
 };
 
 export default async function RootLayout({ children }) {
+  const organizationJsonLd = getOrganizationJsonLd()
+  const websiteJsonLd = getWebsiteJsonLd()
+
   // Fetch programs from Tina CMS
   let programs = [];
   try {
@@ -137,6 +166,18 @@ export default async function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${geistMono.variable} ${montserrat.variable} ${onest.variable} ${raleway.variable} ${lexend.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd),
+          }}
+        />
         <Navbar programs={programs} />
         {children}
         <FooterR />

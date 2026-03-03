@@ -1,7 +1,10 @@
-export const metadata = {
-  title: "Privacy Policy | The Incubator Hub",
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Privacy Policy",
   description: "Privacy policy for The Incubator Hub website.",
-};
+  path: "/privacy",
+})
 
 export default function PrivacyPage() {
   return (

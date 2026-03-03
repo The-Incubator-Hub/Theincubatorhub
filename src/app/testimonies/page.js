@@ -1,6 +1,14 @@
 import TestimoniesClient from "./TestimoniesClient"
 import client from "../../../tina/__generated__/client"
 import { loadTinaSingleton } from "@/lib/tina-fallback.mjs"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Testimonies",
+  description:
+    "Read testimonials from learners and partners transformed by The Incubator Hub programs.",
+  path: "/testimonies",
+})
 
 export default async function TestimoniesPage() {
   const variables = { relativePath: "testimonies.json" }

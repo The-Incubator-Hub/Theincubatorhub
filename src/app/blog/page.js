@@ -4,6 +4,14 @@ import {
   loadCollectionDocument,
   loadTinaSingleton,
 } from "@/lib/tina-fallback.mjs"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Blog",
+  description:
+    "Explore insights, success stories, and updates on digital skills, innovation, and career growth from The Incubator Hub.",
+  path: "/blog",
+})
 
 export default async function Page() {
   const variables = { relativePath: "blog.json" }

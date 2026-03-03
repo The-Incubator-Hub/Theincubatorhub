@@ -22,6 +22,12 @@ The build script skips Tina codegen when Tina Cloud env vars are missing:
 - `NEXT_PUBLIC_TINA_CLIENT_ID`
 - `TINA_TOKEN`
 
+## SEO Configuration
+
+Set the production site URL so canonical links, Open Graph URLs, `robots.txt`, and `sitemap.xml` are generated correctly:
+
+- `NEXT_PUBLIC_SITE_URL` (example: `https://yourdomain.com`)
+
 ## Tests
 
 ```bash

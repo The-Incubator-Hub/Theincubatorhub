@@ -4,6 +4,12 @@ import { notFound } from "next/navigation"
 import { readdir, readFile } from "node:fs/promises"
 import path from "node:path"
 import { logTinaFallback } from "@/lib/tina-fallback.mjs"
+import {
+  buildMetadata,
+  siteConfig,
+  titleFromSlug,
+  toAbsoluteUrl,
+} from "@/lib/seo"
 
 const BLOG_POSTS_DIR = path.join(process.cwd(), "content", "blog-posts")
 
@@ -11,11 +17,31 @@ const deriveBlogSlug = (post, filename = "") =>
   (typeof post?.slug === "string" && post.slug.trim()) ||
   filename.replace(".json", "")
 
+const getBlogDescription = (post) => {
+  const content =
+    typeof post?.content === "string"
+      ? post.content.replace(/\s+/g, " ").trim()
+      : ""
+
+  if (content.length > 0) {
+    return content.length > 160 ? `${content.slice(0, 157)}...` : content
+  }
+
+  return `Read ${post?.title || "this article"} on The Incubator Hub blog.`
+}
+
+const getBlogImage = (post) => {
+  if (typeof post?.featuredImage === "string" && post.featuredImage.trim()) {
+    return post.featuredImage
+  }
+  return siteConfig.defaultOgImage
+}
+
 async function loadBlogPostsFromFiles() {
   try {
     const entries = await readdir(BLOG_POSTS_DIR, { withFileTypes: true })
     const files = entries.filter(
-      (entry) => entry.isFile() && entry.name.endsWith(".json")
+      (entry) => entry.isFile() && entry.name.endsWith(".json"),
     )
 
     const posts = await Promise.all(
@@ -33,7 +59,7 @@ async function loadBlogPostsFromFiles() {
           console.error(`Error parsing blog post file ${file.name}:`, error)
           return null
         }
-      })
+      }),
     )
 
     return posts.filter(Boolean)
@@ -43,26 +69,10 @@ async function loadBlogPostsFromFiles() {
   }
 }
 
-export async function generateStaticParams() {
-  try {
-    const postsListData = await client.queries.blogPostConnection()
-    return postsListData.data.blogPostConnection.edges.map((post) => ({
-      slug: post.node.slug || post.node._sys.filename.replace('.json', ''),
-    }))
-  } catch (error) {
-    logTinaFallback("blogdetails-generate-static-params", error)
-    const localPosts = await loadBlogPostsFromFiles()
-    return localPosts.map((post) => ({
-      slug: post.slug,
-    }))
-  }
-}
-
-export default async function BlogDetailsPage({ params }) {
+async function getBlogPostDataBySlug(slug, context = "blogdetails-page-fetch") {
   let data = {}
   let query = {}
   let variables = {}
-  const { slug } = await params
 
   try {
     variables = { relativePath: `${slug}.json` }
@@ -71,7 +81,7 @@ export default async function BlogDetailsPage({ params }) {
     data = res.data
     variables = res.variables
   } catch (error) {
-    logTinaFallback("blogdetails-page-fetch", error)
+    logTinaFallback(context, error)
 
     // Try to find by slug if direct filename lookup fails
     try {
@@ -79,7 +89,7 @@ export default async function BlogDetailsPage({ params }) {
       const post = postsListData.data.blogPostConnection.edges.find(
         (edge) =>
           (edge.node.slug || edge.node._sys.filename.replace(".json", "")) ===
-          slug
+          slug,
       )
       if (post) {
         const res = await client.queries.blogPost({
@@ -99,17 +109,122 @@ export default async function BlogDetailsPage({ params }) {
     const localPost = localPosts.find((post) => post.slug === slug)
 
     if (!localPost) {
-      notFound()
+      return null
     }
 
     data = { blogPost: localPost }
   }
 
+  return { data, query, variables }
+}
+
+export async function generateStaticParams() {
+  try {
+    const postsListData = await client.queries.blogPostConnection()
+    return postsListData.data.blogPostConnection.edges.map((post) => ({
+      slug: post.node.slug || post.node._sys.filename.replace(".json", ""),
+    }))
+  } catch (error) {
+    logTinaFallback("blogdetails-generate-static-params", error)
+    const localPosts = await loadBlogPostsFromFiles()
+    return localPosts.map((post) => ({
+      slug: post.slug,
+    }))
+  }
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params
+  const result = await getBlogPostDataBySlug(slug, "blogdetails-metadata-fetch")
+
+  if (!result?.data?.blogPost) {
+    return buildMetadata({
+      title: titleFromSlug(slug),
+      description: "Blog article",
+      path: `/blogdetails/${slug}`,
+      noIndex: true,
+    })
+  }
+
+  const post = result.data.blogPost
+  const title = post.title || titleFromSlug(slug)
+  const description = getBlogDescription(post)
+  const image = getBlogImage(post)
+  const keywords = [
+    "Blog",
+    post.category,
+    ...(post.tags || []).map((tag) => tag?.name).filter(Boolean),
+  ].filter(Boolean)
+
+  return buildMetadata({
+    title,
+    description,
+    path: `/blogdetails/${post.slug || slug}`,
+    image,
+    type: "article",
+    keywords,
+    publishedTime: post.publishDate,
+    authors: [post.author].filter(Boolean),
+  })
+}
+
+export default async function BlogDetailsPage({ params }) {
+  const { slug } = await params
+  const result = await getBlogPostDataBySlug(slug)
+
+  if (!result?.data?.blogPost) {
+    notFound()
+  }
+
+  const { data, query, variables } = result
+  const post = data.blogPost
+  const articleTitle = post.title || titleFromSlug(slug)
+  const articleDescription = getBlogDescription(post)
+  const articleImage = getBlogImage(post)
+  const articleUrl = toAbsoluteUrl(`/blogdetails/${post.slug || slug}`)
+
+  const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: articleTitle,
+    description: articleDescription,
+    image: [articleImage.startsWith("http") ? articleImage : toAbsoluteUrl(articleImage)],
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": articleUrl,
+    },
+    datePublished: post.publishDate,
+    author: post.author
+      ? {
+          "@type": "Person",
+          name: post.author,
+        }
+      : {
+          "@type": "Organization",
+          name: siteConfig.name,
+        },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: {
+        "@type": "ImageObject",
+        url: toAbsoluteUrl("/images/Iogo_incubator.png"),
+      },
+    },
+  }
+
   return (
-    <BlogDetailsClient 
-      initialData={data}
-      query={query}
-      variables={variables}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
+      <BlogDetailsClient
+        initialData={data}
+        query={query}
+        variables={variables}
+      />
+    </>
   )
 }
+

@@ -1,7 +1,10 @@
-export const metadata = {
-  title: "Terms & Conditions | The Incubator Hub",
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Terms and Conditions",
   description: "Terms and conditions for using The Incubator Hub website.",
-};
+  path: "/terms",
+})
 
 export default function TermsPage() {
   return (
