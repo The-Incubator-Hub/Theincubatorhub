@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import ProgramHeader from "@/components/program-components/ProgramHeader"
 import LearningPathway from "@/components/program-components/LearningPathway"
 import VideoSection from "@/components/program-components/VideoSection"
@@ -20,6 +21,8 @@ export default function ProgramPageClient({ initialData }) {
   const testimonialsData = programData.testimonials || {}
   const galleryData = programData.gallery || {}
   const ctaBannerData = programData.ctaBanner || {}
+  const programSlug = data?.slug || programData?.slug || ""
+  const programTitle = programHeaderData.title || programData.title || "this program"
 
   const galleryImages = galleryData.images || []
 
@@ -32,6 +35,24 @@ export default function ProgramPageClient({ initialData }) {
         stats={programHeaderData.stats}
         images={programHeaderData.images}
       />
+      {programSlug ? (
+        <section className="bg-white px-6 py-6">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 rounded-2xl border border-gray-200 p-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-xl font-semibold text-gray-900">Ready to apply?</h2>
+              <p className="mt-1 text-sm text-gray-600">
+                Submit your application for {programTitle} and track progress in your portal.
+              </p>
+            </div>
+            <Link
+              href={`/programs/${programSlug}/apply`}
+              className="inline-flex items-center justify-center rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-black"
+            >
+              Apply Now
+            </Link>
+          </div>
+        </section>
+      ) : null}
       <Reveal>
         <LearningPathway 
           phases={learningPathwayData.phases}

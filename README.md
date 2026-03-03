@@ -11,6 +11,111 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+## Auth + Database Setup (Phase 1)
+
+1. Copy environment variables:
+
+```bash
+cp .env.example .env
+```
+
+2. Set a real `DATABASE_URL` and `AUTH_SECRET` in `.env`.
+
+3. Generate schema and client:
+
+```bash
+npm run db:push
+npm run prisma:generate
+```
+
+4. Seed program records for the new admissions backend:
+
+```bash
+npm run db:sync-programs
+```
+
+5. Create an account on `/signup`, then promote it to admin:
+
+```bash
+npm run user:promote-admin -- you@example.com
+```
+
+## Phase 2 (Applications + Review Queue)
+
+After pulling the latest code, apply the updated Prisma schema:
+
+```bash
+npm run db:push
+npm run prisma:generate
+```
+
+Admissions flow added:
+
+- Applicants submit form at `/programs/[slug]/apply`
+- Applicants track status at `/portal/dashboard`
+- Admins review and update decisions at `/admin/dashboard`
+
+## Phase 3 (Moodle Transition + Sync Hooks)
+
+Configure Moodle integration values in your environment:
+
+- `MOODLE_BASE_URL` (example: `https://lms.yourdomain.com`)
+- `MOODLE_LAUNCH_PATH` (default: `/local/incubator/sso.php`)
+- `MOODLE_SYNC_ENDPOINT` (optional webhook target for enrollment sync)
+- `MOODLE_SHARED_SECRET` (shared HMAC/JWT secret with your Moodle integration plugin)
+
+Flow added:
+
+- Applicants with `ACCEPTED` or `ENROLLED` status can launch Moodle from `/portal/dashboard`
+- Admins can trigger LMS sync from `/admin/dashboard`
+- Successful sync can auto-transition `ACCEPTED -> ENROLLED`
+
+Moodle receiver/plugin files are included in this repo at:
+
+- `moodle/local/incubator/`
+
+## Phase 4 (In-App Communications)
+
+Added features:
+
+- Admin broadcast notifications (role/status filtered)
+- Applicant notification center on `/portal/dashboard`
+- Mark-all-read workflow for applicants
+
+Endpoints:
+
+- `POST /api/admin/notifications/broadcast`
+- `GET /api/notifications`
+- `POST /api/notifications/read-all`
+
+## Phase 5 (Admissions Analytics + Export)
+
+Added features:
+
+- Admin admissions analytics cards and program performance table
+- CSV export for filtered application queues
+
+Endpoints:
+
+- `GET /api/admin/analytics/summary`
+- `GET /api/admin/applications/export`
+
+## Phase 6 (Operational Audit Visibility)
+
+Added features:
+
+- Recent operational audit stream on admin dashboard
+- LMS sync state visibility on both applicant/admin dashboards
+
+## DB Update for Phases 4-6
+
+`Notification` model was added. Run:
+
+```bash
+npm run db:push
+npm run prisma:generate
+```
+
 ## Build
 
 ```bash

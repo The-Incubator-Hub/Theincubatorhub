@@ -105,8 +105,7 @@ export default async function ProgramPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
       />
-      <ProgramPageClient initialData={{ programPage: program }} />
+      <ProgramPageClient initialData={{ programPage: program, slug: program.slug }} />
     </>
   )
 }
-
