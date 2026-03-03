@@ -1,25 +1,24 @@
 import GetInvolvedClient from "./GetInvolvedClient"
-import client from "../../../tina/__generated__/client"
+import { loadSingletonPage } from "@/lib/content-loader.mjs"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Get Involved",
+  description:
+    "Volunteer, partner, mentor, or support programs that expand access to tech opportunities across Africa.",
+  path: "/getinvolved",
+})
 
 export default async function GetInvolvedPage() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "getinvolved.json" }
-  
-  try {
-    const res = await client.queries.getinvolved(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching getinvolved data:", error)
-  }
+  const { data } = await loadSingletonPage({
+    collection: "getinvolved",
+    fileName: "getinvolved.json",
+    rootKey: "getinvolved",
+  })
 
   return (
     <GetInvolvedClient 
       initialData={data}
-      query={query}
-      variables={variables}
     />
   )
 }

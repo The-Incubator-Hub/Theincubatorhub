@@ -1,17 +1,13 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import HeaderCareer from "@/components/HeaderCareer.js"
 import TeamIntro from "@/components/TeamIntro.js"
 import FAQAccordion from "@/components/questions.js"
 import StillHaveQuestions from "@/components/stiilhavequestions.js"
+import Reveal from "@/components/motion/Reveal"
 
-export default function FAQsClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function FAQsClient({ initialData }) {
+  const data = initialData || {}
 
   const faqsData = data?.faqs || {}
   const headerData = faqsData.header || {}
@@ -33,19 +29,22 @@ export default function FAQsClient({ initialData, query, variables }) {
         description={headerData.description}
         backgroundImage={headerData.backgroundImage}
       />
-      <TeamIntro 
-        title={teamIntroData.title}
-        description={teamIntroData.description}
-      />
-      <div className="bg-white py-12">
-        <FAQAccordion items={faqItems} />
-        <StillHaveQuestions 
-          title={stillHaveQuestionsData.title}
-          description={stillHaveQuestionsData.description}
-          cards={stillHaveQuestionsData.cards}
+      <Reveal>
+        <TeamIntro 
+          title={teamIntroData.title}
+          description={teamIntroData.description}
         />
-      </div>
+      </Reveal>
+      <Reveal delay={80}>
+        <div className="bg-white py-12">
+          <FAQAccordion items={faqItems} />
+          <StillHaveQuestions 
+            title={stillHaveQuestionsData.title}
+            description={stillHaveQuestionsData.description}
+            cards={stillHaveQuestionsData.cards}
+          />
+        </div>
+      </Reveal>
     </div>
   )
 }
-

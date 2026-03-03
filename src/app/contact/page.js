@@ -1,25 +1,24 @@
 import ContactClient from "./ContactClient"
-import client from "../../../tina/__generated__/client"
+import { loadSingletonPage } from "@/lib/content-loader.mjs"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Contact Us",
+  description:
+    "Contact The Incubator Hub for partnerships, training inquiries, support, and collaboration opportunities.",
+  path: "/contact",
+})
 
 export default async function ContactPage() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "contact.json" }
-  
-  try {
-    const res = await client.queries.contact(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching contact data:", error)
-  }
+  const { data } = await loadSingletonPage({
+    collection: "contact",
+    fileName: "contact.json",
+    rootKey: "contact",
+  })
 
   return (
     <ContactClient 
       initialData={data}
-      query={query}
-      variables={variables}
     />
   )
 }

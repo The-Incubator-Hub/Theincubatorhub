@@ -120,3 +120,150 @@
     @apply bg-background text-foreground overflow-x-hidden;
   }
 }
+
+@keyframes float-gentle {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes stagger-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0) scale(0.985);
+    transition:
+      opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  .reveal.is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  .hover-lift {
+    transition:
+      transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 44px -24px rgb(15 23 42 / 0.35);
+  }
+
+  .float-gentle {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+
+  .stagger-grid > * {
+    opacity: 0;
+    animation: stagger-rise 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .stagger-grid > *:nth-child(1) {
+    animation-delay: 40ms;
+  }
+  .stagger-grid > *:nth-child(2) {
+    animation-delay: 90ms;
+  }
+  .stagger-grid > *:nth-child(3) {
+    animation-delay: 140ms;
+  }
+  .stagger-grid > *:nth-child(4) {
+    animation-delay: 190ms;
+  }
+  .stagger-grid > *:nth-child(5) {
+    animation-delay: 240ms;
+  }
+  .stagger-grid > *:nth-child(6) {
+    animation-delay: 290ms;
+  }
+  .stagger-grid > *:nth-child(7) {
+    animation-delay: 340ms;
+  }
+  .stagger-grid > *:nth-child(8) {
+    animation-delay: 390ms;
+  }
+  .stagger-grid > *:nth-child(9) {
+    animation-delay: 440ms;
+  }
+  .stagger-grid > *:nth-child(10) {
+    animation-delay: 490ms;
+  }
+  .stagger-grid > *:nth-child(11) {
+    animation-delay: 540ms;
+  }
+  .stagger-grid > *:nth-child(12) {
+    animation-delay: 590ms;
+  }
+
+  .btn-micro {
+    transition:
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 220ms ease;
+  }
+
+  .btn-micro:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -18px rgb(15 23 42 / 0.45);
+    filter: saturate(1.04);
+  }
+
+  .btn-micro:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hover-lift,
+  .hover-lift:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+  }
+
+  .float-gentle {
+    animation: none !important;
+  }
+
+  .stagger-grid > * {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .btn-micro,
+  .btn-micro:hover,
+  .btn-micro:active {
+    transform: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}

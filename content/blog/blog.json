@@ -30,6 +30,44 @@
   },
   "blogPostsGrid": {
     "title": "Latest Blog Posts",
-    "description": "Watch the video highlight of future clan bootcamp 2024 through our lens"
+    "description": "Watch the video highlight of future clan bootcamp 2024 through our lens",
+    "posts": [
+      {
+        "title": "The Future of Tech Education in Africa: Bridging the Digital Divide",
+        "description": "A practical look at the programs, partnerships, and systems needed to scale quality tech education across African communities.",
+        "category": "Education",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+        "author": "Sarah Okafor",
+        "date": "December 15, 2025",
+        "readTime": "5 mins",
+        "likes": 156,
+        "slug": "future-of-tech-education",
+        "href": ""
+      },
+      {
+        "title": "Success Stories: From Bootcamp to Tech Leadership",
+        "description": "Meet graduates who moved from beginner pathways into leadership and specialist roles after intensive training.",
+        "category": "Success Stories",
+        "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+        "author": "Incubator Editorial Team",
+        "date": "January 12, 2026",
+        "readTime": "4 mins",
+        "likes": 102,
+        "slug": "future-of-tech-education",
+        "href": ""
+      },
+      {
+        "title": "Building Inclusive Tech Pipelines Through Community Partnerships",
+        "description": "How collaboration with schools and organizations can close digital skill gaps and increase workforce readiness.",
+        "category": "Community",
+        "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
+        "author": "Incubator Editorial Team",
+        "date": "February 02, 2026",
+        "readTime": "6 mins",
+        "likes": 88,
+        "slug": "future-of-tech-education",
+        "href": ""
+      }
+    ]
   }
 }

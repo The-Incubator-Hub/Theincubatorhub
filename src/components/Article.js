@@ -1,8 +1,123 @@
 'use client'; 
 import React from 'react';  
 import { User, Calendar, Clock } from 'lucide-react';
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import Image from 'next/image';
+
+const paragraphStyle = {
+  fontFamily: 'Onest, sans-serif',
+  fontWeight: 400,
+  fontStyle: 'normal',
+  fontSize: '16px',
+  lineHeight: '150%',
+  letterSpacing: '0px',
+  color: '#000000',
+  margin: 0,
+  marginBottom: '16px'
+};
+
+const heading2Style = {
+  fontFamily: 'Onest, sans-serif',
+  fontWeight: 700,
+  fontStyle: 'normal',
+  fontSize: '24px',
+  lineHeight: '150%',
+  letterSpacing: '0px',
+  color: '#000000',
+  margin: 0,
+  marginTop: '24px',
+  marginBottom: '16px'
+};
+
+const heading3Style = {
+  fontFamily: 'Onest, sans-serif',
+  fontWeight: 400,
+  fontStyle: 'normal',
+  fontSize: '18px',
+  lineHeight: '150%',
+  letterSpacing: '0px',
+  color: '#000000',
+  margin: 0,
+  marginTop: '16px',
+  marginBottom: '12px'
+};
+
+const getNodeText = (node) => {
+  if (!node || typeof node !== 'object') return '';
+  if (typeof node.text === 'string') return node.text;
+  if (Array.isArray(node.children)) {
+    return node.children.map((child) => getNodeText(child)).join('');
+  }
+  return '';
+};
+
+const renderArticleContent = (content) => {
+  if (!content) return null;
+
+  if (typeof content === 'string') {
+    return content
+      .split(/\n{2,}/)
+      .map((paragraph) => paragraph.trim())
+      .filter(Boolean)
+      .map((paragraph, index) => (
+        <p key={`text-${index}`} style={paragraphStyle}>
+          {paragraph}
+        </p>
+      ));
+  }
+
+  if (!content || typeof content !== 'object' || !Array.isArray(content.children)) {
+    return null;
+  }
+
+  return content.children.map((block, index) => {
+    if (!block || typeof block !== 'object') return null;
+
+    if (block.type === 'h2') {
+      return (
+        <h2 key={`h2-${index}`} style={heading2Style}>
+          {getNodeText(block)}
+        </h2>
+      );
+    }
+
+    if (block.type === 'h3') {
+      return (
+        <h3 key={`h3-${index}`} style={heading3Style}>
+          {getNodeText(block)}
+        </h3>
+      );
+    }
+
+    if (block.type === 'ul') {
+      return (
+        <ul
+          key={`ul-${index}`}
+          className="list-none pl-0"
+          style={{ margin: 0, padding: 0, marginBottom: '16px' }}
+        >
+          {(block.children || []).map((li, liIndex) => (
+            <li
+              key={`li-${index}-${liIndex}`}
+              style={{
+                ...paragraphStyle,
+                paddingLeft: '20px',
+                listStyle: 'disc',
+              }}
+            >
+              {getNodeText(li)}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+    return (
+      <p key={`p-${index}`} style={paragraphStyle}>
+        {getNodeText(block)}
+      </p>
+    );
+  });
+};
 
 const BlogArticleHeader = ({
   title = "The Future of Tech Education in Africa: Bridging the Digital Divide",
@@ -32,58 +147,6 @@ const BlogArticleHeader = ({
     }
   };
 
-  // Custom components for TinaMarkdown
-  const components = {
-    p: (props) => <p style={{ 
-      fontFamily: 'Onest, sans-serif',
-      fontWeight: 400,
-      fontStyle: 'normal',
-      fontSize: '16px',
-      lineHeight: '150%',
-      letterSpacing: '0px',
-      color: '#000000',
-      margin: 0,
-      marginBottom: '16px'
-    }} {...props} />,
-    h2: (props) => <h2 style={{ 
-      fontFamily: 'Onest, sans-serif',
-      fontWeight: 700,
-      fontStyle: 'normal',
-      fontSize: '24px',
-      lineHeight: '150%',
-      letterSpacing: '0px',
-      color: '#000000',
-      margin: 0,
-      marginTop: '24px',
-      marginBottom: '16px'
-    }} {...props} />,
-    h3: (props) => <h3 style={{ 
-      fontFamily: 'Onest, sans-serif',
-      fontWeight: 400,
-      fontStyle: 'normal',
-      fontSize: '18px',
-      lineHeight: '150%',
-      letterSpacing: '0px',
-      color: '#000000',
-      margin: 0,
-      marginTop: '16px',
-      marginBottom: '12px'
-    }} {...props} />,
-    ul: (props) => <ul className="list-none pl-0" style={{ margin: 0, padding: 0, marginBottom: '16px' }} {...props} />,
-    li: (props) => <li style={{ 
-      fontFamily: 'Onest, sans-serif',
-      fontWeight: 400,
-      fontStyle: 'normal',
-      fontSize: '16px',
-      lineHeight: '150%',
-      letterSpacing: '0px',
-      color: '#000000',
-      margin: 0,
-      marginBottom: '8px',
-      paddingLeft: '20px',
-      listStyle: 'disc'
-    }} {...props} />,
-  };   
   return ( 
     <div className="min-h-screen bg-gray-50 pt-20">  
       {/* Main Container */} 
@@ -177,7 +240,7 @@ const BlogArticleHeader = ({
           }}
         >
           <div className="max-w-none">
-            <TinaMarkdown components={components} content={content} />
+            {renderArticleContent(content)}
           </div>
         </div>
       )}

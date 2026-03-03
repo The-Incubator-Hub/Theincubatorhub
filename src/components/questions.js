@@ -2,7 +2,45 @@
 
 import { useState } from "react"
 import React from "react"
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
+
+const getNodeText = (node) => {
+  if (!node || typeof node !== "object") return ""
+  if (typeof node.text === "string") return node.text
+  if (Array.isArray(node.children)) {
+    return node.children.map((child) => getNodeText(child)).join("")
+  }
+  return ""
+}
+
+const renderRichTextAnswer = (answer) => {
+  if (!answer || typeof answer !== "object" || !Array.isArray(answer.children)) {
+    return null
+  }
+
+  return answer.children.map((block, blockIndex) => {
+    if (block?.type === "ul") {
+      return (
+        <ul key={`ul-${blockIndex}`} className="space-y-3 text-gray-600">
+          {(block.children || []).map((li, liIndex) => (
+            <li key={`li-${blockIndex}-${liIndex}`} className="flex gap-3">
+              <span className="text-gray-600 mt-1">•</span>
+              <span>{getNodeText(li)}</span>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    return (
+      <ul key={`p-${blockIndex}`} className="space-y-3 text-gray-600">
+        <li className="flex gap-3">
+          <span className="text-gray-600 mt-1">•</span>
+          <span>{getNodeText(block)}</span>
+        </li>
+      </ul>
+    )
+  })
+}
 
 const faqData = [
   {
@@ -62,14 +100,14 @@ export default function FAQAccordion({ items = faqData }) {
 
   return (
     <div className="w-full max-w-4xl mx-auto bg-white">
-      <div className="flex flex-col gap-4">
+      <div className="stagger-grid flex flex-col gap-4">
         {items.map((item) => {
           const isOpen = openId === item.id
 
           return (
             <div
               key={item.id}
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+              className={`hover-lift rounded-2xl border transition-all duration-300 overflow-hidden ${
                 isOpen
                   ? " bg-green-50 shadow-sm"
                   : "border-gray-200 bg-white"
@@ -78,7 +116,7 @@ export default function FAQAccordion({ items = faqData }) {
               {/* Question */}
               <button
                 onClick={() => toggleItem(item.id)}
-                className="w-full px-8 py-6 text-left flex items-center justify-between gap-6"
+                className="btn-micro w-full px-8 py-6 text-left flex items-center justify-between gap-6"
                 aria-expanded={isOpen}
               >
                 <span 
@@ -127,19 +165,7 @@ export default function FAQAccordion({ items = faqData }) {
                       </li>
                     </ul>
                   ) : item.answer && typeof item.answer === "object" && item.answer.type ? (
-                    <TinaMarkdown 
-                      content={item.answer}
-                      components={{
-                        p: (props) => <p className="mb-3" {...props} />,
-                        ul: (props) => <ul className="space-y-3 text-gray-600" {...props} />,
-                        li: (props) => (
-                          <li className="flex gap-3">
-                            <span className="text-gray-600 mt-1">•</span>
-                            <span {...props} />
-                          </li>
-                        ),
-                      }}
-                    />
+                    renderRichTextAnswer(item.answer)
                   ) : (
                     React.isValidElement(item.answer) ? (
                       React.cloneElement(item.answer, {

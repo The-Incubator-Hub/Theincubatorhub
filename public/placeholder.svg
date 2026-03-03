@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Placeholder image">
+  <rect width="800" height="600" fill="#E5E7EB"/>
+  <g fill="#6B7280" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="400" y="285" font-size="42" font-weight="700">Image</text>
+    <text x="400" y="330" font-size="28">Coming soon</text>
+  </g>
+</svg>

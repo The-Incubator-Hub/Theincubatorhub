@@ -1,0 +1,40 @@
+name: Deploy VPS
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Configure SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p "${{ secrets.VPS_PORT || 22 }}" "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Deploy to VPS
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT || 22 }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_APP_DIR: ${{ secrets.VPS_APP_DIR }}
+          VPS_PM2_APP: ${{ secrets.VPS_PM2_APP }}
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: |
+          ssh -p "$VPS_PORT" "$VPS_USER@$VPS_HOST" << EOF
+            set -e
+            cd "$VPS_APP_DIR"
+            git fetch origin
+            git checkout "$BRANCH_NAME"
+            git pull --ff-only origin "$BRANCH_NAME"
+            npm ci
+            npm run build
+            if [ -n "$VPS_PM2_APP" ]; then
+              pm2 reload "$VPS_PM2_APP" --update-env
+            fi
+          EOF

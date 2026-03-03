@@ -1,25 +1,24 @@
 import CareersClient from "./CareersClient"
-import client from "../../../tina/__generated__/client"
+import { loadSingletonPage } from "@/lib/content-loader.mjs"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Careers",
+  description:
+    "Join The Incubator Hub team and help shape opportunities for emerging tech talent across Africa.",
+  path: "/careers",
+})
 
 export default async function Page() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "careers.json" }
-  
-  try {
-    const res = await client.queries.careers(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching careers data:", error)
-  }
+  const { data } = await loadSingletonPage({
+    collection: "careers",
+    fileName: "careers.json",
+    rootKey: "careers",
+  })
 
   return (
     <CareersClient 
       initialData={data}
-      query={query}
-      variables={variables}
     />
   )
 }

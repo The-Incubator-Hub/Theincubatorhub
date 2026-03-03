@@ -1,26 +1,24 @@
 import FAQsClient from "./FAQsClient"
-import client from "../../../tina/__generated__/client"
+import { loadSingletonPage } from "@/lib/content-loader.mjs"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Frequently Asked Questions",
+  description:
+    "Find answers to common questions about The Incubator Hub programs, admissions, support, and participation.",
+  path: "/faqs",
+})
 
 export default async function Page() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "faqs.json" }
-  
-  try {
-    const res = await client.queries.faqs(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching FAQs data:", error)
-  }
+  const { data } = await loadSingletonPage({
+    collection: "faqs",
+    fileName: "faqs.json",
+    rootKey: "faqs",
+  })
 
   return (
     <FAQsClient 
       initialData={data}
-      query={query}
-      variables={variables}
     />
   )
 }   
-

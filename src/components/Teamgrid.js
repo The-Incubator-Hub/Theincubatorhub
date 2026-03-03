@@ -181,11 +181,11 @@ export default function Teamgrid({ members = [] }) {
     <section className="w-full bg-white py-8">
       <div className="max-w-7xl mx-auto px-6">
         {/* Team Grid - Consistent spacing */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" style={{ gap: '24px' }}>
+        <div className="stagger-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" style={{ gap: '24px' }}>
           {currentMembers.map((member) => (
             <div 
               key={member.id}
-              className="relative group overflow-hidden rounded-2xl aspect-[4/5] bg-gray-100 shadow-md hover:shadow-2xl transition-all duration-300"
+              className="hover-lift relative group overflow-hidden rounded-2xl aspect-[4/5] bg-gray-100 shadow-md hover:shadow-2xl transition-all duration-300"
             >
               {/* Team Member Image */}
               <div className="relative w-full h-full bg-gray-200">
@@ -280,7 +280,7 @@ export default function Teamgrid({ members = [] }) {
             <button
               onClick={() => goToPage(currentPage - 1)}
               disabled={currentPage === 1}
-              className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-all duration-200 ${
+              className={`btn-micro flex items-center gap-2 px-4 py-2 font-medium text-sm transition-all duration-200 ${
                 currentPage === 1
                   ? 'text-gray-400 cursor-not-allowed'
                   : 'text-gray-600 hover:text-[#EAB308]'
@@ -301,7 +301,7 @@ export default function Teamgrid({ members = [] }) {
                   <button
                     key={pageNumber}
                     onClick={() => goToPage(pageNumber)}
-                    className={`w-10 h-10 rounded-lg font-semibold text-sm transition-all duration-200 ${
+                    className={`btn-micro w-10 h-10 rounded-lg font-semibold text-sm transition-all duration-200 ${
                       currentPage === pageNumber
                         ? 'bg-[#EAB308] text-white'
                         : 'text-gray-700 hover:text-[#EAB308]'
@@ -319,7 +319,7 @@ export default function Teamgrid({ members = [] }) {
             <button
               onClick={() => goToPage(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-all duration-200 ${
+              className={`btn-micro flex items-center gap-2 px-4 py-2 font-medium text-sm transition-all duration-200 ${
                 currentPage === totalPages
                   ? 'text-gray-400 cursor-not-allowed'
                   : 'text-gray-600 hover:text-[#EAB308]'
@@ -338,4 +338,3 @@ export default function Teamgrid({ members = [] }) {
     </section>
   );
 }
-

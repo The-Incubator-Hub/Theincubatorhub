@@ -1,25 +1,24 @@
 import PartnershipsClient from "./PartnershipsClient"
-import client from "../../../tina/__generated__/client"
+import { loadSingletonPage } from "@/lib/content-loader.mjs"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Partnerships",
+  description:
+    "Partner with The Incubator Hub to co-create programs, sponsor training, and scale measurable social impact.",
+  path: "/partnerships",
+})
 
 export default async function PartnershipsPage() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "partnerships.json" }
-  
-  try {
-    const res = await client.queries.partnerships(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching partnerships data:", error)
-  }
+  const { data } = await loadSingletonPage({
+    collection: "partnerships",
+    fileName: "partnerships.json",
+    rootKey: "partnerships",
+  })
 
   return (
     <PartnershipsClient 
       initialData={data}
-      query={query}
-      variables={variables}
     />
   )
 }

@@ -3,8 +3,18 @@
 import { Button } from "@/components/ui/button";
 import { Circle, Play } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function HeroSection() {
+export default function HeroSection({
+  heading = "Deliberate and Strategic",
+  highlightedText = "Impact",
+  description = "We are building Africa’s next generation of tech leaders through practical training, inclusive programs, and future-focused innovation.",
+  primaryButtonText = "Get Started",
+  primaryButtonLink = "/getinvolved",
+  secondaryButtonText = "View Programs",
+  secondaryButtonLink = "/contact",
+  image = "/team-collaboration-working-together.jpg",
+}) {
   return (
     <section className='bg-gradient-to-r from-[#4E4E50] to-black'>
       {/* Navbar offset: mobile ~80px, md+ ~96px */}
@@ -13,25 +23,34 @@ export default function HeroSection() {
           {/* Left Content */}
           <div className='flex flex-col justify-center space-y-6'>
             <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight'>
-              Deliberate and Strategic{" "}
-              <span className='px-2 py-1 bg-[#22C55E] inline-block'>
-                Impact
-              </span>
+              {heading}{" "}
+              {highlightedText ? (
+                <span className='px-2 py-1 bg-[#22C55E] inline-block'>
+                  {highlightedText}
+                </span>
+              ) : null}
             </h1>
 
             <p className='text-gray-300 text-base md:text-lg leading-relaxed max-w-xl'>
-              We are building Africa’s next generation of tech leaders through
-              practical training, inclusive programs, and future-focused
-              innovation.
+              {description}
             </p>
 
-            <div className='pt-1'>
+            <div className='pt-1 flex flex-col sm:flex-row gap-3'>
               <Button
+                asChild
                 className='bg-black hover:bg-gray-900 text-white px-8 py-6 text-base font-semibold rounded-lg transition-colors w-full sm:w-auto'
-                onClick={() => console.log("Get Started clicked")}
               >
-                Get Started
+                <Link href={primaryButtonLink}>{primaryButtonText}</Link>
               </Button>
+              {secondaryButtonText ? (
+                <Button
+                  asChild
+                  variant='outline'
+                  className='border-white/60 bg-transparent text-white hover:bg-white/10 hover:text-white px-8 py-6 text-base font-semibold rounded-lg transition-colors w-full sm:w-auto'
+                >
+                  <Link href={secondaryButtonLink}>{secondaryButtonText}</Link>
+                </Button>
+              ) : null}
             </div>
           </div>
 
@@ -41,7 +60,7 @@ export default function HeroSection() {
               {/* More standard hero image height (not full screen) */}
               <div className='border-[12px] md:border-[16px] border-[#4E4E50]/10 relative w-full h-72 sm:h-80 md:h-[26rem] lg:h-[28rem] overflow-hidden shadow-2xl'>
                 <Image
-                  src='/team-collaboration-working-together.jpg'
+                  src={image}
                   alt='Team collaboration'
                   fill
                   className='object-cover'

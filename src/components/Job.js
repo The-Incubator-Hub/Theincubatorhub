@@ -4,7 +4,7 @@ import { Heart, ExternalLink, ArrowRight, MapPin, Clock, Users } from 'lucide-re
 
 const JobCard = ({ job }) => {
   return (
-    <div className="bg-white rounded-2xl border border-gray-300 p-6 sm:p-8 hover:border-green-500 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group">
+    <div className="hover-lift bg-white rounded-2xl border border-gray-300 p-6 sm:p-8 hover:border-green-500 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group">
       {/* Header */}
       <div className="flex items-start gap-4 mb-4">
         <div className="flex-shrink-0 w-10 h-10 bg-gray-400 rounded-xl flex items-center justify-center">
@@ -52,13 +52,13 @@ const JobCard = ({ job }) => {
             href={job.applyLink}
             target={job.applyLink.startsWith('http') ? '_blank' : undefined}
             rel={job.applyLink.startsWith('http') ? 'noopener noreferrer' : undefined}
-            className="inline-flex items-center justify-center gap-2 bg-black group-hover:bg-green-500 group-hover:scale-110 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 active:scale-95 flex-shrink-0"
+            className="btn-micro inline-flex items-center justify-center gap-2 bg-black group-hover:bg-green-500 group-hover:scale-110 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 active:scale-95 flex-shrink-0"
           >
             <span>Apply Now</span>
             <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
           </a>
         ) : (
-          <button className="inline-flex items-center justify-center gap-2 bg-black group-hover:bg-green-500 group-hover:scale-110 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 active:scale-95 flex-shrink-0">
+          <button className="btn-micro inline-flex items-center justify-center gap-2 bg-black group-hover:bg-green-500 group-hover:scale-110 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 active:scale-95 flex-shrink-0">
             <span>Apply Now</span>
             <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
           </button>
@@ -68,13 +68,13 @@ const JobCard = ({ job }) => {
             href={job.viewDetailsLink}
             target={job.viewDetailsLink.startsWith('http') ? '_blank' : undefined}
             rel={job.viewDetailsLink.startsWith('http') ? 'noopener noreferrer' : undefined}
-            className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 font-semibold px-6 py-3 transition-all duration-200 flex-shrink-0 hover:text-green-500"
+            className="btn-micro inline-flex items-center justify-center gap-2 bg-white text-gray-900 font-semibold px-6 py-3 transition-all duration-200 flex-shrink-0 hover:text-green-500"
           >
             <span>View Details</span>
             <ArrowRight className="w-4 h-4" />
           </a>
         ) : (
-          <button className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 font-semibold px-6 py-3 transition-all duration-200 flex-shrink-0">
+          <button className="btn-micro inline-flex items-center justify-center gap-2 bg-white text-gray-900 font-semibold px-6 py-3 transition-all duration-200 flex-shrink-0">
             <span>View Details</span>
             <ArrowRight className="w-4 h-4" />
           </button>
@@ -131,7 +131,7 @@ const JobListings = ({ jobs: propsJobs = [] }) => {
   return (
     <section className="w-full bg-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="space-y-6">
+        <div className="stagger-grid space-y-6">
           {jobs.map((job) => (
             <JobCard key={job.id} job={job} />
           ))}

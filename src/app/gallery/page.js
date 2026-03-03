@@ -1,25 +1,24 @@
 import GalleryClient from "./GalleryClient"
-import client from "../../../tina/__generated__/client"
+import { loadSingletonPage } from "@/lib/content-loader.mjs"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Gallery",
+  description:
+    "View photos and videos from The Incubator Hub trainings, events, and community impact activities.",
+  path: "/gallery",
+})
 
 export default async function GalleryPage() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "gallery.json" }
-  
-  try {
-    const res = await client.queries.gallery(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching gallery data:", error)
-  }
+  const { data } = await loadSingletonPage({
+    collection: "gallery",
+    fileName: "gallery.json",
+    rootKey: "gallery",
+  })
 
   return (
     <GalleryClient 
       initialData={data}
-      query={query}
-      variables={variables}
     />
   )
 } 

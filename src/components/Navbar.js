@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar({ programs = [] }) {
   const [isProgramsDropdownOpen, setIsProgramsDropdownOpen] = useState(false);
@@ -95,26 +97,21 @@ export default function Navbar({ programs = [] }) {
       >
         <div className='mx-auto flex w-full max-w-7xl items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12'>
           {/* Logo */}
-          <div
-            className='cursor-pointer transition-transform duration-300 hover:scale-105 flex-shrink-0 active:scale-95 max-w-[180px] sm:max-w-[220px] md:max-w-[252px] h-auto'
-            onClick={() => (window.location.href = "/")}
-            role='button'
-            tabIndex={0}
+          <Link
+            href='/'
+            className='block cursor-pointer transition-transform duration-300 hover:scale-105 flex-shrink-0 active:scale-95 max-w-[180px] sm:max-w-[220px] md:max-w-[252px] h-auto'
             aria-label='Go to home page'
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                window.location.href = "/";
-              }
-            }}
           >
-            <img
+            <Image
               src='/images/Iogo_incubator.png'
               alt='Incubator Logo'
+              width={252}
+              height={26}
+              priority
               className='w-full h-auto object-contain'
               style={{ maxHeight: "26px" }}
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className='hidden lg:flex items-center gap-1 xl:gap-2'>
@@ -153,18 +150,17 @@ export default function Navbar({ programs = [] }) {
 
               {isAboutDropdownOpen && (
                 <div className='absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 z-50 border border-gray-100 animate-fadeIn'>
-                  <button
+                  <Link
+                    href='/about'
                     className='w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group'
                     onClick={() => {
-                      window.location.href = "/about";
                       setIsAboutDropdownOpen(false);
                     }}
-                    type='button'
                   >
                     <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                       About Us
                     </span>
-                  </button>
+                  </Link>
 
                   {/* Media Nested Dropdown */}
                   <div
@@ -193,63 +189,59 @@ export default function Navbar({ programs = [] }) {
 
                     {isMediaSubDropdownOpen && (
                       <div className='absolute left-full top-0 ml-1 w-56 bg-white rounded-lg shadow-xl py-2 z-50 border border-gray-100 animate-fadeIn'>
-                        <button
+                        <Link
+                          href='/press'
                           className='w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group'
                           onClick={() => {
-                            window.location.href = "/press";
                             setIsAboutDropdownOpen(false);
                             setIsMediaSubDropdownOpen(false);
                           }}
-                          type='button'
                         >
                           <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                             Press
                           </span>
-                        </button>
+                        </Link>
 
-                        <button
+                        <Link
+                          href='/gallery'
                           className='w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group'
                           onClick={() => {
-                            window.location.href = "/gallery";
                             setIsAboutDropdownOpen(false);
                             setIsMediaSubDropdownOpen(false);
                           }}
-                          type='button'
                         >
                           <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                             Gallery
                           </span>
-                        </button>
+                        </Link>
 
-                        <button
+                        <Link
+                          href='/testimonies'
                           className='w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group'
                           onClick={() => {
-                            window.location.href = "/testimonies";
                             setIsAboutDropdownOpen(false);
                             setIsMediaSubDropdownOpen(false);
                           }}
-                          type='button'
                         >
                           <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                             Testimonials
                           </span>
-                        </button>
+                        </Link>
                       </div>
                     )}
                   </div>
 
-                  <button
+                  <Link
+                    href='/teams'
                     className='w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group'
                     onClick={() => {
-                      window.location.href = "/teams";
                       setIsAboutDropdownOpen(false);
                     }}
-                    type='button'
                   >
                     <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                       Teams
                     </span>
-                  </button>
+                  </Link>
                 </div>
               )}
             </div>
@@ -292,19 +284,18 @@ export default function Navbar({ programs = [] }) {
                 <div className='absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 z-50 border border-gray-100 animate-fadeIn'>
                   {programs.length > 0 ? (
                     programs.map((program) => (
-                      <button
+                      <Link
                         key={program.slug}
+                        href={`/programs/${program.slug}`}
                         className='w-full h-11 flex items-center px-4 hover:bg-green-50 transition-colors duration-150 group'
                         onClick={() => {
-                          window.location.href = `/programs/${program.slug}`;
                           setIsOurProgramsDropdownOpen(false);
                         }}
-                        type='button'
                       >
                         <span className='font-montserrat text-xs xl:text-sm text-gray-700 group-hover:text-gray-900 text-left transition-colors duration-150'>
                           {program.title}
                         </span>
-                      </button>
+                      </Link>
                     ))
                   ) : (
                     <div className='px-4 py-2 text-xs text-gray-500'>
@@ -316,48 +307,44 @@ export default function Navbar({ programs = [] }) {
             </div>
 
             {/* ✅ FIXED: Get Involved should go to /getinvolved */}
-            <button
+            <Link
+              href='/getinvolved'
               className='px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200'
-              onClick={() => (window.location.href = "/getinvolved")}
-              type='button'
             >
               <span className='font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap'>
                 Get Involved
               </span>
-            </button>
+            </Link>
 
             {/* Resources */}
-            <button
+            <Link
+              href='/resources'
               className='px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200'
-              onClick={() => (window.location.href = "/resources")}
-              type='button'
             >
               <span className='font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap'>
                 Resources
               </span>
-            </button>
+            </Link>
 
             {/* Contact Us */}
-            <button
+            <Link
+              href='/contact'
               className='px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200'
-              onClick={() => (window.location.href = "/contact")}
-              type='button'
             >
               <span className='font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap'>
                 Contact Us
               </span>
-            </button>
+            </Link>
 
             {/* Donate */}
-            <button
+            <Link
+              href='/donate'
               className='px-4 xl:px-5 py-2.5 rounded-lg bg-gray-900 hover:bg-gray-800 active:bg-gray-950 transition-all duration-200 ml-2 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 active:translate-y-0'
-              onClick={() => (window.location.href = "/donate")}
-              type='button'
             >
               <span className='font-inter font-semibold text-xs xl:text-sm text-white whitespace-nowrap'>
                 Donate
               </span>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -411,34 +398,32 @@ export default function Navbar({ programs = [] }) {
       >
         <div className='flex flex-col p-4 sm:p-6 space-y-1 min-h-full'>
           {/* Home Link */}
-          <button
-            className='w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
+          <Link
+            href='/'
+            className='block w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
             onClick={() => {
-              window.location.href = "/";
               setIsMobileMenuOpen(false);
             }}
-            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               Home
             </span>
-          </button>
+          </Link>
 
           <div className='border-t border-gray-200 my-1' />
 
           {/* About Link */}
-          <button
-            className='w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
+          <Link
+            href='/about'
+            className='block w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
             onClick={() => {
-              window.location.href = "/about";
               setIsMobileMenuOpen(false);
             }}
-            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               About
             </span>
-          </button>
+          </Link>
 
           {/* Our Programs Dropdown */}
           <div>
@@ -480,20 +465,19 @@ export default function Navbar({ programs = [] }) {
               <div className='pl-2 space-y-1'>
                 {programs.length > 0 ? (
                   programs.map((program) => (
-                    <button
+                    <Link
                       key={program.slug}
-                      className='w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
+                      href={`/programs/${program.slug}`}
+                      className='block w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
                       onClick={() => {
-                        window.location.href = `/programs/${program.slug}`;
                         setIsMobileMenuOpen(false);
                         setIsMobileOurProgramsOpen(false);
                       }}
-                      type='button'
                     >
                       <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                         {program.title}
                       </span>
-                    </button>
+                    </Link>
                   ))
                 ) : (
                   <div className='px-3 sm:px-4 py-2 text-xs text-gray-500'>
@@ -505,32 +489,30 @@ export default function Navbar({ programs = [] }) {
           </div>
 
           {/* Blog Link */}
-          <button
-            className='w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
+          <Link
+            href='/blog'
+            className='block w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
             onClick={() => {
-              window.location.href = "/blog";
               setIsMobileMenuOpen(false);
             }}
-            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               Blog
             </span>
-          </button>
+          </Link>
 
           {/* Resources Link */}
-          <button
-            className='w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
+          <Link
+            href='/resources'
+            className='block w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
             onClick={() => {
-              window.location.href = "/resources";
               setIsMobileMenuOpen(false);
             }}
-            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               Resources
             </span>
-          </button>
+          </Link>
 
           {/* Mobile Get Involved Dropdown */}
           <div className='border-t border-gray-200 pt-3 mt-3'>
@@ -570,47 +552,44 @@ export default function Navbar({ programs = [] }) {
               }`}
             >
               <div className='pl-2 space-y-1'>
-                <button
-                  className='w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
+                <Link
+                  href='/getinvolved'
+                  className='block w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
                   onClick={() => {
-                    window.location.href = "/getinvolved";
                     setIsMobileMenuOpen(false);
                     setIsProgramsDropdownOpen(false);
                   }}
-                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Get Involved
                   </span>
-                </button>
+                </Link>
 
-                <button
-                  className='w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
+                <Link
+                  href='/careers'
+                  className='block w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
                   onClick={() => {
-                    window.location.href = "/careers";
                     setIsMobileMenuOpen(false);
                     setIsProgramsDropdownOpen(false);
                   }}
-                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Careers
                   </span>
-                </button>
+                </Link>
 
-                <button
-                  className='w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
+                <Link
+                  href='/donate'
+                  className='block w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
                   onClick={() => {
-                    window.location.href = "/donate";
                     setIsMobileMenuOpen(false);
                     setIsProgramsDropdownOpen(false);
                   }}
-                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Donate
                   </span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -653,106 +632,99 @@ export default function Navbar({ programs = [] }) {
               }`}
             >
               <div className='pl-2 space-y-1'>
-                <button
-                  className='w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
+                <Link
+                  href='/gallery'
+                  className='block w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
                   onClick={() => {
-                    window.location.href = "/gallery";
                     setIsMobileMenuOpen(false);
                     setIsMediaDropdownOpen(false);
                   }}
-                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Gallery
                   </span>
-                </button>
+                </Link>
 
-                <button
-                  className='w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
+                <Link
+                  href='/press'
+                  className='block w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
                   onClick={() => {
-                    window.location.href = "/press";
                     setIsMobileMenuOpen(false);
                     setIsMediaDropdownOpen(false);
                   }}
-                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Press
                   </span>
-                </button>
+                </Link>
 
-                <button
-                  className='w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
+                <Link
+                  href='/testimonies'
+                  className='block w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-green-50 active:bg-green-100 transition-colors duration-150 group'
                   onClick={() => {
-                    window.location.href = "/testimonies";
                     setIsMobileMenuOpen(false);
                     setIsMediaDropdownOpen(false);
                   }}
-                  type='button'
                 >
                   <span className='font-montserrat text-xs sm:text-sm text-gray-700 group-hover:text-gray-900'>
                     Testimonies
                   </span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
 
           {/* Teams Link */}
-          <button
-            className='w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group border-t border-gray-200 mt-3 pt-5'
+          <Link
+            href='/teams'
+            className='block w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group border-t border-gray-200 mt-3 pt-5'
             onClick={() => {
-              window.location.href = "/teams";
               setIsMobileMenuOpen(false);
             }}
-            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               Teams
             </span>
-          </button>
+          </Link>
 
           {/* FAQs Link */}
-          <button
-            className='w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
+          <Link
+            href='/faqs'
+            className='block w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
             onClick={() => {
-              window.location.href = "/faqs";
               setIsMobileMenuOpen(false);
             }}
-            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               FAQs
             </span>
-          </button>
+          </Link>
 
           {/* Contact Link */}
-          <button
-            className='w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
+          <Link
+            href='/contact'
+            className='block w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 group'
             onClick={() => {
-              window.location.href = "/contact";
               setIsMobileMenuOpen(false);
             }}
-            type='button'
           >
             <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
               Contact
             </span>
-          </button>
+          </Link>
 
           {/* Donate Button */}
-          <button
-            className='w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-lg bg-gray-900 hover:bg-gray-800 active:bg-gray-950 transition-all duration-200 mt-4 sm:mt-6 shadow-sm hover:shadow-md'
+          <Link
+            href='/donate'
+            className='block w-full text-center px-4 sm:px-5 py-3 sm:py-3.5 rounded-lg bg-gray-900 hover:bg-gray-800 active:bg-gray-950 transition-all duration-200 mt-4 sm:mt-6 shadow-sm hover:shadow-md'
             onClick={() => {
-              window.location.href = "/donate";
               setIsMobileMenuOpen(false);
             }}
-            type='button'
           >
             <span className='font-inter font-semibold text-sm sm:text-base text-white'>
               Donate
             </span>
-          </button>
+          </Link>
         </div>
       </div>
 

@@ -160,7 +160,7 @@ const NewsSection = ({
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 text-sm font-medium border rounded-md transition ${
+                className={`btn-micro px-4 py-2 text-sm font-medium border rounded-md transition ${
                   selectedCategory === cat
                     ? "bg-green-100 text-green-700 border-green-400"
                     : "text-gray-700 border-gray-300 hover:bg-gray-100"
@@ -177,6 +177,9 @@ const NewsSection = ({
           <img
             src={featuredPost.image}
             alt={featuredPost.title}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-white/92"></div>
@@ -219,19 +222,19 @@ const NewsSection = ({
                   href={featuredPost.readFullStoryLink}
                   target={featuredPost.readFullStoryLink.startsWith('http') ? '_blank' : undefined}
                   rel={featuredPost.readFullStoryLink.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="bg-black hover:bg-gray-900 text-white px-5 py-2 rounded-md font-medium flex items-center gap-2 transition"
+                  className="btn-micro bg-black hover:bg-gray-900 text-white px-5 py-2 rounded-md font-medium flex items-center gap-2 transition"
                 >
                   <ArrowRight className="w-4 h-4" />
                   Read Full Story
                 </a>
               ) : (
-                <button className="bg-black hover:bg-gray-900 text-white px-5 py-2 rounded-md font-medium flex items-center gap-2 transition">
+                <button className="btn-micro bg-black hover:bg-gray-900 text-white px-5 py-2 rounded-md font-medium flex items-center gap-2 transition">
                   <ArrowRight className="w-4 h-4" />
                   Read Full Story
                 </button>
               )}
 
-              <button className="bg-white/90 hover:bg-white border-2 border-[#9CA3AF] text-gray-800 px-5 py-2 rounded-md font-medium flex items-center gap-2 transition">
+              <button className="btn-micro bg-white/90 hover:bg-white border-2 border-[#9CA3AF] text-gray-800 px-5 py-2 rounded-md font-medium flex items-center gap-2 transition">
                 <Share2 className="w-4 h-4" /> Share
               </button>
             </div>
@@ -249,16 +252,18 @@ const NewsSection = ({
             </p>
           )}
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="stagger-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
               <div
                 key={post.id}
-                className="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition"
+                className="hover-lift border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition"
               >
                 <div className="h-56 overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -278,13 +283,13 @@ const NewsSection = ({
                         href={post.learnMoreLink}
                         target={post.learnMoreLink.startsWith('http') ? '_blank' : undefined}
                         rel={post.learnMoreLink.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all group"
+                        className="btn-micro flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all group"
                       >
                         Learn More
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </a>
                     ) : (
-                      <button className="flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all group">
+                      <button className="btn-micro flex items-center gap-2 text-gray-900 font-medium hover:gap-3 transition-all group">
                         Learn More
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>

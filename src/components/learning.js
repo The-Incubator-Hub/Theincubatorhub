@@ -88,7 +88,7 @@ const ResourceCard = ({ resource, index }) => {
   return (
     <div
       key={index}
-      className={`group relative border ${styling.borderColor} ${styling.bgColor} shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer text-center w-full max-w-[199px] min-h-[126px] flex flex-col justify-between`}
+      className={`hover-lift group relative border ${styling.borderColor} ${styling.bgColor} shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer text-center w-full max-w-[199px] min-h-[126px] flex flex-col justify-between`}
       style={{
         borderRadius: '8px',
         borderWidth: '1px',
@@ -220,7 +220,7 @@ export default function LearningResources({
         </div>
 
         {/* Resource Cards Grid */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-4 lg:gap-2 w-full justify-items-center">
+        <div className="stagger-grid mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-4 lg:gap-2 w-full justify-items-center">
           {resources.map((resource, index) => (
             <ResourceCard key={index} resource={resource} index={index} />
           ))}

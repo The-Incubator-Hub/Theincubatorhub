@@ -2,8 +2,11 @@
 
 import { Calendar } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function PressReleaseCard({ release }) {
+  const detailsLink = release?.link || "/press";
+  const isExternal = detailsLink.startsWith("http");
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
       {/* Image */}
@@ -29,12 +32,23 @@ export default function PressReleaseCard({ release }) {
             <Calendar className="w-4 h-4" />
             {release.date}
           </div>
-          <a
-            href="#"
-            className="text-green-600 hover:text-green-700 font-semibold text-sm md:text-base transition-colors"
-          >
-            Learn More →
-          </a>
+          {isExternal ? (
+            <a
+              href={detailsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-600 hover:text-green-700 font-semibold text-sm md:text-base transition-colors"
+            >
+              Learn More →
+            </a>
+          ) : (
+            <Link
+              href={detailsLink}
+              className="text-green-600 hover:text-green-700 font-semibold text-sm md:text-base transition-colors"
+            >
+              Learn More →
+            </Link>
+          )}
         </div>
       </div>
     </div>

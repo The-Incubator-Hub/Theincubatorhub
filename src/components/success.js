@@ -63,17 +63,19 @@ export function SuccessStories({ items = successPosts }) {
         </div>
 
         {/* Three Horizontal Containers */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="stagger-grid grid grid-cols-1 md:grid-cols-3 gap-8">
           {items.map((post) => (
             <div
               key={post.id}
-              className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300"
+              className="hover-lift bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300"
             >
               {/* Image Section */}
               <div className="relative h-64 overflow-hidden">
                 <img
                   src={post.image}
                   alt={post.title}
+                  loading='lazy'
+                  decoding='async'
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
                 {/* Category Badge */}
@@ -116,7 +118,7 @@ export function SuccessStories({ items = successPosts }) {
                     </div>
                     <button
                       onClick={() => handleLike(post.id)}
-                      className="flex items-center gap-1.5 hover:text-red-500 transition-colors"
+                      className="btn-micro flex items-center gap-1.5 hover:text-red-500 transition-colors"
                     >
                       <Heart
                         className={`w-4 h-4 ${
@@ -128,7 +130,7 @@ export function SuccessStories({ items = successPosts }) {
                   </div>
 
                   {/* Learn More Button */}
-                  <button className="flex items-center gap-2 text-gray-900 font-semibold text-sm hover:gap-3 transition-all group">
+                  <button className="btn-micro flex items-center gap-2 text-gray-900 font-semibold text-sm hover:gap-3 transition-all group">
                     Learn More
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -143,4 +145,3 @@ export function SuccessStories({ items = successPosts }) {
 }
 
 export default SuccessStories
-

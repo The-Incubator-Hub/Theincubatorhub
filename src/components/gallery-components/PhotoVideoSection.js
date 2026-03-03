@@ -209,7 +209,7 @@ export default function PhotoVideoSection({
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setActiveTab('images')}
-                className={`text-sm font-medium ${
+                className={`btn-micro text-sm font-medium ${
                   activeTab === 'images' ? 'text-[#15803D]' : 'text-gray-400'
                 }`}
               >
@@ -218,7 +218,7 @@ export default function PhotoVideoSection({
               <span className="text-black">|</span>
               <button
                 onClick={() => setActiveTab('videos')}
-                className={`text-sm font-medium ${
+                className={`btn-micro text-sm font-medium ${
                   activeTab === 'videos' ? 'text-gray-900' : 'text-gray-400'
                 }`}
               >
@@ -242,10 +242,10 @@ export default function PhotoVideoSection({
           {filterButtons.map((button, index) => (
             <button
               key={index}
-              className={`px-4 py-2 rounded-md  text-sm font-medium transition-colors ${
+              className={`btn-micro px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                 index === 0
                   ? 'bg-[#DCFCE7] text-[#14532D] hover:bg-[#DCFCE7] border border-[#4ADE80]'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-[#B2B2B2'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-[#B2B2B2]'
               }`}
             >
               {button}
@@ -254,7 +254,7 @@ export default function PhotoVideoSection({
         </div>
 
         {/* Media Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        <div className="stagger-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           {currentPageItems.map((media, index) => {
             const mediaSrc = media.src || media.thumbnail;
             const mediaAlt = media.alt || `Media ${startIndex + index + 1}`;
@@ -264,13 +264,15 @@ export default function PhotoVideoSection({
               <div
                 key={startIndex + index}
                 onClick={() => isVideo && media.videoUrl && handleVideoClick(media)}
-                className={`relative w-full h-121 bg-gray-200 rounded-lg overflow-hidden group ${
+                className={`hover-lift relative w-full h-121 bg-gray-200 rounded-lg overflow-hidden group ${
                   isVideo && media.videoUrl ? 'cursor-pointer' : ''
                 }`}
               >
                 <img
                   src={mediaSrc}
                   alt={mediaAlt}
+                  loading='lazy'
+                  decoding='async'
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 {isVideo && media.videoUrl && (
@@ -291,7 +293,7 @@ export default function PhotoVideoSection({
             <button
               onClick={handlePrevious}
               disabled={currentPage === 1}
-              className={`px-3 py-1 text-sm font-medium transition-colors ${
+              className={`btn-micro px-3 py-1 text-sm font-medium transition-colors ${
                 currentPage === 1
                   ? 'text-gray-400 cursor-not-allowed'
                   : 'text-gray-600 hover:text-gray-900'
@@ -313,7 +315,7 @@ export default function PhotoVideoSection({
                 <button
                   key={page}
                   onClick={() => handlePageChange(page)}
-                  className={`w-8 h-8 rounded font-medium text-sm transition-colors ${
+                  className={`btn-micro w-8 h-8 rounded font-medium text-sm transition-colors ${
                     currentPage === page
                       ? 'bg-yellow-400 text-gray-900'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -327,7 +329,7 @@ export default function PhotoVideoSection({
             <button
               onClick={handleNext}
               disabled={currentPage === totalPages}
-              className={`px-3 py-1 text-sm font-medium transition-colors ${
+              className={`btn-micro px-3 py-1 text-sm font-medium transition-colors ${
                 currentPage === totalPages
                   ? 'text-gray-400 cursor-not-allowed'
                   : 'text-gray-600 hover:text-gray-900'
@@ -339,7 +341,7 @@ export default function PhotoVideoSection({
             {currentPage < totalPages && (
               <button
                 onClick={handleLast}
-                className="px-3 py-1 text-sm text-gray-600 hover:text-gray-900 font-medium"
+                className="btn-micro px-3 py-1 text-sm text-gray-600 hover:text-gray-900 font-medium"
                 title="Go to last page"
               >
                 ≫
@@ -362,7 +364,7 @@ export default function PhotoVideoSection({
             {/* Close Button */}
             <button
               onClick={() => setSelectedVideo(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/70 hover:bg-black/90 rounded-full flex items-center justify-center text-white transition-colors"
+              className="btn-micro absolute top-4 right-4 z-10 w-10 h-10 bg-black/70 hover:bg-black/90 rounded-full flex items-center justify-center text-white transition-colors"
               aria-label="Close video"
             >
               <X className="w-6 h-6" />

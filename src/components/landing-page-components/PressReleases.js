@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import PressReleaseCard from "./PressReleaseCard";
+import Link from "next/link";
 
 export default function PressReleases() {
   const releases = [
@@ -59,8 +60,11 @@ export default function PressReleases() {
 
         {/* CTA */}
         <div className='flex justify-center'>
-          <Button className='bg-black hover:bg-gray-900 text-white px-8 py-3 text-base font-semibold rounded-lg transition-colors'>
-            View All Press Releases →
+          <Button
+            asChild
+            className='bg-black hover:bg-gray-900 text-white px-8 py-3 text-base font-semibold rounded-lg transition-colors'
+          >
+            <Link href='/press'>View All Press Releases →</Link>
           </Button>
         </div>
       </div>

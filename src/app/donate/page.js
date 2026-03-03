@@ -1,25 +1,24 @@
 import DonateClient from "./DonateClient"
-import client from "../../../tina/__generated__/client"
+import { loadSingletonPage } from "@/lib/content-loader.mjs"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Donate",
+  description:
+    "Support scholarships, training programs, and community impact initiatives at The Incubator Hub.",
+  path: "/donate",
+})
 
 export default async function DonatePage() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "donate.json" }
-  
-  try {
-    const res = await client.queries.donate(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching donate data:", error)
-  }
+  const { data } = await loadSingletonPage({
+    collection: "donate",
+    fileName: "donate.json",
+    rootKey: "donate",
+  })
 
   return (
     <DonateClient 
       initialData={data}
-      query={query}
-      variables={variables}
     />
   )
 }

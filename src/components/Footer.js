@@ -1,6 +1,8 @@
 "use client";
 
 import { Facebook, Instagram, Linkedin, X, Youtube } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -10,25 +12,19 @@ export default function Footer() {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12'>
           {/* Brand Column */}
           <div className='space-y-6'>
-            <div
-              className='w-[220px] h-[32px] cursor-pointer'
-              onClick={() => (window.location.href = "/")}
-              role='button'
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  window.location.href = "/";
-                }
-              }}
+            <Link
+              href='/'
+              className='block w-[220px] h-[32px] cursor-pointer'
               aria-label='Go to home page'
             >
-              <img
+              <Image
                 src='/images/Iogo_incubator.png'
                 alt='Incubator Logo'
+                width={220}
+                height={32}
                 className='w-full h-full object-contain'
               />
-            </div>
+            </Link>
 
             <p className='text-base leading-relaxed text-gray-400'>
               We empower the next generation of African tech leaders through
@@ -52,29 +48,29 @@ export default function Footer() {
             <h3 className='text-white font-semibold mb-6'>Quick Links</h3>
             <ul className='space-y-4 text-sm text-gray-400'>
               <li>
-                <a href='/about' className='hover:text-white'>
+                <Link href='/about' className='hover:text-white'>
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/getinvolved' className='hover:text-white'>
+                <Link href='/getinvolved' className='hover:text-white'>
                   Get Involved
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/contact' className='hover:text-white'>
+                <Link href='/contact' className='hover:text-white'>
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/teams' className='hover:text-white'>
+                <Link href='/teams' className='hover:text-white'>
                   Our Team
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/gallery' className='hover:text-white'>
+                <Link href='/gallery' className='hover:text-white'>
                   Gallery
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -84,29 +80,29 @@ export default function Footer() {
             <h3 className='text-white font-semibold mb-6'>Resources</h3>
             <ul className='space-y-4 text-sm text-gray-400'>
               <li>
-                <a href='/resources' className='hover:text-white'>
+                <Link href='/resources' className='hover:text-white'>
                   Resources
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/faqs' className='hover:text-white'>
+                <Link href='/faqs' className='hover:text-white'>
                   FAQs
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/testimonies' className='hover:text-white'>
+                <Link href='/testimonies' className='hover:text-white'>
                   Testimonials
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/press' className='hover:text-white'>
+                <Link href='/press' className='hover:text-white'>
                   Press Release
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/careers' className='hover:text-white'>
+                <Link href='/careers' className='hover:text-white'>
                   Careers
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -116,14 +112,14 @@ export default function Footer() {
             <h3 className='text-white font-semibold mb-6'>Policies</h3>
             <ul className='space-y-4 text-sm text-gray-400'>
               <li>
-                <a href='/terms' className='hover:text-white'>
+                <Link href='/terms' className='hover:text-white'>
                   T&amp;C
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/privacy' className='hover:text-white'>
+                <Link href='/privacy' className='hover:text-white'>
                   Privacy Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

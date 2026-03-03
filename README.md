@@ -1,36 +1,185 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Incubator Hub Web App
 
-## Getting Started
+Next.js website for The Incubator Hub.
 
-First, run the development server:
+## Run Locally
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Auth + Database Setup (Phase 1)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Copy environment variables:
 
-## Learn More
+```bash
+cp .env.example .env
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Set a real `DATABASE_URL` and `AUTH_SECRET` in `.env`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Generate schema and client:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run db:push
+npm run prisma:generate
+```
 
-## Deploy on Vercel
+4. Seed program records for the new admissions backend:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run db:sync-programs
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Create an account on `/signup`, then promote it to admin:
+
+```bash
+npm run user:promote-admin -- you@example.com
+```
+
+## Phase 2 (Applications + Review Queue)
+
+After pulling the latest code, apply the updated Prisma schema:
+
+```bash
+npm run db:push
+npm run prisma:generate
+```
+
+Admissions flow added:
+
+- Applicants submit form at `/programs/[slug]/apply`
+- Applicants track status at `/portal/dashboard`
+- Admins review and update decisions at `/admin/dashboard`
+
+## Phase 3 (Moodle Transition + Sync Hooks)
+
+Configure Moodle integration values in your environment:
+
+- `MOODLE_BASE_URL` (example: `https://lms.yourdomain.com`)
+- `MOODLE_LAUNCH_PATH` (default: `/local/incubator/sso.php`)
+- `MOODLE_SYNC_ENDPOINT` (optional webhook target for enrollment sync)
+- `MOODLE_SHARED_SECRET` (shared HMAC/JWT secret with your Moodle integration plugin)
+
+Flow added:
+
+- Applicants with `ACCEPTED` or `ENROLLED` status can launch Moodle from `/portal/dashboard`
+- Admins can trigger LMS sync from `/admin/dashboard`
+- Successful sync can auto-transition `ACCEPTED -> ENROLLED`
+
+Moodle receiver/plugin files are included in this repo at:
+
+- `moodle/local/incubator/`
+
+## Phase 4 (In-App Communications)
+
+Added features:
+
+- Admin broadcast notifications (role/status filtered)
+- Applicant notification center on `/portal/dashboard`
+- Mark-all-read workflow for applicants
+
+Endpoints:
+
+- `POST /api/admin/notifications/broadcast`
+- `GET /api/notifications`
+- `POST /api/notifications/read-all`
+
+## Phase 5 (Admissions Analytics + Export)
+
+Added features:
+
+- Admin admissions analytics cards and program performance table
+- CSV export for filtered application queues
+
+Endpoints:
+
+- `GET /api/admin/analytics/summary`
+- `GET /api/admin/applications/export`
+
+## Phase 6 (Operational Audit Visibility)
+
+Added features:
+
+- Recent operational audit stream on admin dashboard
+- LMS sync state visibility on both applicant/admin dashboards
+
+## DB Update for Phases 4-6
+
+`Notification` model was added. Run:
+
+```bash
+npm run db:push
+npm run prisma:generate
+```
+
+## Build
+
+```bash
+npm run build
+```
+
+## SEO Configuration
+
+Set the production site URL so canonical links, Open Graph URLs, `robots.txt`, and `sitemap.xml` are generated correctly:
+
+- `NEXT_PUBLIC_SITE_URL` (example: `https://yourdomain.com`)
+
+## Tests
+
+```bash
+npm test
+```
+
+Smoke checks (requires app already running):
+
+```bash
+SMOKE_BASE_URL=http://127.0.0.1:3000 npm run test:smoke
+```
+
+## Health Check
+
+Use this endpoint for uptime monitoring:
+
+- `GET /api/health`
+
+Example:
+
+```bash
+curl -s http://127.0.0.1:3000/api/health
+```
+
+## CI and VPS Deploy
+
+Two workflows are included:
+
+- `.github/workflows/ci.yml`
+- `.github/workflows/deploy-vps.yml`
+
+Set these GitHub repository secrets for VPS deployment:
+
+- `VPS_HOST`
+- `VPS_PORT` (optional, defaults to `22`)
+- `VPS_USER`
+- `VPS_SSH_KEY`
+- `VPS_APP_DIR`
+- `VPS_PM2_APP` (optional; if set, workflow runs `pm2 reload`)
+
+Deploy flow on `main`:
+
+1. SSH to VPS
+2. `git fetch` + `git pull --ff-only`
+3. `npm ci`
+4. `npm run build`
+5. optional PM2 reload
+
+## Security Hardening Included
+
+- Security headers via `next.config.mjs` (CSP, frame, MIME sniff, referrer, permissions policy)
+- API rate limiting on form endpoints
+- Request-size guards for form endpoints
+- Strict payload validation for contact/donation APIs
+- Request ID headers for easier tracing

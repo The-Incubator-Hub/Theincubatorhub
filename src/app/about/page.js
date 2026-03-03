@@ -1,25 +1,24 @@
 import AboutClient from "./AboutClient"
-import client from "../../../tina/__generated__/client"
+import { loadSingletonPage } from "@/lib/content-loader.mjs"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "About Us",
+  description:
+    "Learn about The Incubator Hub mission, values, and impact in building Africa's next generation of tech talent.",
+  path: "/about",
+})
 
 export default async function AboutPage() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "about.json" }
-  
-  try {
-    const res = await client.queries.about(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching about data:", error)
-  }
+  const { data } = await loadSingletonPage({
+    collection: "about",
+    fileName: "about.json",
+    rootKey: "about",
+  })
 
   return (
     <AboutClient 
       initialData={data}
-      query={query}
-      variables={variables}
     />
   )
 }

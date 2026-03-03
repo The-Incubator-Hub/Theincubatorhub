@@ -8,7 +8,14 @@ import {
   Onest,
   Raleway,
 } from "next/font/google";
-import client from "../../tina/__generated__/client";
+import { loadJsonCollection } from "@/lib/content-loader.mjs";
+import {
+  buildMetadata,
+  getOrganizationJsonLd,
+  getSiteUrl,
+  getWebsiteJsonLd,
+  siteConfig,
+} from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -45,35 +52,88 @@ const lexend = Lexend({
   weight: ["400", "500", "600", "700"],
 });
 
+const rootMetadata = buildMetadata({
+  title: siteConfig.defaultTitle,
+  description: siteConfig.description,
+  path: "/",
+  image: siteConfig.defaultOgImage,
+})
+
 export const metadata = {
-  title: "Incubator",
-  description:
-    "Incubator is a technology company that provide technical training services to individual",
+  ...rootMetadata,
+  metadataBase: new URL(getSiteUrl()),
+  title: {
+    default: siteConfig.defaultTitle,
+    template: `%s | ${siteConfig.name}`,
+  },
+  applicationName: siteConfig.name,
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "education",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+}
+
+const normalizeProgramForNavbar = (program) => {
+  const title =
+    typeof program?.title === "string" ? program.title.trim() : "";
+  const filename =
+    typeof program?._sys?.filename === "string" ? program._sys.filename : "";
+  const slugFromFilename = filename.replace(/\.json$/i, "").trim();
+  const slug =
+    typeof program?.slug === "string" && program.slug.trim()
+      ? program.slug.trim()
+      : slugFromFilename;
+  const order = Number(program?.order);
+
+  if (!title || !slug) return null;
+
+  return {
+    title,
+    slug,
+    showInNavbar: program?.showInNavbar !== false,
+    order: Number.isFinite(order) ? order : 999,
+  };
 };
 
+const sortPrograms = (programs) =>
+  programs
+    .filter((program) => program.showInNavbar)
+    .sort((a, b) => a.order - b.order);
+
+const loadProgramsFromContentFiles = async () =>
+  sortPrograms(
+    (await loadJsonCollection("program-pages"))
+      .map((program) => normalizeProgramForNavbar(program))
+      .filter(Boolean),
+  )
+
 export default async function RootLayout({ children }) {
-  // Fetch programs from Tina CMS
-  let programs = [];
-  try {
-    const programsData = await client.queries.programPageConnection();
-    programs = programsData.data.programPageConnection.edges
-      .map((edge) => ({
-        title: edge.node.title,
-        slug: edge.node.slug || edge.node._sys.filename.replace(".json", ""),
-        showInNavbar: edge.node.showInNavbar !== false, // default to true
-        order: edge.node.order || 999,
-      }))
-      .filter((program) => program.showInNavbar)
-      .sort((a, b) => a.order - b.order);
-  } catch (error) {
-    console.error("Error fetching programs for navbar:", error);
-  }
+  const organizationJsonLd = getOrganizationJsonLd()
+  const websiteJsonLd = getWebsiteJsonLd()
+
+  const programs = await loadProgramsFromContentFiles()
 
   return (
     <html lang='en'>
       <body
         className={`${inter.variable} ${geistMono.variable} ${montserrat.variable} ${onest.variable} ${raleway.variable} ${lexend.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd),
+          }}
+        />
         <Navbar programs={programs} />
         {children}
         <FooterR />

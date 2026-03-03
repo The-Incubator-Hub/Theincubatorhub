@@ -1,25 +1,24 @@
 import TestimoniesClient from "./TestimoniesClient"
-import client from "../../../tina/__generated__/client"
+import { loadSingletonPage } from "@/lib/content-loader.mjs"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Testimonies",
+  description:
+    "Read testimonials from learners and partners transformed by The Incubator Hub programs.",
+  path: "/testimonies",
+})
 
 export default async function TestimoniesPage() {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: "testimonies.json" }
-  
-  try {
-    const res = await client.queries.testimonies(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
-  } catch (error) {
-    console.error("Error fetching testimonies data:", error)
-  }
+  const { data } = await loadSingletonPage({
+    collection: "testimonies",
+    fileName: "testimonies.json",
+    rootKey: "testimonies",
+  })
 
   return (
     <TestimoniesClient 
       initialData={data}
-      query={query}
-      variables={variables}
     />
   )
 }

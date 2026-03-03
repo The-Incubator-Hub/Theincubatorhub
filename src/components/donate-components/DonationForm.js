@@ -18,6 +18,8 @@ const DonationForm = ({
     message: '',
     anonymous: false
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState({ type: 'idle', message: '' });
 
   const currencies = [
     { code: 'NGN', symbol: '₦', name: 'Naira' },
@@ -39,9 +41,63 @@ const DonationForm = ({
     });
   };
 
-  const handleSubmit = () => {
-    console.log('Donation submitted:', formData);
-    alert('Thank you for your donation!');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ type: 'idle', message: '' });
+
+    const selectedAmount = formData.customAmount || formData.amount;
+    if (!selectedAmount || !formData.fullName.trim() || !formData.email.trim()) {
+      setStatus({
+        type: 'error',
+        message: 'Amount, full name, and email are required.',
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/donate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          selectedAmount,
+        }),
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        setStatus({
+          type: 'error',
+          message: result?.error || 'Unable to submit donation right now.',
+        });
+        return;
+      }
+
+      setStatus({
+        type: 'success',
+        message: result?.message || 'Donation request submitted successfully.',
+      });
+      setFormData({
+        frequency: 'one-time',
+        currency: 'NGN',
+        amount: '',
+        customAmount: '',
+        fullName: '',
+        email: '',
+        phone: '',
+        country: '',
+        message: '',
+        anonymous: false
+      });
+    } catch {
+      setStatus({
+        type: 'error',
+        message: 'Network error. Please try again.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const FlagIcon = ({ code }) => {
@@ -94,7 +150,7 @@ const DonationForm = ({
   return (
     <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-10">
+        <form className="bg-white rounded-2xl shadow-lg p-8 sm:p-10" onSubmit={handleSubmit}>
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
               {title}
@@ -206,6 +262,7 @@ const DonationForm = ({
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
+                  required
                   placeholder=""
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
                 />
@@ -219,6 +276,7 @@ const DonationForm = ({
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  required
                   placeholder=""
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
                 />
@@ -235,6 +293,7 @@ const DonationForm = ({
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
+                  required
                   placeholder=""
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
                 />
@@ -283,10 +342,11 @@ const DonationForm = ({
           </div>
 
           <button
-            onClick={handleSubmit}
+            type="submit"
+            disabled={isSubmitting}
             className="w-full bg-gray-900 hover:bg-black text-white font-semibold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
           >
-            {buttonText}
+            {isSubmitting ? 'Submitting...' : buttonText}
             <svg 
                 className="w-6 h-6 group-hover:rotate-12 transition-transform" 
                 fill="none" 
@@ -301,7 +361,16 @@ const DonationForm = ({
                 />
             </svg>
           </button>
-        </div>
+          {status.message ? (
+            <p
+              className={`mt-4 text-sm text-center ${
+                status.type === 'success' ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
+              {status.message}
+            </p>
+          ) : null}
+        </form>
       </div>
     </div>
   );
