@@ -1,6 +1,5 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import ProgramHeader from "@/components/program-components/ProgramHeader"
 import LearningPathway from "@/components/program-components/LearningPathway"
 import VideoSection from "@/components/program-components/VideoSection"
@@ -10,12 +9,8 @@ import CTABanner from "@/components/landing-page-components/CtaBanner"
 import Testimonials from "@/components/program-components/Testimonial"
 import Reveal from "@/components/motion/Reveal"
 
-export default function ProgramPageClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function ProgramPageClient({ initialData }) {
+  const data = initialData || {}
 
   const programData = data?.programPage || {}
   const programHeaderData = programData.programHeader || {}

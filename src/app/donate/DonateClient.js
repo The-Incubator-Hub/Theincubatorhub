@@ -1,6 +1,5 @@
 "use client";
 
-import { useTina } from "tinacms/dist/react";
 
 import BankTransferSection from "@/components/donate-components/BankTransferSection";
 import DonateSection from "@/components/donate-components/DonateSection";
@@ -10,12 +9,8 @@ import VolunteersSection from "@/components/donate-components/VolunteersSection"
 import CTABanner from "@/components/landing-page-components/CtaBanner";
 import Reveal from "@/components/motion/Reveal";
 
-export default function DonateClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query,
-    variables,
-    data: initialData,
-  });
+export default function DonateClient({ initialData }) {
+  const data = initialData || {};
 
   const donateData = data?.donate || {};
 

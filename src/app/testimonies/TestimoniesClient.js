@@ -1,18 +1,13 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import HeaderCareer from "@/components/HeaderCareer.js"
 import TeamIntro from "@/components/TeamIntro.js"
 import Testimonials from "@/components/testimonials"
 import JoinUs from "@/components/JoinUs.js"
 import Reveal from "@/components/motion/Reveal"
 
-export default function TestimoniesClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function TestimoniesClient({ initialData }) {
+  const data = initialData || {}
 
   const testimoniesData = data?.testimonies || {}
   const headerData = testimoniesData.header || {}

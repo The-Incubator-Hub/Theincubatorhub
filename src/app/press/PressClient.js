@@ -1,17 +1,12 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import NewsSection from "@/components/press-release-components/NewsSection"
 import CTABanner from "@/components/landing-page-components/CtaBanner"
 import HeaderCareer from "@/components/HeaderCareer"
 import Reveal from "@/components/motion/Reveal"
 
-export default function PressClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function PressClient({ initialData }) {
+  const data = initialData || {}
 
   const pressData = data?.press || {}
   const headerData = pressData.header || {}

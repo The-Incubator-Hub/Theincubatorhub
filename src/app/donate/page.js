@@ -1,6 +1,5 @@
 import DonateClient from "./DonateClient"
-import client from "../../../tina/__generated__/client"
-import { loadTinaSingleton } from "@/lib/tina-fallback.mjs"
+import { loadSingletonPage } from "@/lib/content-loader.mjs"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
@@ -11,21 +10,15 @@ export const metadata = buildMetadata({
 })
 
 export default async function DonatePage() {
-  const variables = { relativePath: "donate.json" }
-  const { data, query, variables: resolvedVariables } = await loadTinaSingleton({
-    queryFn: (vars) => client.queries.donate(vars),
-    variables,
-    fallbackCollection: "donate",
-    fallbackFile: "donate.json",
+  const { data } = await loadSingletonPage({
+    collection: "donate",
+    fileName: "donate.json",
     rootKey: "donate",
-    context: "donate-page",
   })
 
   return (
     <DonateClient 
       initialData={data}
-      query={query}
-      variables={resolvedVariables}
     />
   )
 }

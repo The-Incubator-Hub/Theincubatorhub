@@ -1,17 +1,12 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import PhotoVideoSection from "@/components/gallery-components/PhotoVideoSection"
 import CTABanner from "@/components/landing-page-components/CtaBanner"
 import HeaderCareer from "@/components/HeaderCareer"
 import Reveal from "@/components/motion/Reveal"
 
-export default function GalleryClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function GalleryClient({ initialData }) {
+  const data = initialData || {}
 
   const galleryData = data?.gallery || {}
   const headerData = galleryData.header || {}

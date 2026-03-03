@@ -1,17 +1,12 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import ContactSection from "@/components/contact-components/ContactSection"
 import CTABanner from "@/components/landing-page-components/CtaBanner"
 import HeaderCareer from "@/components/HeaderCareer"
 import Reveal from "@/components/motion/Reveal"
 
-export default function ContactClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function ContactClient({ initialData }) {
+  const data = initialData || {}
 
   const contactData = data?.contact || {}
   const headerData = contactData.header || {}

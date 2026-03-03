@@ -1,17 +1,12 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import GetInvolvedSection from "@/components/get-involved-components/GetInvolvedSection"
 import CTABanner from "@/components/landing-page-components/CtaBanner"
 import HeaderCareer from "@/components/HeaderCareer"
 import Reveal from "@/components/motion/Reveal"
 
-export default function GetInvolvedClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function GetInvolvedClient({ initialData }) {
+  const data = initialData || {}
 
   const getInvolvedData = data?.getinvolved || {}
   const headerData = getInvolvedData.header || {}

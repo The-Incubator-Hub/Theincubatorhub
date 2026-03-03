@@ -1,6 +1,6 @@
 # The Incubator Hub Web App
 
-Next.js + TinaCMS website for The Incubator Hub.
+Next.js website for The Incubator Hub.
 
 ## Run Locally
 
@@ -16,11 +16,6 @@ Open `http://localhost:3000`.
 ```bash
 npm run build
 ```
-
-The build script skips Tina codegen when Tina Cloud env vars are missing:
-
-- `NEXT_PUBLIC_TINA_CLIENT_ID`
-- `TINA_TOKEN`
 
 ## SEO Configuration
 

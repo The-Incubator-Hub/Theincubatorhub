@@ -1,16 +1,11 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import Article from "@/components/Article.js"
 import SuccessStories from "@/components/success.js"
 import Reveal from "@/components/motion/Reveal"
 
-export default function BlogDetailsClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function BlogDetailsClient({ initialData }) {
+  const data = initialData || {}
 
   const postData = data?.blogPost || {}
   const relatedPosts = postData.relatedPosts || []

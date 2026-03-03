@@ -1,18 +1,13 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import HeaderCareer from "@/components/HeaderCareer.js"
 import TeamIntro from "@/components/TeamIntro.js"
 import JobListings from "@/components/Job.js"
 import ResumeCTA from "@/components/Resume.js"
 import Reveal from "@/components/motion/Reveal"
 
-export default function CareersClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function CareersClient({ initialData }) {
+  const data = initialData || {}
 
   const careersData = data?.careers || {}
   const headerData = careersData.header || {}

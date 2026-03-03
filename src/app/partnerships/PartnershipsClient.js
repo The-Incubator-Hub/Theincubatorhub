@@ -1,6 +1,5 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { Layers, Book, Heart, TrendingUp, Users, Award, Briefcase, Target } from 'lucide-react'
@@ -18,13 +17,9 @@ const iconMap = {
   Target
 }
 
-export default function PartnershipsClient({ initialData, query, variables }) {
+export default function PartnershipsClient({ initialData }) {
   const router = useRouter()
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+  const data = initialData || {}
 
   const partnershipsData = data?.partnerships || {}
   const heroData = partnershipsData.heroSection || {}

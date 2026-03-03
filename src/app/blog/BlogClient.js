@@ -3,15 +3,10 @@
 import Future from "@/components/Future.js";
 import HeaderCareer from "@/components/HeaderCareer.js";
 import BlogPostsGrid from "@/components/post.js";
-import { useTina } from "tinacms/dist/react";
 import Reveal from "@/components/motion/Reveal";
 
-export default function BlogClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  });
+export default function BlogClient({ initialData }) {
+  const data = initialData || {}
 
   const blogData = data?.blog || {};
   const headerData = blogData.header || {};

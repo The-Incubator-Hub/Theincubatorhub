@@ -1,18 +1,13 @@
 "use client";
 
-import { useTina } from "tinacms/dist/react";
 import HeaderCareer from "@/components/HeaderCareer";
 import TeamIntro from "@/components/TeamIntro";
 import Teamgrid from "@/components/Teamgrid";
 import JoinUs from "@/components/JoinUs";
 import Reveal from "@/components/motion/Reveal";
 
-export default function TeamsClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query,
-    variables,
-    data: initialData,
-  });
+export default function TeamsClient({ initialData }) {
+  const data = initialData || {};
 
   const teamsData = data?.teams || {};
   const headerData = teamsData.header || {};

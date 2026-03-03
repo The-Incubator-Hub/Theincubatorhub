@@ -1,6 +1,5 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import { MissionSection } from "@/components/about-us-components/MissionSection"
 import { WhoWeAreSection } from "@/components/about-us-components/WhoWeAreSection"
 import Statistics from "@/components/landing-page-components/Statistics"
@@ -11,12 +10,8 @@ import TrustedOrganizations from "@/components/landing-page-components/TrustedOr
 import HeaderCareer from "@/components/HeaderCareer"
 import Reveal from "@/components/motion/Reveal"
 
-export default function AboutClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function AboutClient({ initialData }) {
+  const data = initialData || {}
 
   const aboutData = data?.about || {}
   const headerData = aboutData.header || {}

@@ -1,5 +1,3 @@
-import { readdir, readFile } from "node:fs/promises";
-import path from "node:path";
 import FooterR from "@/components/Footer.js";
 import Navbar from "@/components/Navbar.js";
 import {
@@ -10,8 +8,7 @@ import {
   Onest,
   Raleway,
 } from "next/font/google";
-import client from "../../tina/__generated__/client";
-import { logTinaFallback } from "@/lib/tina-fallback.mjs";
+import { loadJsonCollection } from "@/lib/content-loader.mjs";
 import {
   buildMetadata,
   getOrganizationJsonLd,
@@ -107,59 +104,18 @@ const sortPrograms = (programs) =>
     .filter((program) => program.showInNavbar)
     .sort((a, b) => a.order - b.order);
 
-const loadProgramsFromContentFiles = async () => {
-  const programsDir = path.join(process.cwd(), "content", "program-pages");
-  try {
-    const entries = await readdir(programsDir, { withFileTypes: true });
-    const files = entries.filter(
-      (entry) => entry.isFile() && entry.name.endsWith(".json"),
-    );
-
-    const parsedPrograms = await Promise.all(
-      files.map(async (file) => {
-        try {
-          const filePath = path.join(programsDir, file.name);
-          const raw = await readFile(filePath, "utf8");
-          const json = JSON.parse(raw);
-          return normalizeProgramForNavbar({
-            ...json,
-            _sys: { filename: file.name },
-          });
-        } catch (error) {
-          console.error(`Error reading program file ${file.name}:`, error);
-          return null;
-        }
-      }),
-    );
-
-    return sortPrograms(parsedPrograms.filter(Boolean));
-  } catch (error) {
-    console.error("Error loading fallback program files:", error);
-    return [];
-  }
-};
+const loadProgramsFromContentFiles = async () =>
+  sortPrograms(
+    (await loadJsonCollection("program-pages"))
+      .map((program) => normalizeProgramForNavbar(program))
+      .filter(Boolean),
+  )
 
 export default async function RootLayout({ children }) {
   const organizationJsonLd = getOrganizationJsonLd()
   const websiteJsonLd = getWebsiteJsonLd()
 
-  // Fetch programs from Tina CMS
-  let programs = [];
-  try {
-    const programsData = await client.queries.programPageConnection?.();
-    const tinaPrograms =
-      programsData?.data?.programPageConnection?.edges
-        ?.map((edge) => normalizeProgramForNavbar(edge?.node))
-        .filter(Boolean) || [];
-    programs = sortPrograms(tinaPrograms);
-  } catch (error) {
-    logTinaFallback("layout-navbar-programs", error);
-  }
-
-  // Guaranteed fallback when Tina is unavailable/misconfigured.
-  if (programs.length === 0) {
-    programs = await loadProgramsFromContentFiles();
-  }
+  const programs = await loadProgramsFromContentFiles()
 
   return (
     <html lang='en'>

@@ -1,6 +1,5 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import HeroSection from "@/components/landing-page-components/HeroSection"
 import AboutIncubator from "@/components/landing-page-components/AboutIncubator"
 import TrustedOrganizations from "@/components/landing-page-components/TrustedOrganizations"
@@ -12,14 +11,10 @@ import TestimonialCarousel from "@/components/landing-page-components/Testimonia
 import PressReleases from "@/components/landing-page-components/PressReleases"
 import Reveal from "@/components/motion/Reveal"
 
-export default function HomeClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function HomeClient({ initialData }) {
+  const data = initialData || {}
 
-  // Extract home page data from TinaCMS
+  // Extract home page data from local content files
   const homeData = data?.home || {}
   const heroData = homeData.hero || {}
   const aboutData = homeData.aboutIncubator || {}

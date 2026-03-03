@@ -1,6 +1,5 @@
 import TestimoniesClient from "./TestimoniesClient"
-import client from "../../../tina/__generated__/client"
-import { loadTinaSingleton } from "@/lib/tina-fallback.mjs"
+import { loadSingletonPage } from "@/lib/content-loader.mjs"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
@@ -11,21 +10,15 @@ export const metadata = buildMetadata({
 })
 
 export default async function TestimoniesPage() {
-  const variables = { relativePath: "testimonies.json" }
-  const { data, query, variables: resolvedVariables } = await loadTinaSingleton({
-    queryFn: (vars) => client.queries.testimonies(vars),
-    variables,
-    fallbackCollection: "testimonies",
-    fallbackFile: "testimonies.json",
+  const { data } = await loadSingletonPage({
+    collection: "testimonies",
+    fileName: "testimonies.json",
     rootKey: "testimonies",
-    context: "testimonies-page",
   })
 
   return (
     <TestimoniesClient 
       initialData={data}
-      query={query}
-      variables={resolvedVariables}
     />
   )
 }

@@ -1,17 +1,12 @@
 "use client"
 
-import { useTina } from "tinacms/dist/react"
 import LearningResources from "@/components/learning.js"
 import ViewResources from "@/components/ViewResources.js"
 import JoinUs from "@/components/JoinUs.js"
 import Reveal from "@/components/motion/Reveal"
 
-export default function ResourcesClient({ initialData, query, variables }) {
-  const { data } = useTina({
-    query: query,
-    variables: variables,
-    data: initialData,
-  })
+export default function ResourcesClient({ initialData }) {
+  const data = initialData || {}
 
   const resourcesData = data?.resources || {}
   const learningResourcesData = resourcesData.learningResources || {}
