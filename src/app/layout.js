@@ -8,8 +8,9 @@ import {
   Onest,
   Raleway,
 } from "next/font/google";
-import client from "../../tina/__generated__/client";
 import "./globals.css";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -46,35 +47,77 @@ const lexend = Lexend({
 });
 
 export const metadata = {
-  title: "Incubator",
+  title: "The Incubator Hub — Empowering Africa's Tech Future",
   description:
-    "Incubator is a technology company that provide technical training services to individual",
+    "The Incubator Hub provides world-class tech training programs to empower individuals across Africa with digital skills.",
+  manifest: "/manifest.json",
+  themeColor: "#1a1a2e",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "IncubatorHub",
+  },
+  openGraph: {
+    title: "The Incubator Hub",
+    description: "Empowering Africa's Tech Future",
+    url: "https://theincubatorhub.org",
+    siteName: "The Incubator Hub",
+    type: "website",
+  },
 };
 
-export default async function RootLayout({ children }) {
-  // Fetch programs from Tina CMS
-  let programs = [];
+function loadPrograms() {
   try {
-    const programsData = await client.queries.programPageConnection();
-    programs = programsData.data.programPageConnection.edges
-      .map((edge) => ({
-        title: edge.node.title,
-        slug: edge.node.slug || edge.node._sys.filename.replace(".json", ""),
-        showInNavbar: edge.node.showInNavbar !== false, // default to true
-        order: edge.node.order || 999,
-      }))
-      .filter((program) => program.showInNavbar)
+    const dir = join(process.cwd(), "content", "program-pages");
+    const { readdirSync } = require("node:fs");
+    const files = readdirSync(dir).filter((f) => f.endsWith(".json"));
+    return files
+      .map((f) => {
+        try {
+          const raw = readFileSync(join(dir, f), "utf-8");
+          const data = JSON.parse(raw);
+          return {
+            title: data.title,
+            slug: data.slug || f.replace(".json", ""),
+            showInNavbar: data.showInNavbar !== false,
+            order: data.order || 999,
+          };
+        } catch {
+          return null;
+        }
+      })
+      .filter(Boolean)
+      .filter((p) => p.showInNavbar)
       .sort((a, b) => a.order - b.order);
   } catch (error) {
-    console.error("Error fetching programs for navbar:", error);
+    console.error("Error loading programs for navbar:", error);
+    return [];
+  }
+}
+
+export default async function RootLayout({ children }) {
+  const programs = loadPrograms();
+
+  // Get session for auth-aware navbar
+  let session = null;
+  try {
+    const { getAuthSession } = await import("@/lib/auth.mjs");
+    session = await getAuthSession();
+  } catch {
+    // Session loading is optional — navbar degrades gracefully
   }
 
   return (
-    <html lang='en'>
+    <html lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#1a1a2e" />
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+      </head>
       <body
         className={`${inter.variable} ${geistMono.variable} ${montserrat.variable} ${onest.variable} ${raleway.variable} ${lexend.variable} antialiased`}
       >
-        <Navbar programs={programs} />
+        <Navbar programs={programs} session={session} />
         {children}
         <FooterR />
       </body>

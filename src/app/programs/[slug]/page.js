@@ -41,10 +41,11 @@ export default async function ProgramPage({ params }) {
   }
 
   return (
-    <ProgramPageClient 
+    <ProgramPageClient
       initialData={data}
       query={query}
       variables={variables}
+      programSlug={params.slug}
     />
   )
 }

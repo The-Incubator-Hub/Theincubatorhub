@@ -1,0 +1,206 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+}
+
+enum ApplicationStatus {
+  PENDING
+  UNDER_REVIEW
+  ACCEPTED
+  REJECTED
+  WITHDRAWN
+}
+
+enum EnrollmentStatus {
+  ACTIVE
+  COMPLETED
+  WITHDRAWN
+  SUSPENDED
+}
+
+model User {
+  id                       String    @id @default(cuid())
+  name                     String
+  email                    String    @unique
+  passwordHash             String
+  role                     Role      @default(STUDENT)
+  isActive                 Boolean   @default(true)
+  emailVerified            DateTime?
+  phone                    String?
+  linkedinUrl              String?
+  tokenVersion             Int       @default(0)
+  createdAt                DateTime  @default(now())
+  updatedAt                DateTime  @updatedAt
+
+  sessions                 Session[]
+  applications             Application[]
+  notifications            Notification[]
+  auditLogs                AuditLog[]
+  passwordResetTokens      PasswordResetToken[]
+  emailVerificationTokens  EmailVerificationToken[]
+  enrollments              Enrollment[]
+  announcements            Announcement[]           @relation("AnnouncementAuthor")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  userId    String
+  token     String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model EmailVerificationToken {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Program {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  applications  Application[]
+  cohorts       Cohort[]
+  enrollments   Enrollment[]
+  announcements Announcement[]
+}
+
+model Cohort {
+  id          String    @id @default(cuid())
+  programId   String
+  name        String
+  description String?
+  startDate   DateTime
+  endDate     DateTime?
+  maxStudents Int       @default(50)
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  program       Program       @relation(fields: [programId], references: [id], onDelete: Restrict)
+  enrollments   Enrollment[]
+  announcements Announcement[]
+}
+
+model Application {
+  id          String            @id @default(cuid())
+  userId      String
+  programId   String
+  status      ApplicationStatus @default(PENDING)
+  formData    Json
+  cvUrl       String?
+  attachments Json?
+  reviewedBy  String?
+  reviewNotes String?
+  reviewedAt  DateTime?
+  submittedAt DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  user        User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  program     Program           @relation(fields: [programId], references: [id], onDelete: Restrict)
+  enrollment  Enrollment?
+}
+
+model Enrollment {
+  id             String           @id @default(cuid())
+  applicationId  String           @unique
+  userId         String
+  programId      String
+  cohortId       String?
+  moodleCourseId String?
+  moodleUserId   String?
+  progress       Int              @default(0)
+  grade          String?
+  status         EnrollmentStatus @default(ACTIVE)
+  startDate      DateTime?
+  completedAt    DateTime?
+  certificateUrl String?
+  lastSyncedAt   DateTime?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  application    Application      @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  program        Program          @relation(fields: [programId], references: [id], onDelete: Restrict)
+  cohort         Cohort?          @relation(fields: [cohortId], references: [id], onDelete: SetNull)
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  data      Json?
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String?
+  action     String
+  resource   String
+  resourceId String?
+  details    Json?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime @default(now())
+
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+}
+
+model Announcement {
+  id          String    @id @default(cuid())
+  authorId    String
+  title       String
+  body        String    @db.Text
+  programId   String?
+  cohortId    String?
+  isPinned    Boolean   @default(false)
+  publishedAt DateTime  @default(now())
+  expiresAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  author      User      @relation("AnnouncementAuthor", fields: [authorId], references: [id], onDelete: Cascade)
+  program     Program?  @relation(fields: [programId], references: [id], onDelete: SetNull)
+  cohort      Cohort?   @relation(fields: [cohortId], references: [id], onDelete: SetNull)
+}

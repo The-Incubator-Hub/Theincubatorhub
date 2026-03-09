@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function Navbar({ programs = [] }) {
+export default function Navbar({ programs = [], session = null }) {
   const [isProgramsDropdownOpen, setIsProgramsDropdownOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const [isOurProgramsDropdownOpen, setIsOurProgramsDropdownOpen] =
@@ -358,6 +358,30 @@ export default function Navbar({ programs = [] }) {
                 Donate
               </span>
             </button>
+
+            {/* Auth buttons */}
+            <div className='flex items-center gap-1 ml-2 border-l border-gray-200 pl-3'>
+              <button
+                className='px-3 xl:px-4 py-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200'
+                onClick={() => (window.location.href = session ? "/portal/dashboard" : "/login")}
+                type='button'
+              >
+                <span className='font-montserrat font-semibold text-xs xl:text-sm text-black whitespace-nowrap'>
+                  {session ? "My Portal" : "Login"}
+                </span>
+              </button>
+              {!session && (
+                <button
+                  className='px-3 xl:px-4 py-2.5 rounded-lg bg-green-600 hover:bg-green-700 active:bg-green-800 transition-all duration-200 shadow-sm'
+                  onClick={() => (window.location.href = "/register")}
+                  type='button'
+                >
+                  <span className='font-inter font-semibold text-xs xl:text-sm text-white whitespace-nowrap'>
+                    Apply Now
+                  </span>
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -753,6 +777,36 @@ export default function Navbar({ programs = [] }) {
               Donate
             </span>
           </button>
+
+          {/* Auth buttons - mobile */}
+          <div className='border-t border-gray-200 pt-4 mt-4 space-y-2'>
+            <button
+              className='w-full text-left px-3 sm:px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 group'
+              onClick={() => {
+                window.location.href = session ? "/portal/dashboard" : "/login";
+                setIsMobileMenuOpen(false);
+              }}
+              type='button'
+            >
+              <span className='font-montserrat font-semibold text-sm sm:text-base text-gray-900 group-hover:text-black'>
+                {session ? "My Portal" : "Sign In"}
+              </span>
+            </button>
+            {!session && (
+              <button
+                className='w-full px-4 py-3 rounded-lg bg-green-600 hover:bg-green-700 transition-colors duration-200'
+                onClick={() => {
+                  window.location.href = "/register";
+                  setIsMobileMenuOpen(false);
+                }}
+                type='button'
+              >
+                <span className='font-inter font-semibold text-sm text-white'>
+                  Apply Now
+                </span>
+              </button>
+            )}
+          </div>
         </div>
       </div>
 

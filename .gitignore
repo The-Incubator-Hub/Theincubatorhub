@@ -43,3 +43,13 @@ next-env.d.ts
 node_modules
 .env
 .vercel
+
+# Prisma generated client
+/node_modules/.prisma
+
+# User uploads (keep directory structure but ignore files)
+/public/incubator-media/uploads/**/*
+!/public/incubator-media/uploads/.gitkeep
+
+# Env example (keep this)
+!.env.example

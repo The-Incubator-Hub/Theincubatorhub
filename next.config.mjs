@@ -5,6 +5,10 @@ const nextConfig = {
     remotePatterns: [],
     formats: ['image/avif', 'image/webp'],
   },
+  // Allow server-side file system operations
+  experimental: {
+    serverComponentsExternalPackages: ['bcryptjs', '@prisma/client'],
+  },
 };
 
 export default nextConfig;
