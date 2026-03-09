@@ -3,7 +3,7 @@
   "header": {
     "title": "Meet Our Amazing Team - CMS",
     "description": "Stay updated with the latest news, announcements, and milestones from Incubator. Get insights into our programs, partnerships, and impact across Africa",
-    "backgroundImage": "/images/hero_teams.jpg"
+    "backgroundImage": "/incubator-media/incubator-15.webp"
   },
   "teamIntro": {
     "title": "We Have An Expert Team",
@@ -14,7 +14,7 @@
       {
         "name": "Jean Wilson",
         "role": "Partnership Manager",
-        "image": "/images/team/member1.png",
+        "image": "/incubator-media/incubator-14.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -25,7 +25,7 @@
       {
         "name": "Jean Wilson",
         "role": "Partnership Manager",
-        "image": "/images/team/member2.png",
+        "image": "/incubator-media/incubator-15.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -36,7 +36,7 @@
       {
         "name": "Jean Wilson",
         "role": "Partnership Manager",
-        "image": "/images/team/member3.png",
+        "image": "/incubator-media/incubator-16.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -47,7 +47,7 @@
       {
         "name": "Jean Wilson",
         "role": "Partnership Manager",
-        "image": "/images/team/member4.png",
+        "image": "/incubator-media/incubator-17.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -58,7 +58,7 @@
       {
         "name": "Jean Wilson",
         "role": "Partnership Manager",
-        "image": "/images/team/member5.png",
+        "image": "/incubator-media/incubator-18.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -69,7 +69,7 @@
       {
         "name": "Jean Wilson",
         "role": "Partnership Manager",
-        "image": "/images/team/member6.png",
+        "image": "/incubator-media/incubator-19.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -80,7 +80,7 @@
       {
         "name": "Jean Wilson",
         "role": "Partnership Manager",
-        "image": "/images/team/member7.png",
+        "image": "/incubator-media/incubator-20.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -91,7 +91,7 @@
       {
         "name": "Jean Wilson",
         "role": "Partnership Manager",
-        "image": "/images/team/member8.png",
+        "image": "/incubator-media/incubator-21.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -102,7 +102,7 @@
       {
         "name": "Jean Wilson",
         "role": "Partnership Manager",
-        "image": "/images/team/member9.png",
+        "image": "/incubator-media/incubator-22.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -113,7 +113,7 @@
       {
         "name": "Sarah Johnson",
         "role": "Marketing Director",
-        "image": "/images/team/member1.png",
+        "image": "/incubator-media/incubator-14.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -124,7 +124,7 @@
       {
         "name": "Michael Brown",
         "role": "Tech Lead",
-        "image": "/images/team/member2.png",
+        "image": "/incubator-media/incubator-15.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -135,7 +135,7 @@
       {
         "name": "Emily Davis",
         "role": "Design Manager",
-        "image": "/images/team/member3.png",
+        "image": "/incubator-media/incubator-16.webp",
         "socials": {
           "facebook": "#",
           "linkedin": "#",
@@ -150,6 +150,6 @@
     "description": "We're always looking for talented individuals who share our passion for education and technology. Ready to make an impact?",
     "ctaText": "View Open Positions",
     "ctaLink": "/careers",
-    "backgroundImage": "/images/joinus.jpg"
+    "backgroundImage": "/incubator-media/incubator-16.webp"
   }
 }

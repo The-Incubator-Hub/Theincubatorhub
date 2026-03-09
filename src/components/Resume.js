@@ -7,7 +7,7 @@ const ResumeCTA = ({
   description = "We're always looking for talented individuals who share our passion for education and technology. Send us your resume and let's start a conversation.",
   buttonText = "Send Us Your Resume",
   buttonLink = "/contact",
-  backgroundImage = "/images/joinus.jpg"
+  backgroundImage = "/incubator-media/incubator-16.webp"
 }) => {
   return (
     <section className="w-full bg-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">

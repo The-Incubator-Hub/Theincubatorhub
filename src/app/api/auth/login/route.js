@@ -53,6 +53,7 @@ export async function POST(request) {
         role: true,
         passwordHash: true,
         isActive: true,
+        tokenVersion: true,
       },
     })
 

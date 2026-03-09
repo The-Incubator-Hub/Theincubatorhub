@@ -1,5 +1,14 @@
 const buckets = new Map();
 
+// Prune expired buckets every 5 minutes to prevent unbounded memory growth.
+const CLEANUP_INTERVAL_MS = 5 * 60 * 1000;
+setInterval(() => {
+  const ts = Date.now();
+  for (const [key, bucket] of buckets) {
+    if (ts > bucket.resetAt) buckets.delete(key);
+  }
+}, CLEANUP_INTERVAL_MS).unref();
+
 function now() {
   return Date.now();
 }

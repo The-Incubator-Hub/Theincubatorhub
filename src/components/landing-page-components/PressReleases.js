@@ -8,7 +8,7 @@ export default function PressReleases() {
   const releases = [
     {
       id: 1,
-      image: "/skillup.jpg",
+      image: "/incubator-media/incubator-18.webp",
       category: "Press Release",
       title:
         "Digital SkillUp Africa Expands Access to Tech Training Across Africa",
@@ -18,7 +18,7 @@ export default function PressReleases() {
     },
     {
       id: 2,
-      image: "/ainow.png",
+      image: "/incubator-media/incubator-19.webp",
       category: "Program Launch",
       title: "AI NOW Bootcamp Equips Youth with Future-Ready AI Skills",
       description:
@@ -27,7 +27,7 @@ export default function PressReleases() {
     },
     {
       id: 3,
-      image: "/ladies.jpg",
+      image: "/incubator-media/incubator-20.webp",
       category: "Milestone",
       title: "Ladies in Tech Africa Strengthens Female Representation in Tech",
       description:

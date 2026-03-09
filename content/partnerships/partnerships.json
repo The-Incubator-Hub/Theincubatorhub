@@ -9,19 +9,19 @@
     "ctaButtonLink": "/contact",
     "images": [
       {
-        "src": "/business-meeting-professionals.jpg",
+        "src": "/incubator-media/incubator-13.webp",
         "alt": "Business meeting with professionals"
       },
       {
-        "src": "/professional-team-collaboration-mentoring.jpg",
+        "src": "/incubator-media/incubator-12.webp",
         "alt": "Team standing together outdoors"
       },
       {
-        "src": "/team-collaboration-working-together.jpg",
+        "src": "/incubator-media/incubator-11.webp",
         "alt": "Team collaborating on project"
       },
       {
-        "src": "/handshake-partnership-agreement.jpg",
+        "src": "/incubator-media/incubator-14.webp",
         "alt": "Professional partnership handshake"
       }
     ]

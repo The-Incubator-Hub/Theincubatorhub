@@ -136,37 +136,37 @@
       {
         "name": "Jerome Bell",
         "company": "Google",
-        "image": "https://randomuser.me/api/portraits/men/32.jpg",
+        "image": "/incubator-media/incubator-37.webp",
         "text": "This bootcamp transformed my career. The hands-on approach and mentorship helped me land my dream job at Google. Highly recommend!"
       },
       {
         "name": "Kristin Watson",
         "company": "Netflix",
-        "image": "https://randomuser.me/api/portraits/women/44.jpg",
+        "image": "/incubator-media/incubator-38.webp",
         "text": "Less than 24h turn around. Easy communication. Did exactly as offered, all around a perfect experience."
       },
       {
         "name": "Annette Black",
         "company": "Whatsapp",
-        "image": "https://randomuser.me/api/portraits/women/50.jpg",
+        "image": "/incubator-media/incubator-39.webp",
         "text": "The instructors are world-class and the curriculum is industry-relevant. I'm now working at WhatsApp thanks to this program."
       },
       {
         "name": "Jacob Jones",
         "company": "Amazon",
-        "image": "https://randomuser.me/api/portraits/men/21.jpg",
+        "image": "/incubator-media/incubator-40.webp",
         "text": "Amazing attention to detail and very prompt delivery. Truly exceeded expectations."
       },
       {
         "name": "Cameron Williamson",
         "company": "Microsoft",
-        "image": "https://randomuser.me/api/portraits/men/40.jpg",
+        "image": "/incubator-media/incubator-41.webp",
         "text": "Incredible to work with, very professional and delivers top-quality work every time."
       },
       {
         "name": "Courtney Henry",
         "company": "Facebook",
-        "image": "https://randomuser.me/api/portraits/women/55.jpg",
+        "image": "/incubator-media/incubator-42.webp",
         "text": "Great service, good communication, and the project came out even better than expected!"
       }
     ]
@@ -176,19 +176,19 @@
     "subtitle": "Watch video highlights of future clan bootcamp 2024 through our lens",
     "images": [
       {
-        "src": "https://images.pexels.com/photos/12902873/pexels-photo-12902873.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "src": "/incubator-media/incubator-43.webp",
         "alt": "Diverse group of office workers collaborating on laptops during a bootcamp session"
       },
       {
-        "src": "https://images.pexels.com/photos/12899151/pexels-photo-12899151.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "src": "/incubator-media/incubator-44.webp",
         "alt": "Two programmers discussing code on a laptop in a modern workshop setting"
       },
       {
-        "src": "https://images.pexels.com/photos/5716018/pexels-photo-5716018.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "src": "/incubator-media/incubator-45.webp",
         "alt": "Team of participants gathered around a laptop for a collaborative coding discussion"
       },
       {
-        "src": "https://images.pexels.com/photos/3866621/pexels-photo-3866621.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "src": "/incubator-media/incubator-46.webp",
         "alt": "Multiethnic group of professionals intensely working together on a laptop in an office bootcamp"
       }
     ]
@@ -197,7 +197,7 @@
     "title": "Ready to Transform Your Career?",
     "description": "Join thousands of successful graduates who have transformed their careers through our comprehensive bootcamp programs. Start your journey today!",
     "buttonText": "Apply Now",
-    "backgroundImage": "/team-collaboration-working-together.jpg"
+    "backgroundImage": "/incubator-media/incubator-11.webp"
   }
 }
 

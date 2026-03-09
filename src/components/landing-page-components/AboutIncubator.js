@@ -17,7 +17,7 @@ export default function AboutIncubator({
   description2 = "We go beyond theory - combining hands-on learning, mentorship, collaboration, and real-world projects to prepare our learners for the future of work. Our programs are designed to be inclusive, accessible, and impact-driven, ensuring that talent across Africa can thrive in the global digital economy.",
   buttonText = "Read More",
   buttonLink = "/about",
-  image = "/professional-team-collaboration-mentoring.jpg",
+  image = "/incubator-media/incubator-12.webp",
   studentsEnrolled = "185,034+",
   reviewsCount = "Reviews & Testimonials",
 }) {
@@ -52,7 +52,7 @@ export default function AboutIncubator({
               <div className='w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-200 border-2 border-white'></div>
               <div className='relative w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-white overflow-hidden'>
                 <Image
-                  src='/avatar.jpg'
+                  src='/incubator-media/incubator-17.webp'
                   alt='Reviewer'
                   fill
                   className='object-cover'

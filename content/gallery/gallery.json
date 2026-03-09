@@ -3,7 +3,7 @@
   "header": {
     "title": "Our Gallery",
     "description": "Explore our collection of photos and videos showcasing our programs, events, and impact.",
-    "backgroundImage": "/images/hero_teams.jpg"
+    "backgroundImage": "/incubator-media/incubator-15.webp"
   },
   "photoVideoSection": {
     "title": "Learn, Grow and Succeed",
@@ -109,7 +109,7 @@
     "title": "Everyone Deserves The Chance To Learn Tech",
     "description": "Leading digital agency with solid design and development expertise. We build readymade websites, mobile applications, and elaborate online business services.",
     "buttonText": "Let's Work Together",
-    "backgroundImage": "/team-collaboration-working-together.jpg"
+    "backgroundImage": "/incubator-media/incubator-11.webp"
   }
 }
 

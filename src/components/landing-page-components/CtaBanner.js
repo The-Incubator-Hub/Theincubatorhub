@@ -8,7 +8,7 @@ export default function CTABanner({
   description = "At The Incubator Hub, we believe talent is everywhere — opportunity should be too. Send us a message today and let’s create pathways to skills, jobs, and innovation.",
   buttonText = "Contact Our Team →",
   buttonLink = "/contact",
-  backgroundImage = "/team-collaboration-working-together.jpg",
+  backgroundImage = "/incubator-media/incubator-11.webp",
 }) {
   return (
     <section className='relative w-full h-[420px] flex items-center justify-center overflow-hidden'>

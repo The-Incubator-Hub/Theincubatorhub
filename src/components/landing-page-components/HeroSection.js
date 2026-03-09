@@ -13,7 +13,7 @@ export default function HeroSection({
   primaryButtonLink = "/getinvolved",
   secondaryButtonText = "View Programs",
   secondaryButtonLink = "/contact",
-  image = "/team-collaboration-working-together.jpg",
+  image = "/incubator-media/incubator-11.webp",
 }) {
   return (
     <section className='bg-gradient-to-r from-[#4E4E50] to-black'>

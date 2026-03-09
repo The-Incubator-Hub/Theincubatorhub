@@ -34,7 +34,7 @@ export default function PartnershipsSection() {
           {/* Top Left - Business Meeting */}
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <Image
-              src="/business-meeting-professionals.jpg"
+              src="/incubator-media/incubator-13.webp"
               alt="Business meeting with professionals"
               width={400}
               height={300}
@@ -45,7 +45,7 @@ export default function PartnershipsSection() {
           {/* Top Right - Outdoor Team (Tall) */}
           <div className="rounded-2xl overflow-hidden shadow-lg row-span-2">
             <Image
-              src="/professional-team-collaboration-mentoring.jpg"
+              src="/incubator-media/incubator-12.webp"
               alt="Team standing together outdoors"
               width={400}
               height={600}
@@ -56,7 +56,7 @@ export default function PartnershipsSection() {
           {/* Bottom Left - Team Collaboration */}
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <Image
-              src="/team-collaboration-working-together.jpg"
+              src="/incubator-media/incubator-11.webp"
               alt="Team collaborating on project"
               width={400}
               height={300}
@@ -67,7 +67,7 @@ export default function PartnershipsSection() {
           {/* Bottom - Handshake (Wide) */}
           <div className="rounded-2xl overflow-hidden shadow-lg col-span-2">
             <Image
-              src="/handshake-partnership-agreement.jpg"
+              src="/incubator-media/incubator-14.webp"
               alt="Professional partnership handshake"
               width={800}
               height={300}

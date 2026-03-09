@@ -11,6 +11,12 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+## Full VPS Setup Guide
+
+For a full beginner-friendly deployment walkthrough (PostgreSQL, Prisma, PM2, Nginx, SSL, and update workflow), see:
+
+- `VPS_SETUP_README.md`
+
 ## Auth + Database Setup (Phase 1)
 
 1. Copy environment variables:

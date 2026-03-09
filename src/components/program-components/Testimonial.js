@@ -5,37 +5,37 @@ const defaultTestimonials = [
   {
     name: "Jerome Bell",
     company: "Google",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "/incubator-media/incubator-37.webp",
     text: "This guy is true professional and very experienced in migration and server configuration. He was able to complete my order in time and as per agreed scope. Highly recommend!",
   },
   {
     name: "Kristin Watson",
     company: "Netflix",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    image: "/incubator-media/incubator-38.webp",
     text: "Less than 24h turn around. Easy communication. Did exactly as offered, all around a perfect experience.",
   },
   {
     name: "Annette Black",
     company: "Whatsapp",
-    image: "https://randomuser.me/api/portraits/women/50.jpg",
+    image: "/incubator-media/incubator-39.webp",
     text: "Gollo is one of the BEST web designers I've ever worked with professionally. I'm a repeat customer who continues to work with Zakir because of his talent, great customer service, and attention to detail.",
   },
   {
     name: "Jacob Jones",
     company: "Amazon",
-    image: "https://randomuser.me/api/portraits/men/21.jpg",
+    image: "/incubator-media/incubator-40.webp",
     text: "Amazing attention to detail and very prompt delivery. Truly exceeded expectations.",
   },
   {
     name: "Cameron Williamson",
     company: "Microsoft",
-    image: "https://randomuser.me/api/portraits/men/40.jpg",
+    image: "/incubator-media/incubator-41.webp",
     text: "Incredible to work with, very professional and delivers top-quality work every time.",
   },
   {
     name: "Courtney Henry",
     company: "Facebook",
-    image: "https://randomuser.me/api/portraits/women/55.jpg",
+    image: "/incubator-media/incubator-42.webp",
     text: "Great service, good communication, and the project came out even better than expected!",
   },
 ];

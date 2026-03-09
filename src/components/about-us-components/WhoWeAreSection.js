@@ -11,7 +11,7 @@ export function WhoWeAreSection() {
           <div className='relative flex flex-col items-center md:items-start order-2 md:order-none'>
             <div className='relative w-full max-w-lg h-80 md:h-[31.25rem] overflow-hidden shadow-xl border-y-12 border-[#FFFCF1]'>
               <Image
-                src='/professional-team-collaboration-mentoring.jpg'
+                src='/incubator-media/incubator-12.webp'
                 alt='Incubator team collaboration'
                 fill
                 className='object-cover'

@@ -33,6 +33,9 @@ jobs:
             git checkout "$BRANCH_NAME"
             git pull --ff-only origin "$BRANCH_NAME"
             npm ci
+            npx prisma generate
+            npx prisma migrate deploy
+            npm run db:sync-programs
             npm run build
             if [ -n "$VPS_PM2_APP" ]; then
               pm2 reload "$VPS_PM2_APP" --update-env

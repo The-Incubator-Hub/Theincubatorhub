@@ -5,7 +5,7 @@ export const siteConfig = {
   defaultTitle: "The Incubator Hub",
   description:
     "The Incubator Hub equips Africans with practical tech training, mentorship, and career pathways for high-growth digital opportunities.",
-  defaultOgImage: "/team-collaboration-working-together.jpg",
+  defaultOgImage: "/incubator-media/incubator-11.webp",
   twitterHandle: "@theincubator_ng",
   keywords: [
     "The Incubator Hub",

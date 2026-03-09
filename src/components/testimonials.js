@@ -20,7 +20,7 @@ const defaultTestimonials = [
     category: "Digital Skillup Africa",
     quote:
       '"This coding bootcamp has completely changed my career trajectory! I keep returning for the expert instructors, the welcoming community, and the practical learning experiences that have helped me land my dream job."',
-    image: "/woman-product-designer.jpg",
+    image: "/incubator-media/incubator-27.webp",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const defaultTestimonials = [
     category: "Ladies In Tech Africa",
     quote:
       "\"I can't recommend this bootcamp enough! As a first-time student, I'm blown away by the fantastic teachers, the friendly atmosphere, and the real-world projects that have significantly improved my skills and job prospects.\"",
-    image: "/man-marketing-director.jpg",
+    image: "/incubator-media/incubator-28.webp",
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const defaultTestimonials = [
     category: "SkillUp",
     quote:
       '"This bootcamp is truly remarkable! As a returning learner, I value the exceptional instructors, the supportive environment, and the engaging lessons that have kept me motivated and helped me switch careers successfully."',
-    image: "/woman-ux-designer.jpg",
+    image: "/incubator-media/incubator-29.webp",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const defaultTestimonials = [
     category: "Future Clan Bootcamp",
     quote:
       '"I\'ve had an incredible experience at this bootcamp! As a returning attendee, I appreciate the outstanding instructors, the welcoming community, and the practical learning that has kept me engaged and ready for a new role."',
-    image: "/woman-app-developer.jpg",
+    image: "/incubator-media/incubator-30.webp",
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ const defaultTestimonials = [
     category: "AI Now",
     quote:
       '"Having attended several bootcamps, this one stands out! As a new participant, I appreciate the expert instructors, the encouraging community, and the immersive learning style that has equipped me for a new role in tech."',
-    image: "/woman-marketing-specialist.jpg",
+    image: "/incubator-media/incubator-31.webp",
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ const defaultTestimonials = [
     category: "Digital Skillup Africa",
     quote:
       '"This bootcamp has been one of my best experiences! As a returning student, I love the fantastic instructors, the supportive community, and the hands-on learning that has inspired me to pursue a new career path."',
-    image: "/man-business-analyst.jpg",
+    image: "/incubator-media/incubator-32.webp",
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ const defaultTestimonials = [
     category: "Ladies In Tech Africa",
     quote:
       '"This bootcamp has exceeded my expectations! As a new student, I cherish the knowledgeable instructors, the friendly community, and the hands-on approach that has truly enhanced my skills and job opportunities."',
-    image: "/man-virtual-assistant.jpg",
+    image: "/incubator-media/incubator-33.webp",
   },
   {
     id: 8,
@@ -83,7 +83,7 @@ const defaultTestimonials = [
     category: "SkillUp",
     quote:
       '"This bootcamp is fantastic! As a first-time student, I love the exceptional instructors, the supportive community, and the hands-on learning that has significantly boosted my skills and employability."',
-    image: "/man-software-developer.jpg",
+    image: "/incubator-media/incubator-34.webp",
   },
   {
     id: 9,
@@ -92,7 +92,7 @@ const defaultTestimonials = [
     category: "Future Clan Bootcamp",
     quote:
       '"I absolutely love this bootcamp! As a first-time attendee, I find the instructors outstanding, the community welcoming, and the practical learning incredibly effective in helping me secure a job in the field."',
-    image: "/woman-cloud-architect.jpg",
+    image: "/incubator-media/incubator-35.webp",
   },
 ]
 
@@ -113,7 +113,7 @@ function Testimonials({
         role: testimonial.role,
         category: testimonial.category,
         quote: testimonial.quote,
-        image: testimonial.image || "/placeholder.svg"
+        image: testimonial.image || "/incubator-media/incubator-36.webp"
       }))
     : defaultTestimonials;
 
@@ -158,7 +158,7 @@ function Testimonials({
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 flex-shrink-0">
                   <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
                     <Image
-                      src={testimonial.image || "/placeholder.svg"}
+                      src={testimonial.image || "/incubator-media/incubator-36.webp"}
                       alt={testimonial.name}
                       fill
                       className="object-cover"

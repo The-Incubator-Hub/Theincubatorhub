@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma.mjs"
 
 const SESSION_COOKIE_NAME = "incubator_session"
 const SESSION_TTL_SECONDS = 60 * 60 * 24 * 14
+// Refresh the cookie when less than 3 days remain on the session.
+const SESSION_REFRESH_THRESHOLD_SECONDS = 60 * 60 * 24 * 3
 
 function getSessionSecret() {
   const secret = process.env.AUTH_SECRET
@@ -36,6 +38,7 @@ export async function setSessionCookie(user) {
     email: user.email,
     role: user.role,
     name: user.name || "",
+    tv: user.tokenVersion ?? 0,
   })
 
   const cookieStore = await cookies()
@@ -75,10 +78,22 @@ export async function getAuthSession() {
       email: true,
       role: true,
       isActive: true,
+      tokenVersion: true,
     },
   })
 
   if (!user || !user.isActive) return null
+
+  // Revocation check: if the token version doesn't match the DB, the session
+  // was invalidated (e.g. logout on another device, or admin deactivation).
+  if ((payload.tv ?? 0) !== user.tokenVersion) return null
+
+  // Sliding window refresh: re-issue the cookie when < 3 days remain.
+  const expiresAt = payload.exp ?? 0
+  const secondsRemaining = expiresAt - Math.floor(Date.now() / 1000)
+  if (secondsRemaining < SESSION_REFRESH_THRESHOLD_SECONDS) {
+    await setSessionCookie(user)
+  }
 
   return { user }
 }

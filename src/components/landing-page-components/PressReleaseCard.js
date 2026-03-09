@@ -11,7 +11,7 @@ export default function PressReleaseCard({ release }) {
     <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
       {/* Image */}
       <div className="relative h-48 md:h-56 w-full">
-        <Image src={release.image || "/placeholder.svg"} alt={release.title} fill className="object-cover" />
+        <Image src={release.image || "/incubator-media/incubator-36.webp"} alt={release.title} fill className="object-cover" />
         {/* Category Badge */}
         <div className="absolute top-3 left-3 bg-[#F9FAFB] text-[#4A4459] px-3 py-1 rounded-full text-xs font-semibold">
           {release.category}

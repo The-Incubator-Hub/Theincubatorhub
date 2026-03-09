@@ -8,7 +8,7 @@ export default function JoinUs({
   description = "We're always looking for talented individuals who share our passion for education and technology. Ready to make an impact?",
   ctaText = "View Open Positions",
   ctaLink = "/careers",
-  backgroundImage = "/images/joinus.jpg",
+  backgroundImage = "/incubator-media/incubator-16.webp",
 }) {
   return (
     <section className='relative w-full h-[420px] md:h-[480px] lg:h-[520px] overflow-hidden'>

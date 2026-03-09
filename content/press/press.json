@@ -3,7 +3,7 @@
   "header": {
     "title": "Press & Media",
     "description": "Stay updated with our latest news, announcements, and achievements in transforming lives through technology education.",
-    "backgroundImage": "/images/hero_teams.jpg"
+    "backgroundImage": "/incubator-media/incubator-15.webp"
   },
   "newsSection": {
     "searchPlaceholder": "Search press release...",
@@ -100,7 +100,7 @@
     "title": "Stay Connected With Our Latest Updates",
     "description": "Subscribe to our newsletter to receive the latest news, program updates, and success stories directly in your inbox.",
     "buttonText": "Subscribe Now",
-    "backgroundImage": "/team-collaboration-working-together.jpg"
+    "backgroundImage": "/incubator-media/incubator-11.webp"
   }
 }
 

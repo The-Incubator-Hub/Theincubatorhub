@@ -6,14 +6,14 @@
     "description": "Incubator equips you with the skills, guidance, and support needed to build a thriving tech career.\nWith practical training, mentorship, real-world projects, and community support, your next step in tech starts here.",
     "primaryButtonText": "Get Started",
     "secondaryButtonText": "View Preview",
-    "image": "/team-collaboration-working-together.jpg"
+    "image": "/incubator-media/incubator-43.webp"
   },
   "aboutIncubator": {
     "title": "About Incubator",
     "description1": "Incubator is a leading tech training ecosystem transforming how young Africans learn and grow in technology. Our programs are designed to be practical, accessible, and empowering, giving you the tools to build real skills that lead to real opportunities.",
     "description2": "With just a click, you can enroll in courses, connect with mentors, and track your progress as you build alongside a community of learners. This collaborative approach ensures everyone gains access to essential knowledge, creating a more connected and supportive learning experience. Join us and elevate your tech skills. Together, we can unlock new possibilities and shape the future of Africa’s tech landscape.",
     "buttonText": "Read More",
-    "image": "/professional-team-collaboration-mentoring.jpg",
+    "image": "/incubator-media/incubator-44.webp",
     "studentsEnrolled": "177,533+",
     "reviewsCount": "8,000+ reviews"
   },
@@ -42,6 +42,6 @@
     "title": "Everyone Deserves The Chance To Learn Tech",
     "description": "Join The Incubator Hub for hands-on training, mentorship, real-world projects, and community support to build skills, unlock opportunities, and grow your tech career.",
     "buttonText": "Start Your Tech Journey Today",
-    "backgroundImage": "/team-collaboration-working-together.jpg"
+    "backgroundImage": "/incubator-media/incubator-45.webp"
   }
 }

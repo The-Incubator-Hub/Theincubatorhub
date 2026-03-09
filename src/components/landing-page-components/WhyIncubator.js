@@ -79,7 +79,7 @@ export default function WhyIncubator() {
             <div className='relative border border-[#8E8E93] rounded-full w-64 md:w-140 h-64 md:h-140 flex items-center justify-center'>
               <div className='relative w-32 md:w-56 md:h-56 lg:w-136 lg:h-136 rounded-full bg-[#D9D9D9] overflow-hidden border-4 border-white shadow-lg'>
                 <Image
-                  src='/avatar.jpg'
+                  src='/incubator-media/incubator-17.webp'
                   alt='Incubator member'
                   fill
                   className='object-cover'

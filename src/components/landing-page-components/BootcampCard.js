@@ -13,7 +13,7 @@ export default function BootcampCard({ bootcamp }) {
       <div className='relative h-48 sm:h-56 md:h-64 lg:h-80'>
         <div className='absolute inset-0'>
           <Image
-            src={bootcamp.image || "/placeholder.svg"}
+            src={bootcamp.image || "/incubator-media/incubator-36.webp"}
             alt={bootcamp.title}
             fill
             className='object-cover object-top'

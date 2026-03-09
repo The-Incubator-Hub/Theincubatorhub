@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function HeaderCareer({
   title = "About Us",
   description = "",
-  backgroundImage = "/team-collaboration-working-together.jpg",
+  backgroundImage = "/incubator-media/incubator-11.webp",
 }) {
   const lines = description?.split("\n") || [];
   const subtitle = lines[0];

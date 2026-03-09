@@ -3,7 +3,7 @@
   "header": {
     "title": "Build Your Career, Change Lives",
     "description": "Join a mission-driven team where your skills create lasting impact on Africa's tech future. We're looking for passionate individuals who want to make a difference.",
-    "backgroundImage": "/images/hero_teams.jpg"
+    "backgroundImage": "/incubator-media/incubator-15.webp"
   },
   "teamIntro": {
     "title": "We Have An Expert Team",
@@ -58,6 +58,6 @@
     "description": "We're always looking for talented individuals who share our passion for education and technology. Send us your resume and let's start a conversation.",
     "buttonText": "Send Us Your Resume",
     "buttonLink": "/submit-resume",
-    "backgroundImage": "/images/joinus.jpg"
+    "backgroundImage": "/incubator-media/incubator-16.webp"
   }
 }

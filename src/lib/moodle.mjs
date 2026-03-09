@@ -69,6 +69,9 @@ export function createMoodleSignature(rawBody, timestamp) {
     .digest("hex")
 }
 
+const SYNC_MAX_ATTEMPTS = 3
+const SYNC_RETRY_BASE_MS = 500
+
 export async function sendMoodleEnrollmentSync(payload) {
   const endpoint = getMoodleSyncEndpoint()
   if (!endpoint) {
@@ -80,36 +83,61 @@ export async function sendMoodleEnrollmentSync(payload) {
     }
   }
 
-  const body = JSON.stringify(payload)
-  const timestamp = String(Math.floor(Date.now() / 1000))
-  const signature = createMoodleSignature(body, timestamp)
+  let lastResult = null
 
-  const response = await fetch(endpoint, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "x-incubator-signature": signature,
-      "x-incubator-timestamp": timestamp,
-    },
-    body,
-    cache: "no-store",
-  })
+  for (let attempt = 1; attempt <= SYNC_MAX_ATTEMPTS; attempt++) {
+    const body = JSON.stringify(payload)
+    const timestamp = String(Math.floor(Date.now() / 1000))
+    const signature = createMoodleSignature(body, timestamp)
 
-  const text = await response.text().catch(() => "")
-  if (!response.ok) {
-    return {
-      ok: false,
-      skipped: false,
-      status: response.status,
-      message: text.slice(0, 500) || "Moodle sync endpoint returned an error.",
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-incubator-signature": signature,
+          "x-incubator-timestamp": timestamp,
+        },
+        body,
+        cache: "no-store",
+      })
+
+      const text = await response.text().catch(() => "")
+
+      if (response.ok) {
+        return {
+          ok: true,
+          skipped: false,
+          status: response.status,
+          message: text.slice(0, 500) || "Sync successful.",
+        }
+      }
+
+      lastResult = {
+        ok: false,
+        skipped: false,
+        status: response.status,
+        message: text.slice(0, 500) || "Moodle sync endpoint returned an error.",
+      }
+
+      // Don't retry on client errors (4xx) — they won't resolve with retries.
+      if (response.status >= 400 && response.status < 500) break
+    } catch (err) {
+      lastResult = {
+        ok: false,
+        skipped: false,
+        status: 0,
+        message: err instanceof Error ? err.message : "Sync request failed.",
+      }
+    }
+
+    if (attempt < SYNC_MAX_ATTEMPTS) {
+      await new Promise((resolve) =>
+        setTimeout(resolve, SYNC_RETRY_BASE_MS * 2 ** (attempt - 1)),
+      )
     }
   }
 
-  return {
-    ok: true,
-    skipped: false,
-    status: response.status,
-    message: text.slice(0, 500) || "Sync successful.",
-  }
+  return lastResult
 }
 

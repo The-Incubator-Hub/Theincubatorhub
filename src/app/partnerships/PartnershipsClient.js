@@ -86,7 +86,7 @@ export default function PartnershipsClient({ initialData }) {
                 {/* Top Left - Business Meeting */}
                 <div className="rounded-2xl overflow-hidden shadow-lg">
                   <Image
-                    src={heroData.images[0]?.src || "/business-meeting-professionals.jpg"}
+                    src={heroData.images[0]?.src || "/incubator-media/incubator-13.webp"}
                     alt={heroData.images[0]?.alt || "Business meeting"}
                     width={400}
                     height={300}
@@ -97,7 +97,7 @@ export default function PartnershipsClient({ initialData }) {
                 {/* Top Right - Outdoor Team (Tall) */}
                 <div className="rounded-2xl overflow-hidden shadow-lg row-span-2">
                   <Image
-                    src={heroData.images[1]?.src || "/professional-team-collaboration-mentoring.jpg"}
+                    src={heroData.images[1]?.src || "/incubator-media/incubator-12.webp"}
                     alt={heroData.images[1]?.alt || "Team collaboration"}
                     width={400}
                     height={600}
@@ -108,7 +108,7 @@ export default function PartnershipsClient({ initialData }) {
                 {/* Bottom Left - Team Collaboration */}
                 <div className="rounded-2xl overflow-hidden shadow-lg">
                   <Image
-                    src={heroData.images[2]?.src || "/team-collaboration-working-together.jpg"}
+                    src={heroData.images[2]?.src || "/incubator-media/incubator-11.webp"}
                     alt={heroData.images[2]?.alt || "Team working together"}
                     width={400}
                     height={300}
@@ -119,7 +119,7 @@ export default function PartnershipsClient({ initialData }) {
                 {/* Bottom - Handshake (Wide) */}
                 <div className="rounded-2xl overflow-hidden shadow-lg col-span-2">
                   <Image
-                    src={heroData.images[3]?.src || "/handshake-partnership-agreement.jpg"}
+                    src={heroData.images[3]?.src || "/incubator-media/incubator-14.webp"}
                     alt={heroData.images[3]?.alt || "Partnership handshake"}
                     width={800}
                     height={300}

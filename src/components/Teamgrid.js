@@ -11,7 +11,7 @@ export default function Teamgrid({ members = [] }) {
   const teamMembers = members.length > 0 ? members.map((member, index) => ({
     id: index + 1,
     name: member.name || "Team Member",
-    image: member.image || "/images/team/member1.png",
+    image: member.image || "/incubator-media/incubator-14.webp",
     role: member.role || "Team Member",
     socials: {
       facebook: member.socials?.facebook || "#",
@@ -23,7 +23,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 1, 
       name: "Jean Wilson", 
-      image: "/images/team/member1.png", 
+      image: "/incubator-media/incubator-14.webp", 
       role: "Partnership Manager",
       socials: {
         facebook: "#",
@@ -35,7 +35,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 2, 
       name: "Jean Wilson", 
-      image: "/images/team/member2.png", 
+      image: "/incubator-media/incubator-15.webp", 
       role: "Partnership Manager",
       socials: {
         facebook: "#",
@@ -47,7 +47,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 3, 
       name: "Jean Wilson", 
-      image: "/images/team/member3.png", 
+      image: "/incubator-media/incubator-16.webp", 
       role: "Partnership Manager",
       socials: {
         facebook: "#",
@@ -59,7 +59,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 4, 
       name: "Jean Wilson", 
-      image: "/images/team/member4.png", 
+      image: "/incubator-media/incubator-17.webp", 
       role: "Partnership Manager",
       socials: {
         facebook: "#",
@@ -71,7 +71,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 5, 
       name: "Jean Wilson", 
-      image: "/images/team/member5.png", 
+      image: "/incubator-media/incubator-18.webp", 
       role: "Partnership Manager",
       socials: {
         facebook: "#",
@@ -83,7 +83,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 6, 
       name: "Jean Wilson", 
-      image: "/images/team/member6.png", 
+      image: "/incubator-media/incubator-19.webp", 
       role: "Partnership Manager",
       socials: {
         facebook: "#",
@@ -95,7 +95,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 7, 
       name: "Jean Wilson", 
-      image: "/images/team/member7.png", 
+      image: "/incubator-media/incubator-20.webp", 
       role: "Partnership Manager",
       socials: {
         facebook: "#",
@@ -107,7 +107,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 8, 
       name: "Jean Wilson", 
-      image: "/images/team/member8.png", 
+      image: "/incubator-media/incubator-21.webp", 
       role: "Partnership Manager",
       socials: {
         facebook: "#",
@@ -119,7 +119,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 9, 
       name: "Jean Wilson", 
-      image: "/images/team/member9.png", 
+      image: "/incubator-media/incubator-22.webp", 
       role: "Partnership Manager",
       socials: {
         facebook: "#",
@@ -131,7 +131,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 10, 
       name: "Sarah Johnson", 
-      image: "/images/team/member1.png", 
+      image: "/incubator-media/incubator-14.webp", 
       role: "Marketing Director",
       socials: {
         facebook: "#",
@@ -143,7 +143,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 11, 
       name: "Michael Brown", 
-      image: "/images/team/member2.png", 
+      image: "/incubator-media/incubator-15.webp", 
       role: "Tech Lead",
       socials: {
         facebook: "#",
@@ -155,7 +155,7 @@ export default function Teamgrid({ members = [] }) {
     { 
       id: 12, 
       name: "Emily Davis", 
-      image: "/images/team/member3.png", 
+      image: "/incubator-media/incubator-16.webp", 
       role: "Design Manager",
       socials: {
         facebook: "#",
