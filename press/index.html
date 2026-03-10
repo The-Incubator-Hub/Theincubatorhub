@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Press | The Incubator Hub</title>
+  <meta name="description" content="Press releases and media coverage of The Incubator Hub.">
+  <link rel="icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; }
+    .hero-text { font-family: 'Montserrat', sans-serif; font-weight: 800; }
+    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white h-16 md:h-20 shadow-md transition-shadow duration-300">
+    <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8 h-full">
+      <!-- Logo -->
+      <a href="/index.html" aria-label="The Incubator Hub home" class="flex-shrink-0 block hover:opacity-90 transition-opacity">
+        <img src="/images/Iogo_incubator.png" alt="The Incubator Hub" class="h-6 w-auto object-contain" style="max-width:220px">
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-1">
+        <!-- About dropdown -->
+        <div class="relative" id="about-menu">
+          <button onclick="toggleDropdown('about-dd')" class="px-3 py-2.5 rounded-lg flex items-center gap-1 hover:bg-gray-100 font-semibold text-sm text-black transition-colors">
+            About
+            <svg class="w-4 h-4 transition-transform duration-200" id="about-arrow" viewBox="0 0 24 24" fill="none"><path d="M7 10L12 15L17 10H7Z" fill="currentColor"/></svg>
+          </button>
+          <div id="about-dd" class="hidden absolute top-full left-0 mt-2 w-52 bg-white rounded-lg shadow-xl py-2 z-50 border border-gray-100">
+            <a href="/about/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 transition-colors">About Us</a>
+            <a href="/teams/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 transition-colors">Teams</a>
+            <a href="/press/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 transition-colors">Press</a>
+            <a href="/gallery/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 transition-colors">Gallery</a>
+            <a href="/testimonies/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 transition-colors">Testimonials</a>
+          </div>
+        </div>
+
+        <!-- Programs dropdown -->
+        <div class="relative" id="prog-menu">
+          <button onclick="toggleDropdown('prog-dd')" class="px-3 py-2.5 rounded-lg flex items-center gap-1 hover:bg-gray-100 font-semibold text-sm text-black transition-colors">
+            Our Programs
+            <svg class="w-4 h-4 transition-transform duration-200" id="prog-arrow" viewBox="0 0 24 24" fill="none"><path d="M7 10L12 15L17 10H7Z" fill="currentColor"/></svg>
+          </button>
+          <div id="prog-dd" class="hidden absolute top-full left-0 mt-2 w-52 bg-white rounded-lg shadow-xl py-2 z-50 border border-gray-100">
+            <a href="/programs/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 border-b border-gray-100 transition-colors font-medium">All Programs</a>
+            
+            <a href="/programs/digital-skillup-africa/index.html"
+               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
+              Digital SkillUp Africa
+            </a>
+            <a href="/programs/future-clan-bootcamp/index.html"
+               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
+              Future Clan Bootcamp
+            </a>
+            <a href="/programs/ladies-in-tech-africa/index.html"
+               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
+              Ladies in Tech Africa
+            </a>
+            <a href="/programs/skill-up/index.html"
+               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
+              Skill Up
+            </a>
+            <a href="/programs/future-now/index.html"
+               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
+              Future Now
+            </a>
+            <a href="/programs/ai-now/index.html"
+               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
+              AI Now
+            </a>
+            <a href="/programs/vista-africa/index.html"
+               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
+              Vista Africa
+            </a>
+          </div>
+        </div>
+
+        <a href="/getinvolved/index.html" class="px-3 py-2.5 rounded-lg hover:bg-gray-100 font-semibold text-sm text-black transition-colors">Get Involved</a>
+        <a href="/resources/index.html" class="px-3 py-2.5 rounded-lg hover:bg-gray-100 font-semibold text-sm text-black transition-colors">Resources</a>
+        <a href="/contact/index.html" class="px-3 py-2.5 rounded-lg hover:bg-gray-100 font-semibold text-sm text-black transition-colors">Contact Us</a>
+        <a href="/donate/index.html" class="ml-2 px-5 py-2.5 rounded-lg bg-gray-900 hover:bg-gray-700 text-white font-semibold text-sm transition-colors shadow-sm">Donate</a>
+      </div>
+
+      <!-- Hamburger -->
+      <button id="hamburger" onclick="toggleMobile()" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Toggle menu">
+        <div class="w-6 flex flex-col gap-1.5">
+          <span id="h1" class="block h-0.5 bg-gray-900 rounded-full transition-all duration-300"></span>
+          <span id="h2" class="block h-0.5 bg-gray-900 rounded-full transition-all duration-300"></span>
+          <span id="h3" class="block h-0.5 bg-gray-900 rounded-full transition-all duration-300"></span>
+        </div>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div id="mobile-overlay" onclick="closeMobile()" class="hidden fixed inset-0 bg-black/50 z-40 lg:hidden"></div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="fixed top-16 md:top-20 right-0 bottom-0 w-80 max-w-full bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto shadow-2xl">
+    <div class="flex flex-col p-4 space-y-1">
+      <a href="/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Home</a>
+      <a href="/about/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">About</a>
+      <a href="/programs/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Our Programs</a>
+      <a href="/blog/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Blog</a>
+      <a href="/resources/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Resources</a>
+      <a href="/getinvolved/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Get Involved</a>
+      <a href="/careers/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Careers</a>
+      <a href="/gallery/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Gallery</a>
+      <a href="/press/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Press</a>
+      <a href="/teams/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Teams</a>
+      <a href="/faqs/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">FAQs</a>
+      <a href="/contact/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Contact</a>
+      <a href="/donate/index.html" class="block w-full text-center px-4 py-3 mt-4 rounded-lg bg-gray-900 hover:bg-gray-700 text-white font-semibold transition-colors">Donate</a>
+    </div>
+  </div>
+  <main class="pt-16 md:pt-20">
+    
+      <section class="relative py-32 overflow-hidden">
+        <img src="/incubator-media/incubator-15.webp" alt="" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gray-950/70"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Press &amp; Media</h1>
+          <p class="text-xl text-gray-300">Stay updated with our latest news, announcements, and achievements in transforming lives through technology education.</p>
+        </div>
+      </section>
+      <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+          <p class="text-gray-600 text-center text-lg">Content coming soon. <a href="/contact/index.html" class="text-green-600 hover:underline">Contact us</a> for more information.</p>
+        </div>
+      </section>
+  </main>
+  
+  <footer class="bg-[#1D1B20] text-gray-300">
+    <div class="max-w-7xl mx-auto px-6 py-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div class="space-y-6">
+          <a href="/index.html">
+            <img src="/images/Iogo_incubator.png" alt="The Incubator Hub" class="h-8 w-auto object-contain" style="filter:brightness(0) invert(1)">
+          </a>
+          <p class="text-base leading-relaxed text-gray-400">
+            We empower the next generation of African tech leaders through hands-on training, mentorship, and innovation-driven programs.
+          </p>
+          <a href="https://linktr.ee/theincubatorng" target="_blank" rel="noopener noreferrer"
+             class="inline-block px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition-colors">
+            Linktree
+          </a>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-6">Quick Links</h3>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><a href="/about/index.html" class="hover:text-white transition-colors">About</a></li>
+            <li><a href="/getinvolved/index.html" class="hover:text-white transition-colors">Get Involved</a></li>
+            <li><a href="/contact/index.html" class="hover:text-white transition-colors">Contact Us</a></li>
+            <li><a href="/teams/index.html" class="hover:text-white transition-colors">Our Team</a></li>
+            <li><a href="/gallery/index.html" class="hover:text-white transition-colors">Gallery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-6">Resources</h3>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><a href="/resources/index.html" class="hover:text-white transition-colors">Resources</a></li>
+            <li><a href="/faqs/index.html" class="hover:text-white transition-colors">FAQs</a></li>
+            <li><a href="/testimonies/index.html" class="hover:text-white transition-colors">Testimonials</a></li>
+            <li><a href="/press/index.html" class="hover:text-white transition-colors">Press Release</a></li>
+            <li><a href="/careers/index.html" class="hover:text-white transition-colors">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-6">Policies</h3>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><a href="/terms/index.html" class="hover:text-white transition-colors">T&amp;C</a></li>
+            <li><a href="/privacy/index.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <p class="text-sm text-gray-500">© 2026 – The Incubator Hub. All rights reserved.</p>
+        <div class="flex gap-5">
+          <a href="https://web.facebook.com/theincubatorng" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-gray-400 hover:text-green-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://ng.linkedin.com/company/theincubatorng" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-400 hover:text-green-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://x.com/theincubator_ng" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="text-gray-400 hover:text-green-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/theincubatornigeria" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-green-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://youtube.com/@theincubatorhub" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-gray-400 hover:text-green-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+<script>
+  // Navbar scroll shadow
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('shadow-lg', window.scrollY > 10)
+  })
+
+  // Dropdown toggle
+  function toggleDropdown(id) {
+    const dd = document.getElementById(id)
+    const isHidden = dd.classList.contains('hidden')
+    // close all dropdowns
+    document.querySelectorAll('[id$="-dd"]').forEach(el => el.classList.add('hidden'))
+    if (isHidden) dd.classList.remove('hidden')
+  }
+
+  // Close dropdowns on outside click
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#about-menu') && !e.target.closest('#prog-menu')) {
+      document.querySelectorAll('[id$="-dd"]').forEach(el => el.classList.add('hidden'))
+    }
+  })
+
+  // Mobile menu
+  let mobileOpen = false
+  function toggleMobile() {
+    mobileOpen = !mobileOpen
+    const menu = document.getElementById('mobile-menu')
+    const overlay = document.getElementById('mobile-overlay')
+    const h1 = document.getElementById('h1')
+    const h2 = document.getElementById('h2')
+    const h3 = document.getElementById('h3')
+    if (mobileOpen) {
+      menu.classList.remove('translate-x-full')
+      overlay.classList.remove('hidden')
+      document.body.style.overflow = 'hidden'
+      h1.style.transform = 'rotate(45deg) translateY(8px)'
+      h2.style.opacity = '0'
+      h3.style.transform = 'rotate(-45deg) translateY(-8px)'
+    } else {
+      closeMobile()
+    }
+  }
+  function closeMobile() {
+    mobileOpen = false
+    document.getElementById('mobile-menu').classList.add('translate-x-full')
+    document.getElementById('mobile-overlay').classList.add('hidden')
+    document.body.style.overflow = ''
+    document.getElementById('h1').style.transform = ''
+    document.getElementById('h2').style.opacity = '1'
+    document.getElementById('h3').style.transform = ''
+  }
+  window.toggleDropdown = toggleDropdown
+  window.toggleMobile = toggleMobile
+  window.closeMobile = closeMobile
+</script>
+</body>
+</html>
