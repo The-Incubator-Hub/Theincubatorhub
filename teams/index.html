@@ -37,6 +37,7 @@
       height:100%;
       object-fit:cover;
       object-position:center;
+      transform: translateZ(0);
     }
   </style>
 </head>
@@ -196,23 +197,13 @@
         </div>
 
         <!-- TEAM GRID -->
-        
         <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
-          <!-- Reusable fallback -->
-          <!-- (Applied via onerror on each image.) -->
-
-          <!-- CARD TEMPLATE:
-               - Outer card padding
-               - Image area has extra padding so photo doesn't touch edges
-               - Inner frame keeps rounded corners and stable crop
-          -->
-
-          <!-- 1 -->
+          <!-- Leadership -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
-                <img data-team-img src="../team/Oluwafemi%20Oyetunde.webp" alt="Oluwafemi Oyetunde" loading="lazy" decoding="async" width="600" height="600"
+                <img data-team-img src="../team/Oluwafemi%20Oyetunde.webp" alt="Oluwafemi Oyetunde" loading="eager" fetchpriority="high" decoding="async" width="600" height="600"
                   onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f3f4f6%22/><circle cx=%22300%22 cy=%22260%22 r=%22110%22 fill=%22%23d1d5db%22/><rect x=%22150%22 y=%22390%22 width=%22300%22 height=%22160%22 rx=%2280%22 fill=%22%23d1d5db%22/></svg>';" />
               </div>
             </div>
@@ -222,11 +213,10 @@
             </div>
           </div>
 
-          <!-- 2 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
-                <img data-team-img src="../team/Banjo%20Ojo.webp" alt="Banjo Ojo" loading="lazy" decoding="async" width="600" height="600"
+                <img data-team-img src="../team/Banjo%20Ojo.webp" alt="Banjo Ojo" loading="eager" fetchpriority="high" decoding="async" width="600" height="600"
                   onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f3f4f6%22/><circle cx=%22300%22 cy=%22260%22 r=%22110%22 fill=%22%23d1d5db%22/><rect x=%22150%22 y=%22390%22 width=%22300%22 height=%22160%22 rx=%2280%22 fill=%22%23d1d5db%22/></svg>';" />
               </div>
             </div>
@@ -236,7 +226,6 @@
             </div>
           </div>
 
-          <!-- 3 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -250,7 +239,6 @@
             </div>
           </div>
 
-          <!-- 4 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -264,7 +252,6 @@
             </div>
           </div>
 
-          <!-- 5 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -278,7 +265,6 @@
             </div>
           </div>
 
-          <!-- 6 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -292,7 +278,6 @@
             </div>
           </div>
 
-          <!-- 7 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -306,11 +291,10 @@
             </div>
           </div>
 
-          <!-- 8 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
-                <img data-team-img src="../team/ZacchaeusJames.webp" alt="Zaccheaus James" loading="lazy" decoding="async" width="600" height="600"
+                <img data-team-img src="../team/Zaccheaus%20James.webp" alt="Zaccheaus James Toluwani" loading="lazy" decoding="async" width="600" height="600"
                   onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f3f4f6%22/><circle cx=%22300%22 cy=%22260%22 r=%22110%22 fill=%22%23d1d5db%22/><rect x=%22150%22 y=%22390%22 width=%22300%22 height=%22160%22 rx=%2280%22 fill=%22%23d1d5db%22/></svg>';" />
               </div>
             </div>
@@ -320,9 +304,7 @@
             </div>
           </div>
 
-          <!-- MEMBERS  -->
-
-          <!-- 9 -->
+          <!-- Updated member roles -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -336,7 +318,6 @@
             </div>
           </div>
 
-          <!-- 10 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -346,11 +327,10 @@
             </div>
             <div class="pt-5 text-center">
               <h3 class="font-bold text-gray-900 text-lg leading-tight">Bukola Ray</h3>
-              <p class="text-gray-500 text-sm mt-1">Member</p>
+              <p class="text-gray-500 text-sm mt-1">Copywriter</p>
             </div>
           </div>
 
-          <!-- 11 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -360,11 +340,10 @@
             </div>
             <div class="pt-5 text-center">
               <h3 class="font-bold text-gray-900 text-lg leading-tight">Glory Arogundade</h3>
-              <p class="text-gray-500 text-sm mt-1">Member</p>
+              <p class="text-gray-500 text-sm mt-1">Product Designer</p>
             </div>
           </div>
 
-          <!-- 12 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -374,11 +353,10 @@
             </div>
             <div class="pt-5 text-center">
               <h3 class="font-bold text-gray-900 text-lg leading-tight">Heritage Oguntoye</h3>
-              <p class="text-gray-500 text-sm mt-1">Member</p>
+              <p class="text-gray-500 text-sm mt-1">Email Marketer</p>
             </div>
           </div>
 
-          <!-- 13 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -388,11 +366,10 @@
             </div>
             <div class="pt-5 text-center">
               <h3 class="font-bold text-gray-900 text-lg leading-tight">Iyanu Adeniji</h3>
-              <p class="text-gray-500 text-sm mt-1">Member</p>
+              <p class="text-gray-500 text-sm mt-1">Data Analyst</p>
             </div>
           </div>
 
-          <!-- 14 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -402,25 +379,23 @@
             </div>
             <div class="pt-5 text-center">
               <h3 class="font-bold text-gray-900 text-lg leading-tight">Nifemi Adeleye</h3>
-              <p class="text-gray-500 text-sm mt-1">Member</p>
+              <p class="text-gray-500 text-sm mt-1">Production Associate</p>
             </div>
           </div>
 
-          <!-- 15 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
-                <img data-team-img src="../team/Similoluwa%20Dimipe.webp" alt="Similoluwa Dimipe" loading="lazy" decoding="async" width="600" height="600"
+                <img data-team-img src="../team/Similoluwa%20Dimipe.webp" alt="Simileoluwa Oluwadimipe" loading="lazy" decoding="async" width="600" height="600"
                   onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f3f4f6%22/><circle cx=%22300%22 cy=%22260%22 r=%22110%22 fill=%22%23d1d5db%22/><rect x=%22150%22 y=%22390%22 width=%22300%22 height=%22160%22 rx=%2280%22 fill=%22%23d1d5db%22/></svg>';" />
               </div>
             </div>
             <div class="pt-5 text-center">
-              <h3 class="font-bold text-gray-900 text-lg leading-tight">Similoluwa Dimipe</h3>
-              <p class="text-gray-500 text-sm mt-1">Member</p>
+              <h3 class="font-bold text-gray-900 text-lg leading-tight">Simileoluwa Oluwadimipe</h3>
+              <p class="text-gray-500 text-sm mt-1">Brands &amp; Corporate Comms Team Lead</p>
             </div>
           </div>
 
-          <!-- 16 -->
           <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow">
             <div class="rounded-2xl bg-gray-50 p-3">
               <div class="relative rounded-xl overflow-hidden aspect-square bg-gray-100">
@@ -430,7 +405,7 @@
             </div>
             <div class="pt-5 text-center">
               <h3 class="font-bold text-gray-900 text-lg leading-tight">Victor Onabanjo</h3>
-              <p class="text-gray-500 text-sm mt-1">Member</p>
+              <p class="text-gray-500 text-sm mt-1">Creative Designer</p>
             </div>
           </div>
 
@@ -533,7 +508,7 @@
       document.getElementById("navbar").classList.toggle("shadow-lg", window.scrollY > 10);
     });
 
-    // Desktop dropdown toggle (ONLY desktop dropdowns)
+    // Desktop dropdown toggle
     function toggleDropdown(id) {
       const dd = document.getElementById(id);
       const isHidden = dd.classList.contains("hidden");
@@ -546,7 +521,7 @@
       if (isHidden) dd.classList.remove("hidden");
     }
 
-    // Close desktop dropdowns on outside click (ignore clicks inside mobile menu)
+    // Close desktop dropdowns on outside click
     document.addEventListener("click", (e) => {
       if (e.target.closest("#mobile-menu")) return;
       if (!e.target.closest("#about-menu") && !e.target.closest("#prog-menu")) {
@@ -557,7 +532,7 @@
       }
     });
 
-    // Mobile dropdown toggle (ONLY mobile dropdowns)
+    // Mobile dropdown toggle
     function toggleMobileDropdown(id, arrowId) {
       const dd = document.getElementById(id);
       const arrow = document.getElementById(arrowId);
@@ -626,6 +601,14 @@
     window.toggleMobileDropdown = toggleMobileDropdown;
     window.toggleMobile = toggleMobile;
     window.closeMobile = closeMobile;
+
+    // Slightly improve image decoding priority once DOM is ready
+    // (No layout change; helps some browsers render sooner)
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("img[data-team-img]").forEach((img) => {
+        img.decoding = "async";
+      });
+    });
   </script>
 </body>
 </html>
