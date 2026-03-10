@@ -31,7 +31,7 @@
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
-  
+
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white h-16 md:h-20 shadow-md transition-shadow duration-300">
     <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8 h-full">
       <!-- Logo -->
@@ -64,35 +64,14 @@
           </button>
           <div id="prog-dd" class="hidden absolute top-full left-0 mt-2 w-52 bg-white rounded-lg shadow-xl py-2 z-50 border border-gray-100">
             <a href="/programs/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 border-b border-gray-100 transition-colors font-medium">All Programs</a>
-            
-            <a href="/programs/digital-skillup-africa/index.html"
-               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
-              Digital SkillUp Africa
-            </a>
-            <a href="/programs/future-clan-bootcamp/index.html"
-               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
-              Future Clan Bootcamp
-            </a>
-            <a href="/programs/ladies-in-tech-africa/index.html"
-               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
-              Ladies in Tech Africa
-            </a>
-            <a href="/programs/skill-up/index.html"
-               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
-              Skill Up
-            </a>
-            <a href="/programs/future-now/index.html"
-               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
-              Future Now
-            </a>
-            <a href="/programs/ai-now/index.html"
-               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
-              AI Now
-            </a>
-            <a href="/programs/vista-africa/index.html"
-               class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
-              Vista Africa
-            </a>
+
+            <a href="/programs/digital-skillup-africa/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">Digital SkillUp Africa</a>
+            <a href="/programs/future-clan-bootcamp/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">Future Clan Bootcamp</a>
+            <a href="/programs/ladies-in-tech-africa/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">Ladies in Tech Africa</a>
+            <a href="/programs/skill-up/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">Skill Up</a>
+            <a href="/programs/future-now/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">Future Now</a>
+            <a href="/programs/ai-now/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">AI Now</a>
+            <a href="/programs/vista-africa/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">Vista Africa</a>
           </div>
         </div>
 
@@ -116,12 +95,46 @@
   <!-- Mobile overlay -->
   <div id="mobile-overlay" onclick="closeMobile()" class="hidden fixed inset-0 bg-black/50 z-40 lg:hidden"></div>
 
-  <!-- Mobile menu -->
+  <!-- ✅ Mobile menu (UPDATED: About + Programs dropdowns + APPLY NOW; removed Donate) -->
   <div id="mobile-menu" class="fixed top-16 md:top-20 right-0 bottom-0 w-80 max-w-full bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto shadow-2xl">
     <div class="flex flex-col p-4 space-y-1">
       <a href="/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Home</a>
-      <a href="/about/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">About</a>
-      <a href="/programs/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Our Programs</a>
+
+      <!-- About (mobile dropdown) -->
+      <button type="button" onclick="toggleMobileDropdown('m-about-dd','m-about-arrow')"
+              class="w-full px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors flex items-center justify-between">
+        <span>About</span>
+        <svg class="w-4 h-4 transition-transform duration-200" id="m-about-arrow" viewBox="0 0 24 24" fill="none">
+          <path d="M7 10L12 15L17 10H7Z" fill="currentColor"/>
+        </svg>
+      </button>
+      <div id="m-about-dd" class="hidden pl-4">
+        <a href="/about/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">About Us</a>
+        <a href="/teams/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Teams</a>
+        <a href="/press/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Press</a>
+        <a href="/gallery/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Gallery</a>
+        <a href="/testimonies/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Testimonials</a>
+      </div>
+
+      <!-- Our Programs (mobile dropdown) -->
+      <button type="button" onclick="toggleMobileDropdown('m-prog-dd','m-prog-arrow')"
+              class="w-full px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors flex items-center justify-between">
+        <span>Our Programs</span>
+        <svg class="w-4 h-4 transition-transform duration-200" id="m-prog-arrow" viewBox="0 0 24 24" fill="none">
+          <path d="M7 10L12 15L17 10H7Z" fill="currentColor"/>
+        </svg>
+      </button>
+      <div id="m-prog-dd" class="hidden pl-4">
+        <a href="/programs/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">All Programs</a>
+        <a href="/programs/digital-skillup-africa/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Digital SkillUp Africa</a>
+        <a href="/programs/future-clan-bootcamp/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Future Clan Bootcamp</a>
+        <a href="/programs/ladies-in-tech-africa/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Ladies in Tech Africa</a>
+        <a href="/programs/skill-up/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Skill Up</a>
+        <a href="/programs/future-now/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Future Now</a>
+        <a href="/programs/ai-now/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">AI Now</a>
+        <a href="/programs/vista-africa/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Vista Africa</a>
+      </div>
+
       <a href="/blog/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Blog</a>
       <a href="/resources/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Resources</a>
       <a href="/getinvolved/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Get Involved</a>
@@ -131,11 +144,16 @@
       <a href="/teams/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Teams</a>
       <a href="/faqs/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">FAQs</a>
       <a href="/contact/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Contact</a>
-      <a href="/donate/index.html" class="block w-full text-center px-4 py-3 mt-4 rounded-lg bg-gray-900 hover:bg-gray-700 text-white font-semibold transition-colors">Donate</a>
+
+      <a href="https://forms.office.com/pages/responsepage.aspx?id=TCXhY7Vn2k6hjUKOEi376aMAkwgoOWhHivyWV-uRCmJUMlBYU0pJRUUzVVJXQ1cwQUVMTjc4Q1FVVS4u&route=shorturl"
+         class="block w-full text-center px-4 py-3 mt-4 rounded-lg bg-gray-900 hover:bg-gray-700 text-white font-semibold transition-colors">
+        APPLY NOW
+      </a>
     </div>
   </div>
+
   <main class="pt-16 md:pt-20">
-    
+
     <!-- Hero -->
     <section class="relative min-h-[90vh] flex items-center overflow-hidden bg-gray-950">
       <img src="/incubator-media/incubator-43.webp" alt="Hero background" class="absolute inset-0 w-full h-full object-cover opacity-40">
@@ -187,37 +205,33 @@
     </section>
 
     <!-- Statistics -->
-<section class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">Why choose Our Platform</h2>
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">Why choose Our Platform</h2>
 
-   
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 items-stretch">
-      
-      <div class="text-center p-8 bg-white rounded-2xl shadow-sm border border-gray-100 h-full flex flex-col justify-center">
-        <p class="text-4xl font-extrabold text-green-500 mb-2">185,034+</p>
-        <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">DIRECT BENEFICIARIES</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 items-stretch">
+          <div class="text-center p-8 bg-white rounded-2xl shadow-sm border border-gray-100 h-full flex flex-col justify-center">
+            <p class="text-4xl font-extrabold text-green-500 mb-2">185,034+</p>
+            <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">DIRECT BENEFICIARIES</p>
+          </div>
+
+          <div class="text-center p-8 bg-white rounded-2xl shadow-sm border border-gray-100 h-full flex flex-col justify-center">
+            <p class="text-4xl font-extrabold text-green-500 mb-2">326+</p>
+            <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">COUNTRIES REACHED</p>
+          </div>
+
+          <div class="text-center p-8 bg-white rounded-2xl shadow-sm border border-gray-100 h-full flex flex-col justify-center">
+            <p class="text-4xl font-extrabold text-green-500 mb-2">250 +</p>
+            <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">AFRICA CITIES REACHED</p>
+          </div>
+
+          <div class="text-center p-8 bg-white rounded-2xl shadow-sm border border-gray-100 h-full flex flex-col justify-center">
+            <p class="text-4xl font-extrabold text-green-500 mb-2">8,000+</p>
+            <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">POSITIVE REVIEWS</p>
+          </div>
+        </div>
       </div>
-
-      <div class="text-center p-8 bg-white rounded-2xl shadow-sm border border-gray-100 h-full flex flex-col justify-center">
-        <p class="text-4xl font-extrabold text-green-500 mb-2">326+</p>
-        <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">COUNTRIES REACHED</p>
-      </div>
-
-      <div class="text-center p-8 bg-white rounded-2xl shadow-sm border border-gray-100 h-full flex flex-col justify-center">
-        <p class="text-4xl font-extrabold text-green-500 mb-2">250 +</p>
-        <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">AFRICA CITIES REACHED</p>
-      </div>
-
-      
-      <div class="text-center p-8 bg-white rounded-2xl shadow-sm border border-gray-100 h-full flex flex-col justify-center">
-        <p class="text-4xl font-extrabold text-green-500 mb-2">8,000+</p>
-        <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">POSITIVE REVIEWS</p>
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Programs Section -->
     <section class="py-24 bg-white">
@@ -226,13 +240,11 @@
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Programs</h2>
           <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive tech training programs designed to transform careers and build Africa's next generation of tech leaders.</p>
         </div>
+
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          
-          <a href="/programs/digital-skillup-africa/index.html"
-             class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <a href="/programs/digital-skillup-africa/index.html" class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <div class="h-52 bg-gray-100 overflow-hidden">
-              <img src="/incubator-media/incubator-01.webp" alt="Digital SkillUp Africa"
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <img src="/incubator-media/incubator-01.webp" alt="Digital SkillUp Africa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">Digital SkillUp Africa</h3>
@@ -240,11 +252,10 @@
               <span class="inline-flex items-center text-green-600 font-semibold text-sm">Learn More →</span>
             </div>
           </a>
-          <a href="/programs/future-clan-bootcamp/index.html"
-             class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+          <a href="/programs/future-clan-bootcamp/index.html" class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <div class="h-52 bg-gray-100 overflow-hidden">
-              <img src="/incubator-media/incubator-02.webp" alt="Future Clan Bootcamp"
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <img src="/incubator-media/incubator-02.webp" alt="Future Clan Bootcamp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">Future Clan Bootcamp</h3>
@@ -252,11 +263,10 @@
               <span class="inline-flex items-center text-green-600 font-semibold text-sm">Learn More →</span>
             </div>
           </a>
-          <a href="/programs/ladies-in-tech-africa/index.html"
-             class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+          <a href="/programs/ladies-in-tech-africa/index.html" class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <div class="h-52 bg-gray-100 overflow-hidden">
-              <img src="/incubator-media/incubator-03.webp" alt="Ladies in Tech Africa"
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <img src="/incubator-media/incubator-03.webp" alt="Ladies in Tech Africa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">Ladies in Tech Africa</h3>
@@ -264,11 +274,10 @@
               <span class="inline-flex items-center text-green-600 font-semibold text-sm">Learn More →</span>
             </div>
           </a>
-          <a href="/programs/skill-up/index.html"
-             class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+          <a href="/programs/skill-up/index.html" class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <div class="h-52 bg-gray-100 overflow-hidden">
-              <img src="/incubator-media/incubator-04.webp" alt="Skill Up"
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <img src="/incubator-media/incubator-04.webp" alt="Skill Up" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">Skill Up</h3>
@@ -276,11 +285,10 @@
               <span class="inline-flex items-center text-green-600 font-semibold text-sm">Learn More →</span>
             </div>
           </a>
-          <a href="/programs/future-now/index.html"
-             class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+          <a href="/programs/future-now/index.html" class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <div class="h-52 bg-gray-100 overflow-hidden">
-              <img src="/incubator-media/incubator-05.webp" alt="Future Now"
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <img src="/incubator-media/incubator-05.webp" alt="Future Now" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">Future Now</h3>
@@ -288,11 +296,10 @@
               <span class="inline-flex items-center text-green-600 font-semibold text-sm">Learn More →</span>
             </div>
           </a>
-          <a href="/programs/ai-now/index.html"
-             class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+          <a href="/programs/ai-now/index.html" class="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <div class="h-52 bg-gray-100 overflow-hidden">
-              <img src="/incubator-media/incubator-06.webp" alt="AI Now"
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <img src="/incubator-media/incubator-06.webp" alt="AI Now" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">AI Now</h3>
@@ -301,6 +308,7 @@
             </div>
           </a>
         </div>
+
         <div class="text-center">
           <a href="/programs/index.html" class="inline-flex items-center px-8 py-4 bg-gray-900 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors">
             View All Programs →
@@ -322,7 +330,7 @@
       </div>
     </section>
   </main>
-  
+
   <footer class="bg-[#1D1B20] text-gray-300">
     <div class="max-w-7xl mx-auto px-6 py-20">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -392,61 +400,99 @@
       </div>
     </div>
   </footer>
-  
-<script>
-  // Navbar scroll shadow
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('shadow-lg', window.scrollY > 10)
-  })
 
-  // Dropdown toggle
-  function toggleDropdown(id) {
-    const dd = document.getElementById(id)
-    const isHidden = dd.classList.contains('hidden')
-    // close all dropdowns
-    document.querySelectorAll('[id$="-dd"]').forEach(el => el.classList.add('hidden'))
-    if (isHidden) dd.classList.remove('hidden')
-  }
+  <script>
+    // Navbar scroll shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('shadow-lg', window.scrollY > 10)
+    })
 
-  // Close dropdowns on outside click
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('#about-menu') && !e.target.closest('#prog-menu')) {
+    // Desktop dropdown toggle
+    function toggleDropdown(id) {
+      const dd = document.getElementById(id)
+      const isHidden = dd.classList.contains('hidden')
       document.querySelectorAll('[id$="-dd"]').forEach(el => el.classList.add('hidden'))
+      if (isHidden) dd.classList.remove('hidden')
     }
-  })
 
-  // Mobile menu
-  let mobileOpen = false
-  function toggleMobile() {
-    mobileOpen = !mobileOpen
-    const menu = document.getElementById('mobile-menu')
-    const overlay = document.getElementById('mobile-overlay')
-    const h1 = document.getElementById('h1')
-    const h2 = document.getElementById('h2')
-    const h3 = document.getElementById('h3')
-    if (mobileOpen) {
-      menu.classList.remove('translate-x-full')
-      overlay.classList.remove('hidden')
-      document.body.style.overflow = 'hidden'
-      h1.style.transform = 'rotate(45deg) translateY(8px)'
-      h2.style.opacity = '0'
-      h3.style.transform = 'rotate(-45deg) translateY(-8px)'
-    } else {
-      closeMobile()
+    // Close desktop dropdowns on outside click
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#about-menu') && !e.target.closest('#prog-menu')) {
+        document.querySelectorAll('[id$="-dd"]').forEach(el => el.classList.add('hidden'))
+      }
+    })
+
+    // Mobile menu open/close
+    let mobileOpen = false
+    function toggleMobile() {
+      mobileOpen = !mobileOpen
+      const menu = document.getElementById('mobile-menu')
+      const overlay = document.getElementById('mobile-overlay')
+      const h1 = document.getElementById('h1')
+      const h2 = document.getElementById('h2')
+      const h3 = document.getElementById('h3')
+
+      if (mobileOpen) {
+        menu.classList.remove('translate-x-full')
+        overlay.classList.remove('hidden')
+        document.body.style.overflow = 'hidden'
+        h1.style.transform = 'rotate(45deg) translateY(8px)'
+        h2.style.opacity = '0'
+        h3.style.transform = 'rotate(-45deg) translateY(-8px)'
+      } else {
+        closeMobile()
+      }
     }
-  }
-  function closeMobile() {
-    mobileOpen = false
-    document.getElementById('mobile-menu').classList.add('translate-x-full')
-    document.getElementById('mobile-overlay').classList.add('hidden')
-    document.body.style.overflow = ''
-    document.getElementById('h1').style.transform = ''
-    document.getElementById('h2').style.opacity = '1'
-    document.getElementById('h3').style.transform = ''
-  }
-  window.toggleDropdown = toggleDropdown
-  window.toggleMobile = toggleMobile
-  window.closeMobile = closeMobile
-</script>
+
+    function closeMobile() {
+      mobileOpen = false
+      document.getElementById('mobile-menu').classList.add('translate-x-full')
+      document.getElementById('mobile-overlay').classList.add('hidden')
+      document.body.style.overflow = ''
+      document.getElementById('h1').style.transform = ''
+      document.getElementById('h2').style.opacity = '1'
+      document.getElementById('h3').style.transform = ''
+
+      // close mobile dropdowns when closing menu
+      ;['m-about-dd','m-prog-dd'].forEach(id => {
+        const el = document.getElementById(id)
+        if (el) el.classList.add('hidden')
+      })
+      ;['m-about-arrow','m-prog-arrow'].forEach(id => {
+        const el = document.getElementById(id)
+        if (el) el.classList.remove('rotate-180')
+      })
+    }
+
+    // ✅ Mobile dropdown toggle (About / Programs)
+    function toggleMobileDropdown(id, arrowId) {
+      const dd = document.getElementById(id)
+      const arrow = document.getElementById(arrowId)
+      const isHidden = dd.classList.contains('hidden')
+
+      // close both dropdowns first
+      ;['m-about-dd','m-prog-dd'].forEach(x => {
+        const el = document.getElementById(x)
+        if (el && x !== id) el.classList.add('hidden')
+      })
+      ;['m-about-arrow','m-prog-arrow'].forEach(x => {
+        const el = document.getElementById(x)
+        if (el && x !== arrowId) el.classList.remove('rotate-180')
+      })
+
+      if (isHidden) {
+        dd.classList.remove('hidden')
+        arrow.classList.add('rotate-180')
+      } else {
+        dd.classList.add('hidden')
+        arrow.classList.remove('rotate-180')
+      }
+    }
+
+    window.toggleDropdown = toggleDropdown
+    window.toggleMobile = toggleMobile
+    window.closeMobile = closeMobile
+    window.toggleMobileDropdown = toggleMobileDropdown
+  </script>
 </body>
 </html>

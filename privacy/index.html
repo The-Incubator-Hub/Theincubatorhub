@@ -31,7 +31,7 @@
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
-  
+
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white h-16 md:h-20 shadow-md transition-shadow duration-300">
     <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8 h-full">
       <!-- Logo -->
@@ -64,7 +64,7 @@
           </button>
           <div id="prog-dd" class="hidden absolute top-full left-0 mt-2 w-52 bg-white rounded-lg shadow-xl py-2 z-50 border border-gray-100">
             <a href="/programs/index.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 border-b border-gray-100 transition-colors font-medium">All Programs</a>
-            
+
             <a href="/programs/digital-skillup-africa/index.html"
                class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors">
               Digital SkillUp Africa
@@ -120,8 +120,38 @@
   <div id="mobile-menu" class="fixed top-16 md:top-20 right-0 bottom-0 w-80 max-w-full bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto shadow-2xl">
     <div class="flex flex-col p-4 space-y-1">
       <a href="/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Home</a>
-      <a href="/about/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">About</a>
-      <a href="/programs/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Our Programs</a>
+
+      <!-- Mobile About dropdown -->
+      <button type="button" onclick="toggleMobileDropdown('m-about-dd', 'm-about-arrow')"
+        class="w-full px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors flex items-center justify-between">
+        <span>About</span>
+        <svg class="w-4 h-4 transition-transform duration-200" id="m-about-arrow" viewBox="0 0 24 24" fill="none"><path d="M7 10L12 15L17 10H7Z" fill="currentColor"/></svg>
+      </button>
+      <div id="m-about-dd" class="hidden pl-4">
+        <a href="/about/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">About Us</a>
+        <a href="/teams/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Teams</a>
+        <a href="/press/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Press</a>
+        <a href="/gallery/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Gallery</a>
+        <a href="/testimonies/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Testimonials</a>
+      </div>
+
+      <!-- Mobile Programs dropdown -->
+      <button type="button" onclick="toggleMobileDropdown('m-prog-dd', 'm-prog-arrow')"
+        class="w-full px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors flex items-center justify-between">
+        <span>Our Programs</span>
+        <svg class="w-4 h-4 transition-transform duration-200" id="m-prog-arrow" viewBox="0 0 24 24" fill="none"><path d="M7 10L12 15L17 10H7Z" fill="currentColor"/></svg>
+      </button>
+      <div id="m-prog-dd" class="hidden pl-4">
+        <a href="/programs/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">All Programs</a>
+        <a href="/programs/digital-skillup-africa/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Digital SkillUp Africa</a>
+        <a href="/programs/future-clan-bootcamp/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Future Clan Bootcamp</a>
+        <a href="/programs/ladies-in-tech-africa/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Ladies in Tech Africa</a>
+        <a href="/programs/skill-up/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Skill Up</a>
+        <a href="/programs/future-now/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Future Now</a>
+        <a href="/programs/ai-now/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">AI Now</a>
+        <a href="/programs/vista-africa/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Vista Africa</a>
+      </div>
+
       <a href="/blog/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Blog</a>
       <a href="/resources/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Resources</a>
       <a href="/getinvolved/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Get Involved</a>
@@ -131,22 +161,71 @@
       <a href="/teams/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Teams</a>
       <a href="/faqs/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">FAQs</a>
       <a href="/contact/index.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold text-gray-900 transition-colors">Contact</a>
-      <a href="/donate/index.html" class="block w-full text-center px-4 py-3 mt-4 rounded-lg bg-gray-900 hover:bg-gray-700 text-white font-semibold transition-colors">Donate</a>
+
+      <!-- Mobile CTA (Donate -> APPLY NOW form link) -->
+      <a href="https://forms.office.com/pages/responsepage.aspx?id=TCXhY7Vn2k6hjUKOEi376aMAkwgoOWhHivyWV-uRCmJUMlBYU0pJRUUzVVJXQ1cwQUVMTjc4Q1FVVS4u&route=shorturl"
+         class="block w-full text-center px-4 py-3 mt-4 rounded-lg bg-gray-900 hover:bg-gray-700 text-white font-semibold transition-colors">
+        APPLY NOW
+      </a>
     </div>
   </div>
+
   <main class="pt-16 md:pt-20">
-    
+
     <section class="py-32 bg-white">
       <div class="max-w-3xl mx-auto px-6">
         <h1 class="text-4xl font-bold text-gray-900 mb-8">Privacy Policy</h1>
         <p class="text-sm text-gray-500 mb-8">Last updated: March 2026</p>
+
         <div class="prose prose-gray max-w-none space-y-8">
-          <div><h2 class="text-xl font-bold text-gray-900 mb-3">1. Information We Collect</h2><p class="text-gray-600 leading-relaxed">We collect information you provide directly to us, such as when you fill out a contact form, apply for a program, or sign up for our newsletter. This may include your name, email address, phone number, and other contact details.</p></div><div><h2 class="text-xl font-bold text-gray-900 mb-3">2. How We Use Your Information</h2><p class="text-gray-600 leading-relaxed">We use the information we collect to provide, maintain, and improve our services, process applications, send program updates and notifications, respond to your inquiries, and comply with legal obligations.</p></div><div><h2 class="text-xl font-bold text-gray-900 mb-3">3. Information Sharing</h2><p class="text-gray-600 leading-relaxed">We do not sell, trade, or otherwise transfer your personal information to outside parties except where necessary to operate our programs or as required by law.</p></div><div><h2 class="text-xl font-bold text-gray-900 mb-3">4. Data Security</h2><p class="text-gray-600 leading-relaxed">We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p></div><div><h2 class="text-xl font-bold text-gray-900 mb-3">5. Your Rights</h2><p class="text-gray-600 leading-relaxed">You have the right to access, correct, or delete your personal information. To exercise these rights, please contact us at theincubatorng@gmail.com.</p></div><div><h2 class="text-xl font-bold text-gray-900 mb-3">6. Contact Us</h2><p class="text-gray-600 leading-relaxed">If you have questions about this Privacy Policy, please contact us at theincubatorng@gmail.com or +234 810 747 9796.</p></div>
+          <div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3">1. Information We Collect</h2>
+            <p class="text-gray-600 leading-relaxed">
+              We collect information you provide directly to us, such as when you fill out a contact form, apply for a program, or sign up for our newsletter.
+              This may include your name, email address, phone number, and other contact details.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3">2. How We Use Your Information</h2>
+            <p class="text-gray-600 leading-relaxed">
+              We use the information we collect to provide, maintain, and improve our services, process applications, send program updates and notifications,
+              respond to your inquiries, and comply with legal obligations.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3">3. Information Sharing</h2>
+            <p class="text-gray-600 leading-relaxed">
+              We do not sell, trade, or otherwise transfer your personal information to outside parties except where necessary to operate our programs or as required by law.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3">4. Data Security</h2>
+            <p class="text-gray-600 leading-relaxed">
+              We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3">5. Your Rights</h2>
+            <p class="text-gray-600 leading-relaxed">
+              You have the right to access, correct, or delete your personal information. To exercise these rights, please contact us at theincubatorng@gmail.com.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3">6. Contact Us</h2>
+            <p class="text-gray-600 leading-relaxed">
+              If you have questions about this Privacy Policy, please contact us at theincubatorng@gmail.com or +234 810 747 9796.
+            </p>
+          </div>
         </div>
       </div>
     </section>
   </main>
-  
+
   <footer class="bg-[#1D1B20] text-gray-300">
     <div class="max-w-7xl mx-auto px-6 py-20">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -216,61 +295,107 @@
       </div>
     </div>
   </footer>
-  
-<script>
-  // Navbar scroll shadow
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('shadow-lg', window.scrollY > 10)
-  })
 
-  // Dropdown toggle
-  function toggleDropdown(id) {
-    const dd = document.getElementById(id)
-    const isHidden = dd.classList.contains('hidden')
-    // close all dropdowns
-    document.querySelectorAll('[id$="-dd"]').forEach(el => el.classList.add('hidden'))
-    if (isHidden) dd.classList.remove('hidden')
-  }
+  <script>
+    // Navbar scroll shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('shadow-lg', window.scrollY > 10)
+    })
 
-  // Close dropdowns on outside click
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('#about-menu') && !e.target.closest('#prog-menu')) {
-      document.querySelectorAll('[id$="-dd"]').forEach(el => el.classList.add('hidden'))
+    // Desktop dropdown toggle (ONLY desktop dropdowns)
+    function toggleDropdown(id) {
+      const dd = document.getElementById(id)
+      const isHidden = dd.classList.contains('hidden')
+
+      ;['about-dd', 'prog-dd'].forEach(x => {
+        const el = document.getElementById(x)
+        if (el) el.classList.add('hidden')
+      })
+
+      if (isHidden) dd.classList.remove('hidden')
     }
-  })
 
-  // Mobile menu
-  let mobileOpen = false
-  function toggleMobile() {
-    mobileOpen = !mobileOpen
-    const menu = document.getElementById('mobile-menu')
-    const overlay = document.getElementById('mobile-overlay')
-    const h1 = document.getElementById('h1')
-    const h2 = document.getElementById('h2')
-    const h3 = document.getElementById('h3')
-    if (mobileOpen) {
-      menu.classList.remove('translate-x-full')
-      overlay.classList.remove('hidden')
-      document.body.style.overflow = 'hidden'
-      h1.style.transform = 'rotate(45deg) translateY(8px)'
-      h2.style.opacity = '0'
-      h3.style.transform = 'rotate(-45deg) translateY(-8px)'
-    } else {
-      closeMobile()
+    // Close desktop dropdowns on outside click (ignore clicks inside mobile menu)
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('#mobile-menu')) return
+
+      if (!e.target.closest('#about-menu') && !e.target.closest('#prog-menu')) {
+        ;['about-dd', 'prog-dd'].forEach(x => {
+          const el = document.getElementById(x)
+          if (el) el.classList.add('hidden')
+        })
+      }
+    })
+
+    // Mobile dropdown toggle (ONLY mobile dropdowns)
+    function toggleMobileDropdown(id, arrowId) {
+      const dd = document.getElementById(id)
+      const arrow = document.getElementById(arrowId)
+      const isHidden = dd.classList.contains('hidden')
+
+      ;['m-about-dd', 'm-prog-dd'].forEach(x => {
+        const el = document.getElementById(x)
+        if (el && x !== id) el.classList.add('hidden')
+      })
+      ;['m-about-arrow', 'm-prog-arrow'].forEach(x => {
+        const el = document.getElementById(x)
+        if (el && x !== arrowId) el.classList.remove('rotate-180')
+      })
+
+      if (isHidden) {
+        dd.classList.remove('hidden')
+        arrow.classList.add('rotate-180')
+      } else {
+        dd.classList.add('hidden')
+        arrow.classList.remove('rotate-180')
+      }
     }
-  }
-  function closeMobile() {
-    mobileOpen = false
-    document.getElementById('mobile-menu').classList.add('translate-x-full')
-    document.getElementById('mobile-overlay').classList.add('hidden')
-    document.body.style.overflow = ''
-    document.getElementById('h1').style.transform = ''
-    document.getElementById('h2').style.opacity = '1'
-    document.getElementById('h3').style.transform = ''
-  }
-  window.toggleDropdown = toggleDropdown
-  window.toggleMobile = toggleMobile
-  window.closeMobile = closeMobile
-</script>
+
+    // Mobile menu
+    let mobileOpen = false
+    function toggleMobile() {
+      mobileOpen = !mobileOpen
+      const menu = document.getElementById('mobile-menu')
+      const overlay = document.getElementById('mobile-overlay')
+      const h1 = document.getElementById('h1')
+      const h2 = document.getElementById('h2')
+      const h3 = document.getElementById('h3')
+
+      if (mobileOpen) {
+        menu.classList.remove('translate-x-full')
+        overlay.classList.remove('hidden')
+        document.body.style.overflow = 'hidden'
+        h1.style.transform = 'rotate(45deg) translateY(8px)'
+        h2.style.opacity = '0'
+        h3.style.transform = 'rotate(-45deg) translateY(-8px)'
+      } else {
+        closeMobile()
+      }
+    }
+
+    function closeMobile() {
+      mobileOpen = false
+      document.getElementById('mobile-menu').classList.add('translate-x-full')
+      document.getElementById('mobile-overlay').classList.add('hidden')
+      document.body.style.overflow = ''
+      document.getElementById('h1').style.transform = ''
+      document.getElementById('h2').style.opacity = '1'
+      document.getElementById('h3').style.transform = ''
+
+      ;['m-about-dd', 'm-prog-dd'].forEach(id => {
+        const el = document.getElementById(id)
+        if (el) el.classList.add('hidden')
+      })
+      ;['m-about-arrow', 'm-prog-arrow'].forEach(id => {
+        const el = document.getElementById(id)
+        if (el) el.classList.remove('rotate-180')
+      })
+    }
+
+    window.toggleDropdown = toggleDropdown
+    window.toggleMobileDropdown = toggleMobileDropdown
+    window.toggleMobile = toggleMobile
+    window.closeMobile = closeMobile
+  </script>
 </body>
 </html>
